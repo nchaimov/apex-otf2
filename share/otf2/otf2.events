@@ -34,7 +34,7 @@ EventRecord(
     ))
 
 EventRecord(
-    """A leave record indicates that the program leaves a code region.""",
+    """An enter record indicates that the program leaves a code region.""",
     13,
     'Leave',
     RegionAttribute(
@@ -1106,3 +1106,135 @@ EventRecord(
         'interruptGenerator'
     ),
     since=Version(1,5))
+
+EventRecord(
+    """TaskCreate indicates that a lightweight task was created.""",
+    69,
+    'TaskCreate',
+    RegionAttribute(
+        """Needs to be defined in a definition record""",
+        'region'
+    ))
+
+EventRecord(
+    """TaskDestroy indicates that a lightweight task was destroyed.""",
+    70,
+    'TaskDestroy',
+    RegionAttribute(
+        """Needs to be defined in a definition record""",
+        'region'
+    ))
+
+EventRecord(
+    """TaskRunnable""",
+    71,
+    'TaskRunnable',
+    RegionAttribute(
+        """Needs to be defined in a definition record""",
+        'region'
+    ))
+
+EventRecord(
+    """AddDependence""",
+    72,
+    'AddDependence',
+    RegionAttribute(
+        """Source of dependence""",
+        'src'
+    ),
+    RegionAttribute(
+        """Destination of dependence""",
+        'dest'
+    ))
+
+EventRecord(
+    """SatisfyDependence""",
+    73,
+    'SatisfyDependence',
+    RegionAttribute(
+        """Source of dependence""",
+        'src'
+    ),
+    RegionAttribute(
+        """Destination of dependence""",
+        'dest'
+    ))       
+
+EventRecord(
+    """DataAcquire""",
+    74,
+    'DataAcquire',
+    RegionAttribute(
+        """Task acquiring datablock""",
+        'task'
+    ),
+    RegionAttribute(
+        """Datablock being acquired""",
+        'data'
+    ),
+    Attribute(
+        """Size of datablock being acquired""",
+        uint64_t,
+        'size'
+    ))       
+
+EventRecord(
+    """DataRelease""",
+    75,
+    'DataRelease',
+    RegionAttribute(
+        """Task releasing datablock""",
+        'task'
+    ),
+    RegionAttribute(
+        """Datablock being released""",
+        'data'
+    ),
+    Attribute(
+        """Size of datablock being released""",
+        uint64_t,
+        'size'
+    ))       
+
+EventRecord(
+    """EventCreate""",
+    76,
+    'EventCreate',
+    RegionAttribute(
+        """Needs to be defined in a definition record""",
+        'region'
+    ))
+
+EventRecord(
+    """EventDestroy""",
+    77,
+    'EventDestroy',
+    RegionAttribute(
+        """Needs to be defined in a definition record""",
+        'region'
+    ))
+
+EventRecord(
+    """DataCreate""",
+    78,
+    'DataCreate',
+    RegionAttribute(
+        """Needs to be defined in a definition record""",
+        'region'
+    ),
+    Attribute(
+        """Size of datablock""",
+        uint64_t,
+        'size'
+    ))
+
+EventRecord(
+    """DataDestroy""",
+    79,
+    'DataDestroy',
+    RegionAttribute(
+        """Needs to be defined in a definition record""",
+        'region'
+    ))
+
+
