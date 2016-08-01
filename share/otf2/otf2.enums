@@ -764,6 +764,14 @@ DefEnum(
         """A function which changes a previous memory allocation to either increase or decrease the amount.""",
         'OTF2_REGION_ROLE_REALLOCATE',
         since=Version(2,0)),
+    EnumEntry(
+        """Event (pure dependency)""",
+        'OTF2_REGION_ROLE_EVENT',
+        since=Version(2,0)),
+    EnumEntry(
+        """Datablock""",
+        'OTF2_REGION_ROLE_DATABLOCK',
+        since=Version(2,0)),
     since=Version(1,1))
 
 DefEnum(
