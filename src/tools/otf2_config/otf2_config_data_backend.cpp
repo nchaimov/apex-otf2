@@ -34,12 +34,12 @@ otf2_config_get_backend_data( void )
     static otf2_config_data data;
 
     data.m_cc                    = "gcc -std=gnu99";
-    data.m_cppflags              = "-I/home/roessel/work/otf2/src/tags/REL-2.0/_build-sion/_install/include";
+    data.m_cppflags              = "-I/home/nachaimo/hpx/otf2-2.0-inst/include";
     data.m_use_rpath_flag        = 1;
     data.m_rpath_flag_cc         = "$wl-rpath $wl$libdir";
     data.m_wl_flag               = "-Wl,";
     data.m_aix_libpath           = "";
-    data.m_sys_lib_dlsearch_path = "/lib /usr/lib /lib/i386-linux-gnu /usr/lib/i386-linux-gnu /lib/i486-linux-gnu /usr/lib/i486-linux-gnu /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /lib32 /usr/lib32 ";
+    data.m_sys_lib_dlsearch_path = "/lib /usr/lib /usr/lib64/R/lib /usr/lib64/atlas /usr/lib64/iscsi /usr/lib64/llvm /usr/lib64/mysql /usr/lib64/tcl8.5 /usr/lib64/tracker-0.16 /usr/lib64/xulrunner ";
     data.m_have_sionlib_support  = HAVE_BACKEND_SIONLIB_SUPPORT;
 
     deque<string> libs;

@@ -18,7 +18,7 @@ class Otf2Version(object):
     def __str__(self):
         return str(self.version)
 
-prefix = '/home/roessel/work/otf2/src/tags/REL-2.0/_build-sion/_install'
+prefix = '/home/nachaimo/hpx/otf2-2.0-inst'
 exec_prefix = '${prefix}'
 datarootdir = '${prefix}/share'
 package = 'otf2'

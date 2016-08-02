@@ -459,6 +459,10 @@ otf2_print_get_region_role( OTF2_RegionRole regionRole )
             return "DEALLOCATE";
         case OTF2_REGION_ROLE_REALLOCATE:
             return "REALLOCATE";
+        case OTF2_REGION_ROLE_EVENT:
+            return "EVENT";
+        case OTF2_REGION_ROLE_DATABLOCK:
+            return "DATABLOCK";
 
         default:
             return otf2_print_get_invalid( regionRole );
@@ -484,20 +488,20 @@ otf2_print_get_region_flag( OTF2_RegionFlag regionFlag )
         return buffer;
     }
 
-    const char* sep = "";
+    const char* sep    = "";
     strcat( buffer, "{" );
     if ( regionFlag & OTF2_REGION_FLAG_DYNAMIC )
     {
         strcat( buffer, sep );
         strcat( buffer, "DYNAMIC" );
-        sep         = ", ";
+        sep = ", ";
         regionFlag &= ~OTF2_REGION_FLAG_DYNAMIC;
     }
     if ( regionFlag & OTF2_REGION_FLAG_PHASE )
     {
         strcat( buffer, sep );
         strcat( buffer, "PHASE" );
-        sep         = ", ";
+        sep = ", ";
         regionFlag &= ~OTF2_REGION_FLAG_PHASE;
     }
     if ( regionFlag )
@@ -556,13 +560,13 @@ otf2_print_get_group_flag( OTF2_GroupFlag groupFlag )
         return buffer;
     }
 
-    const char* sep = "";
+    const char* sep    = "";
     strcat( buffer, "{" );
     if ( groupFlag & OTF2_GROUP_FLAG_GLOBAL_MEMBERS )
     {
         strcat( buffer, sep );
         strcat( buffer, "GLOBAL_MEMBERS" );
-        sep        = ", ";
+        sep = ", ";
         groupFlag &= ~OTF2_GROUP_FLAG_GLOBAL_MEMBERS;
     }
     if ( groupFlag )
@@ -902,20 +906,20 @@ otf2_print_get_rma_sync_level( OTF2_RmaSyncLevel rmaSyncLevel )
         return buffer;
     }
 
-    const char* sep = "";
+    const char* sep    = "";
     strcat( buffer, "{" );
     if ( rmaSyncLevel & OTF2_RMA_SYNC_LEVEL_PROCESS )
     {
         strcat( buffer, sep );
         strcat( buffer, "PROCESS" );
-        sep           = ", ";
+        sep = ", ";
         rmaSyncLevel &= ~OTF2_RMA_SYNC_LEVEL_PROCESS;
     }
     if ( rmaSyncLevel & OTF2_RMA_SYNC_LEVEL_MEMORY )
     {
         strcat( buffer, sep );
         strcat( buffer, "MEMORY" );
-        sep           = ", ";
+        sep = ", ";
         rmaSyncLevel &= ~OTF2_RMA_SYNC_LEVEL_MEMORY;
     }
     if ( rmaSyncLevel )
@@ -971,3 +975,4 @@ otf2_print_get_rma_atomic_type( OTF2_RmaAtomicType rmaAtomicType )
             return otf2_print_get_invalid( rmaAtomicType );
     }
 }
+

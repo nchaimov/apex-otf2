@@ -33,10 +33,10 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_measurement_on_off* derived_event = ( otf2_snapshots_event_measurement_on_off* )event;
 
                 OTF2_SnapWriter_MeasurementOnOff( writerHandle,
-                                                  event->attributes,
-                                                  break_time,
-                                                  event->time,
-                                                  derived_event->measurement_mode );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->measurement_mode );
             }
             break;
 
@@ -45,10 +45,10 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_enter* derived_event = ( otf2_snapshots_event_enter* )event;
 
                 OTF2_SnapWriter_Enter( writerHandle,
-                                       event->attributes,
-                                       break_time,
-                                       event->time,
-                                       derived_event->region );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->region );
             }
             break;
 
@@ -57,13 +57,13 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_mpi_send* derived_event = ( otf2_snapshots_event_mpi_send* )event;
 
                 OTF2_SnapWriter_MpiSend( writerHandle,
-                                         event->attributes,
-                                         break_time,
-                                         event->time,
-                                         derived_event->receiver,
-                                         derived_event->communicator,
-                                         derived_event->msg_tag,
-                                         derived_event->msg_length );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->receiver,
+derived_event->communicator,
+derived_event->msg_tag,
+derived_event->msg_length );
             }
             break;
 
@@ -72,14 +72,14 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_mpi_isend* derived_event = ( otf2_snapshots_event_mpi_isend* )event;
 
                 OTF2_SnapWriter_MpiIsend( writerHandle,
-                                          event->attributes,
-                                          break_time,
-                                          event->time,
-                                          derived_event->receiver,
-                                          derived_event->communicator,
-                                          derived_event->msg_tag,
-                                          derived_event->msg_length,
-                                          derived_event->request_id );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->receiver,
+derived_event->communicator,
+derived_event->msg_tag,
+derived_event->msg_length,
+derived_event->request_id );
             }
             break;
 
@@ -88,10 +88,10 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_mpi_isend_complete* derived_event = ( otf2_snapshots_event_mpi_isend_complete* )event;
 
                 OTF2_SnapWriter_MpiIsendComplete( writerHandle,
-                                                  event->attributes,
-                                                  break_time,
-                                                  event->time,
-                                                  derived_event->request_id );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->request_id );
             }
             break;
 
@@ -100,10 +100,10 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_mpi_irecv_request* derived_event = ( otf2_snapshots_event_mpi_irecv_request* )event;
 
                 OTF2_SnapWriter_MpiIrecvRequest( writerHandle,
-                                                 event->attributes,
-                                                 break_time,
-                                                 event->time,
-                                                 derived_event->request_id );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->request_id );
             }
             break;
 
@@ -112,13 +112,13 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_mpi_recv* derived_event = ( otf2_snapshots_event_mpi_recv* )event;
 
                 OTF2_SnapWriter_MpiRecv( writerHandle,
-                                         event->attributes,
-                                         break_time,
-                                         event->time,
-                                         derived_event->sender,
-                                         derived_event->communicator,
-                                         derived_event->msg_tag,
-                                         derived_event->msg_length );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->sender,
+derived_event->communicator,
+derived_event->msg_tag,
+derived_event->msg_length );
             }
             break;
 
@@ -127,14 +127,14 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_mpi_irecv* derived_event = ( otf2_snapshots_event_mpi_irecv* )event;
 
                 OTF2_SnapWriter_MpiIrecv( writerHandle,
-                                          event->attributes,
-                                          break_time,
-                                          event->time,
-                                          derived_event->sender,
-                                          derived_event->communicator,
-                                          derived_event->msg_tag,
-                                          derived_event->msg_length,
-                                          derived_event->request_id );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->sender,
+derived_event->communicator,
+derived_event->msg_tag,
+derived_event->msg_length,
+derived_event->request_id );
             }
             break;
 
@@ -143,9 +143,9 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_mpi_collective_begin* derived_event = ( otf2_snapshots_event_mpi_collective_begin* )event;
 
                 OTF2_SnapWriter_MpiCollectiveBegin( writerHandle,
-                                                    event->attributes,
-                                                    break_time,
-                                                    event->time );
+                                                event->attributes,
+                                                break_time,
+                                                event->time );
             }
             break;
 
@@ -154,14 +154,14 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_mpi_collective_end* derived_event = ( otf2_snapshots_event_mpi_collective_end* )event;
 
                 OTF2_SnapWriter_MpiCollectiveEnd( writerHandle,
-                                                  event->attributes,
-                                                  break_time,
-                                                  event->time,
-                                                  derived_event->collective_op,
-                                                  derived_event->communicator,
-                                                  derived_event->root,
-                                                  derived_event->size_sent,
-                                                  derived_event->size_received );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->collective_op,
+derived_event->communicator,
+derived_event->root,
+derived_event->size_sent,
+derived_event->size_received );
             }
             break;
 
@@ -170,10 +170,10 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_omp_fork* derived_event = ( otf2_snapshots_event_omp_fork* )event;
 
                 OTF2_SnapWriter_OmpFork( writerHandle,
-                                         event->attributes,
-                                         break_time,
-                                         event->time,
-                                         derived_event->number_of_requested_threads );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->number_of_requested_threads );
             }
             break;
 
@@ -185,8 +185,8 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                                                 event->attributes,
                                                 break_time,
                                                 event->time,
-                                                derived_event->lock_id,
-                                                derived_event->acquisition_order );
+derived_event->lock_id,
+derived_event->acquisition_order );
             }
             break;
 
@@ -195,10 +195,10 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_omp_task_create* derived_event = ( otf2_snapshots_event_omp_task_create* )event;
 
                 OTF2_SnapWriter_OmpTaskCreate( writerHandle,
-                                               event->attributes,
-                                               break_time,
-                                               event->time,
-                                               derived_event->task_id );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->task_id );
             }
             break;
 
@@ -207,10 +207,10 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_omp_task_switch* derived_event = ( otf2_snapshots_event_omp_task_switch* )event;
 
                 OTF2_SnapWriter_OmpTaskSwitch( writerHandle,
-                                               event->attributes,
-                                               break_time,
-                                               event->time,
-                                               derived_event->task_id );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->task_id );
             }
             break;
 
@@ -219,13 +219,13 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_metric* derived_event = ( otf2_snapshots_event_metric* )event;
 
                 OTF2_SnapWriter_Metric( writerHandle,
-                                        event->attributes,
-                                        break_time,
-                                        event->time,
-                                        derived_event->metric,
-                                        derived_event->number_of_metrics,
-                                        derived_event->type_ids,
-                                        derived_event->metric_values );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->metric,
+derived_event->number_of_metrics,
+derived_event->type_ids,
+derived_event->metric_values );
             }
             break;
 
@@ -234,11 +234,11 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_parameter_string* derived_event = ( otf2_snapshots_event_parameter_string* )event;
 
                 OTF2_SnapWriter_ParameterString( writerHandle,
-                                                 event->attributes,
-                                                 break_time,
-                                                 event->time,
-                                                 derived_event->parameter,
-                                                 derived_event->string );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->parameter,
+derived_event->string );
             }
             break;
 
@@ -247,11 +247,11 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_parameter_int* derived_event = ( otf2_snapshots_event_parameter_int* )event;
 
                 OTF2_SnapWriter_ParameterInt( writerHandle,
-                                              event->attributes,
-                                              break_time,
-                                              event->time,
-                                              derived_event->parameter,
-                                              derived_event->value );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->parameter,
+derived_event->value );
             }
             break;
 
@@ -260,11 +260,11 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
                 otf2_snapshots_event_parameter_unsigned_int* derived_event = ( otf2_snapshots_event_parameter_unsigned_int* )event;
 
                 OTF2_SnapWriter_ParameterUnsignedInt( writerHandle,
-                                                      event->attributes,
-                                                      break_time,
-                                                      event->time,
-                                                      derived_event->parameter,
-                                                      derived_event->value );
+                                                event->attributes,
+                                                break_time,
+                                                event->time,
+derived_event->parameter,
+derived_event->value );
             }
             break;
 
@@ -279,18 +279,20 @@ location_event_stack_write( OTF2_SnapWriter*            writerHandle,
 
 extern "C"
 {
+
+
 static OTF2_CallbackCode
-global_evt_callback_measurement_on_off( uint64_t             locationID,
-                                        uint64_t             time,
-                                        void*                userData,
-                                        OTF2_AttributeList*  attributes,
-                                        OTF2_MeasurementMode measurementMode )
+global_evt_callback_measurement_on_off( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+OTF2_MeasurementMode measurementMode )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
     /* remove existing MeasurementOnOffRecord event if there is one */
-    if ( data->measurement_on_off_record[ locationID ] )
+    if ( data->measurement_on_off_record[locationID] )
     {
         erase_event_from_stack( &data->locations_event_stack[ locationID ],
                                 OTF2_SNAPSHOTS_EVENT_MEASUREMENT_ON_OFF,
@@ -298,11 +300,11 @@ global_evt_callback_measurement_on_off( uint64_t             locationID,
     }
     else
     {
-        data->measurement_on_off_record[ locationID ] = true;
+        data->measurement_on_off_record[locationID] = true;
     }
 
     otf2_snapshots_event_measurement_on_off* event = new otf2_snapshots_event_measurement_on_off( time, attributes,
-                                                                                                  measurementMode );
+measurementMode );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
@@ -316,18 +318,18 @@ global_evt_callback_measurement_on_off( uint64_t             locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_enter( uint64_t            locationID,
-                           uint64_t            time,
-                           void*               userData,
-                           OTF2_AttributeList* attributes,
-                           OTF2_RegionRef      region )
+global_evt_callback_enter( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+OTF2_RegionRef region )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_enter* event = new otf2_snapshots_event_enter( time, attributes,
-                                                                        region );
+region );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
@@ -342,24 +344,24 @@ global_evt_callback_enter( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_mpi_send( uint64_t            locationID,
-                              uint64_t            time,
-                              void*               userData,
-                              OTF2_AttributeList* attributes,
-                              uint32_t            receiver,
-                              OTF2_CommRef        communicator,
-                              uint32_t            msgTag,
-                              uint64_t            msgLength )
+global_evt_callback_mpi_send( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_mpi_send* event = new otf2_snapshots_event_mpi_send( time, attributes,
-                                                                              receiver,
-                                                                              communicator,
-                                                                              msgTag,
-                                                                              msgLength );
+receiver,
+communicator,
+msgTag,
+msgLength );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
@@ -373,31 +375,31 @@ global_evt_callback_mpi_send( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_mpi_isend( uint64_t            locationID,
-                               uint64_t            time,
-                               void*               userData,
-                               OTF2_AttributeList* attributes,
-                               uint32_t            receiver,
-                               OTF2_CommRef        communicator,
-                               uint32_t            msgTag,
-                               uint64_t            msgLength,
-                               uint64_t            requestID )
+global_evt_callback_mpi_isend( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_mpi_isend* event = new otf2_snapshots_event_mpi_isend( time, attributes,
-                                                                                receiver,
-                                                                                communicator,
-                                                                                msgTag,
-                                                                                msgLength,
-                                                                                requestID );
+receiver,
+communicator,
+msgTag,
+msgLength,
+requestID );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
     /* keep kind of request */
-    data->mpi_requests.insert( make_pair( requestID, OTF2_SNAPSHOTS_EVENT_MPI_ISEND ) );
+    data->mpi_requests.insert( make_pair(requestID, OTF2_SNAPSHOTS_EVENT_MPI_ISEND) );
 
 
 
@@ -408,18 +410,18 @@ global_evt_callback_mpi_isend( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_mpi_isend_complete( uint64_t            locationID,
-                                        uint64_t            time,
-                                        void*               userData,
-                                        OTF2_AttributeList* attributes,
-                                        uint64_t            requestID )
+global_evt_callback_mpi_isend_complete( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+uint64_t requestID )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_mpi_isend_complete* event = new otf2_snapshots_event_mpi_isend_complete( time, attributes,
-                                                                                                  requestID );
+requestID );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
@@ -434,25 +436,25 @@ global_evt_callback_mpi_isend_complete( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_mpi_irecv_request( uint64_t            locationID,
-                                       uint64_t            time,
-                                       void*               userData,
-                                       OTF2_AttributeList* attributes,
-                                       uint64_t            requestID )
+global_evt_callback_mpi_irecv_request( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+uint64_t requestID )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_mpi_irecv_request* event = new otf2_snapshots_event_mpi_irecv_request( time, attributes,
-                                                                                                requestID );
+requestID );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
 
 
     /* keep kind of request */
-    data->mpi_requests.insert( make_pair( requestID, OTF2_SNAPSHOTS_EVENT_MPI_IRECV_REQUEST ) );
+    data->mpi_requests.insert( make_pair(requestID, OTF2_SNAPSHOTS_EVENT_MPI_IRECV_REQUEST) );
 
 
 
@@ -461,10 +463,10 @@ global_evt_callback_mpi_irecv_request( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_mpi_collective_begin( uint64_t            locationID,
-                                          uint64_t            time,
-                                          void*               userData,
-                                          OTF2_AttributeList* attributes )
+global_evt_callback_mpi_collective_begin( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
@@ -484,18 +486,18 @@ global_evt_callback_mpi_collective_begin( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_omp_fork( uint64_t            locationID,
-                              uint64_t            time,
-                              void*               userData,
-                              OTF2_AttributeList* attributes,
-                              uint32_t            numberOfRequestedThreads )
+global_evt_callback_omp_fork( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+uint32_t numberOfRequestedThreads )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_omp_fork* event = new otf2_snapshots_event_omp_fork( time, attributes,
-                                                                              numberOfRequestedThreads );
+numberOfRequestedThreads );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
@@ -509,20 +511,20 @@ global_evt_callback_omp_fork( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_omp_acquire_lock( uint64_t            locationID,
-                                      uint64_t            time,
-                                      void*               userData,
-                                      OTF2_AttributeList* attributes,
-                                      uint32_t            lockID,
-                                      uint32_t            acquisitionOrder )
+global_evt_callback_omp_acquire_lock( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+uint32_t lockID,
+uint32_t acquisitionOrder )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_omp_acquire_lock* event = new otf2_snapshots_event_omp_acquire_lock( time, attributes,
-                                                                                              lockID,
-                                                                                              acquisitionOrder );
+lockID,
+acquisitionOrder );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
@@ -536,18 +538,18 @@ global_evt_callback_omp_acquire_lock( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_omp_task_create( uint64_t            locationID,
-                                     uint64_t            time,
-                                     void*               userData,
+global_evt_callback_omp_task_create( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
                                      OTF2_AttributeList* attributes,
-                                     uint64_t            taskID )
+uint64_t taskID )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_omp_task_create* event = new otf2_snapshots_event_omp_task_create( time, attributes,
-                                                                                            taskID );
+taskID );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
@@ -563,18 +565,18 @@ global_evt_callback_omp_task_create( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_omp_task_switch( uint64_t            locationID,
-                                     uint64_t            time,
-                                     void*               userData,
+global_evt_callback_omp_task_switch( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
                                      OTF2_AttributeList* attributes,
-                                     uint64_t            taskID )
+uint64_t taskID )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_omp_task_switch* event = new otf2_snapshots_event_omp_task_switch( time, attributes,
-                                                                                            taskID );
+taskID );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
@@ -588,20 +590,20 @@ global_evt_callback_omp_task_switch( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_parameter_string( uint64_t            locationID,
-                                      uint64_t            time,
-                                      void*               userData,
-                                      OTF2_AttributeList* attributes,
-                                      OTF2_ParameterRef   parameter,
-                                      OTF2_StringRef      string )
+global_evt_callback_parameter_string( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+OTF2_ParameterRef parameter,
+OTF2_StringRef string )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_parameter_string* event = new otf2_snapshots_event_parameter_string( time, attributes,
-                                                                                              parameter,
-                                                                                              string );
+parameter,
+string );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
@@ -615,20 +617,20 @@ global_evt_callback_parameter_string( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_parameter_int( uint64_t            locationID,
-                                   uint64_t            time,
-                                   void*               userData,
-                                   OTF2_AttributeList* attributes,
-                                   OTF2_ParameterRef   parameter,
-                                   int64_t             value )
+global_evt_callback_parameter_int( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+OTF2_ParameterRef parameter,
+int64_t value )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_parameter_int* event = new otf2_snapshots_event_parameter_int( time, attributes,
-                                                                                        parameter,
-                                                                                        value );
+parameter,
+value );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
@@ -642,20 +644,20 @@ global_evt_callback_parameter_int( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_parameter_unsigned_int( uint64_t            locationID,
-                                            uint64_t            time,
-                                            void*               userData,
-                                            OTF2_AttributeList* attributes,
-                                            OTF2_ParameterRef   parameter,
-                                            uint64_t            value )
+global_evt_callback_parameter_unsigned_int( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+OTF2_ParameterRef parameter,
+uint64_t value )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
 
 
     otf2_snapshots_event_parameter_unsigned_int* event = new otf2_snapshots_event_parameter_unsigned_int( time, attributes,
-                                                                                                          parameter,
-                                                                                                          value );
+parameter,
+value );
 
     data->locations_event_stack[ locationID ].push_back( event );
 
@@ -666,18 +668,22 @@ global_evt_callback_parameter_unsigned_int( uint64_t            locationID,
 
     return OTF2_CALLBACK_SUCCESS;
 }
+
+
 }
 
 /*___ non stack event callbacks.________________________________________________ */
 
 extern "C"
 {
+
+
 static OTF2_CallbackCode
-global_evt_callback_leave( uint64_t            locationID,
-                           uint64_t            time,
-                           void*               userData,
-                           OTF2_AttributeList* attributes,
-                           OTF2_RegionRef      region )
+global_evt_callback_leave( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+OTF2_RegionRef region )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
@@ -685,11 +691,11 @@ global_evt_callback_leave( uint64_t            locationID,
 
 
 
-    erase_event_from_stack( &data->locations_event_stack[ locationID ],
-                            OTF2_SNAPSHOTS_EVENT_ENTER,
+    erase_event_from_stack ( &data->locations_event_stack[ locationID ],
+                             OTF2_SNAPSHOTS_EVENT_ENTER,
 
-                            region
-                            );
+                             region
+                             );
 
     region_activity_sampling( data, time );
 
@@ -698,11 +704,11 @@ global_evt_callback_leave( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_mpi_request_cancelled( uint64_t            locationID,
-                                           uint64_t            time,
-                                           void*               userData,
-                                           OTF2_AttributeList* attributes,
-                                           uint64_t            requestID )
+global_evt_callback_mpi_request_cancelled( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+uint64_t requestID )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
@@ -712,16 +718,14 @@ global_evt_callback_mpi_request_cancelled( uint64_t            locationID,
 
     // try to match pending recvs in case of an Isend request cancel
     //
-    if ( data->mpi_requests[ requestID ] == OTF2_SNAPSHOTS_EVENT_MPI_ISEND )
-    {
-        match_pending_recvs( locationID, data );
-    }
+    if (data->mpi_requests[ requestID ] == OTF2_SNAPSHOTS_EVENT_MPI_ISEND )
+    match_pending_recvs( locationID, data);
 
-    erase_event_from_stack( &data->locations_event_stack[ locationID ],
-                            data->mpi_requests[ requestID ],
+    erase_event_from_stack ( &data->locations_event_stack[ locationID ],
+                             data->mpi_requests[ requestID ],
 
-                            requestID
-                            );
+                             requestID
+                             );
 
 
     return OTF2_CALLBACK_SUCCESS;
@@ -729,10 +733,10 @@ global_evt_callback_mpi_request_cancelled( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_omp_join( uint64_t            locationID,
-                              uint64_t            time,
-                              void*               userData,
-                              OTF2_AttributeList* attributes )
+global_evt_callback_omp_join( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
@@ -740,11 +744,11 @@ global_evt_callback_omp_join( uint64_t            locationID,
 
 
 
-    erase_event_from_stack( &data->locations_event_stack[ locationID ],
-                            OTF2_SNAPSHOTS_EVENT_OMP_FORK,
+    erase_event_from_stack ( &data->locations_event_stack[ locationID ],
+                             OTF2_SNAPSHOTS_EVENT_OMP_FORK,
 
-                            0
-                            );
+                             0
+                             );
 
 
     return OTF2_CALLBACK_SUCCESS;
@@ -752,12 +756,12 @@ global_evt_callback_omp_join( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_omp_release_lock( uint64_t            locationID,
-                                      uint64_t            time,
-                                      void*               userData,
-                                      OTF2_AttributeList* attributes,
-                                      uint32_t            lockID,
-                                      uint32_t            acquisitionOrder )
+global_evt_callback_omp_release_lock( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+uint32_t lockID,
+uint32_t acquisitionOrder )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
@@ -765,11 +769,11 @@ global_evt_callback_omp_release_lock( uint64_t            locationID,
 
 
 
-    erase_event_from_stack( &data->locations_event_stack[ locationID ],
-                            OTF2_SNAPSHOTS_EVENT_OMP_ACQUIRE_LOCK,
+    erase_event_from_stack ( &data->locations_event_stack[ locationID ],
+                             OTF2_SNAPSHOTS_EVENT_OMP_ACQUIRE_LOCK,
 
-                            lockID
-                            );
+                             lockID
+                             );
 
 
     return OTF2_CALLBACK_SUCCESS;
@@ -777,11 +781,11 @@ global_evt_callback_omp_release_lock( uint64_t            locationID,
 
 
 static OTF2_CallbackCode
-global_evt_callback_omp_task_complete( uint64_t            locationID,
-                                       uint64_t            time,
-                                       void*               userData,
-                                       OTF2_AttributeList* attributes,
-                                       uint64_t            taskID )
+global_evt_callback_omp_task_complete( uint64_t   locationID,
+                                     uint64_t   time,
+                                     void*      userData,
+                                     OTF2_AttributeList* attributes,
+uint64_t taskID )
 {
     otf2_snapshots_data* data = ( otf2_snapshots_data* )userData;
     analyse_state( data, time );
@@ -794,15 +798,17 @@ global_evt_callback_omp_task_complete( uint64_t            locationID,
 
 
 
-    erase_event_from_stack( &data->locations_event_stack[ locationID ],
-                            OTF2_SNAPSHOTS_EVENT_OMP_TASK_CREATE,
+    erase_event_from_stack ( &data->locations_event_stack[ locationID ],
+                             OTF2_SNAPSHOTS_EVENT_OMP_TASK_CREATE,
 
-                            taskID
-                            );
+                             taskID
+                             );
 
 
     return OTF2_CALLBACK_SUCCESS;
 }
+
+
 }
 
 

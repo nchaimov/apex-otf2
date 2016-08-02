@@ -26,7 +26,7 @@
  *  <div class="memdoc">
  *  @endhtmlonly
  *  This record marks the start of a snapshot.
- *
+ *  
  *  A snapshot consists of a timestamp and a set of snapshot records. All
  *  these snapshot records have the same snapshot time. A snapshot
  *  starts with one @eref{SnapshotStart} record and closes with one
@@ -2476,7 +2476,7 @@
  *  This record exists for each referenced metric class or metric instance
  *  event this location recorded metrics before and provides the last
  *  known recorded metric values.
- *
+ *  
  *  As an exception for metric classes where the metric mode denotes an
  *  @eref{OTF2_METRIC_VALUE_RELATIVE} mode the value indicates the
  *  accumulation of all previous metric values recorded.

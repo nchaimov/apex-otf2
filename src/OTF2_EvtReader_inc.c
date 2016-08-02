@@ -47,7 +47,7 @@ otf2_evt_reader_read_buffer_flush( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -90,11 +90,11 @@ otf2_evt_reader_read_buffer_flush( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.buffer_flush )
     {
         interrupt = reader->reader_callbacks.buffer_flush( reader->location_id,
-                                                           record->time,
-                                                           reader->global_event_position,
-                                                           reader->user_data,
-                                                           &reader->attribute_list,
-                                                           record->stop_time );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->stop_time );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -117,7 +117,7 @@ otf2_evt_reader_read_measurement_on_off( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -159,11 +159,11 @@ otf2_evt_reader_read_measurement_on_off( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.measurement_on_off )
     {
         interrupt = reader->reader_callbacks.measurement_on_off( reader->location_id,
-                                                                 record->time,
-                                                                 reader->global_event_position,
-                                                                 reader->user_data,
-                                                                 &reader->attribute_list,
-                                                                 record->measurement_mode );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->measurement_mode );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -218,11 +218,11 @@ otf2_evt_reader_read_enter( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.enter )
     {
         interrupt = reader->reader_callbacks.enter( reader->location_id,
-                                                    record->time,
-                                                    reader->global_event_position,
-                                                    reader->user_data,
-                                                    &reader->attribute_list,
-                                                    record->region );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->region );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -277,11 +277,11 @@ otf2_evt_reader_read_leave( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.leave )
     {
         interrupt = reader->reader_callbacks.leave( reader->location_id,
-                                                    record->time,
-                                                    reader->global_event_position,
-                                                    reader->user_data,
-                                                    &reader->attribute_list,
-                                                    record->region );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->region );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -304,7 +304,7 @@ otf2_evt_reader_read_mpi_send( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -327,7 +327,7 @@ otf2_evt_reader_read_mpi_send( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read communicator attribute of MpiSend record. Invalid compression size." );
     }
     record->communicator = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->communicator );
-    ret                  = OTF2_Buffer_ReadUint32( reader->buffer, &record->msg_tag );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->msg_tag );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read msgTag attribute of MpiSend record. Invalid compression size." );
@@ -366,14 +366,14 @@ otf2_evt_reader_read_mpi_send( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.mpi_send )
     {
         interrupt = reader->reader_callbacks.mpi_send( reader->location_id,
-                                                       record->time,
-                                                       reader->global_event_position,
-                                                       reader->user_data,
-                                                       &reader->attribute_list,
-                                                       record->receiver,
-                                                       record->communicator,
-                                                       record->msg_tag,
-                                                       record->msg_length );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->receiver,
+record->communicator,
+record->msg_tag,
+record->msg_length );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -396,7 +396,7 @@ otf2_evt_reader_read_mpi_isend( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -419,7 +419,7 @@ otf2_evt_reader_read_mpi_isend( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read communicator attribute of MpiIsend record. Invalid compression size." );
     }
     record->communicator = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->communicator );
-    ret                  = OTF2_Buffer_ReadUint32( reader->buffer, &record->msg_tag );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->msg_tag );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read msgTag attribute of MpiIsend record. Invalid compression size." );
@@ -463,15 +463,15 @@ otf2_evt_reader_read_mpi_isend( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.mpi_isend )
     {
         interrupt = reader->reader_callbacks.mpi_isend( reader->location_id,
-                                                        record->time,
-                                                        reader->global_event_position,
-                                                        reader->user_data,
-                                                        &reader->attribute_list,
-                                                        record->receiver,
-                                                        record->communicator,
-                                                        record->msg_tag,
-                                                        record->msg_length,
-                                                        record->request_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->receiver,
+record->communicator,
+record->msg_tag,
+record->msg_length,
+record->request_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -525,11 +525,11 @@ otf2_evt_reader_read_mpi_isend_complete( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.mpi_isend_complete )
     {
         interrupt = reader->reader_callbacks.mpi_isend_complete( reader->location_id,
-                                                                 record->time,
-                                                                 reader->global_event_position,
-                                                                 reader->user_data,
-                                                                 &reader->attribute_list,
-                                                                 record->request_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->request_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -583,11 +583,11 @@ otf2_evt_reader_read_mpi_irecv_request( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.mpi_irecv_request )
     {
         interrupt = reader->reader_callbacks.mpi_irecv_request( reader->location_id,
-                                                                record->time,
-                                                                reader->global_event_position,
-                                                                reader->user_data,
-                                                                &reader->attribute_list,
-                                                                record->request_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->request_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -610,7 +610,7 @@ otf2_evt_reader_read_mpi_recv( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -633,7 +633,7 @@ otf2_evt_reader_read_mpi_recv( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read communicator attribute of MpiRecv record. Invalid compression size." );
     }
     record->communicator = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->communicator );
-    ret                  = OTF2_Buffer_ReadUint32( reader->buffer, &record->msg_tag );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->msg_tag );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read msgTag attribute of MpiRecv record. Invalid compression size." );
@@ -672,14 +672,14 @@ otf2_evt_reader_read_mpi_recv( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.mpi_recv )
     {
         interrupt = reader->reader_callbacks.mpi_recv( reader->location_id,
-                                                       record->time,
-                                                       reader->global_event_position,
-                                                       reader->user_data,
-                                                       &reader->attribute_list,
-                                                       record->sender,
-                                                       record->communicator,
-                                                       record->msg_tag,
-                                                       record->msg_length );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->sender,
+record->communicator,
+record->msg_tag,
+record->msg_length );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -702,7 +702,7 @@ otf2_evt_reader_read_mpi_irecv( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -725,7 +725,7 @@ otf2_evt_reader_read_mpi_irecv( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read communicator attribute of MpiIrecv record. Invalid compression size." );
     }
     record->communicator = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->communicator );
-    ret                  = OTF2_Buffer_ReadUint32( reader->buffer, &record->msg_tag );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->msg_tag );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read msgTag attribute of MpiIrecv record. Invalid compression size." );
@@ -769,15 +769,15 @@ otf2_evt_reader_read_mpi_irecv( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.mpi_irecv )
     {
         interrupt = reader->reader_callbacks.mpi_irecv( reader->location_id,
-                                                        record->time,
-                                                        reader->global_event_position,
-                                                        reader->user_data,
-                                                        &reader->attribute_list,
-                                                        record->sender,
-                                                        record->communicator,
-                                                        record->msg_tag,
-                                                        record->msg_length,
-                                                        record->request_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->sender,
+record->communicator,
+record->msg_tag,
+record->msg_length,
+record->request_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -831,11 +831,11 @@ otf2_evt_reader_read_mpi_request_test( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.mpi_request_test )
     {
         interrupt = reader->reader_callbacks.mpi_request_test( reader->location_id,
-                                                               record->time,
-                                                               reader->global_event_position,
-                                                               reader->user_data,
-                                                               &reader->attribute_list,
-                                                               record->request_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->request_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -889,11 +889,11 @@ otf2_evt_reader_read_mpi_request_cancelled( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.mpi_request_cancelled )
     {
         interrupt = reader->reader_callbacks.mpi_request_cancelled( reader->location_id,
-                                                                    record->time,
-                                                                    reader->global_event_position,
-                                                                    reader->user_data,
-                                                                    &reader->attribute_list,
-                                                                    record->request_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->request_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -916,7 +916,7 @@ otf2_evt_reader_read_mpi_collective_begin( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -957,10 +957,10 @@ otf2_evt_reader_read_mpi_collective_begin( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.mpi_collective_begin )
     {
         interrupt = reader->reader_callbacks.mpi_collective_begin( reader->location_id,
-                                                                   record->time,
-                                                                   reader->global_event_position,
-                                                                   reader->user_data,
-                                                                   &reader->attribute_list );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -983,7 +983,7 @@ otf2_evt_reader_read_mpi_collective_end( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1002,7 +1002,7 @@ otf2_evt_reader_read_mpi_collective_end( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read communicator attribute of MpiCollectiveEnd record. Invalid compression size." );
     }
     record->communicator = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->communicator );
-    ret                  = OTF2_Buffer_ReadUint32( reader->buffer, &record->root );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->root );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read root attribute of MpiCollectiveEnd record. Invalid compression size." );
@@ -1046,15 +1046,15 @@ otf2_evt_reader_read_mpi_collective_end( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.mpi_collective_end )
     {
         interrupt = reader->reader_callbacks.mpi_collective_end( reader->location_id,
-                                                                 record->time,
-                                                                 reader->global_event_position,
-                                                                 reader->user_data,
-                                                                 &reader->attribute_list,
-                                                                 record->collective_op,
-                                                                 record->communicator,
-                                                                 record->root,
-                                                                 record->size_sent,
-                                                                 record->size_received );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->collective_op,
+record->communicator,
+record->root,
+record->size_sent,
+record->size_received );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1108,11 +1108,11 @@ otf2_evt_reader_read_omp_fork( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.omp_fork )
     {
         interrupt = reader->reader_callbacks.omp_fork( reader->location_id,
-                                                       record->time,
-                                                       reader->global_event_position,
-                                                       reader->user_data,
-                                                       &reader->attribute_list,
-                                                       record->number_of_requested_threads );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->number_of_requested_threads );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1135,7 +1135,7 @@ otf2_evt_reader_read_omp_join( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1176,10 +1176,10 @@ otf2_evt_reader_read_omp_join( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.omp_join )
     {
         interrupt = reader->reader_callbacks.omp_join( reader->location_id,
-                                                       record->time,
-                                                       reader->global_event_position,
-                                                       reader->user_data,
-                                                       &reader->attribute_list );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1202,7 +1202,7 @@ otf2_evt_reader_read_omp_acquire_lock( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1253,12 +1253,12 @@ otf2_evt_reader_read_omp_acquire_lock( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.omp_acquire_lock )
     {
         interrupt = reader->reader_callbacks.omp_acquire_lock( reader->location_id,
-                                                               record->time,
-                                                               reader->global_event_position,
-                                                               reader->user_data,
-                                                               &reader->attribute_list,
-                                                               record->lock_id,
-                                                               record->acquisition_order );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->lock_id,
+record->acquisition_order );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1281,7 +1281,7 @@ otf2_evt_reader_read_omp_release_lock( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1332,12 +1332,12 @@ otf2_evt_reader_read_omp_release_lock( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.omp_release_lock )
     {
         interrupt = reader->reader_callbacks.omp_release_lock( reader->location_id,
-                                                               record->time,
-                                                               reader->global_event_position,
-                                                               reader->user_data,
-                                                               &reader->attribute_list,
-                                                               record->lock_id,
-                                                               record->acquisition_order );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->lock_id,
+record->acquisition_order );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1395,7 +1395,7 @@ otf2_evt_reader_read_omp_task_create( OTF2_EvtReader* reader )
                                                               reader->global_event_position,
                                                               reader->user_data,
                                                               &reader->attribute_list,
-                                                              record->task_id );
+record->task_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1453,7 +1453,7 @@ otf2_evt_reader_read_omp_task_switch( OTF2_EvtReader* reader )
                                                               reader->global_event_position,
                                                               reader->user_data,
                                                               &reader->attribute_list,
-                                                              record->task_id );
+record->task_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1507,11 +1507,11 @@ otf2_evt_reader_read_omp_task_complete( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.omp_task_complete )
     {
         interrupt = reader->reader_callbacks.omp_task_complete( reader->location_id,
-                                                                record->time,
-                                                                reader->global_event_position,
-                                                                reader->user_data,
-                                                                &reader->attribute_list,
-                                                                record->task_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->task_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1534,7 +1534,7 @@ otf2_evt_reader_read_metric( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1570,11 +1570,12 @@ otf2_evt_reader_read_metric( OTF2_EvtReader* reader )
           number_of_metrics_i < record->number_of_metrics;
           number_of_metrics_i++ )
     {
+
         OTF2_Buffer_ReadUint8( reader->buffer,
-                               record->type_ids + number_of_metrics_i );
+                                                  record->type_ids + number_of_metrics_i );
 
         ret = OTF2_Buffer_ReadMetricValue( reader->buffer,
-                                           record->metric_values + number_of_metrics_i );
+                                                        record->metric_values + number_of_metrics_i );
         if ( OTF2_SUCCESS != ret )
         {
             free( record->type_ids );
@@ -1613,14 +1614,14 @@ otf2_evt_reader_read_metric( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.metric )
     {
         interrupt = reader->reader_callbacks.metric( reader->location_id,
-                                                     record->time,
-                                                     reader->global_event_position,
-                                                     reader->user_data,
-                                                     &reader->attribute_list,
-                                                     record->metric,
-                                                     record->number_of_metrics,
-                                                     record->type_ids,
-                                                     record->metric_values );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->metric,
+record->number_of_metrics,
+record->type_ids,
+record->metric_values );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1645,7 +1646,7 @@ otf2_evt_reader_read_parameter_string( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1663,7 +1664,7 @@ otf2_evt_reader_read_parameter_string( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read parameter attribute of ParameterString record. Invalid compression size." );
     }
     record->parameter = otf2_evt_reader_map( reader, OTF2_MAPPING_PARAMETER, record->parameter );
-    ret               = OTF2_Buffer_ReadUint32( reader->buffer, &record->string );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->string );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read string attribute of ParameterString record. Invalid compression size." );
@@ -1698,12 +1699,12 @@ otf2_evt_reader_read_parameter_string( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.parameter_string )
     {
         interrupt = reader->reader_callbacks.parameter_string( reader->location_id,
-                                                               record->time,
-                                                               reader->global_event_position,
-                                                               reader->user_data,
-                                                               &reader->attribute_list,
-                                                               record->parameter,
-                                                               record->string );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->parameter,
+record->string );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1726,7 +1727,7 @@ otf2_evt_reader_read_parameter_int( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1744,7 +1745,7 @@ otf2_evt_reader_read_parameter_int( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read parameter attribute of ParameterInt record. Invalid compression size." );
     }
     record->parameter = otf2_evt_reader_map( reader, OTF2_MAPPING_PARAMETER, record->parameter );
-    ret               = OTF2_Buffer_ReadInt64( reader->buffer, &record->value );
+    ret = OTF2_Buffer_ReadInt64( reader->buffer, &record->value );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read value attribute of ParameterInt record. Invalid compression size." );
@@ -1778,12 +1779,12 @@ otf2_evt_reader_read_parameter_int( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.parameter_int )
     {
         interrupt = reader->reader_callbacks.parameter_int( reader->location_id,
-                                                            record->time,
-                                                            reader->global_event_position,
-                                                            reader->user_data,
-                                                            &reader->attribute_list,
-                                                            record->parameter,
-                                                            record->value );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->parameter,
+record->value );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1806,7 +1807,7 @@ otf2_evt_reader_read_parameter_unsigned_int( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1824,7 +1825,7 @@ otf2_evt_reader_read_parameter_unsigned_int( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read parameter attribute of ParameterUnsignedInt record. Invalid compression size." );
     }
     record->parameter = otf2_evt_reader_map( reader, OTF2_MAPPING_PARAMETER, record->parameter );
-    ret               = OTF2_Buffer_ReadUint64( reader->buffer, &record->value );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->value );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read value attribute of ParameterUnsignedInt record. Invalid compression size." );
@@ -1858,12 +1859,12 @@ otf2_evt_reader_read_parameter_unsigned_int( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.parameter_unsigned_int )
     {
         interrupt = reader->reader_callbacks.parameter_unsigned_int( reader->location_id,
-                                                                     record->time,
-                                                                     reader->global_event_position,
-                                                                     reader->user_data,
-                                                                     &reader->attribute_list,
-                                                                     record->parameter,
-                                                                     record->value );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->parameter,
+record->value );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1886,7 +1887,7 @@ otf2_evt_reader_read_rma_win_create( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1933,11 +1934,11 @@ otf2_evt_reader_read_rma_win_create( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_win_create )
     {
         interrupt = reader->reader_callbacks.rma_win_create( reader->location_id,
-                                                             record->time,
-                                                             reader->global_event_position,
-                                                             reader->user_data,
-                                                             &reader->attribute_list,
-                                                             record->win );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1960,7 +1961,7 @@ otf2_evt_reader_read_rma_win_destroy( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2011,7 +2012,7 @@ otf2_evt_reader_read_rma_win_destroy( OTF2_EvtReader* reader )
                                                               reader->global_event_position,
                                                               reader->user_data,
                                                               &reader->attribute_list,
-                                                              record->win );
+record->win );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2034,7 +2035,7 @@ otf2_evt_reader_read_rma_collective_begin( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2075,10 +2076,10 @@ otf2_evt_reader_read_rma_collective_begin( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_collective_begin )
     {
         interrupt = reader->reader_callbacks.rma_collective_begin( reader->location_id,
-                                                                   record->time,
-                                                                   reader->global_event_position,
-                                                                   reader->user_data,
-                                                                   &reader->attribute_list );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2101,7 +2102,7 @@ otf2_evt_reader_read_rma_collective_end( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2125,7 +2126,7 @@ otf2_evt_reader_read_rma_collective_end( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaCollectiveEnd record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint32( reader->buffer, &record->root );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->root );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read root attribute of RmaCollectiveEnd record. Invalid compression size." );
@@ -2169,16 +2170,16 @@ otf2_evt_reader_read_rma_collective_end( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_collective_end )
     {
         interrupt = reader->reader_callbacks.rma_collective_end( reader->location_id,
-                                                                 record->time,
-                                                                 reader->global_event_position,
-                                                                 reader->user_data,
-                                                                 &reader->attribute_list,
-                                                                 record->collective_op,
-                                                                 record->sync_level,
-                                                                 record->win,
-                                                                 record->root,
-                                                                 record->bytes_sent,
-                                                                 record->bytes_received );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->collective_op,
+record->sync_level,
+record->win,
+record->root,
+record->bytes_sent,
+record->bytes_received );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2201,7 +2202,7 @@ otf2_evt_reader_read_rma_group_sync( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2224,7 +2225,7 @@ otf2_evt_reader_read_rma_group_sync( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaGroupSync record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint32( reader->buffer, &record->group );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->group );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read group attribute of RmaGroupSync record. Invalid compression size." );
@@ -2259,13 +2260,13 @@ otf2_evt_reader_read_rma_group_sync( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_group_sync )
     {
         interrupt = reader->reader_callbacks.rma_group_sync( reader->location_id,
-                                                             record->time,
-                                                             reader->global_event_position,
-                                                             reader->user_data,
-                                                             &reader->attribute_list,
-                                                             record->sync_level,
-                                                             record->win,
-                                                             record->group );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->sync_level,
+record->win,
+record->group );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2288,7 +2289,7 @@ otf2_evt_reader_read_rma_request_lock( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2306,7 +2307,7 @@ otf2_evt_reader_read_rma_request_lock( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaRequestLock record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read remote attribute of RmaRequestLock record. Invalid compression size." );
@@ -2346,14 +2347,14 @@ otf2_evt_reader_read_rma_request_lock( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_request_lock )
     {
         interrupt = reader->reader_callbacks.rma_request_lock( reader->location_id,
-                                                               record->time,
-                                                               reader->global_event_position,
-                                                               reader->user_data,
-                                                               &reader->attribute_list,
-                                                               record->win,
-                                                               record->remote,
-                                                               record->lock_id,
-                                                               record->lock_type );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->remote,
+record->lock_id,
+record->lock_type );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2376,7 +2377,7 @@ otf2_evt_reader_read_rma_acquire_lock( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2394,7 +2395,7 @@ otf2_evt_reader_read_rma_acquire_lock( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaAcquireLock record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read remote attribute of RmaAcquireLock record. Invalid compression size." );
@@ -2434,14 +2435,14 @@ otf2_evt_reader_read_rma_acquire_lock( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_acquire_lock )
     {
         interrupt = reader->reader_callbacks.rma_acquire_lock( reader->location_id,
-                                                               record->time,
-                                                               reader->global_event_position,
-                                                               reader->user_data,
-                                                               &reader->attribute_list,
-                                                               record->win,
-                                                               record->remote,
-                                                               record->lock_id,
-                                                               record->lock_type );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->remote,
+record->lock_id,
+record->lock_type );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2464,7 +2465,7 @@ otf2_evt_reader_read_rma_try_lock( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2482,7 +2483,7 @@ otf2_evt_reader_read_rma_try_lock( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaTryLock record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read remote attribute of RmaTryLock record. Invalid compression size." );
@@ -2522,14 +2523,14 @@ otf2_evt_reader_read_rma_try_lock( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_try_lock )
     {
         interrupt = reader->reader_callbacks.rma_try_lock( reader->location_id,
-                                                           record->time,
-                                                           reader->global_event_position,
-                                                           reader->user_data,
-                                                           &reader->attribute_list,
-                                                           record->win,
-                                                           record->remote,
-                                                           record->lock_id,
-                                                           record->lock_type );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->remote,
+record->lock_id,
+record->lock_type );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2552,7 +2553,7 @@ otf2_evt_reader_read_rma_release_lock( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2570,7 +2571,7 @@ otf2_evt_reader_read_rma_release_lock( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaReleaseLock record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read remote attribute of RmaReleaseLock record. Invalid compression size." );
@@ -2609,13 +2610,13 @@ otf2_evt_reader_read_rma_release_lock( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_release_lock )
     {
         interrupt = reader->reader_callbacks.rma_release_lock( reader->location_id,
-                                                               record->time,
-                                                               reader->global_event_position,
-                                                               reader->user_data,
-                                                               &reader->attribute_list,
-                                                               record->win,
-                                                               record->remote,
-                                                               record->lock_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->remote,
+record->lock_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2638,7 +2639,7 @@ otf2_evt_reader_read_rma_sync( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2656,7 +2657,7 @@ otf2_evt_reader_read_rma_sync( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaSync record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read remote attribute of RmaSync record. Invalid compression size." );
@@ -2691,13 +2692,13 @@ otf2_evt_reader_read_rma_sync( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_sync )
     {
         interrupt = reader->reader_callbacks.rma_sync( reader->location_id,
-                                                       record->time,
-                                                       reader->global_event_position,
-                                                       reader->user_data,
-                                                       &reader->attribute_list,
-                                                       record->win,
-                                                       record->remote,
-                                                       record->sync_type );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->remote,
+record->sync_type );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2720,7 +2721,7 @@ otf2_evt_reader_read_rma_wait_change( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2771,7 +2772,7 @@ otf2_evt_reader_read_rma_wait_change( OTF2_EvtReader* reader )
                                                               reader->global_event_position,
                                                               reader->user_data,
                                                               &reader->attribute_list,
-                                                              record->win );
+record->win );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2794,7 +2795,7 @@ otf2_evt_reader_read_rma_put( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2812,7 +2813,7 @@ otf2_evt_reader_read_rma_put( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaPut record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read remote attribute of RmaPut record. Invalid compression size." );
@@ -2856,14 +2857,14 @@ otf2_evt_reader_read_rma_put( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_put )
     {
         interrupt = reader->reader_callbacks.rma_put( reader->location_id,
-                                                      record->time,
-                                                      reader->global_event_position,
-                                                      reader->user_data,
-                                                      &reader->attribute_list,
-                                                      record->win,
-                                                      record->remote,
-                                                      record->bytes,
-                                                      record->matching_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->remote,
+record->bytes,
+record->matching_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2886,7 +2887,7 @@ otf2_evt_reader_read_rma_get( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2904,7 +2905,7 @@ otf2_evt_reader_read_rma_get( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaGet record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read remote attribute of RmaGet record. Invalid compression size." );
@@ -2948,14 +2949,14 @@ otf2_evt_reader_read_rma_get( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_get )
     {
         interrupt = reader->reader_callbacks.rma_get( reader->location_id,
-                                                      record->time,
-                                                      reader->global_event_position,
-                                                      reader->user_data,
-                                                      &reader->attribute_list,
-                                                      record->win,
-                                                      record->remote,
-                                                      record->bytes,
-                                                      record->matching_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->remote,
+record->bytes,
+record->matching_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -2978,7 +2979,7 @@ otf2_evt_reader_read_rma_atomic( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2996,7 +2997,7 @@ otf2_evt_reader_read_rma_atomic( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaAtomic record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->remote );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read remote attribute of RmaAtomic record. Invalid compression size." );
@@ -3046,16 +3047,16 @@ otf2_evt_reader_read_rma_atomic( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_atomic )
     {
         interrupt = reader->reader_callbacks.rma_atomic( reader->location_id,
-                                                         record->time,
-                                                         reader->global_event_position,
-                                                         reader->user_data,
-                                                         &reader->attribute_list,
-                                                         record->win,
-                                                         record->remote,
-                                                         record->type,
-                                                         record->bytes_sent,
-                                                         record->bytes_received,
-                                                         record->matching_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->remote,
+record->type,
+record->bytes_sent,
+record->bytes_received,
+record->matching_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -3078,7 +3079,7 @@ otf2_evt_reader_read_rma_op_complete_blocking( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -3096,7 +3097,7 @@ otf2_evt_reader_read_rma_op_complete_blocking( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaOpCompleteBlocking record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint64( reader->buffer, &record->matching_id );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->matching_id );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read matchingId attribute of RmaOpCompleteBlocking record. Invalid compression size." );
@@ -3130,12 +3131,12 @@ otf2_evt_reader_read_rma_op_complete_blocking( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_op_complete_blocking )
     {
         interrupt = reader->reader_callbacks.rma_op_complete_blocking( reader->location_id,
-                                                                       record->time,
-                                                                       reader->global_event_position,
-                                                                       reader->user_data,
-                                                                       &reader->attribute_list,
-                                                                       record->win,
-                                                                       record->matching_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->matching_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -3158,7 +3159,7 @@ otf2_evt_reader_read_rma_op_complete_non_blocking( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -3176,7 +3177,7 @@ otf2_evt_reader_read_rma_op_complete_non_blocking( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaOpCompleteNonBlocking record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint64( reader->buffer, &record->matching_id );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->matching_id );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read matchingId attribute of RmaOpCompleteNonBlocking record. Invalid compression size." );
@@ -3210,12 +3211,12 @@ otf2_evt_reader_read_rma_op_complete_non_blocking( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_op_complete_non_blocking )
     {
         interrupt = reader->reader_callbacks.rma_op_complete_non_blocking( reader->location_id,
-                                                                           record->time,
-                                                                           reader->global_event_position,
-                                                                           reader->user_data,
-                                                                           &reader->attribute_list,
-                                                                           record->win,
-                                                                           record->matching_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->matching_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -3238,7 +3239,7 @@ otf2_evt_reader_read_rma_op_test( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -3256,7 +3257,7 @@ otf2_evt_reader_read_rma_op_test( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaOpTest record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint64( reader->buffer, &record->matching_id );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->matching_id );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read matchingId attribute of RmaOpTest record. Invalid compression size." );
@@ -3290,12 +3291,12 @@ otf2_evt_reader_read_rma_op_test( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_op_test )
     {
         interrupt = reader->reader_callbacks.rma_op_test( reader->location_id,
-                                                          record->time,
-                                                          reader->global_event_position,
-                                                          reader->user_data,
-                                                          &reader->attribute_list,
-                                                          record->win,
-                                                          record->matching_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->matching_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -3318,7 +3319,7 @@ otf2_evt_reader_read_rma_op_complete_remote( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -3336,7 +3337,7 @@ otf2_evt_reader_read_rma_op_complete_remote( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read win attribute of RmaOpCompleteRemote record. Invalid compression size." );
     }
     record->win = otf2_evt_reader_map( reader, OTF2_MAPPING_RMA_WIN, record->win );
-    ret         = OTF2_Buffer_ReadUint64( reader->buffer, &record->matching_id );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->matching_id );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read matchingId attribute of RmaOpCompleteRemote record. Invalid compression size." );
@@ -3370,12 +3371,12 @@ otf2_evt_reader_read_rma_op_complete_remote( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.rma_op_complete_remote )
     {
         interrupt = reader->reader_callbacks.rma_op_complete_remote( reader->location_id,
-                                                                     record->time,
-                                                                     reader->global_event_position,
-                                                                     reader->user_data,
-                                                                     &reader->attribute_list,
-                                                                     record->win,
-                                                                     record->matching_id );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->win,
+record->matching_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -3398,7 +3399,7 @@ otf2_evt_reader_read_thread_fork( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -3445,29 +3446,29 @@ otf2_evt_reader_read_thread_fork( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_fork )
     {
         interrupt = reader->reader_callbacks.thread_fork( reader->location_id,
-                                                          record->time,
-                                                          reader->global_event_position,
-                                                          reader->user_data,
-                                                          &reader->attribute_list,
-                                                          record->model,
-                                                          record->number_of_requested_threads );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->model,
+record->number_of_requested_threads );
     }
     else if ( reader->reader_callbacks.omp_fork )
     {
         OTF2_OmpFork omp_fork_record;
-        bool         conversion_successful
+        bool conversion_successful
             = otf2_event_thread_fork_convert_to_omp_fork( reader->archive,
-                                                          record,
-                                                          &reader->attribute_list,
-                                                          &omp_fork_record );
+                                                                                       record,
+                                                                                       &reader->attribute_list,
+                                                                                       &omp_fork_record );
         if ( conversion_successful )
         {
             interrupt = reader->reader_callbacks.omp_fork( reader->location_id,
-                                                           record->time,
-                                                           reader->global_event_position,
-                                                           reader->user_data,
-                                                           &reader->attribute_list,
-                                                           omp_fork_record.number_of_requested_threads );
+                                                                                    record->time,
+                                                                                    reader->global_event_position,
+                                                                                    reader->user_data,
+                                                                                    &reader->attribute_list,
+omp_fork_record.number_of_requested_threads );
         }
     }
 
@@ -3491,7 +3492,7 @@ otf2_evt_reader_read_thread_join( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -3533,27 +3534,27 @@ otf2_evt_reader_read_thread_join( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_join )
     {
         interrupt = reader->reader_callbacks.thread_join( reader->location_id,
-                                                          record->time,
-                                                          reader->global_event_position,
-                                                          reader->user_data,
-                                                          &reader->attribute_list,
-                                                          record->model );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->model );
     }
     else if ( reader->reader_callbacks.omp_join )
     {
         OTF2_OmpJoin omp_join_record;
-        bool         conversion_successful
+        bool conversion_successful
             = otf2_event_thread_join_convert_to_omp_join( reader->archive,
-                                                          record,
-                                                          &reader->attribute_list,
-                                                          &omp_join_record );
+                                                                                       record,
+                                                                                       &reader->attribute_list,
+                                                                                       &omp_join_record );
         if ( conversion_successful )
         {
             interrupt = reader->reader_callbacks.omp_join( reader->location_id,
-                                                           record->time,
-                                                           reader->global_event_position,
-                                                           reader->user_data,
-                                                           &reader->attribute_list );
+                                                                                    record->time,
+                                                                                    reader->global_event_position,
+                                                                                    reader->user_data,
+                                                                                    &reader->attribute_list );
         }
     }
 
@@ -3577,7 +3578,7 @@ otf2_evt_reader_read_thread_team_begin( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -3624,11 +3625,11 @@ otf2_evt_reader_read_thread_team_begin( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_team_begin )
     {
         interrupt = reader->reader_callbacks.thread_team_begin( reader->location_id,
-                                                                record->time,
-                                                                reader->global_event_position,
-                                                                reader->user_data,
-                                                                &reader->attribute_list,
-                                                                record->thread_team );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->thread_team );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -3651,7 +3652,7 @@ otf2_evt_reader_read_thread_team_end( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -3702,7 +3703,7 @@ otf2_evt_reader_read_thread_team_end( OTF2_EvtReader* reader )
                                                               reader->global_event_position,
                                                               reader->user_data,
                                                               &reader->attribute_list,
-                                                              record->thread_team );
+record->thread_team );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -3725,7 +3726,7 @@ otf2_evt_reader_read_thread_acquire_lock( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -3777,31 +3778,31 @@ otf2_evt_reader_read_thread_acquire_lock( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_acquire_lock )
     {
         interrupt = reader->reader_callbacks.thread_acquire_lock( reader->location_id,
-                                                                  record->time,
-                                                                  reader->global_event_position,
-                                                                  reader->user_data,
-                                                                  &reader->attribute_list,
-                                                                  record->model,
-                                                                  record->lock_id,
-                                                                  record->acquisition_order );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->model,
+record->lock_id,
+record->acquisition_order );
     }
     else if ( reader->reader_callbacks.omp_acquire_lock )
     {
         OTF2_OmpAcquireLock omp_acquire_lock_record;
-        bool                conversion_successful
+        bool conversion_successful
             = otf2_event_thread_acquire_lock_convert_to_omp_acquire_lock( reader->archive,
-                                                                          record,
-                                                                          &reader->attribute_list,
-                                                                          &omp_acquire_lock_record );
+                                                                                       record,
+                                                                                       &reader->attribute_list,
+                                                                                       &omp_acquire_lock_record );
         if ( conversion_successful )
         {
             interrupt = reader->reader_callbacks.omp_acquire_lock( reader->location_id,
-                                                                   record->time,
-                                                                   reader->global_event_position,
-                                                                   reader->user_data,
-                                                                   &reader->attribute_list,
-                                                                   omp_acquire_lock_record.lock_id,
-                                                                   omp_acquire_lock_record.acquisition_order );
+                                                                                    record->time,
+                                                                                    reader->global_event_position,
+                                                                                    reader->user_data,
+                                                                                    &reader->attribute_list,
+omp_acquire_lock_record.lock_id,
+omp_acquire_lock_record.acquisition_order );
         }
     }
 
@@ -3825,7 +3826,7 @@ otf2_evt_reader_read_thread_release_lock( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -3877,31 +3878,31 @@ otf2_evt_reader_read_thread_release_lock( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_release_lock )
     {
         interrupt = reader->reader_callbacks.thread_release_lock( reader->location_id,
-                                                                  record->time,
-                                                                  reader->global_event_position,
-                                                                  reader->user_data,
-                                                                  &reader->attribute_list,
-                                                                  record->model,
-                                                                  record->lock_id,
-                                                                  record->acquisition_order );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->model,
+record->lock_id,
+record->acquisition_order );
     }
     else if ( reader->reader_callbacks.omp_release_lock )
     {
         OTF2_OmpReleaseLock omp_release_lock_record;
-        bool                conversion_successful
+        bool conversion_successful
             = otf2_event_thread_release_lock_convert_to_omp_release_lock( reader->archive,
-                                                                          record,
-                                                                          &reader->attribute_list,
-                                                                          &omp_release_lock_record );
+                                                                                       record,
+                                                                                       &reader->attribute_list,
+                                                                                       &omp_release_lock_record );
         if ( conversion_successful )
         {
             interrupt = reader->reader_callbacks.omp_release_lock( reader->location_id,
-                                                                   record->time,
-                                                                   reader->global_event_position,
-                                                                   reader->user_data,
-                                                                   &reader->attribute_list,
-                                                                   omp_release_lock_record.lock_id,
-                                                                   omp_release_lock_record.acquisition_order );
+                                                                                    record->time,
+                                                                                    reader->global_event_position,
+                                                                                    reader->user_data,
+                                                                                    &reader->attribute_list,
+omp_release_lock_record.lock_id,
+omp_release_lock_record.acquisition_order );
         }
     }
 
@@ -3925,7 +3926,7 @@ otf2_evt_reader_read_thread_task_create( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -3943,7 +3944,7 @@ otf2_evt_reader_read_thread_task_create( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read threadTeam attribute of ThreadTaskCreate record. Invalid compression size." );
     }
     record->thread_team = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->thread_team );
-    ret                 = OTF2_Buffer_ReadUint32( reader->buffer, &record->creating_thread );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->creating_thread );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read creatingThread attribute of ThreadTaskCreate record. Invalid compression size." );
@@ -3982,13 +3983,13 @@ otf2_evt_reader_read_thread_task_create( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_task_create )
     {
         interrupt = reader->reader_callbacks.thread_task_create( reader->location_id,
-                                                                 record->time,
-                                                                 reader->global_event_position,
-                                                                 reader->user_data,
-                                                                 &reader->attribute_list,
-                                                                 record->thread_team,
-                                                                 record->creating_thread,
-                                                                 record->generation_number );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->thread_team,
+record->creating_thread,
+record->generation_number );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -4011,7 +4012,7 @@ otf2_evt_reader_read_thread_task_switch( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -4029,7 +4030,7 @@ otf2_evt_reader_read_thread_task_switch( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read threadTeam attribute of ThreadTaskSwitch record. Invalid compression size." );
     }
     record->thread_team = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->thread_team );
-    ret                 = OTF2_Buffer_ReadUint32( reader->buffer, &record->creating_thread );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->creating_thread );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read creatingThread attribute of ThreadTaskSwitch record. Invalid compression size." );
@@ -4068,13 +4069,13 @@ otf2_evt_reader_read_thread_task_switch( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_task_switch )
     {
         interrupt = reader->reader_callbacks.thread_task_switch( reader->location_id,
-                                                                 record->time,
-                                                                 reader->global_event_position,
-                                                                 reader->user_data,
-                                                                 &reader->attribute_list,
-                                                                 record->thread_team,
-                                                                 record->creating_thread,
-                                                                 record->generation_number );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->thread_team,
+record->creating_thread,
+record->generation_number );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -4097,7 +4098,7 @@ otf2_evt_reader_read_thread_task_complete( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -4115,7 +4116,7 @@ otf2_evt_reader_read_thread_task_complete( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read threadTeam attribute of ThreadTaskComplete record. Invalid compression size." );
     }
     record->thread_team = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->thread_team );
-    ret                 = OTF2_Buffer_ReadUint32( reader->buffer, &record->creating_thread );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->creating_thread );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read creatingThread attribute of ThreadTaskComplete record. Invalid compression size." );
@@ -4154,13 +4155,13 @@ otf2_evt_reader_read_thread_task_complete( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_task_complete )
     {
         interrupt = reader->reader_callbacks.thread_task_complete( reader->location_id,
-                                                                   record->time,
-                                                                   reader->global_event_position,
-                                                                   reader->user_data,
-                                                                   &reader->attribute_list,
-                                                                   record->thread_team,
-                                                                   record->creating_thread,
-                                                                   record->generation_number );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->thread_team,
+record->creating_thread,
+record->generation_number );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -4183,7 +4184,7 @@ otf2_evt_reader_read_thread_create( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -4201,7 +4202,7 @@ otf2_evt_reader_read_thread_create( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read threadContingent attribute of ThreadCreate record. Invalid compression size." );
     }
     record->thread_contingent = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->thread_contingent );
-    ret                       = OTF2_Buffer_ReadUint64( reader->buffer, &record->sequence_count );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->sequence_count );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read sequenceCount attribute of ThreadCreate record. Invalid compression size." );
@@ -4235,12 +4236,12 @@ otf2_evt_reader_read_thread_create( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_create )
     {
         interrupt = reader->reader_callbacks.thread_create( reader->location_id,
-                                                            record->time,
-                                                            reader->global_event_position,
-                                                            reader->user_data,
-                                                            &reader->attribute_list,
-                                                            record->thread_contingent,
-                                                            record->sequence_count );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->thread_contingent,
+record->sequence_count );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -4263,7 +4264,7 @@ otf2_evt_reader_read_thread_begin( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -4281,7 +4282,7 @@ otf2_evt_reader_read_thread_begin( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read threadContingent attribute of ThreadBegin record. Invalid compression size." );
     }
     record->thread_contingent = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->thread_contingent );
-    ret                       = OTF2_Buffer_ReadUint64( reader->buffer, &record->sequence_count );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->sequence_count );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read sequenceCount attribute of ThreadBegin record. Invalid compression size." );
@@ -4315,12 +4316,12 @@ otf2_evt_reader_read_thread_begin( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_begin )
     {
         interrupt = reader->reader_callbacks.thread_begin( reader->location_id,
-                                                           record->time,
-                                                           reader->global_event_position,
-                                                           reader->user_data,
-                                                           &reader->attribute_list,
-                                                           record->thread_contingent,
-                                                           record->sequence_count );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->thread_contingent,
+record->sequence_count );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -4343,7 +4344,7 @@ otf2_evt_reader_read_thread_wait( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -4361,7 +4362,7 @@ otf2_evt_reader_read_thread_wait( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read threadContingent attribute of ThreadWait record. Invalid compression size." );
     }
     record->thread_contingent = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->thread_contingent );
-    ret                       = OTF2_Buffer_ReadUint64( reader->buffer, &record->sequence_count );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->sequence_count );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read sequenceCount attribute of ThreadWait record. Invalid compression size." );
@@ -4395,12 +4396,12 @@ otf2_evt_reader_read_thread_wait( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_wait )
     {
         interrupt = reader->reader_callbacks.thread_wait( reader->location_id,
-                                                          record->time,
-                                                          reader->global_event_position,
-                                                          reader->user_data,
-                                                          &reader->attribute_list,
-                                                          record->thread_contingent,
-                                                          record->sequence_count );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->thread_contingent,
+record->sequence_count );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -4423,7 +4424,7 @@ otf2_evt_reader_read_thread_end( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -4441,7 +4442,7 @@ otf2_evt_reader_read_thread_end( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read threadContingent attribute of ThreadEnd record. Invalid compression size." );
     }
     record->thread_contingent = otf2_evt_reader_map( reader, OTF2_MAPPING_COMM, record->thread_contingent );
-    ret                       = OTF2_Buffer_ReadUint64( reader->buffer, &record->sequence_count );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->sequence_count );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read sequenceCount attribute of ThreadEnd record. Invalid compression size." );
@@ -4475,12 +4476,12 @@ otf2_evt_reader_read_thread_end( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.thread_end )
     {
         interrupt = reader->reader_callbacks.thread_end( reader->location_id,
-                                                         record->time,
-                                                         reader->global_event_position,
-                                                         reader->user_data,
-                                                         &reader->attribute_list,
-                                                         record->thread_contingent,
-                                                         record->sequence_count );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->thread_contingent,
+record->sequence_count );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -4503,7 +4504,7 @@ otf2_evt_reader_read_calling_context_enter( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -4521,7 +4522,7 @@ otf2_evt_reader_read_calling_context_enter( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read callingContext attribute of CallingContextEnter record. Invalid compression size." );
     }
     record->calling_context = otf2_evt_reader_map( reader, OTF2_MAPPING_CALLING_CONTEXT, record->calling_context );
-    ret                     = OTF2_Buffer_ReadUint32( reader->buffer, &record->unwind_distance );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->unwind_distance );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read unwindDistance attribute of CallingContextEnter record. Invalid compression size." );
@@ -4555,29 +4556,29 @@ otf2_evt_reader_read_calling_context_enter( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.calling_context_enter )
     {
         interrupt = reader->reader_callbacks.calling_context_enter( reader->location_id,
-                                                                    record->time,
-                                                                    reader->global_event_position,
-                                                                    reader->user_data,
-                                                                    &reader->attribute_list,
-                                                                    record->calling_context,
-                                                                    record->unwind_distance );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->calling_context,
+record->unwind_distance );
     }
     else if ( reader->reader_callbacks.enter )
     {
         OTF2_Enter enter_record;
-        bool       conversion_successful
+        bool conversion_successful
             = otf2_event_calling_context_enter_convert_to_enter( reader->archive,
-                                                                 record,
-                                                                 &reader->attribute_list,
-                                                                 &enter_record );
+                                                                                       record,
+                                                                                       &reader->attribute_list,
+                                                                                       &enter_record );
         if ( conversion_successful )
         {
             interrupt = reader->reader_callbacks.enter( reader->location_id,
-                                                        record->time,
-                                                        reader->global_event_position,
-                                                        reader->user_data,
-                                                        &reader->attribute_list,
-                                                        enter_record.region );
+                                                                                    record->time,
+                                                                                    reader->global_event_position,
+                                                                                    reader->user_data,
+                                                                                    &reader->attribute_list,
+enter_record.region );
         }
     }
 
@@ -4601,7 +4602,7 @@ otf2_evt_reader_read_calling_context_leave( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -4648,28 +4649,28 @@ otf2_evt_reader_read_calling_context_leave( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.calling_context_leave )
     {
         interrupt = reader->reader_callbacks.calling_context_leave( reader->location_id,
-                                                                    record->time,
-                                                                    reader->global_event_position,
-                                                                    reader->user_data,
-                                                                    &reader->attribute_list,
-                                                                    record->calling_context );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->calling_context );
     }
     else if ( reader->reader_callbacks.leave )
     {
         OTF2_Leave leave_record;
-        bool       conversion_successful
+        bool conversion_successful
             = otf2_event_calling_context_leave_convert_to_leave( reader->archive,
-                                                                 record,
-                                                                 &reader->attribute_list,
-                                                                 &leave_record );
+                                                                                       record,
+                                                                                       &reader->attribute_list,
+                                                                                       &leave_record );
         if ( conversion_successful )
         {
             interrupt = reader->reader_callbacks.leave( reader->location_id,
-                                                        record->time,
-                                                        reader->global_event_position,
-                                                        reader->user_data,
-                                                        &reader->attribute_list,
-                                                        leave_record.region );
+                                                                                    record->time,
+                                                                                    reader->global_event_position,
+                                                                                    reader->user_data,
+                                                                                    &reader->attribute_list,
+leave_record.region );
         }
     }
 
@@ -4693,7 +4694,7 @@ otf2_evt_reader_read_calling_context_sample( OTF2_EvtReader* reader )
     record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Event contains separate record length information */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -4711,7 +4712,7 @@ otf2_evt_reader_read_calling_context_sample( OTF2_EvtReader* reader )
         return UTILS_ERROR( ret, "Could not read callingContext attribute of CallingContextSample record. Invalid compression size." );
     }
     record->calling_context = otf2_evt_reader_map( reader, OTF2_MAPPING_CALLING_CONTEXT, record->calling_context );
-    ret                     = OTF2_Buffer_ReadUint32( reader->buffer, &record->unwind_distance );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->unwind_distance );
     if ( OTF2_SUCCESS != ret )
     {
         return UTILS_ERROR( ret, "Could not read unwindDistance attribute of CallingContextSample record. Invalid compression size." );
@@ -4751,13 +4752,783 @@ otf2_evt_reader_read_calling_context_sample( OTF2_EvtReader* reader )
     if ( reader->reader_callbacks.calling_context_sample )
     {
         interrupt = reader->reader_callbacks.calling_context_sample( reader->location_id,
-                                                                     record->time,
-                                                                     reader->global_event_position,
-                                                                     reader->user_data,
-                                                                     &reader->attribute_list,
-                                                                     record->calling_context,
-                                                                     record->unwind_distance,
-                                                                     record->interrupt_generator );
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->calling_context,
+record->unwind_distance,
+record->interrupt_generator );
+    }
+
+    otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
+
+
+    return OTF2_CALLBACK_SUCCESS == interrupt
+           ? OTF2_SUCCESS
+           : OTF2_ERROR_INTERRUPTED_BY_CALLBACK;
+}
+
+
+static inline OTF2_ErrorCode
+otf2_evt_reader_read_task_create( OTF2_EvtReader* reader )
+{
+    UTILS_ASSERT( reader );
+    UTILS_ASSERT( reader->archive );
+
+    OTF2_TaskCreate* record = &reader->current_event.record.task_create;
+
+    record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
+
+    OTF2_ErrorCode ret;
+    /* Event is singleton (just one attribute of compressed data type) */
+    ret = OTF2_Buffer_GuaranteeCompressed( reader->buffer );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read TaskCreate record. Not enough memory in buffer" );
+    }
+
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->region );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read region attribute of TaskCreate record. Invalid compression size." );
+    }
+    record->region = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->region );
+
+    reader->global_event_position++;
+    reader->chunk_local_event_position++;
+
+    /*
+     * If a local event reader is operated by a global event reader,
+     * don't call our callback, don't clean up the attribute list and
+     * don't free any attribute arrays. Otherwise the global event reader
+     * will clean up the attribute list after he has triggered his callback.
+     */
+    if ( reader->operated )
+    {
+        return OTF2_SUCCESS;
+    }
+
+    OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
+    if ( reader->reader_callbacks.task_create )
+    {
+        interrupt = reader->reader_callbacks.task_create( reader->location_id,
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->region );
+    }
+
+    otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
+
+
+    return OTF2_CALLBACK_SUCCESS == interrupt
+           ? OTF2_SUCCESS
+           : OTF2_ERROR_INTERRUPTED_BY_CALLBACK;
+}
+
+
+static inline OTF2_ErrorCode
+otf2_evt_reader_read_task_destroy( OTF2_EvtReader* reader )
+{
+    UTILS_ASSERT( reader );
+    UTILS_ASSERT( reader->archive );
+
+    OTF2_TaskDestroy* record = &reader->current_event.record.task_destroy;
+
+    record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
+
+    OTF2_ErrorCode ret;
+    /* Event is singleton (just one attribute of compressed data type) */
+    ret = OTF2_Buffer_GuaranteeCompressed( reader->buffer );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read TaskDestroy record. Not enough memory in buffer" );
+    }
+
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->region );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read region attribute of TaskDestroy record. Invalid compression size." );
+    }
+    record->region = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->region );
+
+    reader->global_event_position++;
+    reader->chunk_local_event_position++;
+
+    /*
+     * If a local event reader is operated by a global event reader,
+     * don't call our callback, don't clean up the attribute list and
+     * don't free any attribute arrays. Otherwise the global event reader
+     * will clean up the attribute list after he has triggered his callback.
+     */
+    if ( reader->operated )
+    {
+        return OTF2_SUCCESS;
+    }
+
+    OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
+    if ( reader->reader_callbacks.task_destroy )
+    {
+        interrupt = reader->reader_callbacks.task_destroy( reader->location_id,
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->region );
+    }
+
+    otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
+
+
+    return OTF2_CALLBACK_SUCCESS == interrupt
+           ? OTF2_SUCCESS
+           : OTF2_ERROR_INTERRUPTED_BY_CALLBACK;
+}
+
+
+static inline OTF2_ErrorCode
+otf2_evt_reader_read_task_runnable( OTF2_EvtReader* reader )
+{
+    UTILS_ASSERT( reader );
+    UTILS_ASSERT( reader->archive );
+
+    OTF2_TaskRunnable* record = &reader->current_event.record.task_runnable;
+
+    record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
+
+    OTF2_ErrorCode ret;
+    /* Event is singleton (just one attribute of compressed data type) */
+    ret = OTF2_Buffer_GuaranteeCompressed( reader->buffer );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read TaskRunnable record. Not enough memory in buffer" );
+    }
+
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->region );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read region attribute of TaskRunnable record. Invalid compression size." );
+    }
+    record->region = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->region );
+
+    reader->global_event_position++;
+    reader->chunk_local_event_position++;
+
+    /*
+     * If a local event reader is operated by a global event reader,
+     * don't call our callback, don't clean up the attribute list and
+     * don't free any attribute arrays. Otherwise the global event reader
+     * will clean up the attribute list after he has triggered his callback.
+     */
+    if ( reader->operated )
+    {
+        return OTF2_SUCCESS;
+    }
+
+    OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
+    if ( reader->reader_callbacks.task_runnable )
+    {
+        interrupt = reader->reader_callbacks.task_runnable( reader->location_id,
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->region );
+    }
+
+    otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
+
+
+    return OTF2_CALLBACK_SUCCESS == interrupt
+           ? OTF2_SUCCESS
+           : OTF2_ERROR_INTERRUPTED_BY_CALLBACK;
+}
+
+
+static inline OTF2_ErrorCode
+otf2_evt_reader_read_add_dependence( OTF2_EvtReader* reader )
+{
+    UTILS_ASSERT( reader );
+    UTILS_ASSERT( reader->archive );
+
+    OTF2_AddDependence* record = &reader->current_event.record.add_dependence;
+
+    record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
+
+    OTF2_ErrorCode ret;
+    uint64_t          record_data_length;
+    /* Event contains separate record length information */
+    ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read AddDependence record. Not enough memory in buffer" );
+    }
+    uint8_t* record_end_pos;
+    OTF2_Buffer_GetPosition( reader->buffer, &record_end_pos );
+    record_end_pos += record_data_length;
+
+
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->src );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read src attribute of AddDependence record. Invalid compression size." );
+    }
+    record->src = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->src );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->dest );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read dest attribute of AddDependence record. Invalid compression size." );
+    }
+    record->dest = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->dest );
+
+    reader->global_event_position++;
+    reader->chunk_local_event_position++;
+
+    /*
+     * Always jump to the announced end of the record. This way, we skip
+     * future additions of attributes to this record.
+     */
+    ret = OTF2_Buffer_SetPosition( reader->buffer, record_end_pos );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read record of unknown type." );
+    }
+
+    /*
+     * If a local event reader is operated by a global event reader,
+     * don't call our callback, don't clean up the attribute list and
+     * don't free any attribute arrays. Otherwise the global event reader
+     * will clean up the attribute list after he has triggered his callback.
+     */
+    if ( reader->operated )
+    {
+        return OTF2_SUCCESS;
+    }
+
+    OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
+    if ( reader->reader_callbacks.add_dependence )
+    {
+        interrupt = reader->reader_callbacks.add_dependence( reader->location_id,
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->src,
+record->dest );
+    }
+
+    otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
+
+
+    return OTF2_CALLBACK_SUCCESS == interrupt
+           ? OTF2_SUCCESS
+           : OTF2_ERROR_INTERRUPTED_BY_CALLBACK;
+}
+
+
+static inline OTF2_ErrorCode
+otf2_evt_reader_read_satisfy_dependence( OTF2_EvtReader* reader )
+{
+    UTILS_ASSERT( reader );
+    UTILS_ASSERT( reader->archive );
+
+    OTF2_SatisfyDependence* record = &reader->current_event.record.satisfy_dependence;
+
+    record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
+
+    OTF2_ErrorCode ret;
+    uint64_t          record_data_length;
+    /* Event contains separate record length information */
+    ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read SatisfyDependence record. Not enough memory in buffer" );
+    }
+    uint8_t* record_end_pos;
+    OTF2_Buffer_GetPosition( reader->buffer, &record_end_pos );
+    record_end_pos += record_data_length;
+
+
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->src );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read src attribute of SatisfyDependence record. Invalid compression size." );
+    }
+    record->src = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->src );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->dest );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read dest attribute of SatisfyDependence record. Invalid compression size." );
+    }
+    record->dest = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->dest );
+
+    reader->global_event_position++;
+    reader->chunk_local_event_position++;
+
+    /*
+     * Always jump to the announced end of the record. This way, we skip
+     * future additions of attributes to this record.
+     */
+    ret = OTF2_Buffer_SetPosition( reader->buffer, record_end_pos );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read record of unknown type." );
+    }
+
+    /*
+     * If a local event reader is operated by a global event reader,
+     * don't call our callback, don't clean up the attribute list and
+     * don't free any attribute arrays. Otherwise the global event reader
+     * will clean up the attribute list after he has triggered his callback.
+     */
+    if ( reader->operated )
+    {
+        return OTF2_SUCCESS;
+    }
+
+    OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
+    if ( reader->reader_callbacks.satisfy_dependence )
+    {
+        interrupt = reader->reader_callbacks.satisfy_dependence( reader->location_id,
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->src,
+record->dest );
+    }
+
+    otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
+
+
+    return OTF2_CALLBACK_SUCCESS == interrupt
+           ? OTF2_SUCCESS
+           : OTF2_ERROR_INTERRUPTED_BY_CALLBACK;
+}
+
+
+static inline OTF2_ErrorCode
+otf2_evt_reader_read_data_acquire( OTF2_EvtReader* reader )
+{
+    UTILS_ASSERT( reader );
+    UTILS_ASSERT( reader->archive );
+
+    OTF2_DataAcquire* record = &reader->current_event.record.data_acquire;
+
+    record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
+
+    OTF2_ErrorCode ret;
+    uint64_t          record_data_length;
+    /* Event contains separate record length information */
+    ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read DataAcquire record. Not enough memory in buffer" );
+    }
+    uint8_t* record_end_pos;
+    OTF2_Buffer_GetPosition( reader->buffer, &record_end_pos );
+    record_end_pos += record_data_length;
+
+
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->task );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read task attribute of DataAcquire record. Invalid compression size." );
+    }
+    record->task = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->task );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->data );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read data attribute of DataAcquire record. Invalid compression size." );
+    }
+    record->data = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->data );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->size );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read size attribute of DataAcquire record. Invalid compression size." );
+    }
+
+    reader->global_event_position++;
+    reader->chunk_local_event_position++;
+
+    /*
+     * Always jump to the announced end of the record. This way, we skip
+     * future additions of attributes to this record.
+     */
+    ret = OTF2_Buffer_SetPosition( reader->buffer, record_end_pos );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read record of unknown type." );
+    }
+
+    /*
+     * If a local event reader is operated by a global event reader,
+     * don't call our callback, don't clean up the attribute list and
+     * don't free any attribute arrays. Otherwise the global event reader
+     * will clean up the attribute list after he has triggered his callback.
+     */
+    if ( reader->operated )
+    {
+        return OTF2_SUCCESS;
+    }
+
+    OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
+    if ( reader->reader_callbacks.data_acquire )
+    {
+        interrupt = reader->reader_callbacks.data_acquire( reader->location_id,
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->task,
+record->data,
+record->size );
+    }
+
+    otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
+
+
+    return OTF2_CALLBACK_SUCCESS == interrupt
+           ? OTF2_SUCCESS
+           : OTF2_ERROR_INTERRUPTED_BY_CALLBACK;
+}
+
+
+static inline OTF2_ErrorCode
+otf2_evt_reader_read_data_release( OTF2_EvtReader* reader )
+{
+    UTILS_ASSERT( reader );
+    UTILS_ASSERT( reader->archive );
+
+    OTF2_DataRelease* record = &reader->current_event.record.data_release;
+
+    record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
+
+    OTF2_ErrorCode ret;
+    uint64_t          record_data_length;
+    /* Event contains separate record length information */
+    ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read DataRelease record. Not enough memory in buffer" );
+    }
+    uint8_t* record_end_pos;
+    OTF2_Buffer_GetPosition( reader->buffer, &record_end_pos );
+    record_end_pos += record_data_length;
+
+
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->task );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read task attribute of DataRelease record. Invalid compression size." );
+    }
+    record->task = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->task );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->data );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read data attribute of DataRelease record. Invalid compression size." );
+    }
+    record->data = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->data );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->size );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read size attribute of DataRelease record. Invalid compression size." );
+    }
+
+    reader->global_event_position++;
+    reader->chunk_local_event_position++;
+
+    /*
+     * Always jump to the announced end of the record. This way, we skip
+     * future additions of attributes to this record.
+     */
+    ret = OTF2_Buffer_SetPosition( reader->buffer, record_end_pos );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read record of unknown type." );
+    }
+
+    /*
+     * If a local event reader is operated by a global event reader,
+     * don't call our callback, don't clean up the attribute list and
+     * don't free any attribute arrays. Otherwise the global event reader
+     * will clean up the attribute list after he has triggered his callback.
+     */
+    if ( reader->operated )
+    {
+        return OTF2_SUCCESS;
+    }
+
+    OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
+    if ( reader->reader_callbacks.data_release )
+    {
+        interrupt = reader->reader_callbacks.data_release( reader->location_id,
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->task,
+record->data,
+record->size );
+    }
+
+    otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
+
+
+    return OTF2_CALLBACK_SUCCESS == interrupt
+           ? OTF2_SUCCESS
+           : OTF2_ERROR_INTERRUPTED_BY_CALLBACK;
+}
+
+
+static inline OTF2_ErrorCode
+otf2_evt_reader_read_event_create( OTF2_EvtReader* reader )
+{
+    UTILS_ASSERT( reader );
+    UTILS_ASSERT( reader->archive );
+
+    OTF2_EventCreate* record = &reader->current_event.record.event_create;
+
+    record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
+
+    OTF2_ErrorCode ret;
+    /* Event is singleton (just one attribute of compressed data type) */
+    ret = OTF2_Buffer_GuaranteeCompressed( reader->buffer );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read EventCreate record. Not enough memory in buffer" );
+    }
+
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->region );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read region attribute of EventCreate record. Invalid compression size." );
+    }
+    record->region = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->region );
+
+    reader->global_event_position++;
+    reader->chunk_local_event_position++;
+
+    /*
+     * If a local event reader is operated by a global event reader,
+     * don't call our callback, don't clean up the attribute list and
+     * don't free any attribute arrays. Otherwise the global event reader
+     * will clean up the attribute list after he has triggered his callback.
+     */
+    if ( reader->operated )
+    {
+        return OTF2_SUCCESS;
+    }
+
+    OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
+    if ( reader->reader_callbacks.event_create )
+    {
+        interrupt = reader->reader_callbacks.event_create( reader->location_id,
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->region );
+    }
+
+    otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
+
+
+    return OTF2_CALLBACK_SUCCESS == interrupt
+           ? OTF2_SUCCESS
+           : OTF2_ERROR_INTERRUPTED_BY_CALLBACK;
+}
+
+
+static inline OTF2_ErrorCode
+otf2_evt_reader_read_event_destroy( OTF2_EvtReader* reader )
+{
+    UTILS_ASSERT( reader );
+    UTILS_ASSERT( reader->archive );
+
+    OTF2_EventDestroy* record = &reader->current_event.record.event_destroy;
+
+    record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
+
+    OTF2_ErrorCode ret;
+    /* Event is singleton (just one attribute of compressed data type) */
+    ret = OTF2_Buffer_GuaranteeCompressed( reader->buffer );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read EventDestroy record. Not enough memory in buffer" );
+    }
+
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->region );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read region attribute of EventDestroy record. Invalid compression size." );
+    }
+    record->region = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->region );
+
+    reader->global_event_position++;
+    reader->chunk_local_event_position++;
+
+    /*
+     * If a local event reader is operated by a global event reader,
+     * don't call our callback, don't clean up the attribute list and
+     * don't free any attribute arrays. Otherwise the global event reader
+     * will clean up the attribute list after he has triggered his callback.
+     */
+    if ( reader->operated )
+    {
+        return OTF2_SUCCESS;
+    }
+
+    OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
+    if ( reader->reader_callbacks.event_destroy )
+    {
+        interrupt = reader->reader_callbacks.event_destroy( reader->location_id,
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->region );
+    }
+
+    otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
+
+
+    return OTF2_CALLBACK_SUCCESS == interrupt
+           ? OTF2_SUCCESS
+           : OTF2_ERROR_INTERRUPTED_BY_CALLBACK;
+}
+
+
+static inline OTF2_ErrorCode
+otf2_evt_reader_read_data_create( OTF2_EvtReader* reader )
+{
+    UTILS_ASSERT( reader );
+    UTILS_ASSERT( reader->archive );
+
+    OTF2_DataCreate* record = &reader->current_event.record.data_create;
+
+    record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
+
+    OTF2_ErrorCode ret;
+    uint64_t          record_data_length;
+    /* Event contains separate record length information */
+    ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read DataCreate record. Not enough memory in buffer" );
+    }
+    uint8_t* record_end_pos;
+    OTF2_Buffer_GetPosition( reader->buffer, &record_end_pos );
+    record_end_pos += record_data_length;
+
+
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->region );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read region attribute of DataCreate record. Invalid compression size." );
+    }
+    record->region = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->region );
+    ret = OTF2_Buffer_ReadUint64( reader->buffer, &record->size );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read size attribute of DataCreate record. Invalid compression size." );
+    }
+
+    reader->global_event_position++;
+    reader->chunk_local_event_position++;
+
+    /*
+     * Always jump to the announced end of the record. This way, we skip
+     * future additions of attributes to this record.
+     */
+    ret = OTF2_Buffer_SetPosition( reader->buffer, record_end_pos );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read record of unknown type." );
+    }
+
+    /*
+     * If a local event reader is operated by a global event reader,
+     * don't call our callback, don't clean up the attribute list and
+     * don't free any attribute arrays. Otherwise the global event reader
+     * will clean up the attribute list after he has triggered his callback.
+     */
+    if ( reader->operated )
+    {
+        return OTF2_SUCCESS;
+    }
+
+    OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
+    if ( reader->reader_callbacks.data_create )
+    {
+        interrupt = reader->reader_callbacks.data_create( reader->location_id,
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->region,
+record->size );
+    }
+
+    otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
+
+
+    return OTF2_CALLBACK_SUCCESS == interrupt
+           ? OTF2_SUCCESS
+           : OTF2_ERROR_INTERRUPTED_BY_CALLBACK;
+}
+
+
+static inline OTF2_ErrorCode
+otf2_evt_reader_read_data_destroy( OTF2_EvtReader* reader )
+{
+    UTILS_ASSERT( reader );
+    UTILS_ASSERT( reader->archive );
+
+    OTF2_DataDestroy* record = &reader->current_event.record.data_destroy;
+
+    record->time = otf2_evt_reader_apply_clock_correction( reader, record->time );
+
+    OTF2_ErrorCode ret;
+    /* Event is singleton (just one attribute of compressed data type) */
+    ret = OTF2_Buffer_GuaranteeCompressed( reader->buffer );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read DataDestroy record. Not enough memory in buffer" );
+    }
+
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &record->region );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read region attribute of DataDestroy record. Invalid compression size." );
+    }
+    record->region = otf2_evt_reader_map( reader, OTF2_MAPPING_REGION, record->region );
+
+    reader->global_event_position++;
+    reader->chunk_local_event_position++;
+
+    /*
+     * If a local event reader is operated by a global event reader,
+     * don't call our callback, don't clean up the attribute list and
+     * don't free any attribute arrays. Otherwise the global event reader
+     * will clean up the attribute list after he has triggered his callback.
+     */
+    if ( reader->operated )
+    {
+        return OTF2_SUCCESS;
+    }
+
+    OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
+    if ( reader->reader_callbacks.data_destroy )
+    {
+        interrupt = reader->reader_callbacks.data_destroy( reader->location_id,
+                                                              record->time,
+                                                              reader->global_event_position,
+                                                              reader->user_data,
+                                                              &reader->attribute_list,
+record->region );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -4774,7 +5545,7 @@ otf2_evt_reader_read( OTF2_EvtReader* reader )
 {
     UTILS_ASSERT( reader );
 
-    OTF2_ErrorCode     status = OTF2_ERROR_INVALID;
+    OTF2_ErrorCode  status = OTF2_ERROR_INVALID;
     OTF2_GenericEvent* event  = &reader->current_event;
 
     status = OTF2_Buffer_ReadTimeStamp( reader->buffer, &event->record.time );
@@ -4997,6 +5768,39 @@ otf2_evt_reader_read( OTF2_EvtReader* reader )
         case OTF2_EVENT_CALLING_CONTEXT_SAMPLE:
             return otf2_evt_reader_read_calling_context_sample( reader );
 
+        case OTF2_EVENT_TASK_CREATE:
+            return otf2_evt_reader_read_task_create( reader );
+
+        case OTF2_EVENT_TASK_DESTROY:
+            return otf2_evt_reader_read_task_destroy( reader );
+
+        case OTF2_EVENT_TASK_RUNNABLE:
+            return otf2_evt_reader_read_task_runnable( reader );
+
+        case OTF2_EVENT_ADD_DEPENDENCE:
+            return otf2_evt_reader_read_add_dependence( reader );
+
+        case OTF2_EVENT_SATISFY_DEPENDENCE:
+            return otf2_evt_reader_read_satisfy_dependence( reader );
+
+        case OTF2_EVENT_DATA_ACQUIRE:
+            return otf2_evt_reader_read_data_acquire( reader );
+
+        case OTF2_EVENT_DATA_RELEASE:
+            return otf2_evt_reader_read_data_release( reader );
+
+        case OTF2_EVENT_EVENT_CREATE:
+            return otf2_evt_reader_read_event_create( reader );
+
+        case OTF2_EVENT_EVENT_DESTROY:
+            return otf2_evt_reader_read_event_destroy( reader );
+
+        case OTF2_EVENT_DATA_CREATE:
+            return otf2_evt_reader_read_data_create( reader );
+
+        case OTF2_EVENT_DATA_DESTROY:
+            return otf2_evt_reader_read_data_destroy( reader );
+
         default:
             return otf2_evt_reader_read_unknown( reader );
     }
@@ -5005,7 +5809,7 @@ otf2_evt_reader_read( OTF2_EvtReader* reader )
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetBufferFlushCallback(
-    OTF2_EvtReaderCallbacks*           evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_BufferFlush bufferFlushCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5022,7 +5826,7 @@ OTF2_EvtReaderCallbacks_SetBufferFlushCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetMeasurementOnOffCallback(
-    OTF2_EvtReaderCallbacks*                evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_MeasurementOnOff measurementOnOffCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5039,7 +5843,7 @@ OTF2_EvtReaderCallbacks_SetMeasurementOnOffCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetEnterCallback(
-    OTF2_EvtReaderCallbacks*     evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_Enter enterCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5056,7 +5860,7 @@ OTF2_EvtReaderCallbacks_SetEnterCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetLeaveCallback(
-    OTF2_EvtReaderCallbacks*     evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_Leave leaveCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5073,7 +5877,7 @@ OTF2_EvtReaderCallbacks_SetLeaveCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetMpiSendCallback(
-    OTF2_EvtReaderCallbacks*       evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_MpiSend mpiSendCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5090,7 +5894,7 @@ OTF2_EvtReaderCallbacks_SetMpiSendCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetMpiIsendCallback(
-    OTF2_EvtReaderCallbacks*        evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_MpiIsend mpiIsendCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5107,7 +5911,7 @@ OTF2_EvtReaderCallbacks_SetMpiIsendCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetMpiIsendCompleteCallback(
-    OTF2_EvtReaderCallbacks*                evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_MpiIsendComplete mpiIsendCompleteCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5124,7 +5928,7 @@ OTF2_EvtReaderCallbacks_SetMpiIsendCompleteCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetMpiIrecvRequestCallback(
-    OTF2_EvtReaderCallbacks*               evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_MpiIrecvRequest mpiIrecvRequestCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5141,7 +5945,7 @@ OTF2_EvtReaderCallbacks_SetMpiIrecvRequestCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetMpiRecvCallback(
-    OTF2_EvtReaderCallbacks*       evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_MpiRecv mpiRecvCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5158,7 +5962,7 @@ OTF2_EvtReaderCallbacks_SetMpiRecvCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetMpiIrecvCallback(
-    OTF2_EvtReaderCallbacks*        evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_MpiIrecv mpiIrecvCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5192,7 +5996,7 @@ OTF2_EvtReaderCallbacks_SetMpiRequestTestCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetMpiRequestCancelledCallback(
-    OTF2_EvtReaderCallbacks*                   evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_MpiRequestCancelled mpiRequestCancelledCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5209,7 +6013,7 @@ OTF2_EvtReaderCallbacks_SetMpiRequestCancelledCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetMpiCollectiveBeginCallback(
-    OTF2_EvtReaderCallbacks*                  evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_MpiCollectiveBegin mpiCollectiveBeginCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5226,7 +6030,7 @@ OTF2_EvtReaderCallbacks_SetMpiCollectiveBeginCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetMpiCollectiveEndCallback(
-    OTF2_EvtReaderCallbacks*                evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_MpiCollectiveEnd mpiCollectiveEndCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5243,7 +6047,7 @@ OTF2_EvtReaderCallbacks_SetMpiCollectiveEndCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetOmpForkCallback(
-    OTF2_EvtReaderCallbacks*       evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_OmpFork ompForkCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5260,7 +6064,7 @@ OTF2_EvtReaderCallbacks_SetOmpForkCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetOmpJoinCallback(
-    OTF2_EvtReaderCallbacks*       evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_OmpJoin ompJoinCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5311,7 +6115,7 @@ OTF2_EvtReaderCallbacks_SetOmpReleaseLockCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetOmpTaskCreateCallback(
-    OTF2_EvtReaderCallbacks*             evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_OmpTaskCreate ompTaskCreateCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5328,7 +6132,7 @@ OTF2_EvtReaderCallbacks_SetOmpTaskCreateCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetOmpTaskSwitchCallback(
-    OTF2_EvtReaderCallbacks*             evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_OmpTaskSwitch ompTaskSwitchCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5345,7 +6149,7 @@ OTF2_EvtReaderCallbacks_SetOmpTaskSwitchCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetOmpTaskCompleteCallback(
-    OTF2_EvtReaderCallbacks*               evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_OmpTaskComplete ompTaskCompleteCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5362,7 +6166,7 @@ OTF2_EvtReaderCallbacks_SetOmpTaskCompleteCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetMetricCallback(
-    OTF2_EvtReaderCallbacks*      evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_Metric metricCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5379,7 +6183,7 @@ OTF2_EvtReaderCallbacks_SetMetricCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetParameterStringCallback(
-    OTF2_EvtReaderCallbacks*               evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ParameterString parameterStringCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5396,7 +6200,7 @@ OTF2_EvtReaderCallbacks_SetParameterStringCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetParameterIntCallback(
-    OTF2_EvtReaderCallbacks*            evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ParameterInt parameterIntCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5413,7 +6217,7 @@ OTF2_EvtReaderCallbacks_SetParameterIntCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetParameterUnsignedIntCallback(
-    OTF2_EvtReaderCallbacks*                    evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ParameterUnsignedInt parameterUnsignedIntCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5430,7 +6234,7 @@ OTF2_EvtReaderCallbacks_SetParameterUnsignedIntCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaWinCreateCallback(
-    OTF2_EvtReaderCallbacks*            evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaWinCreate rmaWinCreateCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5447,7 +6251,7 @@ OTF2_EvtReaderCallbacks_SetRmaWinCreateCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaWinDestroyCallback(
-    OTF2_EvtReaderCallbacks*             evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaWinDestroy rmaWinDestroyCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5464,7 +6268,7 @@ OTF2_EvtReaderCallbacks_SetRmaWinDestroyCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaCollectiveBeginCallback(
-    OTF2_EvtReaderCallbacks*                  evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaCollectiveBegin rmaCollectiveBeginCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5481,7 +6285,7 @@ OTF2_EvtReaderCallbacks_SetRmaCollectiveBeginCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaCollectiveEndCallback(
-    OTF2_EvtReaderCallbacks*                evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaCollectiveEnd rmaCollectiveEndCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5498,7 +6302,7 @@ OTF2_EvtReaderCallbacks_SetRmaCollectiveEndCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaGroupSyncCallback(
-    OTF2_EvtReaderCallbacks*            evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaGroupSync rmaGroupSyncCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5549,7 +6353,7 @@ OTF2_EvtReaderCallbacks_SetRmaAcquireLockCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaTryLockCallback(
-    OTF2_EvtReaderCallbacks*          evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaTryLock rmaTryLockCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5583,7 +6387,7 @@ OTF2_EvtReaderCallbacks_SetRmaReleaseLockCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaSyncCallback(
-    OTF2_EvtReaderCallbacks*       evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaSync rmaSyncCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5600,7 +6404,7 @@ OTF2_EvtReaderCallbacks_SetRmaSyncCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaWaitChangeCallback(
-    OTF2_EvtReaderCallbacks*             evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaWaitChange rmaWaitChangeCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5617,7 +6421,7 @@ OTF2_EvtReaderCallbacks_SetRmaWaitChangeCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaPutCallback(
-    OTF2_EvtReaderCallbacks*      evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaPut rmaPutCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5634,7 +6438,7 @@ OTF2_EvtReaderCallbacks_SetRmaPutCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaGetCallback(
-    OTF2_EvtReaderCallbacks*      evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaGet rmaGetCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5651,7 +6455,7 @@ OTF2_EvtReaderCallbacks_SetRmaGetCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaAtomicCallback(
-    OTF2_EvtReaderCallbacks*         evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaAtomic rmaAtomicCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5668,7 +6472,7 @@ OTF2_EvtReaderCallbacks_SetRmaAtomicCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaOpCompleteBlockingCallback(
-    OTF2_EvtReaderCallbacks*                     evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaOpCompleteBlocking rmaOpCompleteBlockingCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5685,7 +6489,7 @@ OTF2_EvtReaderCallbacks_SetRmaOpCompleteBlockingCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaOpCompleteNonBlockingCallback(
-    OTF2_EvtReaderCallbacks*                        evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaOpCompleteNonBlocking rmaOpCompleteNonBlockingCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5702,7 +6506,7 @@ OTF2_EvtReaderCallbacks_SetRmaOpCompleteNonBlockingCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaOpTestCallback(
-    OTF2_EvtReaderCallbacks*         evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaOpTest rmaOpTestCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5719,7 +6523,7 @@ OTF2_EvtReaderCallbacks_SetRmaOpTestCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetRmaOpCompleteRemoteCallback(
-    OTF2_EvtReaderCallbacks*                   evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_RmaOpCompleteRemote rmaOpCompleteRemoteCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5736,7 +6540,7 @@ OTF2_EvtReaderCallbacks_SetRmaOpCompleteRemoteCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadForkCallback(
-    OTF2_EvtReaderCallbacks*          evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadFork threadForkCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5753,7 +6557,7 @@ OTF2_EvtReaderCallbacks_SetThreadForkCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadJoinCallback(
-    OTF2_EvtReaderCallbacks*          evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadJoin threadJoinCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5770,7 +6574,7 @@ OTF2_EvtReaderCallbacks_SetThreadJoinCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadTeamBeginCallback(
-    OTF2_EvtReaderCallbacks*               evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadTeamBegin threadTeamBeginCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5787,7 +6591,7 @@ OTF2_EvtReaderCallbacks_SetThreadTeamBeginCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadTeamEndCallback(
-    OTF2_EvtReaderCallbacks*             evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadTeamEnd threadTeamEndCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5804,7 +6608,7 @@ OTF2_EvtReaderCallbacks_SetThreadTeamEndCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadAcquireLockCallback(
-    OTF2_EvtReaderCallbacks*                 evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadAcquireLock threadAcquireLockCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5821,7 +6625,7 @@ OTF2_EvtReaderCallbacks_SetThreadAcquireLockCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadReleaseLockCallback(
-    OTF2_EvtReaderCallbacks*                 evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadReleaseLock threadReleaseLockCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5838,7 +6642,7 @@ OTF2_EvtReaderCallbacks_SetThreadReleaseLockCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadTaskCreateCallback(
-    OTF2_EvtReaderCallbacks*                evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadTaskCreate threadTaskCreateCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5855,7 +6659,7 @@ OTF2_EvtReaderCallbacks_SetThreadTaskCreateCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadTaskSwitchCallback(
-    OTF2_EvtReaderCallbacks*                evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadTaskSwitch threadTaskSwitchCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5872,7 +6676,7 @@ OTF2_EvtReaderCallbacks_SetThreadTaskSwitchCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadTaskCompleteCallback(
-    OTF2_EvtReaderCallbacks*                  evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadTaskComplete threadTaskCompleteCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5889,7 +6693,7 @@ OTF2_EvtReaderCallbacks_SetThreadTaskCompleteCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadCreateCallback(
-    OTF2_EvtReaderCallbacks*            evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadCreate threadCreateCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5906,7 +6710,7 @@ OTF2_EvtReaderCallbacks_SetThreadCreateCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadBeginCallback(
-    OTF2_EvtReaderCallbacks*           evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadBegin threadBeginCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5923,7 +6727,7 @@ OTF2_EvtReaderCallbacks_SetThreadBeginCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadWaitCallback(
-    OTF2_EvtReaderCallbacks*          evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadWait threadWaitCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5940,7 +6744,7 @@ OTF2_EvtReaderCallbacks_SetThreadWaitCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetThreadEndCallback(
-    OTF2_EvtReaderCallbacks*         evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_ThreadEnd threadEndCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5957,7 +6761,7 @@ OTF2_EvtReaderCallbacks_SetThreadEndCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetCallingContextEnterCallback(
-    OTF2_EvtReaderCallbacks*                   evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_CallingContextEnter callingContextEnterCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5974,7 +6778,7 @@ OTF2_EvtReaderCallbacks_SetCallingContextEnterCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetCallingContextLeaveCallback(
-    OTF2_EvtReaderCallbacks*                   evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_CallingContextLeave callingContextLeaveCallback )
 {
     if ( !evtReaderCallbacks )
@@ -5991,7 +6795,7 @@ OTF2_EvtReaderCallbacks_SetCallingContextLeaveCallback(
 
 OTF2_ErrorCode
 OTF2_EvtReaderCallbacks_SetCallingContextSampleCallback(
-    OTF2_EvtReaderCallbacks*                    evtReaderCallbacks,
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
     OTF2_EvtReaderCallback_CallingContextSample callingContextSampleCallback )
 {
     if ( !evtReaderCallbacks )
@@ -6004,3 +6808,191 @@ OTF2_EvtReaderCallbacks_SetCallingContextSampleCallback(
 
     return OTF2_SUCCESS;
 }
+
+
+OTF2_ErrorCode
+OTF2_EvtReaderCallbacks_SetTaskCreateCallback(
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
+    OTF2_EvtReaderCallback_TaskCreate taskCreateCallback )
+{
+    if ( !evtReaderCallbacks )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid evtReaderCallbacks argument!" );
+    }
+
+    evtReaderCallbacks->task_create = taskCreateCallback;
+
+    return OTF2_SUCCESS;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtReaderCallbacks_SetTaskDestroyCallback(
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
+    OTF2_EvtReaderCallback_TaskDestroy taskDestroyCallback )
+{
+    if ( !evtReaderCallbacks )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid evtReaderCallbacks argument!" );
+    }
+
+    evtReaderCallbacks->task_destroy = taskDestroyCallback;
+
+    return OTF2_SUCCESS;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtReaderCallbacks_SetTaskRunnableCallback(
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
+    OTF2_EvtReaderCallback_TaskRunnable taskRunnableCallback )
+{
+    if ( !evtReaderCallbacks )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid evtReaderCallbacks argument!" );
+    }
+
+    evtReaderCallbacks->task_runnable = taskRunnableCallback;
+
+    return OTF2_SUCCESS;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtReaderCallbacks_SetAddDependenceCallback(
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
+    OTF2_EvtReaderCallback_AddDependence addDependenceCallback )
+{
+    if ( !evtReaderCallbacks )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid evtReaderCallbacks argument!" );
+    }
+
+    evtReaderCallbacks->add_dependence = addDependenceCallback;
+
+    return OTF2_SUCCESS;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtReaderCallbacks_SetSatisfyDependenceCallback(
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
+    OTF2_EvtReaderCallback_SatisfyDependence satisfyDependenceCallback )
+{
+    if ( !evtReaderCallbacks )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid evtReaderCallbacks argument!" );
+    }
+
+    evtReaderCallbacks->satisfy_dependence = satisfyDependenceCallback;
+
+    return OTF2_SUCCESS;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtReaderCallbacks_SetDataAcquireCallback(
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
+    OTF2_EvtReaderCallback_DataAcquire dataAcquireCallback )
+{
+    if ( !evtReaderCallbacks )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid evtReaderCallbacks argument!" );
+    }
+
+    evtReaderCallbacks->data_acquire = dataAcquireCallback;
+
+    return OTF2_SUCCESS;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtReaderCallbacks_SetDataReleaseCallback(
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
+    OTF2_EvtReaderCallback_DataRelease dataReleaseCallback )
+{
+    if ( !evtReaderCallbacks )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid evtReaderCallbacks argument!" );
+    }
+
+    evtReaderCallbacks->data_release = dataReleaseCallback;
+
+    return OTF2_SUCCESS;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtReaderCallbacks_SetEventCreateCallback(
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
+    OTF2_EvtReaderCallback_EventCreate eventCreateCallback )
+{
+    if ( !evtReaderCallbacks )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid evtReaderCallbacks argument!" );
+    }
+
+    evtReaderCallbacks->event_create = eventCreateCallback;
+
+    return OTF2_SUCCESS;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtReaderCallbacks_SetEventDestroyCallback(
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
+    OTF2_EvtReaderCallback_EventDestroy eventDestroyCallback )
+{
+    if ( !evtReaderCallbacks )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid evtReaderCallbacks argument!" );
+    }
+
+    evtReaderCallbacks->event_destroy = eventDestroyCallback;
+
+    return OTF2_SUCCESS;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtReaderCallbacks_SetDataCreateCallback(
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
+    OTF2_EvtReaderCallback_DataCreate dataCreateCallback )
+{
+    if ( !evtReaderCallbacks )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid evtReaderCallbacks argument!" );
+    }
+
+    evtReaderCallbacks->data_create = dataCreateCallback;
+
+    return OTF2_SUCCESS;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtReaderCallbacks_SetDataDestroyCallback(
+    OTF2_EvtReaderCallbacks*              evtReaderCallbacks,
+    OTF2_EvtReaderCallback_DataDestroy dataDestroyCallback )
+{
+    if ( !evtReaderCallbacks )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid evtReaderCallbacks argument!" );
+    }
+
+    evtReaderCallbacks->data_destroy = dataDestroyCallback;
+
+    return OTF2_SUCCESS;
+}
+

@@ -704,7 +704,7 @@
  *  <div class="memdoc">
  *  @endhtmlonly
  *  Extensible annotation for the @eref{Paradigm} definition.
- *
+ *  
  *  The tuple (@a paradigm, @a property) must be unique.
  *
  *  This definition is only valid as a global definition.
@@ -2850,7 +2850,7 @@
  *      <td>
  *  @endhtmlonly
  *      The describing MPI group of this MPI communicator
- *
+ *      
  *      The group needs to be of type @eref{OTF2_GROUP_TYPE_COMM_GROUP} or
  *      @eref{OTF2_GROUP_TYPE_COMM_SELF}. References a @eref{Group}
  *      definition. @lrowend
@@ -4113,7 +4113,7 @@
  *  @endhtmlonly
  *  The definition of a source code location as tuple of the corresponding
  *  file name and line number.
- *
+ *  
  *  When used to attach source code annotations to events, use the
  *  @eref{OTF2_AttributeList} with a @eref{Attribute} definition named
  *  @c "SOURCE_CODE_LOCATION" and typed
@@ -4214,13 +4214,13 @@
  *  Defines a node in the calling context tree. These nodes are referenced
  *  in the @eref{CallingContextSample}, @eref{CallingContextEnter},
  *  and @eref{CallingContextLeave} events.
- *
+ *  
  *  The referenced @eref{CallingContext} node in these events form a path
  *  which represents the calling context at this time.  This path will
  *  be partitioned into at most three sub-paths by the @a
  *  unwindDistance attribute.  For the @eref{CallingContextLeave}
  *  event, the @a unwindDistance is defined to be 1.
- *
+ *  
  *  Starting from the referenced @eref{CallingContext} node, the first @f$
  *  N \ge 0 @f$ nodes were newly entered regions since the previous
  *  calling context event.  The next node is a region which was not
@@ -4230,28 +4230,28 @@
  *  then @f$ N + 1 @f$. In case the @p unwindDistance is @f$ 0 @f$,
  *  there are neither newly entered regions nor regions which made
  *  progress.
- *
+ *  
  *  It is guaranteed, that the node referenced by the @a unwindDistance
  *  exists in the previous and current calling context.  All
  *  descendants of this node's child in the previous calling context
  *  were left since the previous calling context event.
- *
+ *  
  *  It is valid that this node is the
  *  @eref{OTF2_UNDEFINED_CALLING_CONTEXT} node and that this node is
  *  already reached after @a unwindDistance @f$ - 1 @f$ steps.  In the
  *  latter case, there exists no region which made progress, all
  *  regions in the previous calling context were left and all regions
  *  in the current calling context were newly entered.
- *
+ *  
  *  Note that for @eref{CallingContextLeave} events, the parent of the
  *  referenced @eref{CallingContext} must be used as the previous
  *  calling context for the next event.
- *
+ *  
  *  Regions which were entered with a @eref{CallingContextEnter} event
  *  form an upper bound for the unwind distance, i.e., the @a
  *  unwindDistance points either to the parent of the last such
  *  entered region, or a node which is a descendant to this parent.
- *
+ *  
  *  To summarize, an @a unwindDistance of @f$ 0 @f$ means that no regions
  *  were left, newly entered, or made any progress.  An @a
  *  unwindDistance of @f$ 1 @f$ means that some regions were left
@@ -4534,11 +4534,11 @@
  *  system.  Therefore these samples are unlikely to be uniformly
  *  distributed over time.  The unit of the period is then implicitly
  *  a number (threshold value).
- *
+ *  
  *  The interrupts period in base unit (which is implicitly seconds or
  *  number, based on the @p mode) is derived out of the @p base, the
  *  @p exponent, and the @p period attributes by this formula:
- *
+ *  
  *  base-period = period x base^exponent
  *
  *

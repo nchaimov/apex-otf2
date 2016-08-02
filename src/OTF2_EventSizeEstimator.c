@@ -49,29 +49,29 @@
 struct OTF2_EventSizeEstimator
 {
     uint32_t number_of_string_definitions;
-    uint8_t  estimate_for_strings;
+    uint8_t                             estimate_for_strings;
     uint32_t number_of_attribute_definitions;
-    uint8_t  estimate_for_attributes;
+    uint8_t                             estimate_for_attributes;
     uint64_t number_of_location_definitions;
-    uint8_t  estimate_for_locations;
+    uint8_t                             estimate_for_locations;
     uint32_t number_of_region_definitions;
-    uint8_t  estimate_for_regions;
+    uint8_t                             estimate_for_regions;
     uint32_t number_of_group_definitions;
-    uint8_t  estimate_for_groups;
+    uint8_t                             estimate_for_groups;
     uint32_t number_of_metric_definitions;
-    uint8_t  estimate_for_metrics;
+    uint8_t                             estimate_for_metrics;
     uint32_t number_of_comm_definitions;
-    uint8_t  estimate_for_comms;
+    uint8_t                             estimate_for_comms;
     uint32_t number_of_parameter_definitions;
-    uint8_t  estimate_for_parameters;
+    uint8_t                             estimate_for_parameters;
     uint32_t number_of_rma_win_definitions;
-    uint8_t  estimate_for_rma_wins;
+    uint8_t                             estimate_for_rma_wins;
     uint32_t number_of_source_code_location_definitions;
-    uint8_t  estimate_for_source_code_locations;
+    uint8_t                             estimate_for_source_code_locations;
     uint32_t number_of_calling_context_definitions;
-    uint8_t  estimate_for_calling_contexts;
+    uint8_t                             estimate_for_calling_contexts;
     uint32_t number_of_interrupt_generator_definitions;
-    uint8_t  estimate_for_interrupt_generators;
+    uint8_t                             estimate_for_interrupt_generators;
 };
 
 OTF2_EventSizeEstimator*
@@ -85,30 +85,30 @@ OTF2_EventSizeEstimator_New( void )
         return NULL;
     }
 
-    new_estimator->number_of_string_definitions               = 0;
-    new_estimator->estimate_for_strings                       = sizeof( OTF2_StringRef ) + 1;
-    new_estimator->number_of_attribute_definitions            = 0;
-    new_estimator->estimate_for_attributes                    = sizeof( OTF2_AttributeRef ) + 1;
-    new_estimator->number_of_location_definitions             = 0;
-    new_estimator->estimate_for_locations                     = sizeof( OTF2_LocationRef ) + 1;
-    new_estimator->number_of_region_definitions               = 0;
-    new_estimator->estimate_for_regions                       = sizeof( OTF2_RegionRef ) + 1;
-    new_estimator->number_of_group_definitions                = 0;
-    new_estimator->estimate_for_groups                        = sizeof( OTF2_GroupRef ) + 1;
-    new_estimator->number_of_metric_definitions               = 0;
-    new_estimator->estimate_for_metrics                       = sizeof( OTF2_MetricRef ) + 1;
-    new_estimator->number_of_comm_definitions                 = 0;
-    new_estimator->estimate_for_comms                         = sizeof( OTF2_CommRef ) + 1;
-    new_estimator->number_of_parameter_definitions            = 0;
-    new_estimator->estimate_for_parameters                    = sizeof( OTF2_ParameterRef ) + 1;
-    new_estimator->number_of_rma_win_definitions              = 0;
-    new_estimator->estimate_for_rma_wins                      = sizeof( OTF2_RmaWinRef ) + 1;
+    new_estimator->number_of_string_definitions = 0;
+    new_estimator->estimate_for_strings = sizeof( OTF2_StringRef ) + 1;
+    new_estimator->number_of_attribute_definitions = 0;
+    new_estimator->estimate_for_attributes = sizeof( OTF2_AttributeRef ) + 1;
+    new_estimator->number_of_location_definitions = 0;
+    new_estimator->estimate_for_locations = sizeof( OTF2_LocationRef ) + 1;
+    new_estimator->number_of_region_definitions = 0;
+    new_estimator->estimate_for_regions = sizeof( OTF2_RegionRef ) + 1;
+    new_estimator->number_of_group_definitions = 0;
+    new_estimator->estimate_for_groups = sizeof( OTF2_GroupRef ) + 1;
+    new_estimator->number_of_metric_definitions = 0;
+    new_estimator->estimate_for_metrics = sizeof( OTF2_MetricRef ) + 1;
+    new_estimator->number_of_comm_definitions = 0;
+    new_estimator->estimate_for_comms = sizeof( OTF2_CommRef ) + 1;
+    new_estimator->number_of_parameter_definitions = 0;
+    new_estimator->estimate_for_parameters = sizeof( OTF2_ParameterRef ) + 1;
+    new_estimator->number_of_rma_win_definitions = 0;
+    new_estimator->estimate_for_rma_wins = sizeof( OTF2_RmaWinRef ) + 1;
     new_estimator->number_of_source_code_location_definitions = 0;
-    new_estimator->estimate_for_source_code_locations         = sizeof( OTF2_SourceCodeLocationRef ) + 1;
-    new_estimator->number_of_calling_context_definitions      = 0;
-    new_estimator->estimate_for_calling_contexts              = sizeof( OTF2_CallingContextRef ) + 1;
-    new_estimator->number_of_interrupt_generator_definitions  = 0;
-    new_estimator->estimate_for_interrupt_generators          = sizeof( OTF2_InterruptGeneratorRef ) + 1;
+    new_estimator->estimate_for_source_code_locations = sizeof( OTF2_SourceCodeLocationRef ) + 1;
+    new_estimator->number_of_calling_context_definitions = 0;
+    new_estimator->estimate_for_calling_contexts = sizeof( OTF2_CallingContextRef ) + 1;
+    new_estimator->number_of_interrupt_generator_definitions = 0;
+    new_estimator->estimate_for_interrupt_generators = sizeof( OTF2_InterruptGeneratorRef ) + 1;
 
     return new_estimator;
 }
@@ -125,7 +125,7 @@ OTF2_EventSizeEstimator_Delete( OTF2_EventSizeEstimator* estimator )
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfStringDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                      uint32_t                 numberOfStringDefinitions )
+                                                                      uint32_t numberOfStringDefinitions )
 {
     if ( !estimator )
     {
@@ -141,7 +141,7 @@ OTF2_EventSizeEstimator_SetNumberOfStringDefinitions( OTF2_EventSizeEstimator* e
     }
 
     estimator->number_of_string_definitions = numberOfStringDefinitions;
-    estimator->estimate_for_strings         = otf2_buffer_size_uint32( numberOfStringDefinitions - 1 );
+    estimator->estimate_for_strings = otf2_buffer_size_uint32( numberOfStringDefinitions - 1 );
 
     return OTF2_SUCCESS;
 }
@@ -149,7 +149,7 @@ OTF2_EventSizeEstimator_SetNumberOfStringDefinitions( OTF2_EventSizeEstimator* e
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfAttributeDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                         uint32_t                 numberOfAttributeDefinitions )
+                                                                      uint32_t numberOfAttributeDefinitions )
 {
     if ( !estimator )
     {
@@ -165,7 +165,7 @@ OTF2_EventSizeEstimator_SetNumberOfAttributeDefinitions( OTF2_EventSizeEstimator
     }
 
     estimator->number_of_attribute_definitions = numberOfAttributeDefinitions;
-    estimator->estimate_for_attributes         = otf2_buffer_size_uint32( numberOfAttributeDefinitions - 1 );
+    estimator->estimate_for_attributes = otf2_buffer_size_uint32( numberOfAttributeDefinitions - 1 );
 
     return OTF2_SUCCESS;
 }
@@ -173,7 +173,7 @@ OTF2_EventSizeEstimator_SetNumberOfAttributeDefinitions( OTF2_EventSizeEstimator
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfLocationDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                        uint64_t                 numberOfLocationDefinitions )
+                                                                      uint64_t numberOfLocationDefinitions )
 {
     if ( !estimator )
     {
@@ -198,7 +198,7 @@ OTF2_EventSizeEstimator_SetNumberOfLocationDefinitions( OTF2_EventSizeEstimator*
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfRegionDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                      uint32_t                 numberOfRegionDefinitions )
+                                                                      uint32_t numberOfRegionDefinitions )
 {
     if ( !estimator )
     {
@@ -214,7 +214,7 @@ OTF2_EventSizeEstimator_SetNumberOfRegionDefinitions( OTF2_EventSizeEstimator* e
     }
 
     estimator->number_of_region_definitions = numberOfRegionDefinitions;
-    estimator->estimate_for_regions         = otf2_buffer_size_uint32( numberOfRegionDefinitions - 1 );
+    estimator->estimate_for_regions = otf2_buffer_size_uint32( numberOfRegionDefinitions - 1 );
 
     return OTF2_SUCCESS;
 }
@@ -222,7 +222,7 @@ OTF2_EventSizeEstimator_SetNumberOfRegionDefinitions( OTF2_EventSizeEstimator* e
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfGroupDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                     uint32_t                 numberOfGroupDefinitions )
+                                                                      uint32_t numberOfGroupDefinitions )
 {
     if ( !estimator )
     {
@@ -238,7 +238,7 @@ OTF2_EventSizeEstimator_SetNumberOfGroupDefinitions( OTF2_EventSizeEstimator* es
     }
 
     estimator->number_of_group_definitions = numberOfGroupDefinitions;
-    estimator->estimate_for_groups         = otf2_buffer_size_uint32( numberOfGroupDefinitions - 1 );
+    estimator->estimate_for_groups = otf2_buffer_size_uint32( numberOfGroupDefinitions - 1 );
 
     return OTF2_SUCCESS;
 }
@@ -246,7 +246,7 @@ OTF2_EventSizeEstimator_SetNumberOfGroupDefinitions( OTF2_EventSizeEstimator* es
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfMetricDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                      uint32_t                 numberOfMetricDefinitions )
+                                                                      uint32_t numberOfMetricDefinitions )
 {
     if ( !estimator )
     {
@@ -262,7 +262,7 @@ OTF2_EventSizeEstimator_SetNumberOfMetricDefinitions( OTF2_EventSizeEstimator* e
     }
 
     estimator->number_of_metric_definitions = numberOfMetricDefinitions;
-    estimator->estimate_for_metrics         = otf2_buffer_size_uint32( numberOfMetricDefinitions - 1 );
+    estimator->estimate_for_metrics = otf2_buffer_size_uint32( numberOfMetricDefinitions - 1 );
 
     return OTF2_SUCCESS;
 }
@@ -270,7 +270,7 @@ OTF2_EventSizeEstimator_SetNumberOfMetricDefinitions( OTF2_EventSizeEstimator* e
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfCommDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                    uint32_t                 numberOfCommDefinitions )
+                                                                      uint32_t numberOfCommDefinitions )
 {
     if ( !estimator )
     {
@@ -286,7 +286,7 @@ OTF2_EventSizeEstimator_SetNumberOfCommDefinitions( OTF2_EventSizeEstimator* est
     }
 
     estimator->number_of_comm_definitions = numberOfCommDefinitions;
-    estimator->estimate_for_comms         = otf2_buffer_size_uint32( numberOfCommDefinitions - 1 );
+    estimator->estimate_for_comms = otf2_buffer_size_uint32( numberOfCommDefinitions - 1 );
 
     return OTF2_SUCCESS;
 }
@@ -294,7 +294,7 @@ OTF2_EventSizeEstimator_SetNumberOfCommDefinitions( OTF2_EventSizeEstimator* est
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfParameterDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                         uint32_t                 numberOfParameterDefinitions )
+                                                                      uint32_t numberOfParameterDefinitions )
 {
     if ( !estimator )
     {
@@ -310,7 +310,7 @@ OTF2_EventSizeEstimator_SetNumberOfParameterDefinitions( OTF2_EventSizeEstimator
     }
 
     estimator->number_of_parameter_definitions = numberOfParameterDefinitions;
-    estimator->estimate_for_parameters         = otf2_buffer_size_uint32( numberOfParameterDefinitions - 1 );
+    estimator->estimate_for_parameters = otf2_buffer_size_uint32( numberOfParameterDefinitions - 1 );
 
     return OTF2_SUCCESS;
 }
@@ -318,7 +318,7 @@ OTF2_EventSizeEstimator_SetNumberOfParameterDefinitions( OTF2_EventSizeEstimator
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfRmaWinDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                      uint32_t                 numberOfRmaWinDefinitions )
+                                                                      uint32_t numberOfRmaWinDefinitions )
 {
     if ( !estimator )
     {
@@ -334,7 +334,7 @@ OTF2_EventSizeEstimator_SetNumberOfRmaWinDefinitions( OTF2_EventSizeEstimator* e
     }
 
     estimator->number_of_rma_win_definitions = numberOfRmaWinDefinitions;
-    estimator->estimate_for_rma_wins         = otf2_buffer_size_uint32( numberOfRmaWinDefinitions - 1 );
+    estimator->estimate_for_rma_wins = otf2_buffer_size_uint32( numberOfRmaWinDefinitions - 1 );
 
     return OTF2_SUCCESS;
 }
@@ -342,7 +342,7 @@ OTF2_EventSizeEstimator_SetNumberOfRmaWinDefinitions( OTF2_EventSizeEstimator* e
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfSourceCodeLocationDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                                  uint32_t                 numberOfSourceCodeLocationDefinitions )
+                                                                      uint32_t numberOfSourceCodeLocationDefinitions )
 {
     if ( !estimator )
     {
@@ -358,7 +358,7 @@ OTF2_EventSizeEstimator_SetNumberOfSourceCodeLocationDefinitions( OTF2_EventSize
     }
 
     estimator->number_of_source_code_location_definitions = numberOfSourceCodeLocationDefinitions;
-    estimator->estimate_for_source_code_locations         = otf2_buffer_size_uint32( numberOfSourceCodeLocationDefinitions - 1 );
+    estimator->estimate_for_source_code_locations = otf2_buffer_size_uint32( numberOfSourceCodeLocationDefinitions - 1 );
 
     return OTF2_SUCCESS;
 }
@@ -366,7 +366,7 @@ OTF2_EventSizeEstimator_SetNumberOfSourceCodeLocationDefinitions( OTF2_EventSize
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfCallingContextDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                              uint32_t                 numberOfCallingContextDefinitions )
+                                                                      uint32_t numberOfCallingContextDefinitions )
 {
     if ( !estimator )
     {
@@ -382,7 +382,7 @@ OTF2_EventSizeEstimator_SetNumberOfCallingContextDefinitions( OTF2_EventSizeEsti
     }
 
     estimator->number_of_calling_context_definitions = numberOfCallingContextDefinitions;
-    estimator->estimate_for_calling_contexts         = otf2_buffer_size_uint32( numberOfCallingContextDefinitions - 1 );
+    estimator->estimate_for_calling_contexts = otf2_buffer_size_uint32( numberOfCallingContextDefinitions - 1 );
 
     return OTF2_SUCCESS;
 }
@@ -390,7 +390,7 @@ OTF2_EventSizeEstimator_SetNumberOfCallingContextDefinitions( OTF2_EventSizeEsti
 
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfInterruptGeneratorDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                                  uint32_t                 numberOfInterruptGeneratorDefinitions )
+                                                                      uint32_t numberOfInterruptGeneratorDefinitions )
 {
     if ( !estimator )
     {
@@ -406,7 +406,7 @@ OTF2_EventSizeEstimator_SetNumberOfInterruptGeneratorDefinitions( OTF2_EventSize
     }
 
     estimator->number_of_interrupt_generator_definitions = numberOfInterruptGeneratorDefinitions;
-    estimator->estimate_for_interrupt_generators         = otf2_buffer_size_uint32( numberOfInterruptGeneratorDefinitions - 1 );
+    estimator->estimate_for_interrupt_generators = otf2_buffer_size_uint32( numberOfInterruptGeneratorDefinitions - 1 );
 
     return OTF2_SUCCESS;
 }
@@ -690,7 +690,7 @@ OTF2_EventSizeEstimator_GetSizeOfBufferFlushEvent( OTF2_EventSizeEstimator* esti
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( OTF2_TimeStamp ); /* stopTime */
 
     return record_length + record_data_length;
@@ -728,7 +728,7 @@ OTF2_EventSizeEstimator_GetSizeOfMeasurementOnOffEvent( OTF2_EventSizeEstimator*
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( OTF2_MeasurementMode ); /* measurementMode */
 
     return record_length + record_data_length;
@@ -759,7 +759,7 @@ OTF2_EventSizeEstimator_GetSizeOfEnterEvent( OTF2_EventSizeEstimator* estimator 
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_regions; /* region */
 
     return record_length + record_data_length;
@@ -790,7 +790,7 @@ OTF2_EventSizeEstimator_GetSizeOfLeaveEvent( OTF2_EventSizeEstimator* estimator 
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_regions; /* region */
 
     return record_length + record_data_length;
@@ -815,10 +815,10 @@ OTF2_EventSizeEstimator_GetSizeOfMpiSendEvent( OTF2_EventSizeEstimator* estimato
      * calculation
      */
     size_t record_data_length = 0;
-    record_data_length += sizeof( uint32_t ) + 1;     /* receiver */
+    record_data_length += sizeof( uint32_t ) + 1; /* receiver */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
 
     /* record length byte */
     record_length += 1;
@@ -831,11 +831,11 @@ OTF2_EventSizeEstimator_GetSizeOfMpiSendEvent( OTF2_EventSizeEstimator* estimato
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
-    record_data_length += sizeof( uint32_t ) + 1;        /* receiver */
+    record_data_length = 0;
+    record_data_length += sizeof( uint32_t ) + 1; /* receiver */
     record_data_length += estimator->estimate_for_comms; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;        /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;        /* msgLength */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
 
     return record_length + record_data_length;
 }
@@ -859,11 +859,11 @@ OTF2_EventSizeEstimator_GetSizeOfMpiIsendEvent( OTF2_EventSizeEstimator* estimat
      * calculation
      */
     size_t record_data_length = 0;
-    record_data_length += sizeof( uint32_t ) + 1;     /* receiver */
+    record_data_length += sizeof( uint32_t ) + 1; /* receiver */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
-    record_data_length += sizeof( uint64_t ) + 1;     /* requestID */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
+    record_data_length += sizeof( uint64_t ) + 1; /* requestID */
 
     /* record length byte */
     record_length += 1;
@@ -876,12 +876,12 @@ OTF2_EventSizeEstimator_GetSizeOfMpiIsendEvent( OTF2_EventSizeEstimator* estimat
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
-    record_data_length += sizeof( uint32_t ) + 1;        /* receiver */
+    record_data_length = 0;
+    record_data_length += sizeof( uint32_t ) + 1; /* receiver */
     record_data_length += estimator->estimate_for_comms; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;        /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;        /* msgLength */
-    record_data_length += sizeof( uint64_t ) + 1;        /* requestID */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
+    record_data_length += sizeof( uint64_t ) + 1; /* requestID */
 
     return record_length + record_data_length;
 }
@@ -911,7 +911,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiIsendCompleteEvent( OTF2_EventSizeEstimator*
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( uint64_t ) + 1; /* requestID */
 
     return record_length + record_data_length;
@@ -942,7 +942,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiIrecvRequestEvent( OTF2_EventSizeEstimator* 
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( uint64_t ) + 1; /* requestID */
 
     return record_length + record_data_length;
@@ -967,10 +967,10 @@ OTF2_EventSizeEstimator_GetSizeOfMpiRecvEvent( OTF2_EventSizeEstimator* estimato
      * calculation
      */
     size_t record_data_length = 0;
-    record_data_length += sizeof( uint32_t ) + 1;     /* sender */
+    record_data_length += sizeof( uint32_t ) + 1; /* sender */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
 
     /* record length byte */
     record_length += 1;
@@ -983,11 +983,11 @@ OTF2_EventSizeEstimator_GetSizeOfMpiRecvEvent( OTF2_EventSizeEstimator* estimato
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
-    record_data_length += sizeof( uint32_t ) + 1;        /* sender */
+    record_data_length = 0;
+    record_data_length += sizeof( uint32_t ) + 1; /* sender */
     record_data_length += estimator->estimate_for_comms; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;        /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;        /* msgLength */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
 
     return record_length + record_data_length;
 }
@@ -1011,11 +1011,11 @@ OTF2_EventSizeEstimator_GetSizeOfMpiIrecvEvent( OTF2_EventSizeEstimator* estimat
      * calculation
      */
     size_t record_data_length = 0;
-    record_data_length += sizeof( uint32_t ) + 1;     /* sender */
+    record_data_length += sizeof( uint32_t ) + 1; /* sender */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
-    record_data_length += sizeof( uint64_t ) + 1;     /* requestID */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
+    record_data_length += sizeof( uint64_t ) + 1; /* requestID */
 
     /* record length byte */
     record_length += 1;
@@ -1028,12 +1028,12 @@ OTF2_EventSizeEstimator_GetSizeOfMpiIrecvEvent( OTF2_EventSizeEstimator* estimat
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
-    record_data_length += sizeof( uint32_t ) + 1;        /* sender */
+    record_data_length = 0;
+    record_data_length += sizeof( uint32_t ) + 1; /* sender */
     record_data_length += estimator->estimate_for_comms; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;        /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;        /* msgLength */
-    record_data_length += sizeof( uint64_t ) + 1;        /* requestID */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
+    record_data_length += sizeof( uint64_t ) + 1; /* requestID */
 
     return record_length + record_data_length;
 }
@@ -1063,7 +1063,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiRequestTestEvent( OTF2_EventSizeEstimator* e
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( uint64_t ) + 1; /* requestID */
 
     return record_length + record_data_length;
@@ -1094,7 +1094,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiRequestCancelledEvent( OTF2_EventSizeEstimat
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( uint64_t ) + 1; /* requestID */
 
     return record_length + record_data_length;
@@ -1156,10 +1156,10 @@ OTF2_EventSizeEstimator_GetSizeOfMpiCollectiveEndEvent( OTF2_EventSizeEstimator*
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_CollectiveOp ); /* collectiveOp */
-    record_data_length += sizeof( OTF2_CommRef ) + 1;  /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;      /* root */
-    record_data_length += sizeof( uint64_t ) + 1;      /* sizeSent */
-    record_data_length += sizeof( uint64_t ) + 1;      /* sizeReceived */
+    record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
+    record_data_length += sizeof( uint32_t ) + 1; /* root */
+    record_data_length += sizeof( uint64_t ) + 1; /* sizeSent */
+    record_data_length += sizeof( uint64_t ) + 1; /* sizeReceived */
 
     /* record length byte */
     record_length += 1;
@@ -1172,12 +1172,12 @@ OTF2_EventSizeEstimator_GetSizeOfMpiCollectiveEndEvent( OTF2_EventSizeEstimator*
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
-    record_data_length += sizeof( OTF2_CollectiveOp );   /* collectiveOp */
+    record_data_length = 0;
+    record_data_length += sizeof( OTF2_CollectiveOp ); /* collectiveOp */
     record_data_length += estimator->estimate_for_comms; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;        /* root */
-    record_data_length += sizeof( uint64_t ) + 1;        /* sizeSent */
-    record_data_length += sizeof( uint64_t ) + 1;        /* sizeReceived */
+    record_data_length += sizeof( uint32_t ) + 1; /* root */
+    record_data_length += sizeof( uint64_t ) + 1; /* sizeSent */
+    record_data_length += sizeof( uint64_t ) + 1; /* sizeReceived */
 
     return record_length + record_data_length;
 }
@@ -1207,7 +1207,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpForkEvent( OTF2_EventSizeEstimator* estimato
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( uint32_t ) + 1; /* numberOfRequestedThreads */
 
     return record_length + record_data_length;
@@ -1282,7 +1282,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpAcquireLockEvent( OTF2_EventSizeEstimator* e
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( uint32_t ) + 1; /* lockID */
     record_data_length += sizeof( uint32_t ) + 1; /* acquisitionOrder */
 
@@ -1322,7 +1322,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpReleaseLockEvent( OTF2_EventSizeEstimator* e
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( uint32_t ) + 1; /* lockID */
     record_data_length += sizeof( uint32_t ) + 1; /* acquisitionOrder */
 
@@ -1354,7 +1354,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpTaskCreateEvent( OTF2_EventSizeEstimator* es
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( uint64_t ) + 1; /* taskID */
 
     return record_length + record_data_length;
@@ -1385,7 +1385,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpTaskSwitchEvent( OTF2_EventSizeEstimator* es
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( uint64_t ) + 1; /* taskID */
 
     return record_length + record_data_length;
@@ -1416,7 +1416,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpTaskCompleteEvent( OTF2_EventSizeEstimator* 
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( uint64_t ) + 1; /* taskID */
 
     return record_length + record_data_length;
@@ -1425,7 +1425,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpTaskCompleteEvent( OTF2_EventSizeEstimator* 
 
 size_t
 OTF2_EventSizeEstimator_GetSizeOfMetricEvent( OTF2_EventSizeEstimator* estimator,
-                                              uint8_t                  numberOfMetrics )
+uint8_t numberOfMetrics )
 {
     if ( !estimator )
     {
@@ -1442,9 +1442,9 @@ OTF2_EventSizeEstimator_GetSizeOfMetricEvent( OTF2_EventSizeEstimator* estimator
      * calculation
      */
     size_t record_data_length = 0;
-    record_data_length += sizeof( OTF2_MetricRef ) + 1;                         /* metric */
-    record_data_length += sizeof( uint8_t );                                    /* numberOfMetrics */
-    record_data_length += numberOfMetrics * ( sizeof( OTF2_Type ) );            /* typeIDs */
+    record_data_length += sizeof( OTF2_MetricRef ) + 1; /* metric */
+    record_data_length += sizeof( uint8_t ); /* numberOfMetrics */
+    record_data_length += numberOfMetrics * ( sizeof( OTF2_Type ) ); /* typeIDs */
     record_data_length += numberOfMetrics * ( sizeof( OTF2_MetricValue ) + 1 ); /* metricValues */
 
     /* record length byte */
@@ -1458,10 +1458,10 @@ OTF2_EventSizeEstimator_GetSizeOfMetricEvent( OTF2_EventSizeEstimator* estimator
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
-    record_data_length += estimator->estimate_for_metrics;                      /* metric */
-    record_data_length += sizeof( uint8_t );                                    /* numberOfMetrics */
-    record_data_length += numberOfMetrics * ( sizeof( OTF2_Type ) );            /* typeIDs */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_metrics; /* metric */
+    record_data_length += sizeof( uint8_t ); /* numberOfMetrics */
+    record_data_length += numberOfMetrics * ( sizeof( OTF2_Type ) ); /* typeIDs */
     record_data_length += numberOfMetrics * ( sizeof( OTF2_MetricValue ) + 1 ); /* metricValues */
 
     return record_length + record_data_length;
@@ -1487,7 +1487,7 @@ OTF2_EventSizeEstimator_GetSizeOfParameterStringEvent( OTF2_EventSizeEstimator* 
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_ParameterRef ) + 1; /* parameter */
-    record_data_length += sizeof( OTF2_StringRef ) + 1;    /* string */
+    record_data_length += sizeof( OTF2_StringRef ) + 1; /* string */
 
     /* record length byte */
     record_length += 1;
@@ -1500,9 +1500,9 @@ OTF2_EventSizeEstimator_GetSizeOfParameterStringEvent( OTF2_EventSizeEstimator* 
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_parameters; /* parameter */
-    record_data_length += estimator->estimate_for_strings;    /* string */
+    record_data_length += estimator->estimate_for_strings; /* string */
 
     return record_length + record_data_length;
 }
@@ -1527,7 +1527,7 @@ OTF2_EventSizeEstimator_GetSizeOfParameterIntEvent( OTF2_EventSizeEstimator* est
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_ParameterRef ) + 1; /* parameter */
-    record_data_length += sizeof( int64_t ) + 1;           /* value */
+    record_data_length += sizeof( int64_t ) + 1; /* value */
 
     /* record length byte */
     record_length += 1;
@@ -1540,9 +1540,9 @@ OTF2_EventSizeEstimator_GetSizeOfParameterIntEvent( OTF2_EventSizeEstimator* est
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_parameters; /* parameter */
-    record_data_length += sizeof( int64_t ) + 1;              /* value */
+    record_data_length += sizeof( int64_t ) + 1; /* value */
 
     return record_length + record_data_length;
 }
@@ -1567,7 +1567,7 @@ OTF2_EventSizeEstimator_GetSizeOfParameterUnsignedIntEvent( OTF2_EventSizeEstima
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_ParameterRef ) + 1; /* parameter */
-    record_data_length += sizeof( uint64_t ) + 1;          /* value */
+    record_data_length += sizeof( uint64_t ) + 1; /* value */
 
     /* record length byte */
     record_length += 1;
@@ -1580,9 +1580,9 @@ OTF2_EventSizeEstimator_GetSizeOfParameterUnsignedIntEvent( OTF2_EventSizeEstima
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_parameters; /* parameter */
-    record_data_length += sizeof( uint64_t ) + 1;             /* value */
+    record_data_length += sizeof( uint64_t ) + 1; /* value */
 
     return record_length + record_data_length;
 }
@@ -1619,7 +1619,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaWinCreateEvent( OTF2_EventSizeEstimator* est
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
 
     return record_length + record_data_length;
@@ -1657,7 +1657,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaWinDestroyEvent( OTF2_EventSizeEstimator* es
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
 
     return record_length + record_data_length;
@@ -1718,12 +1718,12 @@ OTF2_EventSizeEstimator_GetSizeOfRmaCollectiveEndEvent( OTF2_EventSizeEstimator*
      * calculation
      */
     size_t record_data_length = 0;
-    record_data_length += sizeof( OTF2_CollectiveOp );     /* collectiveOp */
+    record_data_length += sizeof( OTF2_CollectiveOp ); /* collectiveOp */
     record_data_length += sizeof( OTF2_RmaSyncLevel ) + 1; /* syncLevel */
-    record_data_length += sizeof( OTF2_RmaWinRef ) + 1;    /* win */
-    record_data_length += sizeof( uint32_t ) + 1;          /* root */
-    record_data_length += sizeof( uint64_t ) + 1;          /* bytesSent */
-    record_data_length += sizeof( uint64_t ) + 1;          /* bytesReceived */
+    record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
+    record_data_length += sizeof( uint32_t ) + 1; /* root */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesSent */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesReceived */
 
     /* record length byte */
     record_length += 1;
@@ -1736,13 +1736,13 @@ OTF2_EventSizeEstimator_GetSizeOfRmaCollectiveEndEvent( OTF2_EventSizeEstimator*
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
-    record_data_length += sizeof( OTF2_CollectiveOp );      /* collectiveOp */
-    record_data_length += sizeof( OTF2_RmaSyncLevel ) + 1;  /* syncLevel */
+    record_data_length = 0;
+    record_data_length += sizeof( OTF2_CollectiveOp ); /* collectiveOp */
+    record_data_length += sizeof( OTF2_RmaSyncLevel ) + 1; /* syncLevel */
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;           /* root */
-    record_data_length += sizeof( uint64_t ) + 1;           /* bytesSent */
-    record_data_length += sizeof( uint64_t ) + 1;           /* bytesReceived */
+    record_data_length += sizeof( uint32_t ) + 1; /* root */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesSent */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesReceived */
 
     return record_length + record_data_length;
 }
@@ -1767,8 +1767,8 @@ OTF2_EventSizeEstimator_GetSizeOfRmaGroupSyncEvent( OTF2_EventSizeEstimator* est
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaSyncLevel ) + 1; /* syncLevel */
-    record_data_length += sizeof( OTF2_RmaWinRef ) + 1;    /* win */
-    record_data_length += sizeof( OTF2_GroupRef ) + 1;     /* group */
+    record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
+    record_data_length += sizeof( OTF2_GroupRef ) + 1; /* group */
 
     /* record length byte */
     record_length += 1;
@@ -1781,10 +1781,10 @@ OTF2_EventSizeEstimator_GetSizeOfRmaGroupSyncEvent( OTF2_EventSizeEstimator* est
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
-    record_data_length += sizeof( OTF2_RmaSyncLevel ) + 1;  /* syncLevel */
+    record_data_length = 0;
+    record_data_length += sizeof( OTF2_RmaSyncLevel ) + 1; /* syncLevel */
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += estimator->estimate_for_groups;   /* group */
+    record_data_length += estimator->estimate_for_groups; /* group */
 
     return record_length + record_data_length;
 }
@@ -1809,9 +1809,9 @@ OTF2_EventSizeEstimator_GetSizeOfRmaRequestLockEvent( OTF2_EventSizeEstimator* e
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* lockId */
-    record_data_length += sizeof( OTF2_LockType );      /* lockType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
+    record_data_length += sizeof( OTF2_LockType ); /* lockType */
 
     /* record length byte */
     record_length += 1;
@@ -1824,11 +1824,11 @@ OTF2_EventSizeEstimator_GetSizeOfRmaRequestLockEvent( OTF2_EventSizeEstimator* e
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;           /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;           /* lockId */
-    record_data_length += sizeof( OTF2_LockType );          /* lockType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
+    record_data_length += sizeof( OTF2_LockType ); /* lockType */
 
     return record_length + record_data_length;
 }
@@ -1853,9 +1853,9 @@ OTF2_EventSizeEstimator_GetSizeOfRmaAcquireLockEvent( OTF2_EventSizeEstimator* e
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* lockId */
-    record_data_length += sizeof( OTF2_LockType );      /* lockType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
+    record_data_length += sizeof( OTF2_LockType ); /* lockType */
 
     /* record length byte */
     record_length += 1;
@@ -1868,11 +1868,11 @@ OTF2_EventSizeEstimator_GetSizeOfRmaAcquireLockEvent( OTF2_EventSizeEstimator* e
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;           /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;           /* lockId */
-    record_data_length += sizeof( OTF2_LockType );          /* lockType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
+    record_data_length += sizeof( OTF2_LockType ); /* lockType */
 
     return record_length + record_data_length;
 }
@@ -1897,9 +1897,9 @@ OTF2_EventSizeEstimator_GetSizeOfRmaTryLockEvent( OTF2_EventSizeEstimator* estim
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* lockId */
-    record_data_length += sizeof( OTF2_LockType );      /* lockType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
+    record_data_length += sizeof( OTF2_LockType ); /* lockType */
 
     /* record length byte */
     record_length += 1;
@@ -1912,11 +1912,11 @@ OTF2_EventSizeEstimator_GetSizeOfRmaTryLockEvent( OTF2_EventSizeEstimator* estim
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;           /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;           /* lockId */
-    record_data_length += sizeof( OTF2_LockType );          /* lockType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
+    record_data_length += sizeof( OTF2_LockType ); /* lockType */
 
     return record_length + record_data_length;
 }
@@ -1941,8 +1941,8 @@ OTF2_EventSizeEstimator_GetSizeOfRmaReleaseLockEvent( OTF2_EventSizeEstimator* e
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* lockId */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
 
     /* record length byte */
     record_length += 1;
@@ -1955,10 +1955,10 @@ OTF2_EventSizeEstimator_GetSizeOfRmaReleaseLockEvent( OTF2_EventSizeEstimator* e
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;           /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;           /* lockId */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
 
     return record_length + record_data_length;
 }
@@ -1983,8 +1983,8 @@ OTF2_EventSizeEstimator_GetSizeOfRmaSyncEvent( OTF2_EventSizeEstimator* estimato
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( OTF2_RmaSyncType );   /* syncType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( OTF2_RmaSyncType ); /* syncType */
 
     /* record length byte */
     record_length += 1;
@@ -1997,10 +1997,10 @@ OTF2_EventSizeEstimator_GetSizeOfRmaSyncEvent( OTF2_EventSizeEstimator* estimato
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;           /* remote */
-    record_data_length += sizeof( OTF2_RmaSyncType );       /* syncType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( OTF2_RmaSyncType ); /* syncType */
 
     return record_length + record_data_length;
 }
@@ -2037,7 +2037,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaWaitChangeEvent( OTF2_EventSizeEstimator* es
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
 
     return record_length + record_data_length;
@@ -2063,9 +2063,9 @@ OTF2_EventSizeEstimator_GetSizeOfRmaPutEvent( OTF2_EventSizeEstimator* estimator
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* bytes */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytes */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     /* record length byte */
     record_length += 1;
@@ -2078,11 +2078,11 @@ OTF2_EventSizeEstimator_GetSizeOfRmaPutEvent( OTF2_EventSizeEstimator* estimator
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;           /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;           /* bytes */
-    record_data_length += sizeof( uint64_t ) + 1;           /* matchingId */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytes */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     return record_length + record_data_length;
 }
@@ -2107,9 +2107,9 @@ OTF2_EventSizeEstimator_GetSizeOfRmaGetEvent( OTF2_EventSizeEstimator* estimator
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* bytes */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytes */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     /* record length byte */
     record_length += 1;
@@ -2122,11 +2122,11 @@ OTF2_EventSizeEstimator_GetSizeOfRmaGetEvent( OTF2_EventSizeEstimator* estimator
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;           /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;           /* bytes */
-    record_data_length += sizeof( uint64_t ) + 1;           /* matchingId */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytes */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     return record_length + record_data_length;
 }
@@ -2151,11 +2151,11 @@ OTF2_EventSizeEstimator_GetSizeOfRmaAtomicEvent( OTF2_EventSizeEstimator* estima
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
     record_data_length += sizeof( OTF2_RmaAtomicType ); /* type */
-    record_data_length += sizeof( uint64_t ) + 1;       /* bytesSent */
-    record_data_length += sizeof( uint64_t ) + 1;       /* bytesReceived */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesSent */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesReceived */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     /* record length byte */
     record_length += 1;
@@ -2168,13 +2168,13 @@ OTF2_EventSizeEstimator_GetSizeOfRmaAtomicEvent( OTF2_EventSizeEstimator* estima
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;           /* remote */
-    record_data_length += sizeof( OTF2_RmaAtomicType );     /* type */
-    record_data_length += sizeof( uint64_t ) + 1;           /* bytesSent */
-    record_data_length += sizeof( uint64_t ) + 1;           /* bytesReceived */
-    record_data_length += sizeof( uint64_t ) + 1;           /* matchingId */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( OTF2_RmaAtomicType ); /* type */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesSent */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesReceived */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     return record_length + record_data_length;
 }
@@ -2199,7 +2199,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpCompleteBlockingEvent( OTF2_EventSizeEstim
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     /* record length byte */
     record_length += 1;
@@ -2212,9 +2212,9 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpCompleteBlockingEvent( OTF2_EventSizeEstim
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;           /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     return record_length + record_data_length;
 }
@@ -2239,7 +2239,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpCompleteNonBlockingEvent( OTF2_EventSizeEs
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     /* record length byte */
     record_length += 1;
@@ -2252,9 +2252,9 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpCompleteNonBlockingEvent( OTF2_EventSizeEs
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;           /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     return record_length + record_data_length;
 }
@@ -2279,7 +2279,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpTestEvent( OTF2_EventSizeEstimator* estima
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     /* record length byte */
     record_length += 1;
@@ -2292,9 +2292,9 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpTestEvent( OTF2_EventSizeEstimator* estima
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;           /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     return record_length + record_data_length;
 }
@@ -2319,7 +2319,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpCompleteRemoteEvent( OTF2_EventSizeEstimat
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     /* record length byte */
     record_length += 1;
@@ -2332,9 +2332,9 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpCompleteRemoteEvent( OTF2_EventSizeEstimat
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_rma_wins; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;           /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
 
     return record_length + record_data_length;
 }
@@ -2359,7 +2359,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadForkEvent( OTF2_EventSizeEstimator* estim
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_Paradigm ); /* model */
-    record_data_length += sizeof( uint32_t ) + 1;  /* numberOfRequestedThreads */
+    record_data_length += sizeof( uint32_t ) + 1; /* numberOfRequestedThreads */
 
     /* record length byte */
     record_length += 1;
@@ -2372,9 +2372,9 @@ OTF2_EventSizeEstimator_GetSizeOfThreadForkEvent( OTF2_EventSizeEstimator* estim
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( OTF2_Paradigm ); /* model */
-    record_data_length += sizeof( uint32_t ) + 1;  /* numberOfRequestedThreads */
+    record_data_length += sizeof( uint32_t ) + 1; /* numberOfRequestedThreads */
 
     return record_length + record_data_length;
 }
@@ -2411,7 +2411,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadJoinEvent( OTF2_EventSizeEstimator* estim
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( OTF2_Paradigm ); /* model */
 
     return record_length + record_data_length;
@@ -2449,7 +2449,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTeamBeginEvent( OTF2_EventSizeEstimator* 
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_comms; /* threadTeam */
 
     return record_length + record_data_length;
@@ -2487,7 +2487,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTeamEndEvent( OTF2_EventSizeEstimator* es
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_comms; /* threadTeam */
 
     return record_length + record_data_length;
@@ -2513,8 +2513,8 @@ OTF2_EventSizeEstimator_GetSizeOfThreadAcquireLockEvent( OTF2_EventSizeEstimator
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_Paradigm ); /* model */
-    record_data_length += sizeof( uint32_t ) + 1;  /* lockID */
-    record_data_length += sizeof( uint32_t ) + 1;  /* acquisitionOrder */
+    record_data_length += sizeof( uint32_t ) + 1; /* lockID */
+    record_data_length += sizeof( uint32_t ) + 1; /* acquisitionOrder */
 
     /* record length byte */
     record_length += 1;
@@ -2527,10 +2527,10 @@ OTF2_EventSizeEstimator_GetSizeOfThreadAcquireLockEvent( OTF2_EventSizeEstimator
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( OTF2_Paradigm ); /* model */
-    record_data_length += sizeof( uint32_t ) + 1;  /* lockID */
-    record_data_length += sizeof( uint32_t ) + 1;  /* acquisitionOrder */
+    record_data_length += sizeof( uint32_t ) + 1; /* lockID */
+    record_data_length += sizeof( uint32_t ) + 1; /* acquisitionOrder */
 
     return record_length + record_data_length;
 }
@@ -2555,8 +2555,8 @@ OTF2_EventSizeEstimator_GetSizeOfThreadReleaseLockEvent( OTF2_EventSizeEstimator
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_Paradigm ); /* model */
-    record_data_length += sizeof( uint32_t ) + 1;  /* lockID */
-    record_data_length += sizeof( uint32_t ) + 1;  /* acquisitionOrder */
+    record_data_length += sizeof( uint32_t ) + 1; /* lockID */
+    record_data_length += sizeof( uint32_t ) + 1; /* acquisitionOrder */
 
     /* record length byte */
     record_length += 1;
@@ -2569,10 +2569,10 @@ OTF2_EventSizeEstimator_GetSizeOfThreadReleaseLockEvent( OTF2_EventSizeEstimator
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += sizeof( OTF2_Paradigm ); /* model */
-    record_data_length += sizeof( uint32_t ) + 1;  /* lockID */
-    record_data_length += sizeof( uint32_t ) + 1;  /* acquisitionOrder */
+    record_data_length += sizeof( uint32_t ) + 1; /* lockID */
+    record_data_length += sizeof( uint32_t ) + 1; /* acquisitionOrder */
 
     return record_length + record_data_length;
 }
@@ -2597,8 +2597,8 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTaskCreateEvent( OTF2_EventSizeEstimator*
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadTeam */
-    record_data_length += sizeof( uint32_t ) + 1;     /* creatingThread */
-    record_data_length += sizeof( uint32_t ) + 1;     /* generationNumber */
+    record_data_length += sizeof( uint32_t ) + 1; /* creatingThread */
+    record_data_length += sizeof( uint32_t ) + 1; /* generationNumber */
 
     /* record length byte */
     record_length += 1;
@@ -2611,10 +2611,10 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTaskCreateEvent( OTF2_EventSizeEstimator*
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_comms; /* threadTeam */
-    record_data_length += sizeof( uint32_t ) + 1;        /* creatingThread */
-    record_data_length += sizeof( uint32_t ) + 1;        /* generationNumber */
+    record_data_length += sizeof( uint32_t ) + 1; /* creatingThread */
+    record_data_length += sizeof( uint32_t ) + 1; /* generationNumber */
 
     return record_length + record_data_length;
 }
@@ -2639,8 +2639,8 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTaskSwitchEvent( OTF2_EventSizeEstimator*
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadTeam */
-    record_data_length += sizeof( uint32_t ) + 1;     /* creatingThread */
-    record_data_length += sizeof( uint32_t ) + 1;     /* generationNumber */
+    record_data_length += sizeof( uint32_t ) + 1; /* creatingThread */
+    record_data_length += sizeof( uint32_t ) + 1; /* generationNumber */
 
     /* record length byte */
     record_length += 1;
@@ -2653,10 +2653,10 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTaskSwitchEvent( OTF2_EventSizeEstimator*
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_comms; /* threadTeam */
-    record_data_length += sizeof( uint32_t ) + 1;        /* creatingThread */
-    record_data_length += sizeof( uint32_t ) + 1;        /* generationNumber */
+    record_data_length += sizeof( uint32_t ) + 1; /* creatingThread */
+    record_data_length += sizeof( uint32_t ) + 1; /* generationNumber */
 
     return record_length + record_data_length;
 }
@@ -2681,8 +2681,8 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTaskCompleteEvent( OTF2_EventSizeEstimato
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadTeam */
-    record_data_length += sizeof( uint32_t ) + 1;     /* creatingThread */
-    record_data_length += sizeof( uint32_t ) + 1;     /* generationNumber */
+    record_data_length += sizeof( uint32_t ) + 1; /* creatingThread */
+    record_data_length += sizeof( uint32_t ) + 1; /* generationNumber */
 
     /* record length byte */
     record_length += 1;
@@ -2695,10 +2695,10 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTaskCompleteEvent( OTF2_EventSizeEstimato
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_comms; /* threadTeam */
-    record_data_length += sizeof( uint32_t ) + 1;        /* creatingThread */
-    record_data_length += sizeof( uint32_t ) + 1;        /* generationNumber */
+    record_data_length += sizeof( uint32_t ) + 1; /* creatingThread */
+    record_data_length += sizeof( uint32_t ) + 1; /* generationNumber */
 
     return record_length + record_data_length;
 }
@@ -2723,7 +2723,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadCreateEvent( OTF2_EventSizeEstimator* est
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;     /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
 
     /* record length byte */
     record_length += 1;
@@ -2736,9 +2736,9 @@ OTF2_EventSizeEstimator_GetSizeOfThreadCreateEvent( OTF2_EventSizeEstimator* est
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_comms; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;        /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
 
     return record_length + record_data_length;
 }
@@ -2763,7 +2763,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadBeginEvent( OTF2_EventSizeEstimator* esti
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;     /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
 
     /* record length byte */
     record_length += 1;
@@ -2776,9 +2776,9 @@ OTF2_EventSizeEstimator_GetSizeOfThreadBeginEvent( OTF2_EventSizeEstimator* esti
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_comms; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;        /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
 
     return record_length + record_data_length;
 }
@@ -2803,7 +2803,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadWaitEvent( OTF2_EventSizeEstimator* estim
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;     /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
 
     /* record length byte */
     record_length += 1;
@@ -2816,9 +2816,9 @@ OTF2_EventSizeEstimator_GetSizeOfThreadWaitEvent( OTF2_EventSizeEstimator* estim
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_comms; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;        /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
 
     return record_length + record_data_length;
 }
@@ -2843,7 +2843,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadEndEvent( OTF2_EventSizeEstimator* estima
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;     /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
 
     /* record length byte */
     record_length += 1;
@@ -2856,9 +2856,9 @@ OTF2_EventSizeEstimator_GetSizeOfThreadEndEvent( OTF2_EventSizeEstimator* estima
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_comms; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;        /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
 
     return record_length + record_data_length;
 }
@@ -2883,7 +2883,7 @@ OTF2_EventSizeEstimator_GetSizeOfCallingContextEnterEvent( OTF2_EventSizeEstimat
      */
     size_t record_data_length = 0;
     record_data_length += sizeof( OTF2_CallingContextRef ) + 1; /* callingContext */
-    record_data_length += sizeof( uint32_t ) + 1;               /* unwindDistance */
+    record_data_length += sizeof( uint32_t ) + 1; /* unwindDistance */
 
     /* record length byte */
     record_length += 1;
@@ -2896,9 +2896,9 @@ OTF2_EventSizeEstimator_GetSizeOfCallingContextEnterEvent( OTF2_EventSizeEstimat
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_calling_contexts; /* callingContext */
-    record_data_length += sizeof( uint32_t ) + 1;                   /* unwindDistance */
+    record_data_length += sizeof( uint32_t ) + 1; /* unwindDistance */
 
     return record_length + record_data_length;
 }
@@ -2935,7 +2935,7 @@ OTF2_EventSizeEstimator_GetSizeOfCallingContextLeaveEvent( OTF2_EventSizeEstimat
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
+    record_data_length = 0;
     record_data_length += estimator->estimate_for_calling_contexts; /* callingContext */
 
     return record_length + record_data_length;
@@ -2960,8 +2960,8 @@ OTF2_EventSizeEstimator_GetSizeOfCallingContextSampleEvent( OTF2_EventSizeEstima
      * calculation
      */
     size_t record_data_length = 0;
-    record_data_length += sizeof( OTF2_CallingContextRef ) + 1;     /* callingContext */
-    record_data_length += sizeof( uint32_t ) + 1;                   /* unwindDistance */
+    record_data_length += sizeof( OTF2_CallingContextRef ) + 1; /* callingContext */
+    record_data_length += sizeof( uint32_t ) + 1; /* unwindDistance */
     record_data_length += sizeof( OTF2_InterruptGeneratorRef ) + 1; /* interruptGenerator */
 
     /* record length byte */
@@ -2975,10 +2975,401 @@ OTF2_EventSizeEstimator_GetSizeOfCallingContextSampleEvent( OTF2_EventSizeEstima
     /* Re-do the calculation, but honor known upper bounds for references to
      * definitions.
      */
-    record_data_length  = 0;
-    record_data_length += estimator->estimate_for_calling_contexts;     /* callingContext */
-    record_data_length += sizeof( uint32_t ) + 1;                       /* unwindDistance */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_calling_contexts; /* callingContext */
+    record_data_length += sizeof( uint32_t ) + 1; /* unwindDistance */
     record_data_length += estimator->estimate_for_interrupt_generators; /* interruptGenerator */
 
     return record_length + record_data_length;
 }
+
+
+size_t
+OTF2_EventSizeEstimator_GetSizeOfTaskCreateEvent( OTF2_EventSizeEstimator* estimator )
+{
+    if ( !estimator )
+    {
+        UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                     "Invalid estimator argument." );
+        /* You get what you deserve */
+        return 0;
+    }
+
+    /* account the record id */
+    size_t record_length = 1;
+
+    /* Calculate the real upper bound, which is used for the record-length-byte
+     * calculation
+     */
+    size_t record_data_length = 0;
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+
+
+    /* Re-do the calculation, but honor known upper bounds for references to
+     * definitions.
+     */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_regions; /* region */
+
+    return record_length + record_data_length;
+}
+
+
+size_t
+OTF2_EventSizeEstimator_GetSizeOfTaskDestroyEvent( OTF2_EventSizeEstimator* estimator )
+{
+    if ( !estimator )
+    {
+        UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                     "Invalid estimator argument." );
+        /* You get what you deserve */
+        return 0;
+    }
+
+    /* account the record id */
+    size_t record_length = 1;
+
+    /* Calculate the real upper bound, which is used for the record-length-byte
+     * calculation
+     */
+    size_t record_data_length = 0;
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+
+
+    /* Re-do the calculation, but honor known upper bounds for references to
+     * definitions.
+     */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_regions; /* region */
+
+    return record_length + record_data_length;
+}
+
+
+size_t
+OTF2_EventSizeEstimator_GetSizeOfTaskRunnableEvent( OTF2_EventSizeEstimator* estimator )
+{
+    if ( !estimator )
+    {
+        UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                     "Invalid estimator argument." );
+        /* You get what you deserve */
+        return 0;
+    }
+
+    /* account the record id */
+    size_t record_length = 1;
+
+    /* Calculate the real upper bound, which is used for the record-length-byte
+     * calculation
+     */
+    size_t record_data_length = 0;
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+
+
+    /* Re-do the calculation, but honor known upper bounds for references to
+     * definitions.
+     */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_regions; /* region */
+
+    return record_length + record_data_length;
+}
+
+
+size_t
+OTF2_EventSizeEstimator_GetSizeOfAddDependenceEvent( OTF2_EventSizeEstimator* estimator )
+{
+    if ( !estimator )
+    {
+        UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                     "Invalid estimator argument." );
+        /* You get what you deserve */
+        return 0;
+    }
+
+    /* account the record id */
+    size_t record_length = 1;
+
+    /* Calculate the real upper bound, which is used for the record-length-byte
+     * calculation
+     */
+    size_t record_data_length = 0;
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* src */
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* dest */
+
+    /* record length byte */
+    record_length += 1;
+    if ( record_data_length >= UINT8_MAX )
+    {
+        record_length += 8;
+    }
+
+
+    /* Re-do the calculation, but honor known upper bounds for references to
+     * definitions.
+     */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_regions; /* src */
+    record_data_length += estimator->estimate_for_regions; /* dest */
+
+    return record_length + record_data_length;
+}
+
+
+size_t
+OTF2_EventSizeEstimator_GetSizeOfSatisfyDependenceEvent( OTF2_EventSizeEstimator* estimator )
+{
+    if ( !estimator )
+    {
+        UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                     "Invalid estimator argument." );
+        /* You get what you deserve */
+        return 0;
+    }
+
+    /* account the record id */
+    size_t record_length = 1;
+
+    /* Calculate the real upper bound, which is used for the record-length-byte
+     * calculation
+     */
+    size_t record_data_length = 0;
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* src */
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* dest */
+
+    /* record length byte */
+    record_length += 1;
+    if ( record_data_length >= UINT8_MAX )
+    {
+        record_length += 8;
+    }
+
+
+    /* Re-do the calculation, but honor known upper bounds for references to
+     * definitions.
+     */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_regions; /* src */
+    record_data_length += estimator->estimate_for_regions; /* dest */
+
+    return record_length + record_data_length;
+}
+
+
+size_t
+OTF2_EventSizeEstimator_GetSizeOfDataAcquireEvent( OTF2_EventSizeEstimator* estimator )
+{
+    if ( !estimator )
+    {
+        UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                     "Invalid estimator argument." );
+        /* You get what you deserve */
+        return 0;
+    }
+
+    /* account the record id */
+    size_t record_length = 1;
+
+    /* Calculate the real upper bound, which is used for the record-length-byte
+     * calculation
+     */
+    size_t record_data_length = 0;
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* task */
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* data */
+    record_data_length += sizeof( uint64_t ) + 1; /* size */
+
+    /* record length byte */
+    record_length += 1;
+    if ( record_data_length >= UINT8_MAX )
+    {
+        record_length += 8;
+    }
+
+
+    /* Re-do the calculation, but honor known upper bounds for references to
+     * definitions.
+     */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_regions; /* task */
+    record_data_length += estimator->estimate_for_regions; /* data */
+    record_data_length += sizeof( uint64_t ) + 1; /* size */
+
+    return record_length + record_data_length;
+}
+
+
+size_t
+OTF2_EventSizeEstimator_GetSizeOfDataReleaseEvent( OTF2_EventSizeEstimator* estimator )
+{
+    if ( !estimator )
+    {
+        UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                     "Invalid estimator argument." );
+        /* You get what you deserve */
+        return 0;
+    }
+
+    /* account the record id */
+    size_t record_length = 1;
+
+    /* Calculate the real upper bound, which is used for the record-length-byte
+     * calculation
+     */
+    size_t record_data_length = 0;
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* task */
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* data */
+    record_data_length += sizeof( uint64_t ) + 1; /* size */
+
+    /* record length byte */
+    record_length += 1;
+    if ( record_data_length >= UINT8_MAX )
+    {
+        record_length += 8;
+    }
+
+
+    /* Re-do the calculation, but honor known upper bounds for references to
+     * definitions.
+     */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_regions; /* task */
+    record_data_length += estimator->estimate_for_regions; /* data */
+    record_data_length += sizeof( uint64_t ) + 1; /* size */
+
+    return record_length + record_data_length;
+}
+
+
+size_t
+OTF2_EventSizeEstimator_GetSizeOfEventCreateEvent( OTF2_EventSizeEstimator* estimator )
+{
+    if ( !estimator )
+    {
+        UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                     "Invalid estimator argument." );
+        /* You get what you deserve */
+        return 0;
+    }
+
+    /* account the record id */
+    size_t record_length = 1;
+
+    /* Calculate the real upper bound, which is used for the record-length-byte
+     * calculation
+     */
+    size_t record_data_length = 0;
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+
+
+    /* Re-do the calculation, but honor known upper bounds for references to
+     * definitions.
+     */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_regions; /* region */
+
+    return record_length + record_data_length;
+}
+
+
+size_t
+OTF2_EventSizeEstimator_GetSizeOfEventDestroyEvent( OTF2_EventSizeEstimator* estimator )
+{
+    if ( !estimator )
+    {
+        UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                     "Invalid estimator argument." );
+        /* You get what you deserve */
+        return 0;
+    }
+
+    /* account the record id */
+    size_t record_length = 1;
+
+    /* Calculate the real upper bound, which is used for the record-length-byte
+     * calculation
+     */
+    size_t record_data_length = 0;
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+
+
+    /* Re-do the calculation, but honor known upper bounds for references to
+     * definitions.
+     */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_regions; /* region */
+
+    return record_length + record_data_length;
+}
+
+
+size_t
+OTF2_EventSizeEstimator_GetSizeOfDataCreateEvent( OTF2_EventSizeEstimator* estimator )
+{
+    if ( !estimator )
+    {
+        UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                     "Invalid estimator argument." );
+        /* You get what you deserve */
+        return 0;
+    }
+
+    /* account the record id */
+    size_t record_length = 1;
+
+    /* Calculate the real upper bound, which is used for the record-length-byte
+     * calculation
+     */
+    size_t record_data_length = 0;
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+    record_data_length += sizeof( uint64_t ) + 1; /* size */
+
+    /* record length byte */
+    record_length += 1;
+    if ( record_data_length >= UINT8_MAX )
+    {
+        record_length += 8;
+    }
+
+
+    /* Re-do the calculation, but honor known upper bounds for references to
+     * definitions.
+     */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_regions; /* region */
+    record_data_length += sizeof( uint64_t ) + 1; /* size */
+
+    return record_length + record_data_length;
+}
+
+
+size_t
+OTF2_EventSizeEstimator_GetSizeOfDataDestroyEvent( OTF2_EventSizeEstimator* estimator )
+{
+    if ( !estimator )
+    {
+        UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                     "Invalid estimator argument." );
+        /* You get what you deserve */
+        return 0;
+    }
+
+    /* account the record id */
+    size_t record_length = 1;
+
+    /* Calculate the real upper bound, which is used for the record-length-byte
+     * calculation
+     */
+    size_t record_data_length = 0;
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+
+
+    /* Re-do the calculation, but honor known upper bounds for references to
+     * definitions.
+     */
+    record_data_length = 0;
+    record_data_length += estimator->estimate_for_regions; /* region */
+
+    return record_length + record_data_length;
+}
+

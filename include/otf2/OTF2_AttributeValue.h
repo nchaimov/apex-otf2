@@ -52,7 +52,7 @@ extern "C" {
 typedef union OTF2_AttributeValue_union
 {
     /** @brief Arbitrary value of type uint8_t */
-    uint8_t  uint8;
+    uint8_t uint8;
     /** @brief Arbitrary value of type uint16_t */
     uint16_t uint16;
     /** @brief Arbitrary value of type uint32_t */
@@ -60,17 +60,17 @@ typedef union OTF2_AttributeValue_union
     /** @brief Arbitrary value of type uint64_t */
     uint64_t uint64;
     /** @brief Arbitrary value of type int8_t */
-    int8_t   int8;
+    int8_t int8;
     /** @brief Arbitrary value of type int16_t */
-    int16_t  int16;
+    int16_t int16;
     /** @brief Arbitrary value of type int32_t */
-    int32_t  int32;
+    int32_t int32;
     /** @brief Arbitrary value of type int64_t */
-    int64_t  int64;
+    int64_t int64;
     /** @brief Arbitrary value of type float */
-    float    float32;
+    float float32;
     /** @brief Arbitrary value of type double */
-    double   float64;
+    double float64;
     /**
      * @brief References a @eref{String} definition
      * and will be mapped to the global definition if a mapping table of
@@ -162,9 +162,9 @@ typedef union OTF2_AttributeValue_union
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetBoolean( OTF2_Boolean         enumValue,
-                                OTF2_Type*           type,
-                                OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetBoolean( OTF2_Boolean        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -184,8 +184,8 @@ OTF2_AttributeValue_SetBoolean( OTF2_Boolean         enumValue,
  */
 OTF2_ErrorCode
 OTF2_AttributeValue_SetFileType( OTF2_FileType        enumValue,
-                                 OTF2_Type*           type,
-                                 OTF2_AttributeValue* value );
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -204,7 +204,7 @@ OTF2_AttributeValue_SetFileType( OTF2_FileType        enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetFileSubstrate( OTF2_FileSubstrate   enumValue,
+OTF2_AttributeValue_SetFileSubstrate( OTF2_FileSubstrate        enumValue,
                                       OTF2_Type*           type,
                                       OTF2_AttributeValue* value );
 
@@ -225,9 +225,9 @@ OTF2_AttributeValue_SetFileSubstrate( OTF2_FileSubstrate   enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetMappingType( OTF2_MappingType     enumValue,
-                                    OTF2_Type*           type,
-                                    OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetMappingType( OTF2_MappingType        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -246,9 +246,9 @@ OTF2_AttributeValue_SetMappingType( OTF2_MappingType     enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetType( OTF2_Type            enumValue,
-                             OTF2_Type*           type,
-                             OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetType( OTF2_Type        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -268,8 +268,8 @@ OTF2_AttributeValue_SetType( OTF2_Type            enumValue,
  */
 OTF2_ErrorCode
 OTF2_AttributeValue_SetParadigm( OTF2_Paradigm        enumValue,
-                                 OTF2_Type*           type,
-                                 OTF2_AttributeValue* value );
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -288,7 +288,7 @@ OTF2_AttributeValue_SetParadigm( OTF2_Paradigm        enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetParadigmClass( OTF2_ParadigmClass   enumValue,
+OTF2_AttributeValue_SetParadigmClass( OTF2_ParadigmClass        enumValue,
                                       OTF2_Type*           type,
                                       OTF2_AttributeValue* value );
 
@@ -309,9 +309,9 @@ OTF2_AttributeValue_SetParadigmClass( OTF2_ParadigmClass   enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetParadigmProperty( OTF2_ParadigmProperty enumValue,
-                                         OTF2_Type*            type,
-                                         OTF2_AttributeValue*  value );
+OTF2_AttributeValue_SetParadigmProperty( OTF2_ParadigmProperty        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -330,7 +330,7 @@ OTF2_AttributeValue_SetParadigmProperty( OTF2_ParadigmProperty enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetThumbnailType( OTF2_ThumbnailType   enumValue,
+OTF2_AttributeValue_SetThumbnailType( OTF2_ThumbnailType        enumValue,
                                       OTF2_Type*           type,
                                       OTF2_AttributeValue* value );
 
@@ -351,9 +351,9 @@ OTF2_AttributeValue_SetThumbnailType( OTF2_ThumbnailType   enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetSystemTreeDomain( OTF2_SystemTreeDomain enumValue,
-                                         OTF2_Type*            type,
-                                         OTF2_AttributeValue*  value );
+OTF2_AttributeValue_SetSystemTreeDomain( OTF2_SystemTreeDomain        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -372,9 +372,9 @@ OTF2_AttributeValue_SetSystemTreeDomain( OTF2_SystemTreeDomain enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetLocationGroupType( OTF2_LocationGroupType enumValue,
-                                          OTF2_Type*             type,
-                                          OTF2_AttributeValue*   value );
+OTF2_AttributeValue_SetLocationGroupType( OTF2_LocationGroupType        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -393,9 +393,9 @@ OTF2_AttributeValue_SetLocationGroupType( OTF2_LocationGroupType enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetLocationType( OTF2_LocationType    enumValue,
-                                     OTF2_Type*           type,
-                                     OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetLocationType( OTF2_LocationType        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -414,9 +414,9 @@ OTF2_AttributeValue_SetLocationType( OTF2_LocationType    enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetRegionRole( OTF2_RegionRole      enumValue,
-                                   OTF2_Type*           type,
-                                   OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetRegionRole( OTF2_RegionRole        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -435,9 +435,9 @@ OTF2_AttributeValue_SetRegionRole( OTF2_RegionRole      enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetRegionFlag( OTF2_RegionFlag      enumValue,
-                                   OTF2_Type*           type,
-                                   OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetRegionFlag( OTF2_RegionFlag        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -456,9 +456,9 @@ OTF2_AttributeValue_SetRegionFlag( OTF2_RegionFlag      enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetGroupType( OTF2_GroupType       enumValue,
-                                  OTF2_Type*           type,
-                                  OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetGroupType( OTF2_GroupType        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -477,9 +477,9 @@ OTF2_AttributeValue_SetGroupType( OTF2_GroupType       enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetGroupFlag( OTF2_GroupFlag       enumValue,
-                                  OTF2_Type*           type,
-                                  OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetGroupFlag( OTF2_GroupFlag        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -498,9 +498,9 @@ OTF2_AttributeValue_SetGroupFlag( OTF2_GroupFlag       enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetBase( OTF2_Base            enumValue,
-                             OTF2_Type*           type,
-                             OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetBase( OTF2_Base        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -519,9 +519,9 @@ OTF2_AttributeValue_SetBase( OTF2_Base            enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetMetricOccurrence( OTF2_MetricOccurrence enumValue,
-                                         OTF2_Type*            type,
-                                         OTF2_AttributeValue*  value );
+OTF2_AttributeValue_SetMetricOccurrence( OTF2_MetricOccurrence        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -540,9 +540,9 @@ OTF2_AttributeValue_SetMetricOccurrence( OTF2_MetricOccurrence enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetMetricType( OTF2_MetricType      enumValue,
-                                   OTF2_Type*           type,
-                                   OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetMetricType( OTF2_MetricType        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -561,9 +561,9 @@ OTF2_AttributeValue_SetMetricType( OTF2_MetricType      enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetMetricValueProperty( OTF2_MetricValueProperty enumValue,
-                                            OTF2_Type*               type,
-                                            OTF2_AttributeValue*     value );
+OTF2_AttributeValue_SetMetricValueProperty( OTF2_MetricValueProperty        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -582,9 +582,9 @@ OTF2_AttributeValue_SetMetricValueProperty( OTF2_MetricValueProperty enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetMetricTiming( OTF2_MetricTiming    enumValue,
-                                     OTF2_Type*           type,
-                                     OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetMetricTiming( OTF2_MetricTiming        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -603,9 +603,9 @@ OTF2_AttributeValue_SetMetricTiming( OTF2_MetricTiming    enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetMetricMode( OTF2_MetricMode      enumValue,
-                                   OTF2_Type*           type,
-                                   OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetMetricMode( OTF2_MetricMode        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -624,9 +624,9 @@ OTF2_AttributeValue_SetMetricMode( OTF2_MetricMode      enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetMetricScope( OTF2_MetricScope     enumValue,
-                                    OTF2_Type*           type,
-                                    OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetMetricScope( OTF2_MetricScope        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -645,9 +645,9 @@ OTF2_AttributeValue_SetMetricScope( OTF2_MetricScope     enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetRecorderKind( OTF2_RecorderKind    enumValue,
-                                     OTF2_Type*           type,
-                                     OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetRecorderKind( OTF2_RecorderKind        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -666,7 +666,7 @@ OTF2_AttributeValue_SetRecorderKind( OTF2_RecorderKind    enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetParameterType( OTF2_ParameterType   enumValue,
+OTF2_AttributeValue_SetParameterType( OTF2_ParameterType        enumValue,
                                       OTF2_Type*           type,
                                       OTF2_AttributeValue* value );
 
@@ -687,9 +687,9 @@ OTF2_AttributeValue_SetParameterType( OTF2_ParameterType   enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetCartPeriodicity( OTF2_CartPeriodicity enumValue,
-                                        OTF2_Type*           type,
-                                        OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetCartPeriodicity( OTF2_CartPeriodicity        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -708,9 +708,9 @@ OTF2_AttributeValue_SetCartPeriodicity( OTF2_CartPeriodicity enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetInterruptGeneratorMode( OTF2_InterruptGeneratorMode enumValue,
-                                               OTF2_Type*                  type,
-                                               OTF2_AttributeValue*        value );
+OTF2_AttributeValue_SetInterruptGeneratorMode( OTF2_InterruptGeneratorMode        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -729,9 +729,9 @@ OTF2_AttributeValue_SetInterruptGeneratorMode( OTF2_InterruptGeneratorMode enumV
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetMeasurementMode( OTF2_MeasurementMode enumValue,
-                                        OTF2_Type*           type,
-                                        OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetMeasurementMode( OTF2_MeasurementMode        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -750,9 +750,9 @@ OTF2_AttributeValue_SetMeasurementMode( OTF2_MeasurementMode enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetCollectiveOp( OTF2_CollectiveOp    enumValue,
-                                     OTF2_Type*           type,
-                                     OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetCollectiveOp( OTF2_CollectiveOp        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -771,9 +771,9 @@ OTF2_AttributeValue_SetCollectiveOp( OTF2_CollectiveOp    enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetRmaSyncType( OTF2_RmaSyncType     enumValue,
-                                    OTF2_Type*           type,
-                                    OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetRmaSyncType( OTF2_RmaSyncType        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -792,9 +792,9 @@ OTF2_AttributeValue_SetRmaSyncType( OTF2_RmaSyncType     enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetRmaSyncLevel( OTF2_RmaSyncLevel    enumValue,
-                                     OTF2_Type*           type,
-                                     OTF2_AttributeValue* value );
+OTF2_AttributeValue_SetRmaSyncLevel( OTF2_RmaSyncLevel        enumValue,
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -814,8 +814,8 @@ OTF2_AttributeValue_SetRmaSyncLevel( OTF2_RmaSyncLevel    enumValue,
  */
 OTF2_ErrorCode
 OTF2_AttributeValue_SetLockType( OTF2_LockType        enumValue,
-                                 OTF2_Type*           type,
-                                 OTF2_AttributeValue* value );
+                                      OTF2_Type*           type,
+                                      OTF2_AttributeValue* value );
 
 
 /** @brief Set @eref{OTF2_Type} and @eref{OTF2_AttributeValue} to the appropriate
@@ -834,7 +834,7 @@ OTF2_AttributeValue_SetLockType( OTF2_LockType        enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_SetRmaAtomicType( OTF2_RmaAtomicType   enumValue,
+OTF2_AttributeValue_SetRmaAtomicType( OTF2_RmaAtomicType        enumValue,
                                       OTF2_Type*           type,
                                       OTF2_AttributeValue* value );
 
@@ -856,9 +856,9 @@ OTF2_AttributeValue_SetRmaAtomicType( OTF2_RmaAtomicType   enumValue,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetBoolean( OTF2_Type           type,
-                                OTF2_AttributeValue value,
-                                OTF2_Boolean*       enumValue );
+OTF2_AttributeValue_GetBoolean( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_Boolean*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -878,9 +878,9 @@ OTF2_AttributeValue_GetBoolean( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetFileType( OTF2_Type           type,
-                                 OTF2_AttributeValue value,
-                                 OTF2_FileType*      enumValue );
+OTF2_AttributeValue_GetFileType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_FileType*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -900,9 +900,9 @@ OTF2_AttributeValue_GetFileType( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetFileSubstrate( OTF2_Type           type,
-                                      OTF2_AttributeValue value,
-                                      OTF2_FileSubstrate* enumValue );
+OTF2_AttributeValue_GetFileSubstrate( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_FileSubstrate*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -922,9 +922,9 @@ OTF2_AttributeValue_GetFileSubstrate( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetMappingType( OTF2_Type           type,
-                                    OTF2_AttributeValue value,
-                                    OTF2_MappingType*   enumValue );
+OTF2_AttributeValue_GetMappingType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_MappingType*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -944,9 +944,9 @@ OTF2_AttributeValue_GetMappingType( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetType( OTF2_Type           type,
-                             OTF2_AttributeValue value,
-                             OTF2_Type*          enumValue );
+OTF2_AttributeValue_GetType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_Type*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -966,9 +966,9 @@ OTF2_AttributeValue_GetType( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetParadigm( OTF2_Type           type,
-                                 OTF2_AttributeValue value,
-                                 OTF2_Paradigm*      enumValue );
+OTF2_AttributeValue_GetParadigm( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_Paradigm*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -988,9 +988,9 @@ OTF2_AttributeValue_GetParadigm( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetParadigmClass( OTF2_Type           type,
-                                      OTF2_AttributeValue value,
-                                      OTF2_ParadigmClass* enumValue );
+OTF2_AttributeValue_GetParadigmClass( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_ParadigmClass*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1010,9 +1010,9 @@ OTF2_AttributeValue_GetParadigmClass( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetParadigmProperty( OTF2_Type              type,
-                                         OTF2_AttributeValue    value,
-                                         OTF2_ParadigmProperty* enumValue );
+OTF2_AttributeValue_GetParadigmProperty( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_ParadigmProperty*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1032,9 +1032,9 @@ OTF2_AttributeValue_GetParadigmProperty( OTF2_Type              type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetThumbnailType( OTF2_Type           type,
-                                      OTF2_AttributeValue value,
-                                      OTF2_ThumbnailType* enumValue );
+OTF2_AttributeValue_GetThumbnailType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_ThumbnailType*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1054,9 +1054,9 @@ OTF2_AttributeValue_GetThumbnailType( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetSystemTreeDomain( OTF2_Type              type,
-                                         OTF2_AttributeValue    value,
-                                         OTF2_SystemTreeDomain* enumValue );
+OTF2_AttributeValue_GetSystemTreeDomain( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_SystemTreeDomain*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1076,9 +1076,9 @@ OTF2_AttributeValue_GetSystemTreeDomain( OTF2_Type              type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetLocationGroupType( OTF2_Type               type,
-                                          OTF2_AttributeValue     value,
-                                          OTF2_LocationGroupType* enumValue );
+OTF2_AttributeValue_GetLocationGroupType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_LocationGroupType*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1098,9 +1098,9 @@ OTF2_AttributeValue_GetLocationGroupType( OTF2_Type               type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetLocationType( OTF2_Type           type,
-                                     OTF2_AttributeValue value,
-                                     OTF2_LocationType*  enumValue );
+OTF2_AttributeValue_GetLocationType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_LocationType*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1120,9 +1120,9 @@ OTF2_AttributeValue_GetLocationType( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetRegionRole( OTF2_Type           type,
-                                   OTF2_AttributeValue value,
-                                   OTF2_RegionRole*    enumValue );
+OTF2_AttributeValue_GetRegionRole( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_RegionRole*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1142,9 +1142,9 @@ OTF2_AttributeValue_GetRegionRole( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetRegionFlag( OTF2_Type           type,
-                                   OTF2_AttributeValue value,
-                                   OTF2_RegionFlag*    enumValue );
+OTF2_AttributeValue_GetRegionFlag( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_RegionFlag*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1164,9 +1164,9 @@ OTF2_AttributeValue_GetRegionFlag( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetGroupType( OTF2_Type           type,
-                                  OTF2_AttributeValue value,
-                                  OTF2_GroupType*     enumValue );
+OTF2_AttributeValue_GetGroupType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_GroupType*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1186,9 +1186,9 @@ OTF2_AttributeValue_GetGroupType( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetGroupFlag( OTF2_Type           type,
-                                  OTF2_AttributeValue value,
-                                  OTF2_GroupFlag*     enumValue );
+OTF2_AttributeValue_GetGroupFlag( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_GroupFlag*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1208,9 +1208,9 @@ OTF2_AttributeValue_GetGroupFlag( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetBase( OTF2_Type           type,
-                             OTF2_AttributeValue value,
-                             OTF2_Base*          enumValue );
+OTF2_AttributeValue_GetBase( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_Base*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1230,9 +1230,9 @@ OTF2_AttributeValue_GetBase( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetMetricOccurrence( OTF2_Type              type,
-                                         OTF2_AttributeValue    value,
-                                         OTF2_MetricOccurrence* enumValue );
+OTF2_AttributeValue_GetMetricOccurrence( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_MetricOccurrence*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1252,9 +1252,9 @@ OTF2_AttributeValue_GetMetricOccurrence( OTF2_Type              type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetMetricType( OTF2_Type           type,
-                                   OTF2_AttributeValue value,
-                                   OTF2_MetricType*    enumValue );
+OTF2_AttributeValue_GetMetricType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_MetricType*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1274,9 +1274,9 @@ OTF2_AttributeValue_GetMetricType( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetMetricValueProperty( OTF2_Type                 type,
-                                            OTF2_AttributeValue       value,
-                                            OTF2_MetricValueProperty* enumValue );
+OTF2_AttributeValue_GetMetricValueProperty( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_MetricValueProperty*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1296,9 +1296,9 @@ OTF2_AttributeValue_GetMetricValueProperty( OTF2_Type                 type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetMetricTiming( OTF2_Type           type,
-                                     OTF2_AttributeValue value,
-                                     OTF2_MetricTiming*  enumValue );
+OTF2_AttributeValue_GetMetricTiming( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_MetricTiming*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1318,9 +1318,9 @@ OTF2_AttributeValue_GetMetricTiming( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetMetricMode( OTF2_Type           type,
-                                   OTF2_AttributeValue value,
-                                   OTF2_MetricMode*    enumValue );
+OTF2_AttributeValue_GetMetricMode( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_MetricMode*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1340,9 +1340,9 @@ OTF2_AttributeValue_GetMetricMode( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetMetricScope( OTF2_Type           type,
-                                    OTF2_AttributeValue value,
-                                    OTF2_MetricScope*   enumValue );
+OTF2_AttributeValue_GetMetricScope( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_MetricScope*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1362,9 +1362,9 @@ OTF2_AttributeValue_GetMetricScope( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetRecorderKind( OTF2_Type           type,
-                                     OTF2_AttributeValue value,
-                                     OTF2_RecorderKind*  enumValue );
+OTF2_AttributeValue_GetRecorderKind( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_RecorderKind*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1384,9 +1384,9 @@ OTF2_AttributeValue_GetRecorderKind( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetParameterType( OTF2_Type           type,
-                                      OTF2_AttributeValue value,
-                                      OTF2_ParameterType* enumValue );
+OTF2_AttributeValue_GetParameterType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_ParameterType*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1406,9 +1406,9 @@ OTF2_AttributeValue_GetParameterType( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetCartPeriodicity( OTF2_Type             type,
-                                        OTF2_AttributeValue   value,
-                                        OTF2_CartPeriodicity* enumValue );
+OTF2_AttributeValue_GetCartPeriodicity( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_CartPeriodicity*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1428,9 +1428,9 @@ OTF2_AttributeValue_GetCartPeriodicity( OTF2_Type             type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetInterruptGeneratorMode( OTF2_Type                    type,
-                                               OTF2_AttributeValue          value,
-                                               OTF2_InterruptGeneratorMode* enumValue );
+OTF2_AttributeValue_GetInterruptGeneratorMode( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_InterruptGeneratorMode*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1450,9 +1450,9 @@ OTF2_AttributeValue_GetInterruptGeneratorMode( OTF2_Type                    type
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetMeasurementMode( OTF2_Type             type,
-                                        OTF2_AttributeValue   value,
-                                        OTF2_MeasurementMode* enumValue );
+OTF2_AttributeValue_GetMeasurementMode( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_MeasurementMode*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1472,9 +1472,9 @@ OTF2_AttributeValue_GetMeasurementMode( OTF2_Type             type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetCollectiveOp( OTF2_Type           type,
-                                     OTF2_AttributeValue value,
-                                     OTF2_CollectiveOp*  enumValue );
+OTF2_AttributeValue_GetCollectiveOp( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_CollectiveOp*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1494,9 +1494,9 @@ OTF2_AttributeValue_GetCollectiveOp( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetRmaSyncType( OTF2_Type           type,
-                                    OTF2_AttributeValue value,
-                                    OTF2_RmaSyncType*   enumValue );
+OTF2_AttributeValue_GetRmaSyncType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_RmaSyncType*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1516,9 +1516,9 @@ OTF2_AttributeValue_GetRmaSyncType( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetRmaSyncLevel( OTF2_Type           type,
-                                     OTF2_AttributeValue value,
-                                     OTF2_RmaSyncLevel*  enumValue );
+OTF2_AttributeValue_GetRmaSyncLevel( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_RmaSyncLevel*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1538,9 +1538,9 @@ OTF2_AttributeValue_GetRmaSyncLevel( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetLockType( OTF2_Type           type,
-                                 OTF2_AttributeValue value,
-                                 OTF2_LockType*      enumValue );
+OTF2_AttributeValue_GetLockType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_LockType*       enumValue );
 
 
 /** @brief Converts a @eref{OTF2_Type} and @eref{OTF2_AttributeValue} pair to
@@ -1560,9 +1560,9 @@ OTF2_AttributeValue_GetLockType( OTF2_Type           type,
  *  @retend
  */
 OTF2_ErrorCode
-OTF2_AttributeValue_GetRmaAtomicType( OTF2_Type           type,
-                                      OTF2_AttributeValue value,
-                                      OTF2_RmaAtomicType* enumValue );
+OTF2_AttributeValue_GetRmaAtomicType( OTF2_Type            type,
+                                      OTF2_AttributeValue  value,
+                                      OTF2_RmaAtomicType*       enumValue );
 
 
 #ifdef __cplusplus

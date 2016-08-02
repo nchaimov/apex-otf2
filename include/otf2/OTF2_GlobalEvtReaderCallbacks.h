@@ -100,10 +100,10 @@ OTF2_GlobalEvtReaderCallbacks_Clear( OTF2_GlobalEvtReaderCallbacks* globalEvtRea
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_Unknown )( OTF2_LocationRef    locationID,
-                                            OTF2_TimeStamp      time,
-                                            void*               userData,
-                                            OTF2_AttributeList* attributeList );
+( *OTF2_GlobalEvtReaderCallback_Unknown )( OTF2_LocationRef    locationID,
+                                           OTF2_TimeStamp      time,
+                                           void*               userData,
+                                           OTF2_AttributeList* attributeList );
 
 
 /** @brief Registers the callback for unknown events.
@@ -127,7 +127,7 @@ OTF2_GlobalEvtReaderCallbacks_SetUnknownCallback(
  *
  *  This event signals that the internal buffer was flushed at the given
  *  time.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -141,15 +141,15 @@ OTF2_GlobalEvtReaderCallbacks_SetUnknownCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_BufferFlush )( OTF2_LocationRef    locationID,
-                                                OTF2_TimeStamp      time,
-                                                void*               userData,
-                                                OTF2_AttributeList* attributeList,
-                                                OTF2_TimeStamp      stopTime );
+( *OTF2_GlobalEvtReaderCallback_BufferFlush )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_TimeStamp stopTime );
 
 
 /** @brief Registers the callback for the BufferFlush event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param bufferFlushCallback      Function which should be called for all
  *                                  @eref{BufferFlush} definitions.
@@ -164,7 +164,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetBufferFlushCallback(
-    OTF2_GlobalEvtReaderCallbacks*           globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_BufferFlush bufferFlushCallback );
 
 
@@ -172,7 +172,7 @@ OTF2_GlobalEvtReaderCallbacks_SetBufferFlushCallback(
  *
  *  This event signals where the measurement system turned measurement on
  *  or off.
- *
+ *  
  *  @param locationID      The location where this event happened.
  *  @param time            The time when this event happened.
  *  @param userData        User data as set by
@@ -188,15 +188,15 @@ OTF2_GlobalEvtReaderCallbacks_SetBufferFlushCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_MeasurementOnOff )( OTF2_LocationRef     locationID,
-                                                     OTF2_TimeStamp       time,
-                                                     void*                userData,
-                                                     OTF2_AttributeList*  attributeList,
-                                                     OTF2_MeasurementMode measurementMode );
+( *OTF2_GlobalEvtReaderCallback_MeasurementOnOff )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_MeasurementMode measurementMode );
 
 
 /** @brief Registers the callback for the MeasurementOnOff event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param measurementOnOffCallback Function which should be called for all
  *                                  @eref{MeasurementOnOff} definitions.
@@ -211,14 +211,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetMeasurementOnOffCallback(
-    OTF2_GlobalEvtReaderCallbacks*                globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_MeasurementOnOff measurementOnOffCallback );
 
 
 /** @brief Callback for the Enter event record.
  *
  *  An enter record indicates that the program enters a code region.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -235,15 +235,15 @@ OTF2_GlobalEvtReaderCallbacks_SetMeasurementOnOffCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_Enter )( OTF2_LocationRef    locationID,
-                                          OTF2_TimeStamp      time,
-                                          void*               userData,
-                                          OTF2_AttributeList* attributeList,
-                                          OTF2_RegionRef      region );
+( *OTF2_GlobalEvtReaderCallback_Enter )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef region );
 
 
 /** @brief Registers the callback for the Enter event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param enterCallback            Function which should be called for all
  *                                  @eref{Enter} definitions.
@@ -258,14 +258,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetEnterCallback(
-    OTF2_GlobalEvtReaderCallbacks*     globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_Enter enterCallback );
 
 
 /** @brief Callback for the Leave event record.
  *
- *  A leave record indicates that the program leaves a code region.
- *
+ *  An enter record indicates that the program leaves a code region.
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -282,15 +282,15 @@ OTF2_GlobalEvtReaderCallbacks_SetEnterCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_Leave )( OTF2_LocationRef    locationID,
-                                          OTF2_TimeStamp      time,
-                                          void*               userData,
-                                          OTF2_AttributeList* attributeList,
-                                          OTF2_RegionRef      region );
+( *OTF2_GlobalEvtReaderCallback_Leave )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef region );
 
 
 /** @brief Registers the callback for the Leave event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param leaveCallback            Function which should be called for all
  *                                  @eref{Leave} definitions.
@@ -305,7 +305,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetLeaveCallback(
-    OTF2_GlobalEvtReaderCallbacks*     globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_Leave leaveCallback );
 
 
@@ -316,7 +316,7 @@ OTF2_GlobalEvtReaderCallbacks_SetLeaveCallback(
  *  event: receiver of the message, communicator, and the message tag.
  *  You can optionally add further information like the message length
  *  (size of the send buffer).
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -335,18 +335,18 @@ OTF2_GlobalEvtReaderCallbacks_SetLeaveCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_MpiSend )( OTF2_LocationRef    locationID,
-                                            OTF2_TimeStamp      time,
-                                            void*               userData,
-                                            OTF2_AttributeList* attributeList,
-                                            uint32_t            receiver,
-                                            OTF2_CommRef        communicator,
-                                            uint32_t            msgTag,
-                                            uint64_t            msgLength );
+( *OTF2_GlobalEvtReaderCallback_MpiSend )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength );
 
 
 /** @brief Registers the callback for the MpiSend event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param mpiSendCallback          Function which should be called for all
  *                                  @eref{MpiSend} definitions.
@@ -361,7 +361,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetMpiSendCallback(
-    OTF2_GlobalEvtReaderCallbacks*       globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_MpiSend mpiSendCallback );
 
 
@@ -372,7 +372,7 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiSendCallback(
  *  event: receiver of the message, communicator, and the message tag.
  *  You can optionally add further information like the message length
  *  (size of the send buffer).
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -392,19 +392,19 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiSendCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_MpiIsend )( OTF2_LocationRef    locationID,
-                                             OTF2_TimeStamp      time,
-                                             void*               userData,
-                                             OTF2_AttributeList* attributeList,
-                                             uint32_t            receiver,
-                                             OTF2_CommRef        communicator,
-                                             uint32_t            msgTag,
-                                             uint64_t            msgLength,
-                                             uint64_t            requestID );
+( *OTF2_GlobalEvtReaderCallback_MpiIsend )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID );
 
 
 /** @brief Registers the callback for the MpiIsend event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param mpiIsendCallback         Function which should be called for all
  *                                  @eref{MpiIsend} definitions.
@@ -419,14 +419,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetMpiIsendCallback(
-    OTF2_GlobalEvtReaderCallbacks*        globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_MpiIsend mpiIsendCallback );
 
 
 /** @brief Callback for the MpiIsendComplete event record.
  *
  *  Signals the completion of non-blocking send request.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -440,15 +440,15 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiIsendCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_MpiIsendComplete )( OTF2_LocationRef    locationID,
-                                                     OTF2_TimeStamp      time,
-                                                     void*               userData,
-                                                     OTF2_AttributeList* attributeList,
-                                                     uint64_t            requestID );
+( *OTF2_GlobalEvtReaderCallback_MpiIsendComplete )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint64_t requestID );
 
 
 /** @brief Registers the callback for the MpiIsendComplete event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param mpiIsendCompleteCallback Function which should be called for all
  *                                  @eref{MpiIsendComplete} definitions.
@@ -463,14 +463,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetMpiIsendCompleteCallback(
-    OTF2_GlobalEvtReaderCallbacks*                globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_MpiIsendComplete mpiIsendCompleteCallback );
 
 
 /** @brief Callback for the MpiIrecvRequest event record.
  *
  *  Signals the request of a receive, which can be completed later.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -484,15 +484,15 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiIsendCompleteCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_MpiIrecvRequest )( OTF2_LocationRef    locationID,
-                                                    OTF2_TimeStamp      time,
-                                                    void*               userData,
-                                                    OTF2_AttributeList* attributeList,
-                                                    uint64_t            requestID );
+( *OTF2_GlobalEvtReaderCallback_MpiIrecvRequest )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint64_t requestID );
 
 
 /** @brief Registers the callback for the MpiIrecvRequest event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param mpiIrecvRequestCallback  Function which should be called for all
  *                                  @eref{MpiIrecvRequest} definitions.
@@ -507,7 +507,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetMpiIrecvRequestCallback(
-    OTF2_GlobalEvtReaderCallbacks*               globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_MpiIrecvRequest mpiIrecvRequestCallback );
 
 
@@ -518,7 +518,7 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiIrecvRequestCallback(
  *  message, communicator, and the message tag. You can optionally add
  *  further information like the message length (size of the receive
  *  buffer).
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -537,18 +537,18 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiIrecvRequestCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_MpiRecv )( OTF2_LocationRef    locationID,
-                                            OTF2_TimeStamp      time,
-                                            void*               userData,
-                                            OTF2_AttributeList* attributeList,
-                                            uint32_t            sender,
-                                            OTF2_CommRef        communicator,
-                                            uint32_t            msgTag,
-                                            uint64_t            msgLength );
+( *OTF2_GlobalEvtReaderCallback_MpiRecv )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength );
 
 
 /** @brief Registers the callback for the MpiRecv event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param mpiRecvCallback          Function which should be called for all
  *                                  @eref{MpiRecv} definitions.
@@ -563,7 +563,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetMpiRecvCallback(
-    OTF2_GlobalEvtReaderCallbacks*       globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_MpiRecv mpiRecvCallback );
 
 
@@ -574,7 +574,7 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiRecvCallback(
  *  sender of the message, communicator, and the message tag. You can
  *  optionally add further information like the message length (size
  *  of the receive buffer).
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -594,19 +594,19 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiRecvCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_MpiIrecv )( OTF2_LocationRef    locationID,
-                                             OTF2_TimeStamp      time,
-                                             void*               userData,
-                                             OTF2_AttributeList* attributeList,
-                                             uint32_t            sender,
-                                             OTF2_CommRef        communicator,
-                                             uint32_t            msgTag,
-                                             uint64_t            msgLength,
-                                             uint64_t            requestID );
+( *OTF2_GlobalEvtReaderCallback_MpiIrecv )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID );
 
 
 /** @brief Registers the callback for the MpiIrecv event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param mpiIrecvCallback         Function which should be called for all
  *                                  @eref{MpiIrecv} definitions.
@@ -621,7 +621,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetMpiIrecvCallback(
-    OTF2_GlobalEvtReaderCallbacks*        globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_MpiIrecv mpiIrecvCallback );
 
 
@@ -629,7 +629,7 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiIrecvCallback(
  *
  *  This events appears if the program tests if a request has already
  *  completed but the test failed.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -643,15 +643,15 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiIrecvCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_MpiRequestTest )( OTF2_LocationRef    locationID,
-                                                   OTF2_TimeStamp      time,
-                                                   void*               userData,
-                                                   OTF2_AttributeList* attributeList,
-                                                   uint64_t            requestID );
+( *OTF2_GlobalEvtReaderCallback_MpiRequestTest )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint64_t requestID );
 
 
 /** @brief Registers the callback for the MpiRequestTest event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param mpiRequestTestCallback   Function which should be called for all
  *                                  @eref{MpiRequestTest} definitions.
@@ -673,7 +673,7 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiRequestTestCallback(
 /** @brief Callback for the MpiRequestCancelled event record.
  *
  *  This events appears if the program canceled a request.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -687,15 +687,15 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiRequestTestCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_MpiRequestCancelled )( OTF2_LocationRef    locationID,
-                                                        OTF2_TimeStamp      time,
-                                                        void*               userData,
-                                                        OTF2_AttributeList* attributeList,
-                                                        uint64_t            requestID );
+( *OTF2_GlobalEvtReaderCallback_MpiRequestCancelled )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint64_t requestID );
 
 
 /** @brief Registers the callback for the MpiRequestCancelled event.
- *
+ *  
  *  @param globalEvtReaderCallbacks    Struct for all callbacks.
  *  @param mpiRequestCancelledCallback Function which should be called for all
  *                                     @eref{MpiRequestCancelled}
@@ -711,7 +711,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetMpiRequestCancelledCallback(
-    OTF2_GlobalEvtReaderCallbacks*                   globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_MpiRequestCancelled mpiRequestCancelledCallback );
 
 
@@ -719,7 +719,7 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiRequestCancelledCallback(
  *
  *  A MpiCollectiveBegin record marks the begin of a MPI collective
  *  operation (MPI_GATHER, MPI_SCATTER etc.).
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -732,14 +732,14 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiRequestCancelledCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_MpiCollectiveBegin )( OTF2_LocationRef    locationID,
-                                                       OTF2_TimeStamp      time,
-                                                       void*               userData,
-                                                       OTF2_AttributeList* attributeList );
+( *OTF2_GlobalEvtReaderCallback_MpiCollectiveBegin )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList );
 
 
 /** @brief Registers the callback for the MpiCollectiveBegin event.
- *
+ *  
  *  @param globalEvtReaderCallbacks   Struct for all callbacks.
  *  @param mpiCollectiveBeginCallback Function which should be called for all
  *                                    @eref{MpiCollectiveBegin} definitions.
@@ -754,7 +754,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetMpiCollectiveBeginCallback(
-    OTF2_GlobalEvtReaderCallbacks*                  globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_MpiCollectiveBegin mpiCollectiveBeginCallback );
 
 
@@ -765,7 +765,7 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiCollectiveBeginCallback(
  *  for this event: type of collective operation, communicator, the
  *  root of this collective operation. You can optionally add further
  *  information like sent and received bytes.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -785,19 +785,19 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiCollectiveBeginCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_MpiCollectiveEnd )( OTF2_LocationRef    locationID,
-                                                     OTF2_TimeStamp      time,
-                                                     void*               userData,
-                                                     OTF2_AttributeList* attributeList,
-                                                     OTF2_CollectiveOp   collectiveOp,
-                                                     OTF2_CommRef        communicator,
-                                                     uint32_t            root,
-                                                     uint64_t            sizeSent,
-                                                     uint64_t            sizeReceived );
+( *OTF2_GlobalEvtReaderCallback_MpiCollectiveEnd )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CollectiveOp collectiveOp,
+OTF2_CommRef communicator,
+uint32_t root,
+uint64_t sizeSent,
+uint64_t sizeReceived );
 
 
 /** @brief Registers the callback for the MpiCollectiveEnd event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param mpiCollectiveEndCallback Function which should be called for all
  *                                  @eref{MpiCollectiveEnd} definitions.
@@ -812,18 +812,18 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetMpiCollectiveEndCallback(
-    OTF2_GlobalEvtReaderCallbacks*                globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_MpiCollectiveEnd mpiCollectiveEndCallback );
 
 
 /** @brief Callback for the OmpFork event record.
  *
  *  An OmpFork record marks that an OpenMP Thread forks a thread team.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadFork} event record
  *  and should not be used when the @eref{ThreadFork} event record is
  *  in use.
- *
+ *  
  *  @param locationID               The location where this event happened.
  *  @param time                     The time when this event happened.
  *  @param userData                 User data as set by
@@ -838,15 +838,15 @@ OTF2_GlobalEvtReaderCallbacks_SetMpiCollectiveEndCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_OmpFork )( OTF2_LocationRef    locationID,
-                                            OTF2_TimeStamp      time,
-                                            void*               userData,
-                                            OTF2_AttributeList* attributeList,
-                                            uint32_t            numberOfRequestedThreads );
+( *OTF2_GlobalEvtReaderCallback_OmpFork )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint32_t numberOfRequestedThreads );
 
 
 /** @brief Registers the callback for the OmpFork event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param ompForkCallback          Function which should be called for all
  *                                  @eref{OmpFork} definitions.
@@ -861,7 +861,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetOmpForkCallback(
-    OTF2_GlobalEvtReaderCallbacks*       globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_OmpFork ompForkCallback );
 
 
@@ -869,11 +869,11 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpForkCallback(
  *
  *  An OmpJoin record marks that a team of threads is joint and only the
  *  master thread continues execution.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadJoin} event record
  *  and should not be used when the @eref{ThreadJoin} event record is
  *  in use.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -886,14 +886,14 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpForkCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_OmpJoin )( OTF2_LocationRef    locationID,
-                                            OTF2_TimeStamp      time,
-                                            void*               userData,
-                                            OTF2_AttributeList* attributeList );
+( *OTF2_GlobalEvtReaderCallback_OmpJoin )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList );
 
 
 /** @brief Registers the callback for the OmpJoin event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param ompJoinCallback          Function which should be called for all
  *                                  @eref{OmpJoin} definitions.
@@ -908,18 +908,18 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetOmpJoinCallback(
-    OTF2_GlobalEvtReaderCallbacks*       globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_OmpJoin ompJoinCallback );
 
 
 /** @brief Callback for the OmpAcquireLock event record.
  *
  *  An OmpAcquireLock record marks that a thread acquires an OpenMP lock.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadAcquireLock} event
  *  record and should not be used when the @eref{ThreadAcquireLock}
  *  event record is in use.
- *
+ *  
  *  @param locationID       The location where this event happened.
  *  @param time             The time when this event happened.
  *  @param userData         User data as set by
@@ -938,16 +938,16 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpJoinCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_OmpAcquireLock )( OTF2_LocationRef    locationID,
-                                                   OTF2_TimeStamp      time,
-                                                   void*               userData,
-                                                   OTF2_AttributeList* attributeList,
-                                                   uint32_t            lockID,
-                                                   uint32_t            acquisitionOrder );
+( *OTF2_GlobalEvtReaderCallback_OmpAcquireLock )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint32_t lockID,
+uint32_t acquisitionOrder );
 
 
 /** @brief Registers the callback for the OmpAcquireLock event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param ompAcquireLockCallback   Function which should be called for all
  *                                  @eref{OmpAcquireLock} definitions.
@@ -969,11 +969,11 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpAcquireLockCallback(
 /** @brief Callback for the OmpReleaseLock event record.
  *
  *  An OmpReleaseLock record marks that a thread releases an OpenMP lock.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadReleaseLock} event
  *  record and should not be used when the @eref{ThreadReleaseLock}
  *  event record is in use.
- *
+ *  
  *  @param locationID       The location where this event happened.
  *  @param time             The time when this event happened.
  *  @param userData         User data as set by
@@ -992,16 +992,16 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpAcquireLockCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_OmpReleaseLock )( OTF2_LocationRef    locationID,
-                                                   OTF2_TimeStamp      time,
-                                                   void*               userData,
-                                                   OTF2_AttributeList* attributeList,
-                                                   uint32_t            lockID,
-                                                   uint32_t            acquisitionOrder );
+( *OTF2_GlobalEvtReaderCallback_OmpReleaseLock )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint32_t lockID,
+uint32_t acquisitionOrder );
 
 
 /** @brief Registers the callback for the OmpReleaseLock event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param ompReleaseLockCallback   Function which should be called for all
  *                                  @eref{OmpReleaseLock} definitions.
@@ -1024,11 +1024,11 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpReleaseLockCallback(
  *
  *  An OmpTaskCreate record marks that an OpenMP Task was/will be created
  *  in the current region.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadTaskCreate} event
  *  record and should not be used when the @eref{ThreadTaskCreate}
  *  event record is in use.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1042,15 +1042,15 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpReleaseLockCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_OmpTaskCreate )( OTF2_LocationRef    locationID,
+( *OTF2_GlobalEvtReaderCallback_OmpTaskCreate )( OTF2_LocationRef    locationID,
                                                   OTF2_TimeStamp      time,
                                                   void*               userData,
                                                   OTF2_AttributeList* attributeList,
-                                                  uint64_t            taskID );
+uint64_t taskID );
 
 
 /** @brief Registers the callback for the OmpTaskCreate event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param ompTaskCreateCallback    Function which should be called for all
  *                                  @eref{OmpTaskCreate} definitions.
@@ -1065,7 +1065,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetOmpTaskCreateCallback(
-    OTF2_GlobalEvtReaderCallbacks*             globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_OmpTaskCreate ompTaskCreateCallback );
 
 
@@ -1075,11 +1075,11 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpTaskCreateCallback(
  *  task will be suspended and another task starts/restarts its
  *  execution. Please note that this may change the current call stack
  *  of the executing location.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadTaskSwitch} event
  *  record and should not be used when the @eref{ThreadTaskSwitch}
  *  event record is in use.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1093,15 +1093,15 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpTaskCreateCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_OmpTaskSwitch )( OTF2_LocationRef    locationID,
+( *OTF2_GlobalEvtReaderCallback_OmpTaskSwitch )( OTF2_LocationRef    locationID,
                                                   OTF2_TimeStamp      time,
                                                   void*               userData,
                                                   OTF2_AttributeList* attributeList,
-                                                  uint64_t            taskID );
+uint64_t taskID );
 
 
 /** @brief Registers the callback for the OmpTaskSwitch event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param ompTaskSwitchCallback    Function which should be called for all
  *                                  @eref{OmpTaskSwitch} definitions.
@@ -1116,7 +1116,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetOmpTaskSwitchCallback(
-    OTF2_GlobalEvtReaderCallbacks*             globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_OmpTaskSwitch ompTaskSwitchCallback );
 
 
@@ -1124,11 +1124,11 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpTaskSwitchCallback(
  *
  *  An OmpTaskComplete record indicates that the execution of an OpenMP
  *  task has finished.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadTaskComplete} event
  *  record and should not be used when the @eref{ThreadTaskComplete}
  *  event record is in use.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1142,15 +1142,15 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpTaskSwitchCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_OmpTaskComplete )( OTF2_LocationRef    locationID,
-                                                    OTF2_TimeStamp      time,
-                                                    void*               userData,
-                                                    OTF2_AttributeList* attributeList,
-                                                    uint64_t            taskID );
+( *OTF2_GlobalEvtReaderCallback_OmpTaskComplete )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+uint64_t taskID );
 
 
 /** @brief Registers the callback for the OmpTaskComplete event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param ompTaskCompleteCallback  Function which should be called for all
  *                                  @eref{OmpTaskComplete} definitions.
@@ -1165,7 +1165,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetOmpTaskCompleteCallback(
-    OTF2_GlobalEvtReaderCallbacks*               globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_OmpTaskComplete ompTaskCompleteCallback );
 
 
@@ -1176,7 +1176,7 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpTaskCompleteCallback(
  *  instance. Therefore, metric classes and instances share same ID
  *  space. Synchronous metrics are always located right before the
  *  according enter and leave event.
- *
+ *  
  *  @param locationID      The location where this event happened.
  *  @param time            The time when this event happened.
  *  @param userData        User data as set by
@@ -1198,18 +1198,18 @@ OTF2_GlobalEvtReaderCallbacks_SetOmpTaskCompleteCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_Metric )( OTF2_LocationRef        locationID,
-                                           OTF2_TimeStamp          time,
-                                           void*                   userData,
-                                           OTF2_AttributeList*     attributeList,
-                                           OTF2_MetricRef          metric,
-                                           uint8_t                 numberOfMetrics,
-                                           const OTF2_Type*        typeIDs,
-                                           const OTF2_MetricValue* metricValues );
+( *OTF2_GlobalEvtReaderCallback_Metric )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_MetricRef metric,
+uint8_t numberOfMetrics,
+const OTF2_Type* typeIDs,
+const OTF2_MetricValue* metricValues );
 
 
 /** @brief Registers the callback for the Metric event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param metricCallback           Function which should be called for all
  *                                  @eref{Metric} definitions.
@@ -1224,7 +1224,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetMetricCallback(
-    OTF2_GlobalEvtReaderCallbacks*      globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_Metric metricCallback );
 
 
@@ -1232,7 +1232,7 @@ OTF2_GlobalEvtReaderCallbacks_SetMetricCallback(
  *
  *  A ParameterString record marks that in the current region, the
  *  specified string parameter has the specified value.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1253,16 +1253,16 @@ OTF2_GlobalEvtReaderCallbacks_SetMetricCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ParameterString )( OTF2_LocationRef    locationID,
-                                                    OTF2_TimeStamp      time,
-                                                    void*               userData,
-                                                    OTF2_AttributeList* attributeList,
-                                                    OTF2_ParameterRef   parameter,
-                                                    OTF2_StringRef      string );
+( *OTF2_GlobalEvtReaderCallback_ParameterString )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_ParameterRef parameter,
+OTF2_StringRef string );
 
 
 /** @brief Registers the callback for the ParameterString event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param parameterStringCallback  Function which should be called for all
  *                                  @eref{ParameterString} definitions.
@@ -1277,7 +1277,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetParameterStringCallback(
-    OTF2_GlobalEvtReaderCallbacks*               globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ParameterString parameterStringCallback );
 
 
@@ -1285,7 +1285,7 @@ OTF2_GlobalEvtReaderCallbacks_SetParameterStringCallback(
  *
  *  A ParameterInt record marks that in the current region, the specified
  *  integer parameter has the specified value.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1303,16 +1303,16 @@ OTF2_GlobalEvtReaderCallbacks_SetParameterStringCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ParameterInt )( OTF2_LocationRef    locationID,
-                                                 OTF2_TimeStamp      time,
-                                                 void*               userData,
-                                                 OTF2_AttributeList* attributeList,
-                                                 OTF2_ParameterRef   parameter,
-                                                 int64_t             value );
+( *OTF2_GlobalEvtReaderCallback_ParameterInt )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_ParameterRef parameter,
+int64_t value );
 
 
 /** @brief Registers the callback for the ParameterInt event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param parameterIntCallback     Function which should be called for all
  *                                  @eref{ParameterInt} definitions.
@@ -1327,7 +1327,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetParameterIntCallback(
-    OTF2_GlobalEvtReaderCallbacks*            globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ParameterInt parameterIntCallback );
 
 
@@ -1335,7 +1335,7 @@ OTF2_GlobalEvtReaderCallbacks_SetParameterIntCallback(
  *
  *  A ParameterUnsignedInt record marks that in the current region, the
  *  specified unsigned integer parameter has the specified value.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1353,16 +1353,16 @@ OTF2_GlobalEvtReaderCallbacks_SetParameterIntCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ParameterUnsignedInt )( OTF2_LocationRef    locationID,
-                                                         OTF2_TimeStamp      time,
-                                                         void*               userData,
-                                                         OTF2_AttributeList* attributeList,
-                                                         OTF2_ParameterRef   parameter,
-                                                         uint64_t            value );
+( *OTF2_GlobalEvtReaderCallback_ParameterUnsignedInt )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_ParameterRef parameter,
+uint64_t value );
 
 
 /** @brief Registers the callback for the ParameterUnsignedInt event.
- *
+ *  
  *  @param globalEvtReaderCallbacks     Struct for all callbacks.
  *  @param parameterUnsignedIntCallback Function which should be called for all
  *                                      @eref{ParameterUnsignedInt}
@@ -1378,14 +1378,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetParameterUnsignedIntCallback(
-    OTF2_GlobalEvtReaderCallbacks*                    globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ParameterUnsignedInt parameterUnsignedIntCallback );
 
 
 /** @brief Callback for the RmaWinCreate event record.
  *
  *  A RmaWinCreate record denotes the creation of a RMA window.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1402,15 +1402,15 @@ OTF2_GlobalEvtReaderCallbacks_SetParameterUnsignedIntCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaWinCreate )( OTF2_LocationRef    locationID,
-                                                 OTF2_TimeStamp      time,
-                                                 void*               userData,
-                                                 OTF2_AttributeList* attributeList,
-                                                 OTF2_RmaWinRef      win );
+( *OTF2_GlobalEvtReaderCallback_RmaWinCreate )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win );
 
 
 /** @brief Registers the callback for the RmaWinCreate event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaWinCreateCallback     Function which should be called for all
  *                                  @eref{RmaWinCreate} definitions.
@@ -1425,14 +1425,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaWinCreateCallback(
-    OTF2_GlobalEvtReaderCallbacks*            globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaWinCreate rmaWinCreateCallback );
 
 
 /** @brief Callback for the RmaWinDestroy event record.
  *
  *  A RmaWinDestroy record denotes the destruction of a RMA window.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1449,15 +1449,15 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaWinCreateCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaWinDestroy )( OTF2_LocationRef    locationID,
+( *OTF2_GlobalEvtReaderCallback_RmaWinDestroy )( OTF2_LocationRef    locationID,
                                                   OTF2_TimeStamp      time,
                                                   void*               userData,
                                                   OTF2_AttributeList* attributeList,
-                                                  OTF2_RmaWinRef      win );
+OTF2_RmaWinRef win );
 
 
 /** @brief Registers the callback for the RmaWinDestroy event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaWinDestroyCallback    Function which should be called for all
  *                                  @eref{RmaWinDestroy} definitions.
@@ -1472,7 +1472,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaWinDestroyCallback(
-    OTF2_GlobalEvtReaderCallbacks*             globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaWinDestroy rmaWinDestroyCallback );
 
 
@@ -1480,7 +1480,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaWinDestroyCallback(
  *
  *  A RmaCollectiveBegin record denotes the beginning of a collective RMA
  *  operation.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1493,14 +1493,14 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaWinDestroyCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaCollectiveBegin )( OTF2_LocationRef    locationID,
-                                                       OTF2_TimeStamp      time,
-                                                       void*               userData,
-                                                       OTF2_AttributeList* attributeList );
+( *OTF2_GlobalEvtReaderCallback_RmaCollectiveBegin )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList );
 
 
 /** @brief Registers the callback for the RmaCollectiveBegin event.
- *
+ *  
  *  @param globalEvtReaderCallbacks   Struct for all callbacks.
  *  @param rmaCollectiveBeginCallback Function which should be called for all
  *                                    @eref{RmaCollectiveBegin} definitions.
@@ -1515,7 +1515,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaCollectiveBeginCallback(
-    OTF2_GlobalEvtReaderCallbacks*                  globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaCollectiveBegin rmaCollectiveBeginCallback );
 
 
@@ -1523,7 +1523,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaCollectiveBeginCallback(
  *
  *  A RmaCollectiveEnd record denotes the end of a collective RMA
  *  operation.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1545,20 +1545,20 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaCollectiveBeginCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaCollectiveEnd )( OTF2_LocationRef    locationID,
-                                                     OTF2_TimeStamp      time,
-                                                     void*               userData,
-                                                     OTF2_AttributeList* attributeList,
-                                                     OTF2_CollectiveOp   collectiveOp,
-                                                     OTF2_RmaSyncLevel   syncLevel,
-                                                     OTF2_RmaWinRef      win,
-                                                     uint32_t            root,
-                                                     uint64_t            bytesSent,
-                                                     uint64_t            bytesReceived );
+( *OTF2_GlobalEvtReaderCallback_RmaCollectiveEnd )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CollectiveOp collectiveOp,
+OTF2_RmaSyncLevel syncLevel,
+OTF2_RmaWinRef win,
+uint32_t root,
+uint64_t bytesSent,
+uint64_t bytesReceived );
 
 
 /** @brief Registers the callback for the RmaCollectiveEnd event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaCollectiveEndCallback Function which should be called for all
  *                                  @eref{RmaCollectiveEnd} definitions.
@@ -1573,7 +1573,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaCollectiveEndCallback(
-    OTF2_GlobalEvtReaderCallbacks*                globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaCollectiveEnd rmaCollectiveEndCallback );
 
 
@@ -1581,7 +1581,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaCollectiveEndCallback(
  *
  *  A RmaGroupSync record denotes the synchronization with a subgroup of
  *  processes on a window.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1603,17 +1603,17 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaCollectiveEndCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaGroupSync )( OTF2_LocationRef    locationID,
-                                                 OTF2_TimeStamp      time,
-                                                 void*               userData,
-                                                 OTF2_AttributeList* attributeList,
-                                                 OTF2_RmaSyncLevel   syncLevel,
-                                                 OTF2_RmaWinRef      win,
-                                                 OTF2_GroupRef       group );
+( *OTF2_GlobalEvtReaderCallback_RmaGroupSync )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaSyncLevel syncLevel,
+OTF2_RmaWinRef win,
+OTF2_GroupRef group );
 
 
 /** @brief Registers the callback for the RmaGroupSync event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaGroupSyncCallback     Function which should be called for all
  *                                  @eref{RmaGroupSync} definitions.
@@ -1628,7 +1628,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaGroupSyncCallback(
-    OTF2_GlobalEvtReaderCallbacks*            globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaGroupSync rmaGroupSyncCallback );
 
 
@@ -1638,7 +1638,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaGroupSyncCallback(
  *  it the earliest time it could have been granted.  It is used to
  *  mark (possibly) non-blocking lock request, as defined by the MPI
  *  standard.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1659,18 +1659,18 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaGroupSyncCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaRequestLock )( OTF2_LocationRef    locationID,
-                                                   OTF2_TimeStamp      time,
-                                                   void*               userData,
-                                                   OTF2_AttributeList* attributeList,
-                                                   OTF2_RmaWinRef      win,
-                                                   uint32_t            remote,
-                                                   uint64_t            lockId,
-                                                   OTF2_LockType       lockType );
+( *OTF2_GlobalEvtReaderCallback_RmaRequestLock )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId,
+OTF2_LockType lockType );
 
 
 /** @brief Registers the callback for the RmaRequestLock event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaRequestLockCallback   Function which should be called for all
  *                                  @eref{RmaRequestLock} definitions.
@@ -1693,7 +1693,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaRequestLockCallback(
  *
  *  A RmaAcquireLock record denotes the time a lock was acquired by the
  *  process.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1714,18 +1714,18 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaRequestLockCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaAcquireLock )( OTF2_LocationRef    locationID,
-                                                   OTF2_TimeStamp      time,
-                                                   void*               userData,
-                                                   OTF2_AttributeList* attributeList,
-                                                   OTF2_RmaWinRef      win,
-                                                   uint32_t            remote,
-                                                   uint64_t            lockId,
-                                                   OTF2_LockType       lockType );
+( *OTF2_GlobalEvtReaderCallback_RmaAcquireLock )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId,
+OTF2_LockType lockType );
 
 
 /** @brief Registers the callback for the RmaAcquireLock event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaAcquireLockCallback   Function which should be called for all
  *                                  @eref{RmaAcquireLock} definitions.
@@ -1748,7 +1748,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaAcquireLockCallback(
  *
  *  A RmaTryLock record denotes the time of an unsuccessful attempt to
  *  acquire the lock.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1769,18 +1769,18 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaAcquireLockCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaTryLock )( OTF2_LocationRef    locationID,
-                                               OTF2_TimeStamp      time,
-                                               void*               userData,
-                                               OTF2_AttributeList* attributeList,
-                                               OTF2_RmaWinRef      win,
-                                               uint32_t            remote,
-                                               uint64_t            lockId,
-                                               OTF2_LockType       lockType );
+( *OTF2_GlobalEvtReaderCallback_RmaTryLock )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId,
+OTF2_LockType lockType );
 
 
 /** @brief Registers the callback for the RmaTryLock event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaTryLockCallback       Function which should be called for all
  *                                  @eref{RmaTryLock} definitions.
@@ -1795,14 +1795,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaTryLockCallback(
-    OTF2_GlobalEvtReaderCallbacks*          globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaTryLock rmaTryLockCallback );
 
 
 /** @brief Callback for the RmaReleaseLock event record.
  *
  *  A RmaReleaseLock record denotes the time the lock was released.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1822,17 +1822,17 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaTryLockCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaReleaseLock )( OTF2_LocationRef    locationID,
-                                                   OTF2_TimeStamp      time,
-                                                   void*               userData,
-                                                   OTF2_AttributeList* attributeList,
-                                                   OTF2_RmaWinRef      win,
-                                                   uint32_t            remote,
-                                                   uint64_t            lockId );
+( *OTF2_GlobalEvtReaderCallback_RmaReleaseLock )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId );
 
 
 /** @brief Registers the callback for the RmaReleaseLock event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaReleaseLockCallback   Function which should be called for all
  *                                  @eref{RmaReleaseLock} definitions.
@@ -1855,7 +1855,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaReleaseLockCallback(
  *
  *  A RmaSync record denotes the direct synchronization with a possibly
  *  remote process.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1874,17 +1874,17 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaReleaseLockCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaSync )( OTF2_LocationRef    locationID,
-                                            OTF2_TimeStamp      time,
-                                            void*               userData,
-                                            OTF2_AttributeList* attributeList,
-                                            OTF2_RmaWinRef      win,
-                                            uint32_t            remote,
-                                            OTF2_RmaSyncType    syncType );
+( *OTF2_GlobalEvtReaderCallback_RmaSync )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint32_t remote,
+OTF2_RmaSyncType syncType );
 
 
 /** @brief Registers the callback for the RmaSync event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaSyncCallback          Function which should be called for all
  *                                  @eref{RmaSync} definitions.
@@ -1899,7 +1899,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaSyncCallback(
-    OTF2_GlobalEvtReaderCallbacks*       globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaSync rmaSyncCallback );
 
 
@@ -1907,7 +1907,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaSyncCallback(
  *
  *  A RmaWaitChange record denotes the change of a window that was waited
  *  for.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1924,15 +1924,15 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaSyncCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaWaitChange )( OTF2_LocationRef    locationID,
+( *OTF2_GlobalEvtReaderCallback_RmaWaitChange )( OTF2_LocationRef    locationID,
                                                   OTF2_TimeStamp      time,
                                                   void*               userData,
                                                   OTF2_AttributeList* attributeList,
-                                                  OTF2_RmaWinRef      win );
+OTF2_RmaWinRef win );
 
 
 /** @brief Registers the callback for the RmaWaitChange event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaWaitChangeCallback    Function which should be called for all
  *                                  @eref{RmaWaitChange} definitions.
@@ -1947,14 +1947,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaWaitChangeCallback(
-    OTF2_GlobalEvtReaderCallbacks*             globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaWaitChange rmaWaitChangeCallback );
 
 
 /** @brief Callback for the RmaPut event record.
  *
  *  A RmaPut record denotes the time a put operation was issued.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -1975,18 +1975,18 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaWaitChangeCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaPut )( OTF2_LocationRef    locationID,
-                                           OTF2_TimeStamp      time,
-                                           void*               userData,
-                                           OTF2_AttributeList* attributeList,
-                                           OTF2_RmaWinRef      win,
-                                           uint32_t            remote,
-                                           uint64_t            bytes,
-                                           uint64_t            matchingId );
+( *OTF2_GlobalEvtReaderCallback_RmaPut )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t bytes,
+uint64_t matchingId );
 
 
 /** @brief Registers the callback for the RmaPut event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaPutCallback           Function which should be called for all
  *                                  @eref{RmaPut} definitions.
@@ -2001,14 +2001,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaPutCallback(
-    OTF2_GlobalEvtReaderCallbacks*      globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaPut rmaPutCallback );
 
 
 /** @brief Callback for the RmaGet event record.
  *
  *  A RmaGet record denotes the time a get operation was issued.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -2029,18 +2029,18 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaPutCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaGet )( OTF2_LocationRef    locationID,
-                                           OTF2_TimeStamp      time,
-                                           void*               userData,
-                                           OTF2_AttributeList* attributeList,
-                                           OTF2_RmaWinRef      win,
-                                           uint32_t            remote,
-                                           uint64_t            bytes,
-                                           uint64_t            matchingId );
+( *OTF2_GlobalEvtReaderCallback_RmaGet )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t bytes,
+uint64_t matchingId );
 
 
 /** @brief Registers the callback for the RmaGet event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaGetCallback           Function which should be called for all
  *                                  @eref{RmaGet} definitions.
@@ -2055,14 +2055,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaGetCallback(
-    OTF2_GlobalEvtReaderCallbacks*      globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaGet rmaGetCallback );
 
 
 /** @brief Callback for the RmaAtomic event record.
  *
  *  A RmaAtomic record denotes the time a atomic operation was issued.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -2085,20 +2085,20 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaGetCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaAtomic )( OTF2_LocationRef    locationID,
-                                              OTF2_TimeStamp      time,
-                                              void*               userData,
-                                              OTF2_AttributeList* attributeList,
-                                              OTF2_RmaWinRef      win,
-                                              uint32_t            remote,
-                                              OTF2_RmaAtomicType  type,
-                                              uint64_t            bytesSent,
-                                              uint64_t            bytesReceived,
-                                              uint64_t            matchingId );
+( *OTF2_GlobalEvtReaderCallback_RmaAtomic )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint32_t remote,
+OTF2_RmaAtomicType type,
+uint64_t bytesSent,
+uint64_t bytesReceived,
+uint64_t matchingId );
 
 
 /** @brief Registers the callback for the RmaAtomic event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaAtomicCallback        Function which should be called for all
  *                                  @eref{RmaAtomic} definitions.
@@ -2113,7 +2113,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaAtomicCallback(
-    OTF2_GlobalEvtReaderCallbacks*         globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaAtomic rmaAtomicCallback );
 
 
@@ -2121,7 +2121,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaAtomicCallback(
  *
  *  A RmaOpCompleteBlocking record denotes the local completion of a
  *  blocking RMA operation.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -2140,16 +2140,16 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaAtomicCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaOpCompleteBlocking )( OTF2_LocationRef    locationID,
-                                                          OTF2_TimeStamp      time,
-                                                          void*               userData,
-                                                          OTF2_AttributeList* attributeList,
-                                                          OTF2_RmaWinRef      win,
-                                                          uint64_t            matchingId );
+( *OTF2_GlobalEvtReaderCallback_RmaOpCompleteBlocking )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint64_t matchingId );
 
 
 /** @brief Registers the callback for the RmaOpCompleteBlocking event.
- *
+ *  
  *  @param globalEvtReaderCallbacks      Struct for all callbacks.
  *  @param rmaOpCompleteBlockingCallback Function which should be called for all
  *                                       @eref{RmaOpCompleteBlocking}
@@ -2165,7 +2165,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaOpCompleteBlockingCallback(
-    OTF2_GlobalEvtReaderCallbacks*                     globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaOpCompleteBlocking rmaOpCompleteBlockingCallback );
 
 
@@ -2173,7 +2173,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaOpCompleteBlockingCallback(
  *
  *  A RmaOpCompleteNonBlocking record denotes the local completion of a
  *  non-blocking RMA operation.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -2192,16 +2192,16 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaOpCompleteBlockingCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaOpCompleteNonBlocking )( OTF2_LocationRef    locationID,
-                                                             OTF2_TimeStamp      time,
-                                                             void*               userData,
-                                                             OTF2_AttributeList* attributeList,
-                                                             OTF2_RmaWinRef      win,
-                                                             uint64_t            matchingId );
+( *OTF2_GlobalEvtReaderCallback_RmaOpCompleteNonBlocking )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint64_t matchingId );
 
 
 /** @brief Registers the callback for the RmaOpCompleteNonBlocking event.
- *
+ *  
  *  @param globalEvtReaderCallbacks         Struct for all callbacks.
  *  @param rmaOpCompleteNonBlockingCallback Function which should be called for
  *                                          all
@@ -2218,7 +2218,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaOpCompleteNonBlockingCallback(
-    OTF2_GlobalEvtReaderCallbacks*                        globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaOpCompleteNonBlocking rmaOpCompleteNonBlockingCallback );
 
 
@@ -2226,7 +2226,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaOpCompleteNonBlockingCallback(
  *
  *  A RmaOpTest record denotes that a non-blocking RMA operation has been
  *  tested for completion unsuccessfully.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -2245,16 +2245,16 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaOpCompleteNonBlockingCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaOpTest )( OTF2_LocationRef    locationID,
-                                              OTF2_TimeStamp      time,
-                                              void*               userData,
-                                              OTF2_AttributeList* attributeList,
-                                              OTF2_RmaWinRef      win,
-                                              uint64_t            matchingId );
+( *OTF2_GlobalEvtReaderCallback_RmaOpTest )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint64_t matchingId );
 
 
 /** @brief Registers the callback for the RmaOpTest event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param rmaOpTestCallback        Function which should be called for all
  *                                  @eref{RmaOpTest} definitions.
@@ -2269,7 +2269,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaOpTestCallback(
-    OTF2_GlobalEvtReaderCallbacks*         globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaOpTest rmaOpTestCallback );
 
 
@@ -2277,7 +2277,7 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaOpTestCallback(
  *
  *  A RmaOpCompleteRemote record denotes the remote completion of a RMA
  *  operation.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -2296,16 +2296,16 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaOpTestCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_RmaOpCompleteRemote )( OTF2_LocationRef    locationID,
-                                                        OTF2_TimeStamp      time,
-                                                        void*               userData,
-                                                        OTF2_AttributeList* attributeList,
-                                                        OTF2_RmaWinRef      win,
-                                                        uint64_t            matchingId );
+( *OTF2_GlobalEvtReaderCallback_RmaOpCompleteRemote )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RmaWinRef win,
+uint64_t matchingId );
 
 
 /** @brief Registers the callback for the RmaOpCompleteRemote event.
- *
+ *  
  *  @param globalEvtReaderCallbacks    Struct for all callbacks.
  *  @param rmaOpCompleteRemoteCallback Function which should be called for all
  *                                     @eref{RmaOpCompleteRemote}
@@ -2321,14 +2321,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetRmaOpCompleteRemoteCallback(
-    OTF2_GlobalEvtReaderCallbacks*                   globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_RmaOpCompleteRemote rmaOpCompleteRemoteCallback );
 
 
 /** @brief Callback for the ThreadFork event record.
  *
  *  A ThreadFork record marks that a thread forks a thread team.
- *
+ *  
  *  @param locationID               The location where this event happened.
  *  @param time                     The time when this event happened.
  *  @param userData                 User data as set by
@@ -2344,16 +2344,16 @@ OTF2_GlobalEvtReaderCallbacks_SetRmaOpCompleteRemoteCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadFork )( OTF2_LocationRef    locationID,
-                                               OTF2_TimeStamp      time,
-                                               void*               userData,
-                                               OTF2_AttributeList* attributeList,
-                                               OTF2_Paradigm       model,
-                                               uint32_t            numberOfRequestedThreads );
+( *OTF2_GlobalEvtReaderCallback_ThreadFork )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_Paradigm model,
+uint32_t numberOfRequestedThreads );
 
 
 /** @brief Registers the callback for the ThreadFork event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param threadForkCallback       Function which should be called for all
  *                                  @eref{ThreadFork} definitions.
@@ -2368,7 +2368,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadForkCallback(
-    OTF2_GlobalEvtReaderCallbacks*          globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadFork threadForkCallback );
 
 
@@ -2376,7 +2376,7 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadForkCallback(
  *
  *  A ThreadJoin record marks that a team of threads is joint and only the
  *  master thread continues execution.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -2390,15 +2390,15 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadForkCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadJoin )( OTF2_LocationRef    locationID,
-                                               OTF2_TimeStamp      time,
-                                               void*               userData,
-                                               OTF2_AttributeList* attributeList,
-                                               OTF2_Paradigm       model );
+( *OTF2_GlobalEvtReaderCallback_ThreadJoin )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_Paradigm model );
 
 
 /** @brief Registers the callback for the ThreadJoin event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param threadJoinCallback       Function which should be called for all
  *                                  @eref{ThreadJoin} definitions.
@@ -2413,14 +2413,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadJoinCallback(
-    OTF2_GlobalEvtReaderCallbacks*          globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadJoin threadJoinCallback );
 
 
 /** @brief Callback for the ThreadTeamBegin event record.
  *
  *  The current location enters the specified thread team.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -2436,15 +2436,15 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadJoinCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadTeamBegin )( OTF2_LocationRef    locationID,
-                                                    OTF2_TimeStamp      time,
-                                                    void*               userData,
-                                                    OTF2_AttributeList* attributeList,
-                                                    OTF2_CommRef        threadTeam );
+( *OTF2_GlobalEvtReaderCallback_ThreadTeamBegin )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CommRef threadTeam );
 
 
 /** @brief Registers the callback for the ThreadTeamBegin event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param threadTeamBeginCallback  Function which should be called for all
  *                                  @eref{ThreadTeamBegin} definitions.
@@ -2459,14 +2459,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadTeamBeginCallback(
-    OTF2_GlobalEvtReaderCallbacks*               globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadTeamBegin threadTeamBeginCallback );
 
 
 /** @brief Callback for the ThreadTeamEnd event record.
  *
  *  The current location leaves the specified thread team.
- *
+ *  
  *  @param locationID    The location where this event happened.
  *  @param time          The time when this event happened.
  *  @param userData      User data as set by
@@ -2482,15 +2482,15 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadTeamBeginCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadTeamEnd )( OTF2_LocationRef    locationID,
+( *OTF2_GlobalEvtReaderCallback_ThreadTeamEnd )( OTF2_LocationRef    locationID,
                                                   OTF2_TimeStamp      time,
                                                   void*               userData,
                                                   OTF2_AttributeList* attributeList,
-                                                  OTF2_CommRef        threadTeam );
+OTF2_CommRef threadTeam );
 
 
 /** @brief Registers the callback for the ThreadTeamEnd event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param threadTeamEndCallback    Function which should be called for all
  *                                  @eref{ThreadTeamEnd} definitions.
@@ -2505,14 +2505,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadTeamEndCallback(
-    OTF2_GlobalEvtReaderCallbacks*             globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadTeamEnd threadTeamEndCallback );
 
 
 /** @brief Callback for the ThreadAcquireLock event record.
  *
  *  A ThreadAcquireLock record marks that a thread acquires a lock.
- *
+ *  
  *  @param locationID       The location where this event happened.
  *  @param time             The time when this event happened.
  *  @param userData         User data as set by
@@ -2532,17 +2532,17 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadTeamEndCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadAcquireLock )( OTF2_LocationRef    locationID,
-                                                      OTF2_TimeStamp      time,
-                                                      void*               userData,
-                                                      OTF2_AttributeList* attributeList,
-                                                      OTF2_Paradigm       model,
-                                                      uint32_t            lockID,
-                                                      uint32_t            acquisitionOrder );
+( *OTF2_GlobalEvtReaderCallback_ThreadAcquireLock )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_Paradigm model,
+uint32_t lockID,
+uint32_t acquisitionOrder );
 
 
 /** @brief Registers the callback for the ThreadAcquireLock event.
- *
+ *  
  *  @param globalEvtReaderCallbacks  Struct for all callbacks.
  *  @param threadAcquireLockCallback Function which should be called for all
  *                                   @eref{ThreadAcquireLock} definitions.
@@ -2557,14 +2557,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadAcquireLockCallback(
-    OTF2_GlobalEvtReaderCallbacks*                 globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadAcquireLock threadAcquireLockCallback );
 
 
 /** @brief Callback for the ThreadReleaseLock event record.
  *
  *  A ThreadReleaseLock record marks that a thread releases a lock.
- *
+ *  
  *  @param locationID       The location where this event happened.
  *  @param time             The time when this event happened.
  *  @param userData         User data as set by
@@ -2584,17 +2584,17 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadAcquireLockCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadReleaseLock )( OTF2_LocationRef    locationID,
-                                                      OTF2_TimeStamp      time,
-                                                      void*               userData,
-                                                      OTF2_AttributeList* attributeList,
-                                                      OTF2_Paradigm       model,
-                                                      uint32_t            lockID,
-                                                      uint32_t            acquisitionOrder );
+( *OTF2_GlobalEvtReaderCallback_ThreadReleaseLock )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_Paradigm model,
+uint32_t lockID,
+uint32_t acquisitionOrder );
 
 
 /** @brief Registers the callback for the ThreadReleaseLock event.
- *
+ *  
  *  @param globalEvtReaderCallbacks  Struct for all callbacks.
  *  @param threadReleaseLockCallback Function which should be called for all
  *                                   @eref{ThreadReleaseLock} definitions.
@@ -2609,7 +2609,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadReleaseLockCallback(
-    OTF2_GlobalEvtReaderCallbacks*                 globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadReleaseLock threadReleaseLockCallback );
 
 
@@ -2617,7 +2617,7 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadReleaseLockCallback(
  *
  *  A ThreadTaskCreate record marks that a task in was/will be created and
  *  will be processed by the specified thread team.
- *
+ *  
  *  @param locationID       The location where this event happened.
  *  @param time             The time when this event happened.
  *  @param userData         User data as set by
@@ -2637,17 +2637,17 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadReleaseLockCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadTaskCreate )( OTF2_LocationRef    locationID,
-                                                     OTF2_TimeStamp      time,
-                                                     void*               userData,
-                                                     OTF2_AttributeList* attributeList,
-                                                     OTF2_CommRef        threadTeam,
-                                                     uint32_t            creatingThread,
-                                                     uint32_t            generationNumber );
+( *OTF2_GlobalEvtReaderCallback_ThreadTaskCreate )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CommRef threadTeam,
+uint32_t creatingThread,
+uint32_t generationNumber );
 
 
 /** @brief Registers the callback for the ThreadTaskCreate event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param threadTaskCreateCallback Function which should be called for all
  *                                  @eref{ThreadTaskCreate} definitions.
@@ -2662,7 +2662,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadTaskCreateCallback(
-    OTF2_GlobalEvtReaderCallbacks*                globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadTaskCreate threadTaskCreateCallback );
 
 
@@ -2672,7 +2672,7 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadTaskCreateCallback(
  *  task will be suspended and another task starts/restarts its
  *  execution. Please note that this may change the current call stack
  *  of the executing location.
- *
+ *  
  *  @param locationID       The location where this event happened.
  *  @param time             The time when this event happened.
  *  @param userData         User data as set by
@@ -2692,17 +2692,17 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadTaskCreateCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadTaskSwitch )( OTF2_LocationRef    locationID,
-                                                     OTF2_TimeStamp      time,
-                                                     void*               userData,
-                                                     OTF2_AttributeList* attributeList,
-                                                     OTF2_CommRef        threadTeam,
-                                                     uint32_t            creatingThread,
-                                                     uint32_t            generationNumber );
+( *OTF2_GlobalEvtReaderCallback_ThreadTaskSwitch )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CommRef threadTeam,
+uint32_t creatingThread,
+uint32_t generationNumber );
 
 
 /** @brief Registers the callback for the ThreadTaskSwitch event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param threadTaskSwitchCallback Function which should be called for all
  *                                  @eref{ThreadTaskSwitch} definitions.
@@ -2717,7 +2717,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadTaskSwitchCallback(
-    OTF2_GlobalEvtReaderCallbacks*                globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadTaskSwitch threadTaskSwitchCallback );
 
 
@@ -2725,7 +2725,7 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadTaskSwitchCallback(
  *
  *  A ThreadTaskComplete record indicates that the execution of an OpenMP
  *  task has finished.
- *
+ *  
  *  @param locationID       The location where this event happened.
  *  @param time             The time when this event happened.
  *  @param userData         User data as set by
@@ -2745,17 +2745,17 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadTaskSwitchCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadTaskComplete )( OTF2_LocationRef    locationID,
-                                                       OTF2_TimeStamp      time,
-                                                       void*               userData,
-                                                       OTF2_AttributeList* attributeList,
-                                                       OTF2_CommRef        threadTeam,
-                                                       uint32_t            creatingThread,
-                                                       uint32_t            generationNumber );
+( *OTF2_GlobalEvtReaderCallback_ThreadTaskComplete )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CommRef threadTeam,
+uint32_t creatingThread,
+uint32_t generationNumber );
 
 
 /** @brief Registers the callback for the ThreadTaskComplete event.
- *
+ *  
  *  @param globalEvtReaderCallbacks   Struct for all callbacks.
  *  @param threadTaskCompleteCallback Function which should be called for all
  *                                    @eref{ThreadTaskComplete} definitions.
@@ -2770,14 +2770,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadTaskCompleteCallback(
-    OTF2_GlobalEvtReaderCallbacks*                  globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadTaskComplete threadTaskCompleteCallback );
 
 
 /** @brief Callback for the ThreadCreate event record.
  *
  *  The location created successfully a new thread.
- *
+ *  
  *  @param locationID       The location where this event happened.
  *  @param time             The time when this event happened.
  *  @param userData         User data as set by
@@ -2797,16 +2797,16 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadTaskCompleteCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadCreate )( OTF2_LocationRef    locationID,
-                                                 OTF2_TimeStamp      time,
-                                                 void*               userData,
-                                                 OTF2_AttributeList* attributeList,
-                                                 OTF2_CommRef        threadContingent,
-                                                 uint64_t            sequenceCount );
+( *OTF2_GlobalEvtReaderCallback_ThreadCreate )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount );
 
 
 /** @brief Registers the callback for the ThreadCreate event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param threadCreateCallback     Function which should be called for all
  *                                  @eref{ThreadCreate} definitions.
@@ -2821,14 +2821,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadCreateCallback(
-    OTF2_GlobalEvtReaderCallbacks*            globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadCreate threadCreateCallback );
 
 
 /** @brief Callback for the ThreadBegin event record.
  *
  *  Marks the begin of a thread created by another thread.
- *
+ *  
  *  @param locationID       The location where this event happened.
  *  @param time             The time when this event happened.
  *  @param userData         User data as set by
@@ -2848,16 +2848,16 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadCreateCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadBegin )( OTF2_LocationRef    locationID,
-                                                OTF2_TimeStamp      time,
-                                                void*               userData,
-                                                OTF2_AttributeList* attributeList,
-                                                OTF2_CommRef        threadContingent,
-                                                uint64_t            sequenceCount );
+( *OTF2_GlobalEvtReaderCallback_ThreadBegin )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount );
 
 
 /** @brief Registers the callback for the ThreadBegin event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param threadBeginCallback      Function which should be called for all
  *                                  @eref{ThreadBegin} definitions.
@@ -2872,14 +2872,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadBeginCallback(
-    OTF2_GlobalEvtReaderCallbacks*           globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadBegin threadBeginCallback );
 
 
 /** @brief Callback for the ThreadWait event record.
  *
  *  The location waits for the completion of another thread.
- *
+ *  
  *  @param locationID       The location where this event happened.
  *  @param time             The time when this event happened.
  *  @param userData         User data as set by
@@ -2899,16 +2899,16 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadBeginCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadWait )( OTF2_LocationRef    locationID,
-                                               OTF2_TimeStamp      time,
-                                               void*               userData,
-                                               OTF2_AttributeList* attributeList,
-                                               OTF2_CommRef        threadContingent,
-                                               uint64_t            sequenceCount );
+( *OTF2_GlobalEvtReaderCallback_ThreadWait )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount );
 
 
 /** @brief Registers the callback for the ThreadWait event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param threadWaitCallback       Function which should be called for all
  *                                  @eref{ThreadWait} definitions.
@@ -2923,14 +2923,14 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadWaitCallback(
-    OTF2_GlobalEvtReaderCallbacks*          globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadWait threadWaitCallback );
 
 
 /** @brief Callback for the ThreadEnd event record.
  *
  *  Marks the end of a thread.
- *
+ *  
  *  @param locationID       The location where this event happened.
  *  @param time             The time when this event happened.
  *  @param userData         User data as set by
@@ -2952,16 +2952,16 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadWaitCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_ThreadEnd )( OTF2_LocationRef    locationID,
-                                              OTF2_TimeStamp      time,
-                                              void*               userData,
-                                              OTF2_AttributeList* attributeList,
-                                              OTF2_CommRef        threadContingent,
-                                              uint64_t            sequenceCount );
+( *OTF2_GlobalEvtReaderCallback_ThreadEnd )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount );
 
 
 /** @brief Registers the callback for the ThreadEnd event.
- *
+ *  
  *  @param globalEvtReaderCallbacks Struct for all callbacks.
  *  @param threadEndCallback        Function which should be called for all
  *                                  @eref{ThreadEnd} definitions.
@@ -2976,7 +2976,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetThreadEndCallback(
-    OTF2_GlobalEvtReaderCallbacks*         globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_ThreadEnd threadEndCallback );
 
 
@@ -2986,17 +2986,17 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadEndCallback(
  *  referenced @eref{CallingContext}. In contrast to the @eref{Enter}
  *  event, it gives the full calling context through the
  *  @eref{CallingContext} tree.
- *
+ *  
  *  Events based on the @eref{CallingContext} definition are mutually
  *  exclusive with the @eref{Enter}/@eref{Leave} events in a trace.
- *
+ *  
  *  If no callback for this event is set but a callback for @eref{Enter}
  *  events is defined, the reader will automatically generate an
  *  @eref{Enter} callback call for the @eref{Region} referenced by the
  *  @eref{CallingContext} attribute of this event.  Note that this
  *  emulation does @b not re-create the full calling context!  It only
  *  re-creates the event order for instrumented regions.
- *
+ *  
  *  @param locationID     The location where this event happened.
  *  @param time           The time when this event happened.
  *  @param userData       User data as set by
@@ -3016,16 +3016,16 @@ OTF2_GlobalEvtReaderCallbacks_SetThreadEndCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_CallingContextEnter )( OTF2_LocationRef       locationID,
-                                                        OTF2_TimeStamp         time,
-                                                        void*                  userData,
-                                                        OTF2_AttributeList*    attributeList,
-                                                        OTF2_CallingContextRef callingContext,
-                                                        uint32_t               unwindDistance );
+( *OTF2_GlobalEvtReaderCallback_CallingContextEnter )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CallingContextRef callingContext,
+uint32_t unwindDistance );
 
 
 /** @brief Registers the callback for the CallingContextEnter event.
- *
+ *  
  *  @param globalEvtReaderCallbacks    Struct for all callbacks.
  *  @param callingContextEnterCallback Function which should be called for all
  *                                     @eref{CallingContextEnter}
@@ -3041,7 +3041,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetCallingContextEnterCallback(
-    OTF2_GlobalEvtReaderCallbacks*                   globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_CallingContextEnter callingContextEnterCallback );
 
 
@@ -3051,24 +3051,24 @@ OTF2_GlobalEvtReaderCallbacks_SetCallingContextEnterCallback(
  *  @eref{CallingContext}. In contrast to the @eref{Leave} event, it
  *  gives the full calling context through the @eref{CallingContext}
  *  tree.
- *
+ *  
  *  The unwind distance for this @eref{CallingContext} is defined to be 1.
  *  Because it must be assumed that the instrumented region made
  *  progress since the previous @eref{CallingContext} event.
- *
+ *  
  *  Events based on the @eref{CallingContext} definition are mutually
  *  exclusive with the @eref{Enter}/@eref{Leave} events in a trace.
- *
+ *  
  *  The parent of the @eref{CallingContext} must be used as the previous
  *  calling context for the next event.
- *
+ *  
  *  If no callback for this event is set but a callback for @eref{Leave}
  *  events is defined, the reader will automatically generate an
  *  @eref{Leave} callback call for the @eref{Region} referenced by the
  *  @eref{CallingContext} attribute of this event.  Note that this
  *  emulation does @b not re-create the full calling context!  It only
  *  re-creates the event order for instrumented regions.
- *
+ *  
  *  @param locationID     The location where this event happened.
  *  @param time           The time when this event happened.
  *  @param userData       User data as set by
@@ -3086,15 +3086,15 @@ OTF2_GlobalEvtReaderCallbacks_SetCallingContextEnterCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_CallingContextLeave )( OTF2_LocationRef       locationID,
-                                                        OTF2_TimeStamp         time,
-                                                        void*                  userData,
-                                                        OTF2_AttributeList*    attributeList,
-                                                        OTF2_CallingContextRef callingContext );
+( *OTF2_GlobalEvtReaderCallback_CallingContextLeave )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CallingContextRef callingContext );
 
 
 /** @brief Registers the callback for the CallingContextLeave event.
- *
+ *  
  *  @param globalEvtReaderCallbacks    Struct for all callbacks.
  *  @param callingContextLeaveCallback Function which should be called for all
  *                                     @eref{CallingContextLeave}
@@ -3110,7 +3110,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetCallingContextLeaveCallback(
-    OTF2_GlobalEvtReaderCallbacks*                   globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_CallingContextLeave callingContextLeaveCallback );
 
 
@@ -3118,10 +3118,10 @@ OTF2_GlobalEvtReaderCallbacks_SetCallingContextLeaveCallback(
  *
  *  The thread was interrupted to take a sample of its current state
  *  (region and source code location).
- *
+ *  
  *  Events based on the @eref{CallingContext} definition are mutually
  *  exclusive with the @eref{Enter}/@eref{Leave} events in a trace.
- *
+ *  
  *  @param locationID         The location where this event happened.
  *  @param time               The time when this event happened.
  *  @param userData           User data as set by
@@ -3148,17 +3148,17 @@ OTF2_GlobalEvtReaderCallbacks_SetCallingContextLeaveCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_GlobalEvtReaderCallback_CallingContextSample )( OTF2_LocationRef           locationID,
-                                                         OTF2_TimeStamp             time,
-                                                         void*                      userData,
-                                                         OTF2_AttributeList*        attributeList,
-                                                         OTF2_CallingContextRef     callingContext,
-                                                         uint32_t                   unwindDistance,
-                                                         OTF2_InterruptGeneratorRef interruptGenerator );
+( *OTF2_GlobalEvtReaderCallback_CallingContextSample )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_CallingContextRef callingContext,
+uint32_t unwindDistance,
+OTF2_InterruptGeneratorRef interruptGenerator );
 
 
 /** @brief Registers the callback for the CallingContextSample event.
- *
+ *  
  *  @param globalEvtReaderCallbacks     Struct for all callbacks.
  *  @param callingContextSampleCallback Function which should be called for all
  *                                      @eref{CallingContextSample}
@@ -3174,8 +3174,551 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_GlobalEvtReaderCallbacks_SetCallingContextSampleCallback(
-    OTF2_GlobalEvtReaderCallbacks*                    globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
     OTF2_GlobalEvtReaderCallback_CallingContextSample callingContextSampleCallback );
+
+
+/** @brief Callback for the TaskCreate event record.
+ *
+ *  TaskCreate indicates that a lightweight task was created.
+ *  
+ *  @param locationID    The location where this event happened.
+ *  @param time          The time when this event happened.
+ *  @param userData      User data as set by
+ *                       @eref{OTF2_Reader_RegisterGlobalEvtCallbacks} or
+ *                       @eref{OTF2_GlobalEvtReader_SetCallbacks}.
+ *  @param attributeList Additional attributes for this event.
+ *  @param region        Needs to be defined in a definition record References a
+ *                       @eref{Region} definition and will be mapped to the
+ *                       global definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *
+ *  @since Version 1.0
+ *
+ *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
+ */
+typedef OTF2_CallbackCode
+( *OTF2_GlobalEvtReaderCallback_TaskCreate )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef region );
+
+
+/** @brief Registers the callback for the TaskCreate event.
+ *  
+ *  @param globalEvtReaderCallbacks Struct for all callbacks.
+ *  @param taskCreateCallback       Function which should be called for all
+ *                                  @eref{TaskCreate} definitions.
+ *
+ *  @since Version 1.0
+ *
+ *  @retbegin
+ *    @retcode{OTF2_SUCCESS, if successful}
+ *    @retcode{OTF2_ERROR_INVALID_ARGUMENT,
+ *             for an invalid @p defReaderCallbacks argument}
+ *  @retend
+ */
+OTF2_ErrorCode
+OTF2_GlobalEvtReaderCallbacks_SetTaskCreateCallback(
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallback_TaskCreate taskCreateCallback );
+
+
+/** @brief Callback for the TaskDestroy event record.
+ *
+ *  TaskDestroy indicates that a lightweight task was destroyed.
+ *  
+ *  @param locationID    The location where this event happened.
+ *  @param time          The time when this event happened.
+ *  @param userData      User data as set by
+ *                       @eref{OTF2_Reader_RegisterGlobalEvtCallbacks} or
+ *                       @eref{OTF2_GlobalEvtReader_SetCallbacks}.
+ *  @param attributeList Additional attributes for this event.
+ *  @param region        Needs to be defined in a definition record References a
+ *                       @eref{Region} definition and will be mapped to the
+ *                       global definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *
+ *  @since Version 1.0
+ *
+ *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
+ */
+typedef OTF2_CallbackCode
+( *OTF2_GlobalEvtReaderCallback_TaskDestroy )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef region );
+
+
+/** @brief Registers the callback for the TaskDestroy event.
+ *  
+ *  @param globalEvtReaderCallbacks Struct for all callbacks.
+ *  @param taskDestroyCallback      Function which should be called for all
+ *                                  @eref{TaskDestroy} definitions.
+ *
+ *  @since Version 1.0
+ *
+ *  @retbegin
+ *    @retcode{OTF2_SUCCESS, if successful}
+ *    @retcode{OTF2_ERROR_INVALID_ARGUMENT,
+ *             for an invalid @p defReaderCallbacks argument}
+ *  @retend
+ */
+OTF2_ErrorCode
+OTF2_GlobalEvtReaderCallbacks_SetTaskDestroyCallback(
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallback_TaskDestroy taskDestroyCallback );
+
+
+/** @brief Callback for the TaskRunnable event record.
+ *
+ *  TaskRunnable
+ *  
+ *  @param locationID    The location where this event happened.
+ *  @param time          The time when this event happened.
+ *  @param userData      User data as set by
+ *                       @eref{OTF2_Reader_RegisterGlobalEvtCallbacks} or
+ *                       @eref{OTF2_GlobalEvtReader_SetCallbacks}.
+ *  @param attributeList Additional attributes for this event.
+ *  @param region        Needs to be defined in a definition record References a
+ *                       @eref{Region} definition and will be mapped to the
+ *                       global definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *
+ *  @since Version 1.0
+ *
+ *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
+ */
+typedef OTF2_CallbackCode
+( *OTF2_GlobalEvtReaderCallback_TaskRunnable )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef region );
+
+
+/** @brief Registers the callback for the TaskRunnable event.
+ *  
+ *  @param globalEvtReaderCallbacks Struct for all callbacks.
+ *  @param taskRunnableCallback     Function which should be called for all
+ *                                  @eref{TaskRunnable} definitions.
+ *
+ *  @since Version 1.0
+ *
+ *  @retbegin
+ *    @retcode{OTF2_SUCCESS, if successful}
+ *    @retcode{OTF2_ERROR_INVALID_ARGUMENT,
+ *             for an invalid @p defReaderCallbacks argument}
+ *  @retend
+ */
+OTF2_ErrorCode
+OTF2_GlobalEvtReaderCallbacks_SetTaskRunnableCallback(
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallback_TaskRunnable taskRunnableCallback );
+
+
+/** @brief Callback for the AddDependence event record.
+ *
+ *  AddDependence
+ *  
+ *  @param locationID    The location where this event happened.
+ *  @param time          The time when this event happened.
+ *  @param userData      User data as set by
+ *                       @eref{OTF2_Reader_RegisterGlobalEvtCallbacks} or
+ *                       @eref{OTF2_GlobalEvtReader_SetCallbacks}.
+ *  @param attributeList Additional attributes for this event.
+ *  @param src           Source of dependence References a @eref{Region}
+ *                       definition and will be mapped to the global
+ *                       definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *  @param dest          Destination of dependence References a @eref{Region}
+ *                       definition and will be mapped to the global
+ *                       definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *
+ *  @since Version 1.0
+ *
+ *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
+ */
+typedef OTF2_CallbackCode
+( *OTF2_GlobalEvtReaderCallback_AddDependence )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef src,
+OTF2_RegionRef dest );
+
+
+/** @brief Registers the callback for the AddDependence event.
+ *  
+ *  @param globalEvtReaderCallbacks Struct for all callbacks.
+ *  @param addDependenceCallback    Function which should be called for all
+ *                                  @eref{AddDependence} definitions.
+ *
+ *  @since Version 1.0
+ *
+ *  @retbegin
+ *    @retcode{OTF2_SUCCESS, if successful}
+ *    @retcode{OTF2_ERROR_INVALID_ARGUMENT,
+ *             for an invalid @p defReaderCallbacks argument}
+ *  @retend
+ */
+OTF2_ErrorCode
+OTF2_GlobalEvtReaderCallbacks_SetAddDependenceCallback(
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallback_AddDependence addDependenceCallback );
+
+
+/** @brief Callback for the SatisfyDependence event record.
+ *
+ *  SatisfyDependence
+ *  
+ *  @param locationID    The location where this event happened.
+ *  @param time          The time when this event happened.
+ *  @param userData      User data as set by
+ *                       @eref{OTF2_Reader_RegisterGlobalEvtCallbacks} or
+ *                       @eref{OTF2_GlobalEvtReader_SetCallbacks}.
+ *  @param attributeList Additional attributes for this event.
+ *  @param src           Source of dependence References a @eref{Region}
+ *                       definition and will be mapped to the global
+ *                       definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *  @param dest          Destination of dependence References a @eref{Region}
+ *                       definition and will be mapped to the global
+ *                       definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *
+ *  @since Version 1.0
+ *
+ *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
+ */
+typedef OTF2_CallbackCode
+( *OTF2_GlobalEvtReaderCallback_SatisfyDependence )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef src,
+OTF2_RegionRef dest );
+
+
+/** @brief Registers the callback for the SatisfyDependence event.
+ *  
+ *  @param globalEvtReaderCallbacks  Struct for all callbacks.
+ *  @param satisfyDependenceCallback Function which should be called for all
+ *                                   @eref{SatisfyDependence} definitions.
+ *
+ *  @since Version 1.0
+ *
+ *  @retbegin
+ *    @retcode{OTF2_SUCCESS, if successful}
+ *    @retcode{OTF2_ERROR_INVALID_ARGUMENT,
+ *             for an invalid @p defReaderCallbacks argument}
+ *  @retend
+ */
+OTF2_ErrorCode
+OTF2_GlobalEvtReaderCallbacks_SetSatisfyDependenceCallback(
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallback_SatisfyDependence satisfyDependenceCallback );
+
+
+/** @brief Callback for the DataAcquire event record.
+ *
+ *  DataAcquire
+ *  
+ *  @param locationID    The location where this event happened.
+ *  @param time          The time when this event happened.
+ *  @param userData      User data as set by
+ *                       @eref{OTF2_Reader_RegisterGlobalEvtCallbacks} or
+ *                       @eref{OTF2_GlobalEvtReader_SetCallbacks}.
+ *  @param attributeList Additional attributes for this event.
+ *  @param task          Task acquiring datablock References a @eref{Region}
+ *                       definition and will be mapped to the global
+ *                       definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *  @param data          Datablock being acquired References a @eref{Region}
+ *                       definition and will be mapped to the global
+ *                       definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *  @param size          Size of datablock being acquired
+ *
+ *  @since Version 1.0
+ *
+ *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
+ */
+typedef OTF2_CallbackCode
+( *OTF2_GlobalEvtReaderCallback_DataAcquire )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef task,
+OTF2_RegionRef data,
+uint64_t size );
+
+
+/** @brief Registers the callback for the DataAcquire event.
+ *  
+ *  @param globalEvtReaderCallbacks Struct for all callbacks.
+ *  @param dataAcquireCallback      Function which should be called for all
+ *                                  @eref{DataAcquire} definitions.
+ *
+ *  @since Version 1.0
+ *
+ *  @retbegin
+ *    @retcode{OTF2_SUCCESS, if successful}
+ *    @retcode{OTF2_ERROR_INVALID_ARGUMENT,
+ *             for an invalid @p defReaderCallbacks argument}
+ *  @retend
+ */
+OTF2_ErrorCode
+OTF2_GlobalEvtReaderCallbacks_SetDataAcquireCallback(
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallback_DataAcquire dataAcquireCallback );
+
+
+/** @brief Callback for the DataRelease event record.
+ *
+ *  DataRelease
+ *  
+ *  @param locationID    The location where this event happened.
+ *  @param time          The time when this event happened.
+ *  @param userData      User data as set by
+ *                       @eref{OTF2_Reader_RegisterGlobalEvtCallbacks} or
+ *                       @eref{OTF2_GlobalEvtReader_SetCallbacks}.
+ *  @param attributeList Additional attributes for this event.
+ *  @param task          Task releasing datablock References a @eref{Region}
+ *                       definition and will be mapped to the global
+ *                       definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *  @param data          Datablock being released References a @eref{Region}
+ *                       definition and will be mapped to the global
+ *                       definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *  @param size          Size of datablock being released
+ *
+ *  @since Version 1.0
+ *
+ *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
+ */
+typedef OTF2_CallbackCode
+( *OTF2_GlobalEvtReaderCallback_DataRelease )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef task,
+OTF2_RegionRef data,
+uint64_t size );
+
+
+/** @brief Registers the callback for the DataRelease event.
+ *  
+ *  @param globalEvtReaderCallbacks Struct for all callbacks.
+ *  @param dataReleaseCallback      Function which should be called for all
+ *                                  @eref{DataRelease} definitions.
+ *
+ *  @since Version 1.0
+ *
+ *  @retbegin
+ *    @retcode{OTF2_SUCCESS, if successful}
+ *    @retcode{OTF2_ERROR_INVALID_ARGUMENT,
+ *             for an invalid @p defReaderCallbacks argument}
+ *  @retend
+ */
+OTF2_ErrorCode
+OTF2_GlobalEvtReaderCallbacks_SetDataReleaseCallback(
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallback_DataRelease dataReleaseCallback );
+
+
+/** @brief Callback for the EventCreate event record.
+ *
+ *  EventCreate
+ *  
+ *  @param locationID    The location where this event happened.
+ *  @param time          The time when this event happened.
+ *  @param userData      User data as set by
+ *                       @eref{OTF2_Reader_RegisterGlobalEvtCallbacks} or
+ *                       @eref{OTF2_GlobalEvtReader_SetCallbacks}.
+ *  @param attributeList Additional attributes for this event.
+ *  @param region        Needs to be defined in a definition record References a
+ *                       @eref{Region} definition and will be mapped to the
+ *                       global definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *
+ *  @since Version 1.0
+ *
+ *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
+ */
+typedef OTF2_CallbackCode
+( *OTF2_GlobalEvtReaderCallback_EventCreate )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef region );
+
+
+/** @brief Registers the callback for the EventCreate event.
+ *  
+ *  @param globalEvtReaderCallbacks Struct for all callbacks.
+ *  @param eventCreateCallback      Function which should be called for all
+ *                                  @eref{EventCreate} definitions.
+ *
+ *  @since Version 1.0
+ *
+ *  @retbegin
+ *    @retcode{OTF2_SUCCESS, if successful}
+ *    @retcode{OTF2_ERROR_INVALID_ARGUMENT,
+ *             for an invalid @p defReaderCallbacks argument}
+ *  @retend
+ */
+OTF2_ErrorCode
+OTF2_GlobalEvtReaderCallbacks_SetEventCreateCallback(
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallback_EventCreate eventCreateCallback );
+
+
+/** @brief Callback for the EventDestroy event record.
+ *
+ *  EventDestroy
+ *  
+ *  @param locationID    The location where this event happened.
+ *  @param time          The time when this event happened.
+ *  @param userData      User data as set by
+ *                       @eref{OTF2_Reader_RegisterGlobalEvtCallbacks} or
+ *                       @eref{OTF2_GlobalEvtReader_SetCallbacks}.
+ *  @param attributeList Additional attributes for this event.
+ *  @param region        Needs to be defined in a definition record References a
+ *                       @eref{Region} definition and will be mapped to the
+ *                       global definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *
+ *  @since Version 1.0
+ *
+ *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
+ */
+typedef OTF2_CallbackCode
+( *OTF2_GlobalEvtReaderCallback_EventDestroy )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef region );
+
+
+/** @brief Registers the callback for the EventDestroy event.
+ *  
+ *  @param globalEvtReaderCallbacks Struct for all callbacks.
+ *  @param eventDestroyCallback     Function which should be called for all
+ *                                  @eref{EventDestroy} definitions.
+ *
+ *  @since Version 1.0
+ *
+ *  @retbegin
+ *    @retcode{OTF2_SUCCESS, if successful}
+ *    @retcode{OTF2_ERROR_INVALID_ARGUMENT,
+ *             for an invalid @p defReaderCallbacks argument}
+ *  @retend
+ */
+OTF2_ErrorCode
+OTF2_GlobalEvtReaderCallbacks_SetEventDestroyCallback(
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallback_EventDestroy eventDestroyCallback );
+
+
+/** @brief Callback for the DataCreate event record.
+ *
+ *  DataCreate
+ *  
+ *  @param locationID    The location where this event happened.
+ *  @param time          The time when this event happened.
+ *  @param userData      User data as set by
+ *                       @eref{OTF2_Reader_RegisterGlobalEvtCallbacks} or
+ *                       @eref{OTF2_GlobalEvtReader_SetCallbacks}.
+ *  @param attributeList Additional attributes for this event.
+ *  @param region        Needs to be defined in a definition record References a
+ *                       @eref{Region} definition and will be mapped to the
+ *                       global definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *  @param size          Size of datablock
+ *
+ *  @since Version 1.0
+ *
+ *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
+ */
+typedef OTF2_CallbackCode
+( *OTF2_GlobalEvtReaderCallback_DataCreate )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef region,
+uint64_t size );
+
+
+/** @brief Registers the callback for the DataCreate event.
+ *  
+ *  @param globalEvtReaderCallbacks Struct for all callbacks.
+ *  @param dataCreateCallback       Function which should be called for all
+ *                                  @eref{DataCreate} definitions.
+ *
+ *  @since Version 1.0
+ *
+ *  @retbegin
+ *    @retcode{OTF2_SUCCESS, if successful}
+ *    @retcode{OTF2_ERROR_INVALID_ARGUMENT,
+ *             for an invalid @p defReaderCallbacks argument}
+ *  @retend
+ */
+OTF2_ErrorCode
+OTF2_GlobalEvtReaderCallbacks_SetDataCreateCallback(
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallback_DataCreate dataCreateCallback );
+
+
+/** @brief Callback for the DataDestroy event record.
+ *
+ *  DataDestroy
+ *  
+ *  @param locationID    The location where this event happened.
+ *  @param time          The time when this event happened.
+ *  @param userData      User data as set by
+ *                       @eref{OTF2_Reader_RegisterGlobalEvtCallbacks} or
+ *                       @eref{OTF2_GlobalEvtReader_SetCallbacks}.
+ *  @param attributeList Additional attributes for this event.
+ *  @param region        Needs to be defined in a definition record References a
+ *                       @eref{Region} definition and will be mapped to the
+ *                       global definition if a mapping table of type
+ *                       @eref{OTF2_MAPPING_REGION} is available.
+ *
+ *  @since Version 1.0
+ *
+ *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
+ */
+typedef OTF2_CallbackCode
+( *OTF2_GlobalEvtReaderCallback_DataDestroy )( OTF2_LocationRef    locationID,
+                                                  OTF2_TimeStamp      time,
+                                                  void*               userData,
+                                                  OTF2_AttributeList* attributeList,
+OTF2_RegionRef region );
+
+
+/** @brief Registers the callback for the DataDestroy event.
+ *  
+ *  @param globalEvtReaderCallbacks Struct for all callbacks.
+ *  @param dataDestroyCallback      Function which should be called for all
+ *                                  @eref{DataDestroy} definitions.
+ *
+ *  @since Version 1.0
+ *
+ *  @retbegin
+ *    @retcode{OTF2_SUCCESS, if successful}
+ *    @retcode{OTF2_ERROR_INVALID_ARGUMENT,
+ *             for an invalid @p defReaderCallbacks argument}
+ *  @retend
+ */
+OTF2_ErrorCode
+OTF2_GlobalEvtReaderCallbacks_SetDataDestroyCallback(
+    OTF2_GlobalEvtReaderCallbacks*              globalEvtReaderCallbacks,
+    OTF2_GlobalEvtReaderCallback_DataDestroy dataDestroyCallback );
 
 
 #ifdef __cplusplus

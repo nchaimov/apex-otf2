@@ -23,13 +23,13 @@
 OTF2_ErrorCode
 OTF2_SnapWriter_SnapshotStart( OTF2_SnapWriter*    writerHandle,
                                OTF2_AttributeList* attributeList,
-                               OTF2_TimeStamp      snapTime,
-                               uint64_t            numberOfRecords )
+                               OTF2_TimeStamp      snapTime ,
+uint64_t numberOfRecords )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -53,7 +53,7 @@ OTF2_SnapWriter_SnapshotStart( OTF2_SnapWriter*    writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( uint64_t ) + 1; /* numberOfRecords */
-    record_length      += record_data_length;
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -68,7 +68,7 @@ OTF2_SnapWriter_SnapshotStart( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -96,21 +96,21 @@ OTF2_SnapWriter_SnapshotStart( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_SnapshotEnd( OTF2_SnapWriter*    writerHandle,
-                             OTF2_AttributeList* attributeList,
-                             OTF2_TimeStamp      snapTime,
-                             uint64_t            contReadPos )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+uint64_t contReadPos )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -134,7 +134,7 @@ OTF2_SnapWriter_SnapshotEnd( OTF2_SnapWriter*    writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( uint64_t ) + 1; /* contReadPos */
-    record_length      += record_data_length;
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -149,7 +149,7 @@ OTF2_SnapWriter_SnapshotEnd( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -177,22 +177,22 @@ OTF2_SnapWriter_SnapshotEnd( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
-OTF2_SnapWriter_MeasurementOnOff( OTF2_SnapWriter*     writerHandle,
-                                  OTF2_AttributeList*  attributeList,
-                                  OTF2_TimeStamp       snapTime,
-                                  OTF2_TimeStamp       origEventTime,
-                                  OTF2_MeasurementMode measurementMode )
+OTF2_SnapWriter_MeasurementOnOff( OTF2_SnapWriter*    writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_MeasurementMode measurementMode )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -215,9 +215,9 @@ OTF2_SnapWriter_MeasurementOnOff( OTF2_SnapWriter*     writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_TimeStamp );       /* origEventTime */
+    record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
     record_data_length += sizeof( OTF2_MeasurementMode ); /* measurementMode */
-    record_length      += record_data_length;
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -232,7 +232,7 @@ OTF2_SnapWriter_MeasurementOnOff( OTF2_SnapWriter*     writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -261,22 +261,22 @@ OTF2_SnapWriter_MeasurementOnOff( OTF2_SnapWriter*     writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_Enter( OTF2_SnapWriter*    writerHandle,
-                       OTF2_AttributeList* attributeList,
-                       OTF2_TimeStamp      snapTime,
-                       OTF2_TimeStamp      origEventTime,
-                       OTF2_RegionRef      region )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_RegionRef region )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -299,9 +299,9 @@ OTF2_SnapWriter_Enter( OTF2_SnapWriter*    writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_TimeStamp );     /* origEventTime */
+    record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
     record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
-    record_length      += record_data_length;
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -316,7 +316,7 @@ OTF2_SnapWriter_Enter( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -345,25 +345,25 @@ OTF2_SnapWriter_Enter( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiSend( OTF2_SnapWriter*    writerHandle,
-                         OTF2_AttributeList* attributeList,
-                         OTF2_TimeStamp      snapTime,
-                         OTF2_TimeStamp      origEventTime,
-                         uint32_t            receiver,
-                         OTF2_CommRef        communicator,
-                         uint32_t            msgTag,
-                         uint64_t            msgLength )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -386,12 +386,12 @@ OTF2_SnapWriter_MpiSend( OTF2_SnapWriter*    writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_TimeStamp );   /* origEventTime */
-    record_data_length += sizeof( uint32_t ) + 1;     /* receiver */
+    record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
+    record_data_length += sizeof( uint32_t ) + 1; /* receiver */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
-    record_length      += record_data_length;
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -406,7 +406,7 @@ OTF2_SnapWriter_MpiSend( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -438,26 +438,26 @@ OTF2_SnapWriter_MpiSend( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiIsend( OTF2_SnapWriter*    writerHandle,
-                          OTF2_AttributeList* attributeList,
-                          OTF2_TimeStamp      snapTime,
-                          OTF2_TimeStamp      origEventTime,
-                          uint32_t            receiver,
-                          OTF2_CommRef        communicator,
-                          uint32_t            msgTag,
-                          uint64_t            msgLength,
-                          uint64_t            requestID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -480,13 +480,13 @@ OTF2_SnapWriter_MpiIsend( OTF2_SnapWriter*    writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_TimeStamp );   /* origEventTime */
-    record_data_length += sizeof( uint32_t ) + 1;     /* receiver */
+    record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
+    record_data_length += sizeof( uint32_t ) + 1; /* receiver */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
-    record_data_length += sizeof( uint64_t ) + 1;     /* requestID */
-    record_length      += record_data_length;
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
+    record_data_length += sizeof( uint64_t ) + 1; /* requestID */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -501,7 +501,7 @@ OTF2_SnapWriter_MpiIsend( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -534,22 +534,22 @@ OTF2_SnapWriter_MpiIsend( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiIsendComplete( OTF2_SnapWriter*    writerHandle,
-                                  OTF2_AttributeList* attributeList,
-                                  OTF2_TimeStamp      snapTime,
-                                  OTF2_TimeStamp      origEventTime,
-                                  uint64_t            requestID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint64_t requestID )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -573,8 +573,8 @@ OTF2_SnapWriter_MpiIsendComplete( OTF2_SnapWriter*    writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
-    record_data_length += sizeof( uint64_t ) + 1;   /* requestID */
-    record_length      += record_data_length;
+    record_data_length += sizeof( uint64_t ) + 1; /* requestID */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -589,7 +589,7 @@ OTF2_SnapWriter_MpiIsendComplete( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -618,25 +618,25 @@ OTF2_SnapWriter_MpiIsendComplete( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiRecv( OTF2_SnapWriter*    writerHandle,
-                         OTF2_AttributeList* attributeList,
-                         OTF2_TimeStamp      snapTime,
-                         OTF2_TimeStamp      origEventTime,
-                         uint32_t            sender,
-                         OTF2_CommRef        communicator,
-                         uint32_t            msgTag,
-                         uint64_t            msgLength )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -659,12 +659,12 @@ OTF2_SnapWriter_MpiRecv( OTF2_SnapWriter*    writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_TimeStamp );   /* origEventTime */
-    record_data_length += sizeof( uint32_t ) + 1;     /* sender */
+    record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
+    record_data_length += sizeof( uint32_t ) + 1; /* sender */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
-    record_length      += record_data_length;
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -679,7 +679,7 @@ OTF2_SnapWriter_MpiRecv( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -711,22 +711,22 @@ OTF2_SnapWriter_MpiRecv( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiIrecvRequest( OTF2_SnapWriter*    writerHandle,
-                                 OTF2_AttributeList* attributeList,
-                                 OTF2_TimeStamp      snapTime,
-                                 OTF2_TimeStamp      origEventTime,
-                                 uint64_t            requestID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint64_t requestID )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -750,8 +750,8 @@ OTF2_SnapWriter_MpiIrecvRequest( OTF2_SnapWriter*    writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
-    record_data_length += sizeof( uint64_t ) + 1;   /* requestID */
-    record_length      += record_data_length;
+    record_data_length += sizeof( uint64_t ) + 1; /* requestID */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -766,7 +766,7 @@ OTF2_SnapWriter_MpiIrecvRequest( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -795,26 +795,26 @@ OTF2_SnapWriter_MpiIrecvRequest( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiIrecv( OTF2_SnapWriter*    writerHandle,
-                          OTF2_AttributeList* attributeList,
-                          OTF2_TimeStamp      snapTime,
-                          OTF2_TimeStamp      origEventTime,
-                          uint32_t            sender,
-                          OTF2_CommRef        communicator,
-                          uint32_t            msgTag,
-                          uint64_t            msgLength,
-                          uint64_t            requestID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -837,13 +837,13 @@ OTF2_SnapWriter_MpiIrecv( OTF2_SnapWriter*    writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_TimeStamp );   /* origEventTime */
-    record_data_length += sizeof( uint32_t ) + 1;     /* sender */
+    record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
+    record_data_length += sizeof( uint32_t ) + 1; /* sender */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
-    record_data_length += sizeof( uint64_t ) + 1;     /* requestID */
-    record_length      += record_data_length;
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
+    record_data_length += sizeof( uint64_t ) + 1; /* requestID */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -858,7 +858,7 @@ OTF2_SnapWriter_MpiIrecv( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -891,21 +891,21 @@ OTF2_SnapWriter_MpiIrecv( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiCollectiveBegin( OTF2_SnapWriter*    writerHandle,
-                                    OTF2_AttributeList* attributeList,
-                                    OTF2_TimeStamp      snapTime,
-                                    OTF2_TimeStamp      origEventTime )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -929,7 +929,7 @@ OTF2_SnapWriter_MpiCollectiveBegin( OTF2_SnapWriter*    writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
-    record_length      += record_data_length;
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -944,7 +944,7 @@ OTF2_SnapWriter_MpiCollectiveBegin( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -972,26 +972,26 @@ OTF2_SnapWriter_MpiCollectiveBegin( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiCollectiveEnd( OTF2_SnapWriter*    writerHandle,
-                                  OTF2_AttributeList* attributeList,
-                                  OTF2_TimeStamp      snapTime,
-                                  OTF2_TimeStamp      origEventTime,
-                                  OTF2_CollectiveOp   collectiveOp,
-                                  OTF2_CommRef        communicator,
-                                  uint32_t            root,
-                                  uint64_t            sizeSent,
-                                  uint64_t            sizeReceived )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_CollectiveOp collectiveOp,
+OTF2_CommRef communicator,
+uint32_t root,
+uint64_t sizeSent,
+uint64_t sizeReceived )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -1014,13 +1014,13 @@ OTF2_SnapWriter_MpiCollectiveEnd( OTF2_SnapWriter*    writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_TimeStamp );    /* origEventTime */
+    record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
     record_data_length += sizeof( OTF2_CollectiveOp ); /* collectiveOp */
-    record_data_length += sizeof( OTF2_CommRef ) + 1;  /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;      /* root */
-    record_data_length += sizeof( uint64_t ) + 1;      /* sizeSent */
-    record_data_length += sizeof( uint64_t ) + 1;      /* sizeReceived */
-    record_length      += record_data_length;
+    record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
+    record_data_length += sizeof( uint32_t ) + 1; /* root */
+    record_data_length += sizeof( uint64_t ) + 1; /* sizeSent */
+    record_data_length += sizeof( uint64_t ) + 1; /* sizeReceived */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -1035,7 +1035,7 @@ OTF2_SnapWriter_MpiCollectiveEnd( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -1068,22 +1068,22 @@ OTF2_SnapWriter_MpiCollectiveEnd( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_OmpFork( OTF2_SnapWriter*    writerHandle,
-                         OTF2_AttributeList* attributeList,
-                         OTF2_TimeStamp      snapTime,
-                         OTF2_TimeStamp      origEventTime,
-                         uint32_t            numberOfRequestedThreads )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t numberOfRequestedThreads )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -1107,8 +1107,8 @@ OTF2_SnapWriter_OmpFork( OTF2_SnapWriter*    writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
-    record_data_length += sizeof( uint32_t ) + 1;   /* numberOfRequestedThreads */
-    record_length      += record_data_length;
+    record_data_length += sizeof( uint32_t ) + 1; /* numberOfRequestedThreads */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -1123,7 +1123,7 @@ OTF2_SnapWriter_OmpFork( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -1152,23 +1152,23 @@ OTF2_SnapWriter_OmpFork( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_OmpAcquireLock( OTF2_SnapWriter*    writerHandle,
-                                OTF2_AttributeList* attributeList,
-                                OTF2_TimeStamp      snapTime,
-                                OTF2_TimeStamp      origEventTime,
-                                uint32_t            lockID,
-                                uint32_t            acquisitionOrder )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t lockID,
+uint32_t acquisitionOrder )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -1192,9 +1192,9 @@ OTF2_SnapWriter_OmpAcquireLock( OTF2_SnapWriter*    writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
-    record_data_length += sizeof( uint32_t ) + 1;   /* lockID */
-    record_data_length += sizeof( uint32_t ) + 1;   /* acquisitionOrder */
-    record_length      += record_data_length;
+    record_data_length += sizeof( uint32_t ) + 1; /* lockID */
+    record_data_length += sizeof( uint32_t ) + 1; /* acquisitionOrder */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -1209,7 +1209,7 @@ OTF2_SnapWriter_OmpAcquireLock( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -1239,7 +1239,7 @@ OTF2_SnapWriter_OmpAcquireLock( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
@@ -1247,14 +1247,14 @@ OTF2_SnapWriter_OmpAcquireLock( OTF2_SnapWriter*    writerHandle,
 OTF2_ErrorCode
 OTF2_SnapWriter_OmpTaskCreate( OTF2_SnapWriter*    writerHandle,
                                OTF2_AttributeList* attributeList,
-                               OTF2_TimeStamp      snapTime,
-                               OTF2_TimeStamp      origEventTime,
-                               uint64_t            taskID )
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint64_t taskID )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -1278,8 +1278,8 @@ OTF2_SnapWriter_OmpTaskCreate( OTF2_SnapWriter*    writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
-    record_data_length += sizeof( uint64_t ) + 1;   /* taskID */
-    record_length      += record_data_length;
+    record_data_length += sizeof( uint64_t ) + 1; /* taskID */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -1294,7 +1294,7 @@ OTF2_SnapWriter_OmpTaskCreate( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -1323,7 +1323,7 @@ OTF2_SnapWriter_OmpTaskCreate( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
@@ -1331,14 +1331,14 @@ OTF2_SnapWriter_OmpTaskCreate( OTF2_SnapWriter*    writerHandle,
 OTF2_ErrorCode
 OTF2_SnapWriter_OmpTaskSwitch( OTF2_SnapWriter*    writerHandle,
                                OTF2_AttributeList* attributeList,
-                               OTF2_TimeStamp      snapTime,
-                               OTF2_TimeStamp      origEventTime,
-                               uint64_t            taskID )
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint64_t taskID )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -1362,8 +1362,8 @@ OTF2_SnapWriter_OmpTaskSwitch( OTF2_SnapWriter*    writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
-    record_data_length += sizeof( uint64_t ) + 1;   /* taskID */
-    record_length      += record_data_length;
+    record_data_length += sizeof( uint64_t ) + 1; /* taskID */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -1378,7 +1378,7 @@ OTF2_SnapWriter_OmpTaskSwitch( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -1407,25 +1407,25 @@ OTF2_SnapWriter_OmpTaskSwitch( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
-OTF2_SnapWriter_Metric( OTF2_SnapWriter*        writerHandle,
-                        OTF2_AttributeList*     attributeList,
-                        OTF2_TimeStamp          snapTime,
-                        OTF2_TimeStamp          origEventTime,
-                        OTF2_MetricRef          metric,
-                        uint8_t                 numberOfMetrics,
-                        const OTF2_Type*        typeIDs,
-                        const OTF2_MetricValue* metricValues )
+OTF2_SnapWriter_Metric( OTF2_SnapWriter*    writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_MetricRef metric,
+uint8_t numberOfMetrics,
+const OTF2_Type* typeIDs,
+const OTF2_MetricValue* metricValues )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -1448,20 +1448,20 @@ OTF2_SnapWriter_Metric( OTF2_SnapWriter*        writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_TimeStamp );                  /* origEventTime */
-    record_data_length += sizeof( OTF2_MetricRef ) + 1;              /* metric */
-    record_data_length += sizeof( uint8_t );                         /* numberOfMetrics */
+    record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
+    record_data_length += sizeof( OTF2_MetricRef ) + 1; /* metric */
+    record_data_length += sizeof( uint8_t ); /* numberOfMetrics */
     record_data_length += numberOfMetrics * ( sizeof( OTF2_Type ) ); /* typeIDs */
     if ( numberOfMetrics > 0 && !typeIDs )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid typeIDs array argument." );
+                             "Invalid typeIDs array argument." );
     }
     record_data_length += numberOfMetrics * ( sizeof( OTF2_MetricValue ) + 1 ); /* metricValues */
     if ( numberOfMetrics > 0 && !metricValues )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid metricValues array argument." );
+                             "Invalid metricValues array argument." );
     }
     record_length += record_data_length;
 
@@ -1478,7 +1478,7 @@ OTF2_SnapWriter_Metric( OTF2_SnapWriter*        writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -1509,31 +1509,31 @@ OTF2_SnapWriter_Metric( OTF2_SnapWriter*        writerHandle,
           numberOfMetrics_i++ )
     {
         OTF2_Buffer_WriteUint8( writerHandle->buffer,
-                                typeIDs[ numberOfMetrics_i ] );
+                                                   typeIDs[ numberOfMetrics_i ] );
         OTF2_Buffer_WriteMetricValue( writerHandle->buffer,
-                                      metricValues[ numberOfMetrics_i ] );
+                                                   metricValues[ numberOfMetrics_i ] );
     }
 
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_ParameterString( OTF2_SnapWriter*    writerHandle,
-                                 OTF2_AttributeList* attributeList,
-                                 OTF2_TimeStamp      snapTime,
-                                 OTF2_TimeStamp      origEventTime,
-                                 OTF2_ParameterRef   parameter,
-                                 OTF2_StringRef      string )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+OTF2_StringRef string )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -1556,10 +1556,10 @@ OTF2_SnapWriter_ParameterString( OTF2_SnapWriter*    writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_TimeStamp );        /* origEventTime */
+    record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
     record_data_length += sizeof( OTF2_ParameterRef ) + 1; /* parameter */
-    record_data_length += sizeof( OTF2_StringRef ) + 1;    /* string */
-    record_length      += record_data_length;
+    record_data_length += sizeof( OTF2_StringRef ) + 1; /* string */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -1574,7 +1574,7 @@ OTF2_SnapWriter_ParameterString( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -1604,23 +1604,23 @@ OTF2_SnapWriter_ParameterString( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_ParameterInt( OTF2_SnapWriter*    writerHandle,
-                              OTF2_AttributeList* attributeList,
-                              OTF2_TimeStamp      snapTime,
-                              OTF2_TimeStamp      origEventTime,
-                              OTF2_ParameterRef   parameter,
-                              int64_t             value )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+int64_t value )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -1643,10 +1643,10 @@ OTF2_SnapWriter_ParameterInt( OTF2_SnapWriter*    writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_TimeStamp );        /* origEventTime */
+    record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
     record_data_length += sizeof( OTF2_ParameterRef ) + 1; /* parameter */
-    record_data_length += sizeof( int64_t ) + 1;           /* value */
-    record_length      += record_data_length;
+    record_data_length += sizeof( int64_t ) + 1; /* value */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -1661,7 +1661,7 @@ OTF2_SnapWriter_ParameterInt( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -1691,23 +1691,23 @@ OTF2_SnapWriter_ParameterInt( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
 
 
 OTF2_ErrorCode
 OTF2_SnapWriter_ParameterUnsignedInt( OTF2_SnapWriter*    writerHandle,
-                                      OTF2_AttributeList* attributeList,
-                                      OTF2_TimeStamp      snapTime,
-                                      OTF2_TimeStamp      origEventTime,
-                                      OTF2_ParameterRef   parameter,
-                                      uint64_t            value )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+uint64_t value )
 {
     if ( !writerHandle )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid writerHandle argument." );
+                             "Invalid writerHandle argument." );
     }
 
     OTF2_ErrorCode ret;
@@ -1730,10 +1730,10 @@ OTF2_SnapWriter_ParameterUnsignedInt( OTF2_SnapWriter*    writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_TimeStamp );        /* origEventTime */
+    record_data_length += sizeof( OTF2_TimeStamp ); /* origEventTime */
     record_data_length += sizeof( OTF2_ParameterRef ) + 1; /* parameter */
-    record_data_length += sizeof( uint64_t ) + 1;          /* value */
-    record_length      += record_data_length;
+    record_data_length += sizeof( uint64_t ) + 1; /* value */
+    record_length += record_data_length;
 
     /*
      * Additional bytes to store real record length. For records that exceed 255 bytes
@@ -1748,7 +1748,7 @@ OTF2_SnapWriter_ParameterUnsignedInt( OTF2_SnapWriter*    writerHandle,
 
     ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
                                       snapTime,
-                                      record_length );
+                                      record_length);
     if ( OTF2_SUCCESS != ret )
     {
         return ret;
@@ -1778,6 +1778,7 @@ OTF2_SnapWriter_ParameterUnsignedInt( OTF2_SnapWriter*    writerHandle,
     /* Write real record length */
     ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 
-
+    
     return ret;
 }
+

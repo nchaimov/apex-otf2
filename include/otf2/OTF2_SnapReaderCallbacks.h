@@ -39,14 +39,14 @@ extern "C" {
 
 
 /** @brief Opaque struct which holds all snap event record callbacks.
- *
+ * 
  *  @since Version 1.2
  */
 typedef struct OTF2_SnapReaderCallbacks_struct OTF2_SnapReaderCallbacks;
 
 
 /** @brief Allocates a new struct for the snap event callbacks.
- *
+ * 
  *  @since Version 1.2
  *
  *  @return A newly allocated struct of type @eref{OTF2_SnapReaderCallbacks}.
@@ -59,7 +59,7 @@ OTF2_SnapReaderCallbacks_New( void );
  *
  *  @param snapReaderCallbacks Handle to a struct previously allocated
  *                            with @eref{OTF2_SnapReaderCallbacks_New}.
- *
+ * 
  *  @since Version 1.2
  */
 void
@@ -70,7 +70,7 @@ OTF2_SnapReaderCallbacks_Delete( OTF2_SnapReaderCallbacks* snapReaderCallbacks )
  *
  *  @param snapReaderCallbacks Handle to a struct previously allocated
  *                            with @eref{OTF2_SnapReaderCallbacks_New}.
- *
+ * 
  *  @since Version 1.2
  */
 void
@@ -85,16 +85,16 @@ OTF2_SnapReaderCallbacks_Clear( OTF2_SnapReaderCallbacks* snapReaderCallbacks );
  *                       @eref{OTF2_Reader_RegisterSnapCallbacks} or
  *                       @eref{OTF2_SnapReader_SetCallbacks}.
  *  @param attributeList Additional attributes for this event.
- *
+ * 
  *  @since Version 1.2
  *
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_Unknown )( OTF2_LocationRef    location,
-                                       OTF2_TimeStamp      snapTime,
-                                       void*               userData,
-                                       OTF2_AttributeList* attributeList );
+( *OTF2_SnapReaderCallback_Unknown )( OTF2_LocationRef    location,
+                                      OTF2_TimeStamp      snapTime,
+                                      void*               userData,
+                                      OTF2_AttributeList* attributeList );
 
 
 /** @brief Registers the callback for the Unknown snap event.
@@ -102,7 +102,7 @@ typedef OTF2_CallbackCode
  *  @param snapReaderCallbacks Struct for all callbacks.
  *  @param unknownCallback    Function which should be called for all
  *                            unknown snap events.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -120,7 +120,7 @@ OTF2_SnapReaderCallbacks_SetUnknownCallback(
 /** @brief Callback for the SnapshotStart snap event record.
  *
  *  This record marks the start of a snapshot.
- *
+ *  
  *  A snapshot consists of a timestamp and a set of snapshot records. All
  *  these snapshot records have the same snapshot time. A snapshot
  *  starts with one @eref{SnapshotStart} record and closes with one
@@ -128,7 +128,7 @@ OTF2_SnapReaderCallbacks_SetUnknownCallback(
  *  ordered by the @p origEventTime, which are also less than the
  *  snapshot timestamp. Ie. The timestamp of the next event read from
  *  the event stream is greater or equal to the snapshot time.
- *
+ *  
  *  @param location        The location where this snap happened.
  *  @param snapTime        Snapshot time.
  *  @param userData        User data as set by
@@ -143,19 +143,19 @@ OTF2_SnapReaderCallbacks_SetUnknownCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_SnapshotStart )( OTF2_LocationRef    location,
-                                             OTF2_TimeStamp      snapTime,
-                                             void*               userData,
-                                             OTF2_AttributeList* attributeList,
-                                             uint64_t            numberOfRecords );
+( *OTF2_SnapReaderCallback_SnapshotStart )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+uint64_t numberOfRecords );
 
 
 /** @brief Registers the callback for the SnapshotStart snap event.
- *
+ *  
  *  @param snapReaderCallbacks   Struct for all callbacks.
  *  @param snapshotStartCallback Function which should be called for all
  *                               @eref{SnapshotStart} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -166,7 +166,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetSnapshotStartCallback(
-    OTF2_SnapReaderCallbacks*             snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_SnapshotStart snapshotStartCallback );
 
 
@@ -175,7 +175,7 @@ OTF2_SnapReaderCallbacks_SetSnapshotStartCallback(
  *  This record marks the end of a snapshot. It contains the position to
  *  continue reading in the event trace for this location. Use
  *  @eref{OTF2_EvtReader_Seek} with @p contReadPos as the position.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -189,19 +189,19 @@ OTF2_SnapReaderCallbacks_SetSnapshotStartCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_SnapshotEnd )( OTF2_LocationRef    location,
-                                           OTF2_TimeStamp      snapTime,
-                                           void*               userData,
-                                           OTF2_AttributeList* attributeList,
-                                           uint64_t            contReadPos );
+( *OTF2_SnapReaderCallback_SnapshotEnd )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+uint64_t contReadPos );
 
 
 /** @brief Registers the callback for the SnapshotEnd snap event.
- *
+ *  
  *  @param snapReaderCallbacks Struct for all callbacks.
  *  @param snapshotEndCallback Function which should be called for all
  *                             @eref{SnapshotEnd} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -212,7 +212,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetSnapshotEndCallback(
-    OTF2_SnapReaderCallbacks*           snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_SnapshotEnd snapshotEndCallback );
 
 
@@ -220,7 +220,7 @@ OTF2_SnapReaderCallbacks_SetSnapshotEndCallback(
  *
  *  The last occurrence of a @eref{MeasurementOnOff} event of this
  *  location, if any.
- *
+ *  
  *  @param location        The location where this snap happened.
  *  @param snapTime        Snapshot time.
  *  @param userData        User data as set by
@@ -237,20 +237,20 @@ OTF2_SnapReaderCallbacks_SetSnapshotEndCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_MeasurementOnOff )( OTF2_LocationRef     location,
-                                                OTF2_TimeStamp       snapTime,
-                                                void*                userData,
-                                                OTF2_AttributeList*  attributeList,
-                                                OTF2_TimeStamp       origEventTime,
-                                                OTF2_MeasurementMode measurementMode );
+( *OTF2_SnapReaderCallback_MeasurementOnOff )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+OTF2_MeasurementMode measurementMode );
 
 
 /** @brief Registers the callback for the MeasurementOnOff snap event.
- *
+ *  
  *  @param snapReaderCallbacks      Struct for all callbacks.
  *  @param measurementOnOffCallback Function which should be called for all
  *                                  @eref{MeasurementOnOff} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -261,7 +261,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMeasurementOnOffCallback(
-    OTF2_SnapReaderCallbacks*                snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MeasurementOnOff measurementOnOffCallback );
 
 
@@ -269,7 +269,7 @@ OTF2_SnapReaderCallbacks_SetMeasurementOnOffCallback(
  *
  *  This record exists for each @eref{Enter} event where the corresponding
  *  @eref{Leave} event did not occur before the snapshot.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -287,20 +287,20 @@ OTF2_SnapReaderCallbacks_SetMeasurementOnOffCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_Enter )( OTF2_LocationRef    location,
-                                     OTF2_TimeStamp      snapTime,
-                                     void*               userData,
-                                     OTF2_AttributeList* attributeList,
-                                     OTF2_TimeStamp      origEventTime,
-                                     OTF2_RegionRef      region );
+( *OTF2_SnapReaderCallback_Enter )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+OTF2_RegionRef region );
 
 
 /** @brief Registers the callback for the Enter snap event.
- *
+ *  
  *  @param snapReaderCallbacks Struct for all callbacks.
  *  @param enterCallback       Function which should be called for all
  *                             @eref{Enter} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -311,7 +311,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetEnterCallback(
-    OTF2_SnapReaderCallbacks*     snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_Enter enterCallback );
 
 
@@ -324,7 +324,7 @@ OTF2_SnapReaderCallbacks_SetEnterCallback(
  *  @eref{MpiIsend} with the same envelope than this one is neither
  *  completed not canceled yet, thus the matching receive may already
  *  occurred, but the matching couldn't be done yet.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -344,23 +344,23 @@ OTF2_SnapReaderCallbacks_SetEnterCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_MpiSend )( OTF2_LocationRef    location,
-                                       OTF2_TimeStamp      snapTime,
-                                       void*               userData,
-                                       OTF2_AttributeList* attributeList,
-                                       OTF2_TimeStamp      origEventTime,
-                                       uint32_t            receiver,
-                                       OTF2_CommRef        communicator,
-                                       uint32_t            msgTag,
-                                       uint64_t            msgLength );
+( *OTF2_SnapReaderCallback_MpiSend )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength );
 
 
 /** @brief Registers the callback for the MpiSend snap event.
- *
+ *  
  *  @param snapReaderCallbacks Struct for all callbacks.
  *  @param mpiSendCallback     Function which should be called for all
  *                             @eref{MpiSend} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -371,7 +371,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiSendCallback(
-    OTF2_SnapReaderCallbacks*       snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiSend mpiSendCallback );
 
 
@@ -385,7 +385,7 @@ OTF2_SnapReaderCallbacks_SetMpiSendCallback(
  *  snapshot) but the matching receive message event did not occur on
  *  the remote location before the snapshot. (This could either be
  *  an@eref{MpiRecv} or a @eref{MpiIrecv} event.)
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -406,24 +406,24 @@ OTF2_SnapReaderCallbacks_SetMpiSendCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_MpiIsend )( OTF2_LocationRef    location,
-                                        OTF2_TimeStamp      snapTime,
-                                        void*               userData,
-                                        OTF2_AttributeList* attributeList,
-                                        OTF2_TimeStamp      origEventTime,
-                                        uint32_t            receiver,
-                                        OTF2_CommRef        communicator,
-                                        uint32_t            msgTag,
-                                        uint64_t            msgLength,
-                                        uint64_t            requestID );
+( *OTF2_SnapReaderCallback_MpiIsend )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID );
 
 
 /** @brief Registers the callback for the MpiIsend snap event.
- *
+ *  
  *  @param snapReaderCallbacks Struct for all callbacks.
  *  @param mpiIsendCallback    Function which should be called for all
  *                             @eref{MpiIsend} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -434,7 +434,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiIsendCallback(
-    OTF2_SnapReaderCallbacks*        snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiIsend mpiIsendCallback );
 
 
@@ -445,7 +445,7 @@ OTF2_SnapReaderCallbacks_SetMpiIsendCallback(
  *  the matching receive message event did not occur on the remote
  *  location before the snapshot. (This could either be a
  *  @eref{MpiRecv} or a @eref{MpiIrecv} event.) .
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -460,20 +460,20 @@ OTF2_SnapReaderCallbacks_SetMpiIsendCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_MpiIsendComplete )( OTF2_LocationRef    location,
-                                                OTF2_TimeStamp      snapTime,
-                                                void*               userData,
-                                                OTF2_AttributeList* attributeList,
-                                                OTF2_TimeStamp      origEventTime,
-                                                uint64_t            requestID );
+( *OTF2_SnapReaderCallback_MpiIsendComplete )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+uint64_t requestID );
 
 
 /** @brief Registers the callback for the MpiIsendComplete snap event.
- *
+ *  
  *  @param snapReaderCallbacks      Struct for all callbacks.
  *  @param mpiIsendCompleteCallback Function which should be called for all
  *                                  @eref{MpiIsendComplete} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -484,7 +484,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiIsendCompleteCallback(
-    OTF2_SnapReaderCallbacks*                snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiIsendComplete mpiIsendCompleteCallback );
 
 
@@ -498,7 +498,7 @@ OTF2_SnapReaderCallbacks_SetMpiIsendCompleteCallback(
  *  event did not occurred before this snapshot. In this case the
  *  message matching couldn't performed yet, because the envelope of
  *  the ongoing @eref{MpiIrecvRequest} is not yet known.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -518,23 +518,23 @@ OTF2_SnapReaderCallbacks_SetMpiIsendCompleteCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_MpiRecv )( OTF2_LocationRef    location,
-                                       OTF2_TimeStamp      snapTime,
-                                       void*               userData,
-                                       OTF2_AttributeList* attributeList,
-                                       OTF2_TimeStamp      origEventTime,
-                                       uint32_t            sender,
-                                       OTF2_CommRef        communicator,
-                                       uint32_t            msgTag,
-                                       uint64_t            msgLength );
+( *OTF2_SnapReaderCallback_MpiRecv )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength );
 
 
 /** @brief Registers the callback for the MpiRecv snap event.
- *
+ *  
  *  @param snapReaderCallbacks Struct for all callbacks.
  *  @param mpiRecvCallback     Function which should be called for all
  *                             @eref{MpiRecv} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -545,7 +545,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiRecvCallback(
-    OTF2_SnapReaderCallbacks*       snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiRecv mpiRecvCallback );
 
 
@@ -559,7 +559,7 @@ OTF2_SnapReaderCallbacks_SetMpiRecvCallback(
  *  matching receive message event did not occur on the remote
  *  location before the snapshot. This could either be an
  *  @eref{MpiRecv} or a @eref{MpiIrecv} event.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -574,20 +574,20 @@ OTF2_SnapReaderCallbacks_SetMpiRecvCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_MpiIrecvRequest )( OTF2_LocationRef    location,
-                                               OTF2_TimeStamp      snapTime,
-                                               void*               userData,
-                                               OTF2_AttributeList* attributeList,
-                                               OTF2_TimeStamp      origEventTime,
-                                               uint64_t            requestID );
+( *OTF2_SnapReaderCallback_MpiIrecvRequest )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+uint64_t requestID );
 
 
 /** @brief Registers the callback for the MpiIrecvRequest snap event.
- *
+ *  
  *  @param snapReaderCallbacks     Struct for all callbacks.
  *  @param mpiIrecvRequestCallback Function which should be called for all
  *                                 @eref{MpiIrecvRequest} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -598,7 +598,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiIrecvRequestCallback(
-    OTF2_SnapReaderCallbacks*               snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiIrecvRequest mpiIrecvRequestCallback );
 
 
@@ -612,7 +612,7 @@ OTF2_SnapReaderCallbacks_SetMpiIrecvRequestCallback(
  *  event did not occurred before this snapshot. In this case the
  *  message matching couldn't performed yet, because the envelope of
  *  the ongoing @eref{MpiIrecvRequest} is not yet known.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -633,24 +633,24 @@ OTF2_SnapReaderCallbacks_SetMpiIrecvRequestCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_MpiIrecv )( OTF2_LocationRef    location,
-                                        OTF2_TimeStamp      snapTime,
-                                        void*               userData,
-                                        OTF2_AttributeList* attributeList,
-                                        OTF2_TimeStamp      origEventTime,
-                                        uint32_t            sender,
-                                        OTF2_CommRef        communicator,
-                                        uint32_t            msgTag,
-                                        uint64_t            msgLength,
-                                        uint64_t            requestID );
+( *OTF2_SnapReaderCallback_MpiIrecv )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID );
 
 
 /** @brief Registers the callback for the MpiIrecv snap event.
- *
+ *  
  *  @param snapReaderCallbacks Struct for all callbacks.
  *  @param mpiIrecvCallback    Function which should be called for all
  *                             @eref{MpiIrecv} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -661,7 +661,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiIrecvCallback(
-    OTF2_SnapReaderCallbacks*        snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiIrecv mpiIrecvCallback );
 
 
@@ -670,7 +670,7 @@ OTF2_SnapReaderCallbacks_SetMpiIrecvCallback(
  *  Indicates that this location started a collective operation but not
  *  all of the participating locations completed the operation yet,
  *  including this location.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -684,19 +684,19 @@ OTF2_SnapReaderCallbacks_SetMpiIrecvCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_MpiCollectiveBegin )( OTF2_LocationRef    location,
-                                                  OTF2_TimeStamp      snapTime,
-                                                  void*               userData,
-                                                  OTF2_AttributeList* attributeList,
-                                                  OTF2_TimeStamp      origEventTime );
+( *OTF2_SnapReaderCallback_MpiCollectiveBegin )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime );
 
 
 /** @brief Registers the callback for the MpiCollectiveBegin snap event.
- *
+ *  
  *  @param snapReaderCallbacks        Struct for all callbacks.
  *  @param mpiCollectiveBeginCallback Function which should be called for all
  *                                    @eref{MpiCollectiveBegin} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -707,7 +707,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiCollectiveBeginCallback(
-    OTF2_SnapReaderCallbacks*                  snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiCollectiveBegin mpiCollectiveBeginCallback );
 
 
@@ -717,7 +717,7 @@ OTF2_SnapReaderCallbacks_SetMpiCollectiveBeginCallback(
  *  but not all of the participating locations completed the operation
  *  yet. The corresponding @eref{MpiCollectiveBeginSnap} record is
  *  still in the snapshot though.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -738,24 +738,24 @@ OTF2_SnapReaderCallbacks_SetMpiCollectiveBeginCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_MpiCollectiveEnd )( OTF2_LocationRef    location,
-                                                OTF2_TimeStamp      snapTime,
-                                                void*               userData,
-                                                OTF2_AttributeList* attributeList,
-                                                OTF2_TimeStamp      origEventTime,
-                                                OTF2_CollectiveOp   collectiveOp,
-                                                OTF2_CommRef        communicator,
-                                                uint32_t            root,
-                                                uint64_t            sizeSent,
-                                                uint64_t            sizeReceived );
+( *OTF2_SnapReaderCallback_MpiCollectiveEnd )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+OTF2_CollectiveOp collectiveOp,
+OTF2_CommRef communicator,
+uint32_t root,
+uint64_t sizeSent,
+uint64_t sizeReceived );
 
 
 /** @brief Registers the callback for the MpiCollectiveEnd snap event.
- *
+ *  
  *  @param snapReaderCallbacks      Struct for all callbacks.
  *  @param mpiCollectiveEndCallback Function which should be called for all
  *                                  @eref{MpiCollectiveEnd} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -766,7 +766,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiCollectiveEndCallback(
-    OTF2_SnapReaderCallbacks*                snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiCollectiveEnd mpiCollectiveEndCallback );
 
 
@@ -775,7 +775,7 @@ OTF2_SnapReaderCallbacks_SetMpiCollectiveEndCallback(
  *  This record exists for each @eref{OmpFork} event where the
  *  corresponding @eref{OmpJoin} did not occurred before this
  *  snapshot.
- *
+ *  
  *  @param location                 The location where this snap happened.
  *  @param snapTime                 Snapshot time.
  *  @param userData                 User data as set by
@@ -790,20 +790,20 @@ OTF2_SnapReaderCallbacks_SetMpiCollectiveEndCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_OmpFork )( OTF2_LocationRef    location,
-                                       OTF2_TimeStamp      snapTime,
-                                       void*               userData,
-                                       OTF2_AttributeList* attributeList,
-                                       OTF2_TimeStamp      origEventTime,
-                                       uint32_t            numberOfRequestedThreads );
+( *OTF2_SnapReaderCallback_OmpFork )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+uint32_t numberOfRequestedThreads );
 
 
 /** @brief Registers the callback for the OmpFork snap event.
- *
+ *  
  *  @param snapReaderCallbacks Struct for all callbacks.
  *  @param ompForkCallback     Function which should be called for all
  *                             @eref{OmpFork} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -814,7 +814,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetOmpForkCallback(
-    OTF2_SnapReaderCallbacks*       snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_OmpFork ompForkCallback );
 
 
@@ -823,7 +823,7 @@ OTF2_SnapReaderCallbacks_SetOmpForkCallback(
  *  This record exists for each @eref{OmpAcquireLock} event where the
  *  corresponding @eref{OmpReleaseLock} did not occurred before this
  *  snapshot yet.
- *
+ *  
  *  @param location         The location where this snap happened.
  *  @param snapTime         Snapshot time.
  *  @param userData         User data as set by
@@ -843,21 +843,21 @@ OTF2_SnapReaderCallbacks_SetOmpForkCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_OmpAcquireLock )( OTF2_LocationRef    location,
-                                              OTF2_TimeStamp      snapTime,
-                                              void*               userData,
-                                              OTF2_AttributeList* attributeList,
-                                              OTF2_TimeStamp      origEventTime,
-                                              uint32_t            lockID,
-                                              uint32_t            acquisitionOrder );
+( *OTF2_SnapReaderCallback_OmpAcquireLock )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+uint32_t lockID,
+uint32_t acquisitionOrder );
 
 
 /** @brief Registers the callback for the OmpAcquireLock snap event.
- *
+ *  
  *  @param snapReaderCallbacks    Struct for all callbacks.
  *  @param ompAcquireLockCallback Function which should be called for all
  *                                @eref{OmpAcquireLock} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -878,7 +878,7 @@ OTF2_SnapReaderCallbacks_SetOmpAcquireLockCallback(
  *  corresponding @eref{OmpTaskComplete} event did not occurred before
  *  this snapshot. Neither on this location nor on any other location
  *  in the current thread team.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -893,20 +893,20 @@ OTF2_SnapReaderCallbacks_SetOmpAcquireLockCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_OmpTaskCreate )( OTF2_LocationRef    location,
-                                             OTF2_TimeStamp      snapTime,
-                                             void*               userData,
-                                             OTF2_AttributeList* attributeList,
-                                             OTF2_TimeStamp      origEventTime,
-                                             uint64_t            taskID );
+( *OTF2_SnapReaderCallback_OmpTaskCreate )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+uint64_t taskID );
 
 
 /** @brief Registers the callback for the OmpTaskCreate snap event.
- *
+ *  
  *  @param snapReaderCallbacks   Struct for all callbacks.
  *  @param ompTaskCreateCallback Function which should be called for all
  *                               @eref{OmpTaskCreate} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -917,7 +917,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetOmpTaskCreateCallback(
-    OTF2_SnapReaderCallbacks*             snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_OmpTaskCreate ompTaskCreateCallback );
 
 
@@ -927,7 +927,7 @@ OTF2_SnapReaderCallbacks_SetOmpTaskCreateCallback(
  *  corresponding @eref{OmpTaskComplete} event did not occurred before
  *  this snapshot. Neither on this location nor on any other location
  *  in the current thread team.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -942,20 +942,20 @@ OTF2_SnapReaderCallbacks_SetOmpTaskCreateCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_OmpTaskSwitch )( OTF2_LocationRef    location,
-                                             OTF2_TimeStamp      snapTime,
-                                             void*               userData,
-                                             OTF2_AttributeList* attributeList,
-                                             OTF2_TimeStamp      origEventTime,
-                                             uint64_t            taskID );
+( *OTF2_SnapReaderCallback_OmpTaskSwitch )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+uint64_t taskID );
 
 
 /** @brief Registers the callback for the OmpTaskSwitch snap event.
- *
+ *  
  *  @param snapReaderCallbacks   Struct for all callbacks.
  *  @param ompTaskSwitchCallback Function which should be called for all
  *                               @eref{OmpTaskSwitch} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -966,7 +966,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetOmpTaskSwitchCallback(
-    OTF2_SnapReaderCallbacks*             snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_OmpTaskSwitch ompTaskSwitchCallback );
 
 
@@ -975,11 +975,11 @@ OTF2_SnapReaderCallbacks_SetOmpTaskSwitchCallback(
  *  This record exists for each referenced metric class or metric instance
  *  event this location recorded metrics before and provides the last
  *  known recorded metric values.
- *
+ *  
  *  As an exception for metric classes where the metric mode denotes an
  *  @eref{OTF2_METRIC_VALUE_RELATIVE} mode the value indicates the
  *  accumulation of all previous metric values recorded.
- *
+ *  
  *  @param location        The location where this snap happened.
  *  @param snapTime        Snapshot time.
  *  @param userData        User data as set by
@@ -1002,23 +1002,23 @@ OTF2_SnapReaderCallbacks_SetOmpTaskSwitchCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_Metric )( OTF2_LocationRef        location,
-                                      OTF2_TimeStamp          snapTime,
-                                      void*                   userData,
-                                      OTF2_AttributeList*     attributeList,
-                                      OTF2_TimeStamp          origEventTime,
-                                      OTF2_MetricRef          metric,
-                                      uint8_t                 numberOfMetrics,
-                                      const OTF2_Type*        typeIDs,
-                                      const OTF2_MetricValue* metricValues );
+( *OTF2_SnapReaderCallback_Metric )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+OTF2_MetricRef metric,
+uint8_t numberOfMetrics,
+const OTF2_Type* typeIDs,
+const OTF2_MetricValue* metricValues );
 
 
 /** @brief Registers the callback for the Metric snap event.
- *
+ *  
  *  @param snapReaderCallbacks Struct for all callbacks.
  *  @param metricCallback      Function which should be called for all
  *                             @eref{Metric} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -1029,7 +1029,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMetricCallback(
-    OTF2_SnapReaderCallbacks*      snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_Metric metricCallback );
 
 
@@ -1038,7 +1038,7 @@ OTF2_SnapReaderCallbacks_SetMetricCallback(
  *  This record must be included in the snapshot until the leave event for
  *  the enter event occurs which has the greatest timestamp less or
  *  equal the timestamp of this record.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -1060,21 +1060,21 @@ OTF2_SnapReaderCallbacks_SetMetricCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_ParameterString )( OTF2_LocationRef    location,
-                                               OTF2_TimeStamp      snapTime,
-                                               void*               userData,
-                                               OTF2_AttributeList* attributeList,
-                                               OTF2_TimeStamp      origEventTime,
-                                               OTF2_ParameterRef   parameter,
-                                               OTF2_StringRef      string );
+( *OTF2_SnapReaderCallback_ParameterString )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+OTF2_StringRef string );
 
 
 /** @brief Registers the callback for the ParameterString snap event.
- *
+ *  
  *  @param snapReaderCallbacks     Struct for all callbacks.
  *  @param parameterStringCallback Function which should be called for all
  *                                 @eref{ParameterString} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -1085,7 +1085,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetParameterStringCallback(
-    OTF2_SnapReaderCallbacks*               snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_ParameterString parameterStringCallback );
 
 
@@ -1094,7 +1094,7 @@ OTF2_SnapReaderCallbacks_SetParameterStringCallback(
  *  This record must be included in the snapshot until the leave event for
  *  the enter event occurs which has the greatest timestamp less or
  *  equal the timestamp of this record.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -1113,21 +1113,21 @@ OTF2_SnapReaderCallbacks_SetParameterStringCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_ParameterInt )( OTF2_LocationRef    location,
+( *OTF2_SnapReaderCallback_ParameterInt )( OTF2_LocationRef    location,
                                             OTF2_TimeStamp      snapTime,
                                             void*               userData,
                                             OTF2_AttributeList* attributeList,
-                                            OTF2_TimeStamp      origEventTime,
-                                            OTF2_ParameterRef   parameter,
-                                            int64_t             value );
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+int64_t value );
 
 
 /** @brief Registers the callback for the ParameterInt snap event.
- *
+ *  
  *  @param snapReaderCallbacks  Struct for all callbacks.
  *  @param parameterIntCallback Function which should be called for all
  *                              @eref{ParameterInt} definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -1138,7 +1138,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetParameterIntCallback(
-    OTF2_SnapReaderCallbacks*            snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_ParameterInt parameterIntCallback );
 
 
@@ -1147,7 +1147,7 @@ OTF2_SnapReaderCallbacks_SetParameterIntCallback(
  *  This record must be included in the snapshot until the leave event for
  *  the enter event occurs which has the greatest timestamp less or
  *  equal the timestamp of this record.
- *
+ *  
  *  @param location      The location where this snap happened.
  *  @param snapTime      Snapshot time.
  *  @param userData      User data as set by
@@ -1166,22 +1166,22 @@ OTF2_SnapReaderCallbacks_SetParameterIntCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_SnapReaderCallback_ParameterUnsignedInt )( OTF2_LocationRef    location,
-                                                    OTF2_TimeStamp      snapTime,
-                                                    void*               userData,
-                                                    OTF2_AttributeList* attributeList,
-                                                    OTF2_TimeStamp      origEventTime,
-                                                    OTF2_ParameterRef   parameter,
-                                                    uint64_t            value );
+( *OTF2_SnapReaderCallback_ParameterUnsignedInt )( OTF2_LocationRef    location,
+                                            OTF2_TimeStamp      snapTime,
+                                            void*               userData,
+                                            OTF2_AttributeList* attributeList,
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+uint64_t value );
 
 
 /** @brief Registers the callback for the ParameterUnsignedInt snap event.
- *
+ *  
  *  @param snapReaderCallbacks          Struct for all callbacks.
  *  @param parameterUnsignedIntCallback Function which should be called for all
  *                                      @eref{ParameterUnsignedInt}
  *                                      definitions.
- *
+ * 
  *  @since Version 1.2
  *
  *  @retbegin
@@ -1192,7 +1192,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetParameterUnsignedIntCallback(
-    OTF2_SnapReaderCallbacks*                    snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_ParameterUnsignedInt parameterUnsignedIntCallback );
 
 

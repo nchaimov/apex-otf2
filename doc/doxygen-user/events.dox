@@ -351,7 +351,7 @@
  *  </div>
  *  <div class="memdoc">
  *  @endhtmlonly
- *  A leave record indicates that the program leaves a code region.
+ *  An enter record indicates that the program leaves a code region.
  *
  * @ifnot LATEX
  *  @par Attributes:
@@ -1903,7 +1903,7 @@
  *  <div class="memdoc">
  *  @endhtmlonly
  *  An OmpFork record marks that an OpenMP Thread forks a thread team.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadFork} event record
  *  and should not be used when the @eref{ThreadFork} event record is
  *  in use.
@@ -2017,7 +2017,7 @@
  *  @endhtmlonly
  *  An OmpJoin record marks that a team of threads is joint and only the
  *  master thread continues execution.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadJoin} event record
  *  and should not be used when the @eref{ThreadJoin} event record is
  *  in use.
@@ -2110,7 +2110,7 @@
  *  <div class="memdoc">
  *  @endhtmlonly
  *  An OmpAcquireLock record marks that a thread acquires an OpenMP lock.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadAcquireLock} event
  *  record and should not be used when the @eref{ThreadAcquireLock}
  *  event record is in use.
@@ -2246,7 +2246,7 @@
  *  <div class="memdoc">
  *  @endhtmlonly
  *  An OmpReleaseLock record marks that a thread releases an OpenMP lock.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadReleaseLock} event
  *  record and should not be used when the @eref{ThreadReleaseLock}
  *  event record is in use.
@@ -2383,7 +2383,7 @@
  *  @endhtmlonly
  *  An OmpTaskCreate record marks that an OpenMP Task was/will be created
  *  in the current region.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadTaskCreate} event
  *  record and should not be used when the @eref{ThreadTaskCreate}
  *  event record is in use.
@@ -2499,7 +2499,7 @@
  *  task will be suspended and another task starts/restarts its
  *  execution. Please note that this may change the current call stack
  *  of the executing location.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadTaskSwitch} event
  *  record and should not be used when the @eref{ThreadTaskSwitch}
  *  event record is in use.
@@ -2613,7 +2613,7 @@
  *  @endhtmlonly
  *  An OmpTaskComplete record indicates that the execution of an OpenMP
  *  task has finished.
- *
+ *  
  *  This event record is superseded by the @eref{ThreadTaskComplete} event
  *  record and should not be used when the @eref{ThreadTaskComplete}
  *  event record is in use.
@@ -7695,10 +7695,10 @@
  *  referenced @eref{CallingContext}. In contrast to the @eref{Enter}
  *  event, it gives the full calling context through the
  *  @eref{CallingContext} tree.
- *
+ *  
  *  Events based on the @eref{CallingContext} definition are mutually
  *  exclusive with the @eref{Enter}/@eref{Leave} events in a trace.
- *
+ *  
  *  If no callback for this event is set but a callback for @eref{Enter}
  *  events is defined, the reader will automatically generate an
  *  @eref{Enter} callback call for the @eref{Region} referenced by the
@@ -7839,17 +7839,17 @@
  *  @eref{CallingContext}. In contrast to the @eref{Leave} event, it
  *  gives the full calling context through the @eref{CallingContext}
  *  tree.
- *
+ *  
  *  The unwind distance for this @eref{CallingContext} is defined to be 1.
  *  Because it must be assumed that the instrumented region made
  *  progress since the previous @eref{CallingContext} event.
- *
+ *  
  *  Events based on the @eref{CallingContext} definition are mutually
  *  exclusive with the @eref{Enter}/@eref{Leave} events in a trace.
- *
+ *  
  *  The parent of the @eref{CallingContext} must be used as the previous
  *  calling context for the next event.
- *
+ *  
  *  If no callback for this event is set but a callback for @eref{Leave}
  *  events is defined, the reader will automatically generate an
  *  @eref{Leave} callback call for the @eref{Region} referenced by the
@@ -7967,7 +7967,7 @@
  *  @endhtmlonly
  *  The thread was interrupted to take a sample of its current state
  *  (region and source code location).
- *
+ *  
  *  Events based on the @eref{CallingContext} definition are mutually
  *  exclusive with the @eref{Enter}/@eref{Leave} events in a trace.
  *
@@ -8096,6 +8096,1353 @@
  *  @see OTF2_EvtReaderCallbacks_SetCallingContextSampleCallback()
  *
  *  @since Version 1.5
+ *
+ *  @htmlonly
+ *  </div>
+ *  </div>
+ *  @endhtmlonly
+ *
+ *  @anchor TaskCreate
+ *  @htmlonly
+ *  <div class="memitem">
+ *  <div class="memproto">
+ *    <table class="memname"><tbody>
+ *      <tr><td class="memname">
+ *  @endhtmlonly
+ *  @latexonly
+ *  \section[TaskCreate]{%
+ *  @endlatexonly
+ *      TaskCreate
+ *  @latexonly
+ *  }
+ *  @endlatexonly
+ *  @htmlonly
+ *      </td></tr>
+ *    </tbody></table>
+ *  </div>
+ *  <div class="memdoc">
+ *  @endhtmlonly
+ *  TaskCreate indicates that a lightweight task was created.
+ *
+ * @ifnot LATEX
+ *  @par Attributes:
+ * @endif
+ *  @htmlonly
+ *  <table class="params"><tbody>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \begin{DoxyParams}[1]{Attributes}%
+ *  @endlatexonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_LocationRef}@ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        location @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The location where this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_TimeStamp} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        timestamp @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The time when this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor TaskCreate_region
+ *        region @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Needs to be defined in a definition record References a @eref{Region}
+ *      definition and will be mapped to the global definition if a
+ *      mapping table of type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *  </tbody></table>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \end{DoxyParams}%
+ *  @endlatexonly
+ *
+ *  @see OTF2_EvtWriter_TaskCreate()
+ *  @see OTF2_GlobalEvtReaderCallbacks_SetTaskCreateCallback()
+ *  @see OTF2_EvtReaderCallbacks_SetTaskCreateCallback()
+ *
+ *  @since Version 1.0
+ *
+ *  @htmlonly
+ *  </div>
+ *  </div>
+ *  @endhtmlonly
+ *
+ *  @anchor TaskDestroy
+ *  @htmlonly
+ *  <div class="memitem">
+ *  <div class="memproto">
+ *    <table class="memname"><tbody>
+ *      <tr><td class="memname">
+ *  @endhtmlonly
+ *  @latexonly
+ *  \section[TaskDestroy]{%
+ *  @endlatexonly
+ *      TaskDestroy
+ *  @latexonly
+ *  }
+ *  @endlatexonly
+ *  @htmlonly
+ *      </td></tr>
+ *    </tbody></table>
+ *  </div>
+ *  <div class="memdoc">
+ *  @endhtmlonly
+ *  TaskDestroy indicates that a lightweight task was destroyed.
+ *
+ * @ifnot LATEX
+ *  @par Attributes:
+ * @endif
+ *  @htmlonly
+ *  <table class="params"><tbody>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \begin{DoxyParams}[1]{Attributes}%
+ *  @endlatexonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_LocationRef}@ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        location @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The location where this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_TimeStamp} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        timestamp @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The time when this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor TaskDestroy_region
+ *        region @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Needs to be defined in a definition record References a @eref{Region}
+ *      definition and will be mapped to the global definition if a
+ *      mapping table of type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *  </tbody></table>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \end{DoxyParams}%
+ *  @endlatexonly
+ *
+ *  @see OTF2_EvtWriter_TaskDestroy()
+ *  @see OTF2_GlobalEvtReaderCallbacks_SetTaskDestroyCallback()
+ *  @see OTF2_EvtReaderCallbacks_SetTaskDestroyCallback()
+ *
+ *  @since Version 1.0
+ *
+ *  @htmlonly
+ *  </div>
+ *  </div>
+ *  @endhtmlonly
+ *
+ *  @anchor TaskRunnable
+ *  @htmlonly
+ *  <div class="memitem">
+ *  <div class="memproto">
+ *    <table class="memname"><tbody>
+ *      <tr><td class="memname">
+ *  @endhtmlonly
+ *  @latexonly
+ *  \section[TaskRunnable]{%
+ *  @endlatexonly
+ *      TaskRunnable
+ *  @latexonly
+ *  }
+ *  @endlatexonly
+ *  @htmlonly
+ *      </td></tr>
+ *    </tbody></table>
+ *  </div>
+ *  <div class="memdoc">
+ *  @endhtmlonly
+ *  TaskRunnable
+ *
+ * @ifnot LATEX
+ *  @par Attributes:
+ * @endif
+ *  @htmlonly
+ *  <table class="params"><tbody>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \begin{DoxyParams}[1]{Attributes}%
+ *  @endlatexonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_LocationRef}@ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        location @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The location where this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_TimeStamp} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        timestamp @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The time when this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor TaskRunnable_region
+ *        region @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Needs to be defined in a definition record References a @eref{Region}
+ *      definition and will be mapped to the global definition if a
+ *      mapping table of type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *  </tbody></table>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \end{DoxyParams}%
+ *  @endlatexonly
+ *
+ *  @see OTF2_EvtWriter_TaskRunnable()
+ *  @see OTF2_GlobalEvtReaderCallbacks_SetTaskRunnableCallback()
+ *  @see OTF2_EvtReaderCallbacks_SetTaskRunnableCallback()
+ *
+ *  @since Version 1.0
+ *
+ *  @htmlonly
+ *  </div>
+ *  </div>
+ *  @endhtmlonly
+ *
+ *  @anchor AddDependence
+ *  @htmlonly
+ *  <div class="memitem">
+ *  <div class="memproto">
+ *    <table class="memname"><tbody>
+ *      <tr><td class="memname">
+ *  @endhtmlonly
+ *  @latexonly
+ *  \section[AddDependence]{%
+ *  @endlatexonly
+ *      AddDependence
+ *  @latexonly
+ *  }
+ *  @endlatexonly
+ *  @htmlonly
+ *      </td></tr>
+ *    </tbody></table>
+ *  </div>
+ *  <div class="memdoc">
+ *  @endhtmlonly
+ *  AddDependence
+ *
+ * @ifnot LATEX
+ *  @par Attributes:
+ * @endif
+ *  @htmlonly
+ *  <table class="params"><tbody>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \begin{DoxyParams}[1]{Attributes}%
+ *  @endlatexonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_LocationRef}@ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        location @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The location where this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_TimeStamp} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        timestamp @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The time when this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor AddDependence_src
+ *        src @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Source of dependence References a @eref{Region} definition and will be
+ *      mapped to the global definition if a mapping table of type
+ *      @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor AddDependence_dest
+ *        dest @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Destination of dependence References a @eref{Region} definition and
+ *      will be mapped to the global definition if a mapping table of
+ *      type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *  </tbody></table>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \end{DoxyParams}%
+ *  @endlatexonly
+ *
+ *  @see OTF2_EvtWriter_AddDependence()
+ *  @see OTF2_GlobalEvtReaderCallbacks_SetAddDependenceCallback()
+ *  @see OTF2_EvtReaderCallbacks_SetAddDependenceCallback()
+ *
+ *  @since Version 1.0
+ *
+ *  @htmlonly
+ *  </div>
+ *  </div>
+ *  @endhtmlonly
+ *
+ *  @anchor SatisfyDependence
+ *  @htmlonly
+ *  <div class="memitem">
+ *  <div class="memproto">
+ *    <table class="memname"><tbody>
+ *      <tr><td class="memname">
+ *  @endhtmlonly
+ *  @latexonly
+ *  \section[SatisfyDependence]{%
+ *  @endlatexonly
+ *      SatisfyDependence
+ *  @latexonly
+ *  }
+ *  @endlatexonly
+ *  @htmlonly
+ *      </td></tr>
+ *    </tbody></table>
+ *  </div>
+ *  <div class="memdoc">
+ *  @endhtmlonly
+ *  SatisfyDependence
+ *
+ * @ifnot LATEX
+ *  @par Attributes:
+ * @endif
+ *  @htmlonly
+ *  <table class="params"><tbody>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \begin{DoxyParams}[1]{Attributes}%
+ *  @endlatexonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_LocationRef}@ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        location @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The location where this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_TimeStamp} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        timestamp @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The time when this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor SatisfyDependence_src
+ *        src @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Source of dependence References a @eref{Region} definition and will be
+ *      mapped to the global definition if a mapping table of type
+ *      @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor SatisfyDependence_dest
+ *        dest @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Destination of dependence References a @eref{Region} definition and
+ *      will be mapped to the global definition if a mapping table of
+ *      type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *  </tbody></table>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \end{DoxyParams}%
+ *  @endlatexonly
+ *
+ *  @see OTF2_EvtWriter_SatisfyDependence()
+ *  @see OTF2_GlobalEvtReaderCallbacks_SetSatisfyDependenceCallback()
+ *  @see OTF2_EvtReaderCallbacks_SetSatisfyDependenceCallback()
+ *
+ *  @since Version 1.0
+ *
+ *  @htmlonly
+ *  </div>
+ *  </div>
+ *  @endhtmlonly
+ *
+ *  @anchor DataAcquire
+ *  @htmlonly
+ *  <div class="memitem">
+ *  <div class="memproto">
+ *    <table class="memname"><tbody>
+ *      <tr><td class="memname">
+ *  @endhtmlonly
+ *  @latexonly
+ *  \section[DataAcquire]{%
+ *  @endlatexonly
+ *      DataAcquire
+ *  @latexonly
+ *  }
+ *  @endlatexonly
+ *  @htmlonly
+ *      </td></tr>
+ *    </tbody></table>
+ *  </div>
+ *  <div class="memdoc">
+ *  @endhtmlonly
+ *  DataAcquire
+ *
+ * @ifnot LATEX
+ *  @par Attributes:
+ * @endif
+ *  @htmlonly
+ *  <table class="params"><tbody>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \begin{DoxyParams}[1]{Attributes}%
+ *  @endlatexonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_LocationRef}@ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        location @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The location where this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_TimeStamp} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        timestamp @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The time when this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor DataAcquire_task
+ *        task @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Task acquiring datablock References a @eref{Region} definition and
+ *      will be mapped to the global definition if a mapping table of
+ *      type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor DataAcquire_data
+ *        data @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Datablock being acquired References a @eref{Region} definition and
+ *      will be mapped to the global definition if a mapping table of
+ *      type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{uint64_t} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor DataAcquire_size
+ *        size @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Size of datablock being acquired @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *  </tbody></table>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \end{DoxyParams}%
+ *  @endlatexonly
+ *
+ *  @see OTF2_EvtWriter_DataAcquire()
+ *  @see OTF2_GlobalEvtReaderCallbacks_SetDataAcquireCallback()
+ *  @see OTF2_EvtReaderCallbacks_SetDataAcquireCallback()
+ *
+ *  @since Version 1.0
+ *
+ *  @htmlonly
+ *  </div>
+ *  </div>
+ *  @endhtmlonly
+ *
+ *  @anchor DataRelease
+ *  @htmlonly
+ *  <div class="memitem">
+ *  <div class="memproto">
+ *    <table class="memname"><tbody>
+ *      <tr><td class="memname">
+ *  @endhtmlonly
+ *  @latexonly
+ *  \section[DataRelease]{%
+ *  @endlatexonly
+ *      DataRelease
+ *  @latexonly
+ *  }
+ *  @endlatexonly
+ *  @htmlonly
+ *      </td></tr>
+ *    </tbody></table>
+ *  </div>
+ *  <div class="memdoc">
+ *  @endhtmlonly
+ *  DataRelease
+ *
+ * @ifnot LATEX
+ *  @par Attributes:
+ * @endif
+ *  @htmlonly
+ *  <table class="params"><tbody>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \begin{DoxyParams}[1]{Attributes}%
+ *  @endlatexonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_LocationRef}@ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        location @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The location where this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_TimeStamp} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        timestamp @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The time when this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor DataRelease_task
+ *        task @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Task releasing datablock References a @eref{Region} definition and
+ *      will be mapped to the global definition if a mapping table of
+ *      type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor DataRelease_data
+ *        data @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Datablock being released References a @eref{Region} definition and
+ *      will be mapped to the global definition if a mapping table of
+ *      type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{uint64_t} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor DataRelease_size
+ *        size @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Size of datablock being released @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *  </tbody></table>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \end{DoxyParams}%
+ *  @endlatexonly
+ *
+ *  @see OTF2_EvtWriter_DataRelease()
+ *  @see OTF2_GlobalEvtReaderCallbacks_SetDataReleaseCallback()
+ *  @see OTF2_EvtReaderCallbacks_SetDataReleaseCallback()
+ *
+ *  @since Version 1.0
+ *
+ *  @htmlonly
+ *  </div>
+ *  </div>
+ *  @endhtmlonly
+ *
+ *  @anchor EventCreate
+ *  @htmlonly
+ *  <div class="memitem">
+ *  <div class="memproto">
+ *    <table class="memname"><tbody>
+ *      <tr><td class="memname">
+ *  @endhtmlonly
+ *  @latexonly
+ *  \section[EventCreate]{%
+ *  @endlatexonly
+ *      EventCreate
+ *  @latexonly
+ *  }
+ *  @endlatexonly
+ *  @htmlonly
+ *      </td></tr>
+ *    </tbody></table>
+ *  </div>
+ *  <div class="memdoc">
+ *  @endhtmlonly
+ *  EventCreate
+ *
+ * @ifnot LATEX
+ *  @par Attributes:
+ * @endif
+ *  @htmlonly
+ *  <table class="params"><tbody>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \begin{DoxyParams}[1]{Attributes}%
+ *  @endlatexonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_LocationRef}@ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        location @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The location where this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_TimeStamp} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        timestamp @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The time when this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor EventCreate_region
+ *        region @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Needs to be defined in a definition record References a @eref{Region}
+ *      definition and will be mapped to the global definition if a
+ *      mapping table of type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *  </tbody></table>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \end{DoxyParams}%
+ *  @endlatexonly
+ *
+ *  @see OTF2_EvtWriter_EventCreate()
+ *  @see OTF2_GlobalEvtReaderCallbacks_SetEventCreateCallback()
+ *  @see OTF2_EvtReaderCallbacks_SetEventCreateCallback()
+ *
+ *  @since Version 1.0
+ *
+ *  @htmlonly
+ *  </div>
+ *  </div>
+ *  @endhtmlonly
+ *
+ *  @anchor EventDestroy
+ *  @htmlonly
+ *  <div class="memitem">
+ *  <div class="memproto">
+ *    <table class="memname"><tbody>
+ *      <tr><td class="memname">
+ *  @endhtmlonly
+ *  @latexonly
+ *  \section[EventDestroy]{%
+ *  @endlatexonly
+ *      EventDestroy
+ *  @latexonly
+ *  }
+ *  @endlatexonly
+ *  @htmlonly
+ *      </td></tr>
+ *    </tbody></table>
+ *  </div>
+ *  <div class="memdoc">
+ *  @endhtmlonly
+ *  EventDestroy
+ *
+ * @ifnot LATEX
+ *  @par Attributes:
+ * @endif
+ *  @htmlonly
+ *  <table class="params"><tbody>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \begin{DoxyParams}[1]{Attributes}%
+ *  @endlatexonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_LocationRef}@ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        location @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The location where this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_TimeStamp} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        timestamp @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The time when this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor EventDestroy_region
+ *        region @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Needs to be defined in a definition record References a @eref{Region}
+ *      definition and will be mapped to the global definition if a
+ *      mapping table of type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *  </tbody></table>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \end{DoxyParams}%
+ *  @endlatexonly
+ *
+ *  @see OTF2_EvtWriter_EventDestroy()
+ *  @see OTF2_GlobalEvtReaderCallbacks_SetEventDestroyCallback()
+ *  @see OTF2_EvtReaderCallbacks_SetEventDestroyCallback()
+ *
+ *  @since Version 1.0
+ *
+ *  @htmlonly
+ *  </div>
+ *  </div>
+ *  @endhtmlonly
+ *
+ *  @anchor DataCreate
+ *  @htmlonly
+ *  <div class="memitem">
+ *  <div class="memproto">
+ *    <table class="memname"><tbody>
+ *      <tr><td class="memname">
+ *  @endhtmlonly
+ *  @latexonly
+ *  \section[DataCreate]{%
+ *  @endlatexonly
+ *      DataCreate
+ *  @latexonly
+ *  }
+ *  @endlatexonly
+ *  @htmlonly
+ *      </td></tr>
+ *    </tbody></table>
+ *  </div>
+ *  <div class="memdoc">
+ *  @endhtmlonly
+ *  DataCreate
+ *
+ * @ifnot LATEX
+ *  @par Attributes:
+ * @endif
+ *  @htmlonly
+ *  <table class="params"><tbody>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \begin{DoxyParams}[1]{Attributes}%
+ *  @endlatexonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_LocationRef}@ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        location @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The location where this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_TimeStamp} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        timestamp @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The time when this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor DataCreate_region
+ *        region @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Needs to be defined in a definition record References a @eref{Region}
+ *      definition and will be mapped to the global definition if a
+ *      mapping table of type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{uint64_t} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor DataCreate_size
+ *        size @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Size of datablock @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *  </tbody></table>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \end{DoxyParams}%
+ *  @endlatexonly
+ *
+ *  @see OTF2_EvtWriter_DataCreate()
+ *  @see OTF2_GlobalEvtReaderCallbacks_SetDataCreateCallback()
+ *  @see OTF2_EvtReaderCallbacks_SetDataCreateCallback()
+ *
+ *  @since Version 1.0
+ *
+ *  @htmlonly
+ *  </div>
+ *  </div>
+ *  @endhtmlonly
+ *
+ *  @anchor DataDestroy
+ *  @htmlonly
+ *  <div class="memitem">
+ *  <div class="memproto">
+ *    <table class="memname"><tbody>
+ *      <tr><td class="memname">
+ *  @endhtmlonly
+ *  @latexonly
+ *  \section[DataDestroy]{%
+ *  @endlatexonly
+ *      DataDestroy
+ *  @latexonly
+ *  }
+ *  @endlatexonly
+ *  @htmlonly
+ *      </td></tr>
+ *    </tbody></table>
+ *  </div>
+ *  <div class="memdoc">
+ *  @endhtmlonly
+ *  DataDestroy
+ *
+ * @ifnot LATEX
+ *  @par Attributes:
+ * @endif
+ *  @htmlonly
+ *  <table class="params"><tbody>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \begin{DoxyParams}[1]{Attributes}%
+ *  @endlatexonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_LocationRef}@ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        location @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The location where this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_TimeStamp} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        timestamp @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *        The time when this event happened. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *    <tr>
+ *      <td class="paramtype">
+ *  @endhtmlonly
+ *        @eref{OTF2_RegionRef} @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td class="paramname">
+ *  @endhtmlonly
+ *        @anchor DataDestroy_region
+ *        region @ltab
+ *  @htmlonly
+ *      </td>
+ *      <td>
+ *  @endhtmlonly
+ *      Needs to be defined in a definition record References a @eref{Region}
+ *      definition and will be mapped to the global definition if a
+ *      mapping table of type @eref{OTF2_MAPPING_REGION} is available. @lrowend
+ *  @htmlonly
+ *      </td>
+ *    </tr>
+ *  @endhtmlonly
+ *  @htmlonly
+ *  </tbody></table>
+ *  @endhtmlonly
+ *  @latexonly
+ *  \end{DoxyParams}%
+ *  @endlatexonly
+ *
+ *  @see OTF2_EvtWriter_DataDestroy()
+ *  @see OTF2_GlobalEvtReaderCallbacks_SetDataDestroyCallback()
+ *  @see OTF2_EvtReaderCallbacks_SetDataDestroyCallback()
+ *
+ *  @since Version 1.0
  *
  *  @htmlonly
  *  </div>

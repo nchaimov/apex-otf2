@@ -27,7 +27,7 @@ otf2_snap_reader_read_snapshot_start( OTF2_SnapReader* reader )
     OTF2_SnapshotStart* record = &reader->current_snap.record.snapshot_start;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -71,7 +71,7 @@ otf2_snap_reader_read_snapshot_start( OTF2_SnapReader* reader )
                                                              record->time,
                                                              reader->user_data,
                                                              &reader->attribute_list,
-                                                             record->number_of_records );
+record->number_of_records );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -92,7 +92,7 @@ otf2_snap_reader_read_snapshot_end( OTF2_SnapReader* reader )
     OTF2_SnapshotEnd* record = &reader->current_snap.record.snapshot_end;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -133,10 +133,10 @@ otf2_snap_reader_read_snapshot_end( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.snapshot_end )
     {
         interrupt = reader->reader_callbacks.snapshot_end( reader->location_id,
-                                                           record->time,
-                                                           reader->user_data,
-                                                           &reader->attribute_list,
-                                                           record->cont_read_pos );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->cont_read_pos );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -157,7 +157,7 @@ otf2_snap_reader_read_measurement_on_off( OTF2_SnapReader* reader )
     OTF2_MeasurementOnOffSnap* record = &reader->current_snap.record.measurement_on_off;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -195,11 +195,11 @@ otf2_snap_reader_read_measurement_on_off( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.measurement_on_off )
     {
         interrupt = reader->reader_callbacks.measurement_on_off( reader->location_id,
-                                                                 record->time,
-                                                                 reader->user_data,
-                                                                 &reader->attribute_list,
-                                                                 record->orig_event_time,
-                                                                 record->measurement_mode );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->measurement_mode );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -220,7 +220,7 @@ otf2_snap_reader_read_enter( OTF2_SnapReader* reader )
     OTF2_EnterSnap* record = &reader->current_snap.record.enter;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -262,11 +262,11 @@ otf2_snap_reader_read_enter( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.enter )
     {
         interrupt = reader->reader_callbacks.enter( reader->location_id,
-                                                    record->time,
-                                                    reader->user_data,
-                                                    &reader->attribute_list,
-                                                    record->orig_event_time,
-                                                    record->region );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->region );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -287,7 +287,7 @@ otf2_snap_reader_read_mpi_send( OTF2_SnapReader* reader )
     OTF2_MpiSendSnap* record = &reader->current_snap.record.mpi_send;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -344,14 +344,14 @@ otf2_snap_reader_read_mpi_send( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.mpi_send )
     {
         interrupt = reader->reader_callbacks.mpi_send( reader->location_id,
-                                                       record->time,
-                                                       reader->user_data,
-                                                       &reader->attribute_list,
-                                                       record->orig_event_time,
-                                                       record->receiver,
-                                                       record->communicator,
-                                                       record->msg_tag,
-                                                       record->msg_length );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->receiver,
+record->communicator,
+record->msg_tag,
+record->msg_length );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -372,7 +372,7 @@ otf2_snap_reader_read_mpi_isend( OTF2_SnapReader* reader )
     OTF2_MpiIsendSnap* record = &reader->current_snap.record.mpi_isend;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -434,15 +434,15 @@ otf2_snap_reader_read_mpi_isend( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.mpi_isend )
     {
         interrupt = reader->reader_callbacks.mpi_isend( reader->location_id,
-                                                        record->time,
-                                                        reader->user_data,
-                                                        &reader->attribute_list,
-                                                        record->orig_event_time,
-                                                        record->receiver,
-                                                        record->communicator,
-                                                        record->msg_tag,
-                                                        record->msg_length,
-                                                        record->request_id );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->receiver,
+record->communicator,
+record->msg_tag,
+record->msg_length,
+record->request_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -463,7 +463,7 @@ otf2_snap_reader_read_mpi_isend_complete( OTF2_SnapReader* reader )
     OTF2_MpiIsendCompleteSnap* record = &reader->current_snap.record.mpi_isend_complete;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -505,11 +505,11 @@ otf2_snap_reader_read_mpi_isend_complete( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.mpi_isend_complete )
     {
         interrupt = reader->reader_callbacks.mpi_isend_complete( reader->location_id,
-                                                                 record->time,
-                                                                 reader->user_data,
-                                                                 &reader->attribute_list,
-                                                                 record->orig_event_time,
-                                                                 record->request_id );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->request_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -530,7 +530,7 @@ otf2_snap_reader_read_mpi_recv( OTF2_SnapReader* reader )
     OTF2_MpiRecvSnap* record = &reader->current_snap.record.mpi_recv;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -587,14 +587,14 @@ otf2_snap_reader_read_mpi_recv( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.mpi_recv )
     {
         interrupt = reader->reader_callbacks.mpi_recv( reader->location_id,
-                                                       record->time,
-                                                       reader->user_data,
-                                                       &reader->attribute_list,
-                                                       record->orig_event_time,
-                                                       record->sender,
-                                                       record->communicator,
-                                                       record->msg_tag,
-                                                       record->msg_length );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->sender,
+record->communicator,
+record->msg_tag,
+record->msg_length );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -615,7 +615,7 @@ otf2_snap_reader_read_mpi_irecv_request( OTF2_SnapReader* reader )
     OTF2_MpiIrecvRequestSnap* record = &reader->current_snap.record.mpi_irecv_request;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -657,11 +657,11 @@ otf2_snap_reader_read_mpi_irecv_request( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.mpi_irecv_request )
     {
         interrupt = reader->reader_callbacks.mpi_irecv_request( reader->location_id,
-                                                                record->time,
-                                                                reader->user_data,
-                                                                &reader->attribute_list,
-                                                                record->orig_event_time,
-                                                                record->request_id );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->request_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -682,7 +682,7 @@ otf2_snap_reader_read_mpi_irecv( OTF2_SnapReader* reader )
     OTF2_MpiIrecvSnap* record = &reader->current_snap.record.mpi_irecv;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -744,15 +744,15 @@ otf2_snap_reader_read_mpi_irecv( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.mpi_irecv )
     {
         interrupt = reader->reader_callbacks.mpi_irecv( reader->location_id,
-                                                        record->time,
-                                                        reader->user_data,
-                                                        &reader->attribute_list,
-                                                        record->orig_event_time,
-                                                        record->sender,
-                                                        record->communicator,
-                                                        record->msg_tag,
-                                                        record->msg_length,
-                                                        record->request_id );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->sender,
+record->communicator,
+record->msg_tag,
+record->msg_length,
+record->request_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -773,7 +773,7 @@ otf2_snap_reader_read_mpi_collective_begin( OTF2_SnapReader* reader )
     OTF2_MpiCollectiveBeginSnap* record = &reader->current_snap.record.mpi_collective_begin;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -810,10 +810,10 @@ otf2_snap_reader_read_mpi_collective_begin( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.mpi_collective_begin )
     {
         interrupt = reader->reader_callbacks.mpi_collective_begin( reader->location_id,
-                                                                   record->time,
-                                                                   reader->user_data,
-                                                                   &reader->attribute_list,
-                                                                   record->orig_event_time );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -834,7 +834,7 @@ otf2_snap_reader_read_mpi_collective_end( OTF2_SnapReader* reader )
     OTF2_MpiCollectiveEndSnap* record = &reader->current_snap.record.mpi_collective_end;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -892,15 +892,15 @@ otf2_snap_reader_read_mpi_collective_end( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.mpi_collective_end )
     {
         interrupt = reader->reader_callbacks.mpi_collective_end( reader->location_id,
-                                                                 record->time,
-                                                                 reader->user_data,
-                                                                 &reader->attribute_list,
-                                                                 record->orig_event_time,
-                                                                 record->collective_op,
-                                                                 record->communicator,
-                                                                 record->root,
-                                                                 record->size_sent,
-                                                                 record->size_received );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->collective_op,
+record->communicator,
+record->root,
+record->size_sent,
+record->size_received );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -921,7 +921,7 @@ otf2_snap_reader_read_omp_fork( OTF2_SnapReader* reader )
     OTF2_OmpForkSnap* record = &reader->current_snap.record.omp_fork;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -963,11 +963,11 @@ otf2_snap_reader_read_omp_fork( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.omp_fork )
     {
         interrupt = reader->reader_callbacks.omp_fork( reader->location_id,
-                                                       record->time,
-                                                       reader->user_data,
-                                                       &reader->attribute_list,
-                                                       record->orig_event_time,
-                                                       record->number_of_requested_threads );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->number_of_requested_threads );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -988,7 +988,7 @@ otf2_snap_reader_read_omp_acquire_lock( OTF2_SnapReader* reader )
     OTF2_OmpAcquireLockSnap* record = &reader->current_snap.record.omp_acquire_lock;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -1035,12 +1035,12 @@ otf2_snap_reader_read_omp_acquire_lock( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.omp_acquire_lock )
     {
         interrupt = reader->reader_callbacks.omp_acquire_lock( reader->location_id,
-                                                               record->time,
-                                                               reader->user_data,
-                                                               &reader->attribute_list,
-                                                               record->orig_event_time,
-                                                               record->lock_id,
-                                                               record->acquisition_order );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->lock_id,
+record->acquisition_order );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1061,7 +1061,7 @@ otf2_snap_reader_read_omp_task_create( OTF2_SnapReader* reader )
     OTF2_OmpTaskCreateSnap* record = &reader->current_snap.record.omp_task_create;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -1103,11 +1103,11 @@ otf2_snap_reader_read_omp_task_create( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.omp_task_create )
     {
         interrupt = reader->reader_callbacks.omp_task_create( reader->location_id,
-                                                              record->time,
-                                                              reader->user_data,
-                                                              &reader->attribute_list,
-                                                              record->orig_event_time,
-                                                              record->task_id );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->task_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1128,7 +1128,7 @@ otf2_snap_reader_read_omp_task_switch( OTF2_SnapReader* reader )
     OTF2_OmpTaskSwitchSnap* record = &reader->current_snap.record.omp_task_switch;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -1170,11 +1170,11 @@ otf2_snap_reader_read_omp_task_switch( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.omp_task_switch )
     {
         interrupt = reader->reader_callbacks.omp_task_switch( reader->location_id,
-                                                              record->time,
-                                                              reader->user_data,
-                                                              &reader->attribute_list,
-                                                              record->orig_event_time,
-                                                              record->task_id );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->task_id );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1195,7 +1195,7 @@ otf2_snap_reader_read_metric( OTF2_SnapReader* reader )
     OTF2_MetricSnap* record = &reader->current_snap.record.metric;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -1216,24 +1216,25 @@ otf2_snap_reader_read_metric( OTF2_SnapReader* reader )
     if ( record->number_of_metrics > 0 && !record->type_ids )
     {
         return UTILS_ERROR( OTF2_ERROR_MEM_FAULT,
-                            "Could not allocate memory for typeIDs array!" );
+                             "Could not allocate memory for typeIDs array!" );
     }
     record->metric_values = malloc( record->number_of_metrics * sizeof( OTF2_MetricValue ) );
     if ( record->number_of_metrics > 0 && !record->metric_values )
     {
         free( record->type_ids );
         return UTILS_ERROR( OTF2_ERROR_MEM_FAULT,
-                            "Could not allocate memory for metricValues array!" );
+                             "Could not allocate memory for metricValues array!" );
     }
     for ( uint8_t number_of_metrics_i = 0;
           number_of_metrics_i < record->number_of_metrics;
           number_of_metrics_i++ )
     {
+
         OTF2_Buffer_ReadUint8( reader->buffer,
-                               record->type_ids + number_of_metrics_i );
+                                                  record->type_ids + number_of_metrics_i );
 
         ret = OTF2_Buffer_ReadMetricValue( reader->buffer,
-                                           record->metric_values + number_of_metrics_i );
+                                                        record->metric_values + number_of_metrics_i );
         if ( OTF2_SUCCESS != ret )
         {
             free( record->type_ids );
@@ -1269,14 +1270,14 @@ otf2_snap_reader_read_metric( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.metric )
     {
         interrupt = reader->reader_callbacks.metric( reader->location_id,
-                                                     record->time,
-                                                     reader->user_data,
-                                                     &reader->attribute_list,
-                                                     record->orig_event_time,
-                                                     record->metric,
-                                                     record->number_of_metrics,
-                                                     record->type_ids,
-                                                     record->metric_values );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->metric,
+record->number_of_metrics,
+record->type_ids,
+record->metric_values );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1299,7 +1300,7 @@ otf2_snap_reader_read_parameter_string( OTF2_SnapReader* reader )
     OTF2_ParameterStringSnap* record = &reader->current_snap.record.parameter_string;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -1346,12 +1347,12 @@ otf2_snap_reader_read_parameter_string( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.parameter_string )
     {
         interrupt = reader->reader_callbacks.parameter_string( reader->location_id,
-                                                               record->time,
-                                                               reader->user_data,
-                                                               &reader->attribute_list,
-                                                               record->orig_event_time,
-                                                               record->parameter,
-                                                               record->string );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->parameter,
+record->string );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1372,7 +1373,7 @@ otf2_snap_reader_read_parameter_int( OTF2_SnapReader* reader )
     OTF2_ParameterIntSnap* record = &reader->current_snap.record.parameter_int;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -1419,12 +1420,12 @@ otf2_snap_reader_read_parameter_int( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.parameter_int )
     {
         interrupt = reader->reader_callbacks.parameter_int( reader->location_id,
-                                                            record->time,
-                                                            reader->user_data,
-                                                            &reader->attribute_list,
-                                                            record->orig_event_time,
-                                                            record->parameter,
-                                                            record->value );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->parameter,
+record->value );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1445,7 +1446,7 @@ otf2_snap_reader_read_parameter_unsigned_int( OTF2_SnapReader* reader )
     OTF2_ParameterUnsignedIntSnap* record = &reader->current_snap.record.parameter_unsigned_int;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
     {
@@ -1492,12 +1493,12 @@ otf2_snap_reader_read_parameter_unsigned_int( OTF2_SnapReader* reader )
     if ( reader->reader_callbacks.parameter_unsigned_int )
     {
         interrupt = reader->reader_callbacks.parameter_unsigned_int( reader->location_id,
-                                                                     record->time,
-                                                                     reader->user_data,
-                                                                     &reader->attribute_list,
-                                                                     record->orig_event_time,
-                                                                     record->parameter,
-                                                                     record->value );
+                                                             record->time,
+                                                             reader->user_data,
+                                                             &reader->attribute_list,
+record->orig_event_time,
+record->parameter,
+record->value );
     }
 
     otf2_attribute_list_remove_all_attributes( &reader->attribute_list );
@@ -1514,8 +1515,8 @@ otf2_snap_reader_read( OTF2_SnapReader* reader )
 {
     UTILS_ASSERT( reader );
 
-    OTF2_ErrorCode    status = OTF2_ERROR_INVALID;
-    OTF2_GenericSnap* snap   = &reader->current_snap;
+    OTF2_ErrorCode  status = OTF2_ERROR_INVALID;
+    OTF2_GenericSnap* snap  = &reader->current_snap;
 
     status = OTF2_Buffer_ReadTimeStamp( reader->buffer, &snap->record.time );
     if ( status != OTF2_SUCCESS )
@@ -1623,13 +1624,13 @@ otf2_snap_reader_read( OTF2_SnapReader* reader )
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetSnapshotStartCallback(
-    OTF2_SnapReaderCallbacks*             snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_SnapshotStart snapshotStartCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->snapshot_start = snapshotStartCallback;
@@ -1640,13 +1641,13 @@ OTF2_SnapReaderCallbacks_SetSnapshotStartCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetSnapshotEndCallback(
-    OTF2_SnapReaderCallbacks*           snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_SnapshotEnd snapshotEndCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->snapshot_end = snapshotEndCallback;
@@ -1657,13 +1658,13 @@ OTF2_SnapReaderCallbacks_SetSnapshotEndCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMeasurementOnOffCallback(
-    OTF2_SnapReaderCallbacks*                snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MeasurementOnOff measurementOnOffCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->measurement_on_off = measurementOnOffCallback;
@@ -1674,13 +1675,13 @@ OTF2_SnapReaderCallbacks_SetMeasurementOnOffCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetEnterCallback(
-    OTF2_SnapReaderCallbacks*     snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_Enter enterCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->enter = enterCallback;
@@ -1691,13 +1692,13 @@ OTF2_SnapReaderCallbacks_SetEnterCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiSendCallback(
-    OTF2_SnapReaderCallbacks*       snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiSend mpiSendCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->mpi_send = mpiSendCallback;
@@ -1708,13 +1709,13 @@ OTF2_SnapReaderCallbacks_SetMpiSendCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiIsendCallback(
-    OTF2_SnapReaderCallbacks*        snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiIsend mpiIsendCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->mpi_isend = mpiIsendCallback;
@@ -1725,13 +1726,13 @@ OTF2_SnapReaderCallbacks_SetMpiIsendCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiIsendCompleteCallback(
-    OTF2_SnapReaderCallbacks*                snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiIsendComplete mpiIsendCompleteCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->mpi_isend_complete = mpiIsendCompleteCallback;
@@ -1742,13 +1743,13 @@ OTF2_SnapReaderCallbacks_SetMpiIsendCompleteCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiRecvCallback(
-    OTF2_SnapReaderCallbacks*       snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiRecv mpiRecvCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->mpi_recv = mpiRecvCallback;
@@ -1759,13 +1760,13 @@ OTF2_SnapReaderCallbacks_SetMpiRecvCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiIrecvRequestCallback(
-    OTF2_SnapReaderCallbacks*               snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiIrecvRequest mpiIrecvRequestCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->mpi_irecv_request = mpiIrecvRequestCallback;
@@ -1776,13 +1777,13 @@ OTF2_SnapReaderCallbacks_SetMpiIrecvRequestCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiIrecvCallback(
-    OTF2_SnapReaderCallbacks*        snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiIrecv mpiIrecvCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->mpi_irecv = mpiIrecvCallback;
@@ -1793,13 +1794,13 @@ OTF2_SnapReaderCallbacks_SetMpiIrecvCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiCollectiveBeginCallback(
-    OTF2_SnapReaderCallbacks*                  snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiCollectiveBegin mpiCollectiveBeginCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->mpi_collective_begin = mpiCollectiveBeginCallback;
@@ -1810,13 +1811,13 @@ OTF2_SnapReaderCallbacks_SetMpiCollectiveBeginCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMpiCollectiveEndCallback(
-    OTF2_SnapReaderCallbacks*                snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_MpiCollectiveEnd mpiCollectiveEndCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->mpi_collective_end = mpiCollectiveEndCallback;
@@ -1827,13 +1828,13 @@ OTF2_SnapReaderCallbacks_SetMpiCollectiveEndCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetOmpForkCallback(
-    OTF2_SnapReaderCallbacks*       snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_OmpFork ompForkCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->omp_fork = ompForkCallback;
@@ -1850,7 +1851,7 @@ OTF2_SnapReaderCallbacks_SetOmpAcquireLockCallback(
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->omp_acquire_lock = ompAcquireLockCallback;
@@ -1861,13 +1862,13 @@ OTF2_SnapReaderCallbacks_SetOmpAcquireLockCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetOmpTaskCreateCallback(
-    OTF2_SnapReaderCallbacks*             snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_OmpTaskCreate ompTaskCreateCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->omp_task_create = ompTaskCreateCallback;
@@ -1878,13 +1879,13 @@ OTF2_SnapReaderCallbacks_SetOmpTaskCreateCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetOmpTaskSwitchCallback(
-    OTF2_SnapReaderCallbacks*             snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_OmpTaskSwitch ompTaskSwitchCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->omp_task_switch = ompTaskSwitchCallback;
@@ -1895,13 +1896,13 @@ OTF2_SnapReaderCallbacks_SetOmpTaskSwitchCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetMetricCallback(
-    OTF2_SnapReaderCallbacks*      snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_Metric metricCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->metric = metricCallback;
@@ -1912,13 +1913,13 @@ OTF2_SnapReaderCallbacks_SetMetricCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetParameterStringCallback(
-    OTF2_SnapReaderCallbacks*               snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_ParameterString parameterStringCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->parameter_string = parameterStringCallback;
@@ -1929,13 +1930,13 @@ OTF2_SnapReaderCallbacks_SetParameterStringCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetParameterIntCallback(
-    OTF2_SnapReaderCallbacks*            snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_ParameterInt parameterIntCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->parameter_int = parameterIntCallback;
@@ -1946,16 +1947,17 @@ OTF2_SnapReaderCallbacks_SetParameterIntCallback(
 
 OTF2_ErrorCode
 OTF2_SnapReaderCallbacks_SetParameterUnsignedIntCallback(
-    OTF2_SnapReaderCallbacks*                    snapReaderCallbacks,
+    OTF2_SnapReaderCallbacks*              snapReaderCallbacks,
     OTF2_SnapReaderCallback_ParameterUnsignedInt parameterUnsignedIntCallback )
 {
     if ( !snapReaderCallbacks )
     {
         return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
-                            "Invalid SnapReaderCallbacks argument!" );
+                             "Invalid SnapReaderCallbacks argument!" );
     }
 
     snapReaderCallbacks->parameter_unsigned_int = parameterUnsignedIntCallback;
 
     return OTF2_SUCCESS;
 }
+

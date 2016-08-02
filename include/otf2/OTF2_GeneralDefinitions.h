@@ -393,7 +393,7 @@ enum OTF2_Boolean_enum
     OTF2_FALSE = 0,
     /** @brief True.
      */
-    OTF2_TRUE  = !OTF2_FALSE
+    OTF2_TRUE = !OTF2_FALSE
 };
 
 
@@ -409,25 +409,25 @@ enum OTF2_FileType_enum
 {
     /** @brief Represents the type for the anchor file (.otf2).
      */
-    OTF2_FILETYPE_ANCHOR      = 0,
+    OTF2_FILETYPE_ANCHOR = 0,
     /** @brief Represents the type for the global definition file (.def).
      */
     OTF2_FILETYPE_GLOBAL_DEFS = 1,
     /** @brief Represents the type for a local definition file (.def).
      */
-    OTF2_FILETYPE_LOCAL_DEFS  = 2,
+    OTF2_FILETYPE_LOCAL_DEFS = 2,
     /** @brief Represents the type for a event file (.evt).
      */
-    OTF2_FILETYPE_EVENTS      = 3,
+    OTF2_FILETYPE_EVENTS = 3,
     /** @brief Represents the type for a snapshot file (.snap).
      */
-    OTF2_FILETYPE_SNAPSHOTS   = 4,
+    OTF2_FILETYPE_SNAPSHOTS = 4,
     /** @brief Represents the type for a thumb file (.thumb).
      */
-    OTF2_FILETYPE_THUMBNAIL   = 5,
+    OTF2_FILETYPE_THUMBNAIL = 5,
     /** @brief Represents the type for a marker file (.marker).
      */
-    OTF2_FILETYPE_MARKER      = 6,
+    OTF2_FILETYPE_MARKER = 6,
     /** @brief Internal file which holds the SION rank map (.srm).
      */
     OTF2_FILETYPE_SIONRANKMAP = 7
@@ -449,14 +449,14 @@ enum OTF2_FileSubstrate_enum
     OTF2_SUBSTRATE_UNDEFINED = 0,
     /** @brief Use standard posix file interface.
      */
-    OTF2_SUBSTRATE_POSIX     = 1,
+    OTF2_SUBSTRATE_POSIX = 1,
     /** @brief Use the interface of the SIONlib to write many logical files into few
      *  physical files.
      */
-    OTF2_SUBSTRATE_SION      = 2,
+    OTF2_SUBSTRATE_SION = 2,
     /** @brief Do not use any file interface. No data is written to a file.
      */
-    OTF2_SUBSTRATE_NONE      = 3
+    OTF2_SUBSTRATE_NONE = 3
 };
 
 
@@ -472,52 +472,52 @@ enum OTF2_MappingType_enum
 {
     /** @brief Mapping of @eref{String} identifiers.
      */
-    OTF2_MAPPING_STRING               = 0,
+    OTF2_MAPPING_STRING = 0,
     /** @brief Mapping of @eref{Attribute} identifiers.
      */
-    OTF2_MAPPING_ATTRIBUTE            = 1,
+    OTF2_MAPPING_ATTRIBUTE = 1,
     /** @brief Mapping of @eref{Location} identifiers.
      */
-    OTF2_MAPPING_LOCATION             = 2,
+    OTF2_MAPPING_LOCATION = 2,
     /** @brief Mapping of @eref{Region} identifiers.
      */
-    OTF2_MAPPING_REGION               = 3,
+    OTF2_MAPPING_REGION = 3,
     /** @brief Mapping of @eref{Group} identifiers.
      */
-    OTF2_MAPPING_GROUP                = 4,
+    OTF2_MAPPING_GROUP = 4,
     /** @brief Mapping of @eref{Metric} identifiers.
      */
-    OTF2_MAPPING_METRIC               = 5,
+    OTF2_MAPPING_METRIC = 5,
     /** @brief Mapping of @eref{Comm} identifiers.
      */
-    OTF2_MAPPING_COMM                 = 6,
+    OTF2_MAPPING_COMM = 6,
     /** @brief Mapping of @eref{Parameter} identifiers.
      */
-    OTF2_MAPPING_PARAMETER            = 7,
+    OTF2_MAPPING_PARAMETER = 7,
     /** @brief Mapping of @eref{RmaWin} identifiers.
-     *
+     *  
      *  @since Version 1.2.
      */
-    OTF2_MAPPING_RMA_WIN              = 8,
+    OTF2_MAPPING_RMA_WIN = 8,
     /** @brief Mapping of @eref{SourceCodeLocation} identifiers.
-     *
+     *  
      *  @since Version 1.5.
      */
     OTF2_MAPPING_SOURCE_CODE_LOCATION = 9,
     /** @brief Mapping of @eref{CallingContext} identifiers.
-     *
+     *  
      *  @since Version 1.5.
      */
-    OTF2_MAPPING_CALLING_CONTEXT      = 10,
+    OTF2_MAPPING_CALLING_CONTEXT = 10,
     /** @brief Mapping of @eref{InterruptGenerator} identifiers.
-     *
+     *  
      *  @since Version 1.5.
      */
-    OTF2_MAPPING_INTERRUPT_GENERATOR  = 11,
+    OTF2_MAPPING_INTERRUPT_GENERATOR = 11,
 
     /** @brief Max entry.
      */
-    OTF2_MAPPING_MAX                  = 12
+    OTF2_MAPPING_MAX = 12
 };
 
 
@@ -532,128 +532,128 @@ typedef uint8_t OTF2_Type;
 enum OTF2_Type_enum
 {
     /** @brief Undefined type.
-     *
+     *  
      *  Type category: None
      */
-    OTF2_TYPE_NONE                 = 0,
+    OTF2_TYPE_NONE = 0,
     /** @brief Unsigned 8-bit integer.
-     *
+     *  
      *  Type category: Integer
      */
-    OTF2_TYPE_UINT8                = 1,
+    OTF2_TYPE_UINT8 = 1,
     /** @brief Unsigned 16-bit integer
-     *
+     *  
      *  Type category: Integer
      */
-    OTF2_TYPE_UINT16               = 2,
+    OTF2_TYPE_UINT16 = 2,
     /** @brief Unsigned 32-bit integer
-     *
+     *  
      *  Type category: Integer
      */
-    OTF2_TYPE_UINT32               = 3,
+    OTF2_TYPE_UINT32 = 3,
     /** @brief Unsigned 64-bit integer
-     *
+     *  
      *  Type category: Integer
      */
-    OTF2_TYPE_UINT64               = 4,
+    OTF2_TYPE_UINT64 = 4,
     /** @brief Signed 8-bit integer
-     *
+     *  
      *  Type category: Integer
      */
-    OTF2_TYPE_INT8                 = 5,
+    OTF2_TYPE_INT8 = 5,
     /** @brief Signed 16-bit integer
-     *
+     *  
      *  Type category: Integer
      */
-    OTF2_TYPE_INT16                = 6,
+    OTF2_TYPE_INT16 = 6,
     /** @brief Signed 32-bit integer
-     *
+     *  
      *  Type category: Integer
      */
-    OTF2_TYPE_INT32                = 7,
+    OTF2_TYPE_INT32 = 7,
     /** @brief Signed 64-bit integer
-     *
+     *  
      *  Type category: Integer
      */
-    OTF2_TYPE_INT64                = 8,
+    OTF2_TYPE_INT64 = 8,
     /** @brief 32-bit floating point value
-     *
+     *  
      *  Type category: Floating point
      */
-    OTF2_TYPE_FLOAT                = 9,
+    OTF2_TYPE_FLOAT = 9,
     /** @brief 64-bit floating point value
-     *
+     *  
      *  Type category: Floating point
      */
-    OTF2_TYPE_DOUBLE               = 10,
+    OTF2_TYPE_DOUBLE = 10,
     /** @brief Mapping of @eref{String} identifiers.
-     *
+     *  
      *  Type category: Definition reference
      */
-    OTF2_TYPE_STRING               = 11,
+    OTF2_TYPE_STRING = 11,
     /** @brief Mapping of @eref{Attribute} identifiers.
-     *
+     *  
      *  Type category: Definition reference
      */
-    OTF2_TYPE_ATTRIBUTE            = 12,
+    OTF2_TYPE_ATTRIBUTE = 12,
     /** @brief Mapping of @eref{Location} identifiers.
-     *
+     *  
      *  Type category: Definition reference
      */
-    OTF2_TYPE_LOCATION             = 13,
+    OTF2_TYPE_LOCATION = 13,
     /** @brief Mapping of @eref{Region} identifiers.
-     *
+     *  
      *  Type category: Definition reference
      */
-    OTF2_TYPE_REGION               = 14,
+    OTF2_TYPE_REGION = 14,
     /** @brief Mapping of @eref{Group} identifiers.
-     *
+     *  
      *  Type category: Definition reference
      */
-    OTF2_TYPE_GROUP                = 15,
+    OTF2_TYPE_GROUP = 15,
     /** @brief Mapping of @eref{Metric} identifiers.
-     *
+     *  
      *  Type category: Definition reference
      */
-    OTF2_TYPE_METRIC               = 16,
+    OTF2_TYPE_METRIC = 16,
     /** @brief Mapping of @eref{Comm} identifiers.
-     *
+     *  
      *  Type category: Definition reference
      */
-    OTF2_TYPE_COMM                 = 17,
+    OTF2_TYPE_COMM = 17,
     /** @brief Mapping of @eref{Parameter} identifiers.
-     *
+     *  
      *  Type category: Definition reference
      */
-    OTF2_TYPE_PARAMETER            = 18,
+    OTF2_TYPE_PARAMETER = 18,
     /** @brief Mapping of @eref{RmaWin} identifiers.
-     *
+     *  
      *  @since Version 1.2.
-     *
+     *  
      *  Type category: Definition reference
      */
-    OTF2_TYPE_RMA_WIN              = 19,
+    OTF2_TYPE_RMA_WIN = 19,
     /** @brief Mapping of @eref{SourceCodeLocation} identifiers.
-     *
+     *  
      *  @since Version 1.5.
-     *
+     *  
      *  Type category: Definition reference
      */
     OTF2_TYPE_SOURCE_CODE_LOCATION = 20,
     /** @brief Mapping of @eref{CallingContext} identifiers.
-     *
+     *  
      *  @since Version 1.5.
-     *
+     *  
      *  Type category: Definition reference
      */
-    OTF2_TYPE_CALLING_CONTEXT      = 21,
+    OTF2_TYPE_CALLING_CONTEXT = 21,
     /** @brief Mapping of @eref{InterruptGenerator} identifiers.
-     *
+     *  
      *  @since Version 1.5.
-     *
+     *  
      *  Type category: Definition reference
      */
-    OTF2_TYPE_INTERRUPT_GENERATOR  = 22
+    OTF2_TYPE_INTERRUPT_GENERATOR = 22
 };
 
 
@@ -670,149 +670,149 @@ enum OTF2_Paradigm_enum
 {
     /** @brief An unknown paradigm.
      */
-    OTF2_PARADIGM_UNKNOWN            = 0,
+    OTF2_PARADIGM_UNKNOWN = 0,
     /** @brief User instrumentation.
      */
-    OTF2_PARADIGM_USER               = 1,
+    OTF2_PARADIGM_USER = 1,
     /** @brief Compiler instrumentation.
      */
-    OTF2_PARADIGM_COMPILER           = 2,
+    OTF2_PARADIGM_COMPILER = 2,
     /** @brief OpenMP.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_THREAD_FORK_JOIN}
      */
-    OTF2_PARADIGM_OPENMP             = 3,
+    OTF2_PARADIGM_OPENMP = 3,
     /** @brief MPI.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_PROCESS}
      */
-    OTF2_PARADIGM_MPI                = 4,
+    OTF2_PARADIGM_MPI = 4,
     /** @brief CUDA.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_ACCELERATOR}
      *  @pproperty{OTF2_PARADIGM_PROPERTY_RMA_ONLY,@eref{OTF2_TRUE}}
      */
-    OTF2_PARADIGM_CUDA               = 5,
+    OTF2_PARADIGM_CUDA = 5,
     /** @brief The measurement software.
-     *
+     *  
      *  @since Version 1.2.
      */
     OTF2_PARADIGM_MEASUREMENT_SYSTEM = 6,
     /** @brief POSIX threads.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_THREAD_CREATE_WAIT}
-     *
+     *  
      *  @since Version 1.3.
      */
-    OTF2_PARADIGM_PTHREAD            = 7,
+    OTF2_PARADIGM_PTHREAD = 7,
     /** @brief HMPP.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_ACCELERATOR}
-     *
+     *  
      *  @since Version 1.3.
      */
-    OTF2_PARADIGM_HMPP               = 8,
+    OTF2_PARADIGM_HMPP = 8,
     /** @brief OmpSs.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_THREAD_FORK_JOIN}
-     *
+     *  
      *  @since Version 1.3.
      */
-    OTF2_PARADIGM_OMPSS              = 9,
+    OTF2_PARADIGM_OMPSS = 9,
     /** @brief Hardware.
-     *
+     *  
      *  @since Version 1.3.
      */
-    OTF2_PARADIGM_HARDWARE           = 10,
+    OTF2_PARADIGM_HARDWARE = 10,
     /** @brief GASPI.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_PROCESS}
-     *
+     *  
      *  @since Version 1.4.
      */
-    OTF2_PARADIGM_GASPI              = 11,
+    OTF2_PARADIGM_GASPI = 11,
     /** @brief Unified Parallel C (UPC).
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_PROCESS}
-     *
+     *  
      *  @since Version 1.4.
      */
-    OTF2_PARADIGM_UPC                = 12,
+    OTF2_PARADIGM_UPC = 12,
     /** @brief SGI SHMEM, Cray SHMEM, OpenSHMEM.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_PROCESS}
      *  @pproperty{OTF2_PARADIGM_PROPERTY_RMA_ONLY,@eref{OTF2_TRUE}}
-     *
+     *  
      *  @since Version 1.4.
      */
-    OTF2_PARADIGM_SHMEM              = 13,
+    OTF2_PARADIGM_SHMEM = 13,
     /** @brief Windows threads.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_THREAD_CREATE_WAIT}
-     *
+     *  
      *  @since Version 1.5.
      */
-    OTF2_PARADIGM_WINTHREAD          = 14,
+    OTF2_PARADIGM_WINTHREAD = 14,
     /** @brief Qt threads.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_THREAD_CREATE_WAIT}
-     *
+     *  
      *  @since Version 1.5.
      */
-    OTF2_PARADIGM_QTTHREAD           = 15,
+    OTF2_PARADIGM_QTTHREAD = 15,
     /** @brief ACE threads.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_THREAD_CREATE_WAIT}
-     *
+     *  
      *  @since Version 1.5.
      */
-    OTF2_PARADIGM_ACETHREAD          = 16,
+    OTF2_PARADIGM_ACETHREAD = 16,
     /** @brief TBB threads.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_THREAD_FORK_JOIN}
-     *
+     *  
      *  @since Version 1.5.
      */
-    OTF2_PARADIGM_TBBTHREAD          = 17,
+    OTF2_PARADIGM_TBBTHREAD = 17,
     /** @brief OpenACC directives.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_ACCELERATOR}
      *  @pproperty{OTF2_PARADIGM_PROPERTY_RMA_ONLY,@eref{OTF2_TRUE}}
-     *
+     *  
      *  @since Version 1.5.
      */
-    OTF2_PARADIGM_OPENACC            = 18,
+    OTF2_PARADIGM_OPENACC = 18,
     /** @brief OpenCL API functions and kernels.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_ACCELERATOR}
      *  @pproperty{OTF2_PARADIGM_PROPERTY_RMA_ONLY,@eref{OTF2_TRUE}}
-     *
+     *  
      *  @since Version 1.5.
      */
-    OTF2_PARADIGM_OPENCL             = 19,
+    OTF2_PARADIGM_OPENCL = 19,
     /** @brief Multicore Task API functions.
-     *
+     *  
      *  @pclass{OTF2_PARADIGM_CLASS_THREAD_FORK_JOIN}
-     *
+     *  
      *  @since Version 1.5.
      */
-    OTF2_PARADIGM_MTAPI              = 20,
+    OTF2_PARADIGM_MTAPI = 20,
     /** @brief Functions recorded by sampling, not by any means of instrumentation.
-     *
+     *  
      *  Regions belonging to this paradigm are not eligible for
      *  @eref{CallingContext} definitions if these
      *  @eref{CallingContext} definitions will be referenced by
      *  @eref{CallingContextEnter} or @eref{CallingContextLeave}
      *  events.
-     *
+     *  
      *  @since Version 1.5.
      */
-    OTF2_PARADIGM_SAMPLING           = 21,
+    OTF2_PARADIGM_SAMPLING = 21,
     /** @brief Entity does not belong to any specific paradigm.
-     *
+     *  
      *  @since Version 2.0.
      */
-    OTF2_PARADIGM_NONE               = 22
+    OTF2_PARADIGM_NONE = 22
 };
 
 
@@ -828,16 +828,16 @@ enum OTF2_ParadigmClass_enum
 {
     /** @brief A communication paradigm across multiple processes.
      */
-    OTF2_PARADIGM_CLASS_PROCESS            = 0,
+    OTF2_PARADIGM_CLASS_PROCESS = 0,
     /** @brief A threading paradigm which uses the fork/join model.
      */
-    OTF2_PARADIGM_CLASS_THREAD_FORK_JOIN   = 1,
+    OTF2_PARADIGM_CLASS_THREAD_FORK_JOIN = 1,
     /** @brief A threading paradigm which uses the create/wait model.
      */
     OTF2_PARADIGM_CLASS_THREAD_CREATE_WAIT = 2,
     /** @brief A paradigm which uses external accelerators to offload computation.
      */
-    OTF2_PARADIGM_CLASS_ACCELERATOR        = 3
+    OTF2_PARADIGM_CLASS_ACCELERATOR = 3
 };
 
 
@@ -853,23 +853,23 @@ enum OTF2_ParadigmProperty_enum
 {
     /** @brief Template for unnamed @eref{Comm} definitions. A unique name can be
      *  derived by replacing '${id}' with a unique id.
-     *
+     *  
      *  Type: @eref{String}
      */
-    OTF2_PARADIGM_PROPERTY_COMM_NAME_TEMPLATE    = 0,
+    OTF2_PARADIGM_PROPERTY_COMM_NAME_TEMPLATE = 0,
     /** @brief Template for unnamed @eref{RmaWin} definitions. A unique name can be
      *  derived by replacing '${id}' with a unique id.
-     *
+     *  
      *  Type: @eref{String}
      */
     OTF2_PARADIGM_PROPERTY_RMA_WIN_NAME_TEMPLATE = 1,
     /** @brief Attests that this parallel paradigm only uses @eref{RmaWin}
      *  definitions. The @eref{Comm} definitions exists only for
      *  compliance and won't be referenced in event records.
-     *
+     *  
      *  Type: @eref{OTF2_Boolean}
      */
-    OTF2_PARADIGM_PROPERTY_RMA_ONLY              = 2
+    OTF2_PARADIGM_PROPERTY_RMA_ONLY = 2
 };
 
 
@@ -885,10 +885,10 @@ enum OTF2_ThumbnailType_enum
 {
     /** @brief The referenced definitions are of type @eref{Region}.
      */
-    OTF2_THUMBNAIL_TYPE_REGION     = 0,
+    OTF2_THUMBNAIL_TYPE_REGION = 0,
     /** @brief The referenced definitions are of type @eref{MetricMember}.
      */
-    OTF2_THUMBNAIL_TYPE_METRIC     = 1,
+    OTF2_THUMBNAIL_TYPE_METRIC = 1,
     /** @brief The referenced definitions are of type @eref{Attribute}.
      */
     OTF2_THUMBNAIL_TYPE_ATTRIBUTES = 2

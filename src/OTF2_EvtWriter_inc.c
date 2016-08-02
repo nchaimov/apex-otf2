@@ -41,9 +41,9 @@
 
 OTF2_ErrorCode
 OTF2_EvtWriter_BufferFlush( OTF2_EvtWriter*     writerHandle,
-                            OTF2_AttributeList* attributeList,
-                            OTF2_TimeStamp      time,
-                            OTF2_TimeStamp      stopTime )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_TimeStamp stopTime )
 {
     if ( !writerHandle )
     {
@@ -120,10 +120,10 @@ OTF2_EvtWriter_BufferFlush( OTF2_EvtWriter*     writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_EvtWriter_MeasurementOnOff( OTF2_EvtWriter*      writerHandle,
-                                 OTF2_AttributeList*  attributeList,
-                                 OTF2_TimeStamp       time,
-                                 OTF2_MeasurementMode measurementMode )
+OTF2_EvtWriter_MeasurementOnOff( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_MeasurementMode measurementMode )
 {
     if ( !writerHandle )
     {
@@ -201,9 +201,9 @@ OTF2_EvtWriter_MeasurementOnOff( OTF2_EvtWriter*      writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_Enter( OTF2_EvtWriter*     writerHandle,
-                      OTF2_AttributeList* attributeList,
-                      OTF2_TimeStamp      time,
-                      OTF2_RegionRef      region )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef region )
 {
     if ( !writerHandle )
     {
@@ -264,9 +264,9 @@ OTF2_EvtWriter_Enter( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_Leave( OTF2_EvtWriter*     writerHandle,
-                      OTF2_AttributeList* attributeList,
-                      OTF2_TimeStamp      time,
-                      OTF2_RegionRef      region )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef region )
 {
     if ( !writerHandle )
     {
@@ -327,12 +327,12 @@ OTF2_EvtWriter_Leave( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_MpiSend( OTF2_EvtWriter*     writerHandle,
-                        OTF2_AttributeList* attributeList,
-                        OTF2_TimeStamp      time,
-                        uint32_t            receiver,
-                        OTF2_CommRef        communicator,
-                        uint32_t            msgTag,
-                        uint64_t            msgLength )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength )
 {
     if ( !writerHandle )
     {
@@ -360,10 +360,10 @@ OTF2_EvtWriter_MpiSend( OTF2_EvtWriter*     writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( uint32_t ) + 1;     /* receiver */
+    record_data_length += sizeof( uint32_t ) + 1; /* receiver */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -416,13 +416,13 @@ OTF2_EvtWriter_MpiSend( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_MpiIsend( OTF2_EvtWriter*     writerHandle,
-                         OTF2_AttributeList* attributeList,
-                         OTF2_TimeStamp      time,
-                         uint32_t            receiver,
-                         OTF2_CommRef        communicator,
-                         uint32_t            msgTag,
-                         uint64_t            msgLength,
-                         uint64_t            requestID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID )
 {
     if ( !writerHandle )
     {
@@ -450,11 +450,11 @@ OTF2_EvtWriter_MpiIsend( OTF2_EvtWriter*     writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( uint32_t ) + 1;     /* receiver */
+    record_data_length += sizeof( uint32_t ) + 1; /* receiver */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
-    record_data_length += sizeof( uint64_t ) + 1;     /* requestID */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
+    record_data_length += sizeof( uint64_t ) + 1; /* requestID */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -508,9 +508,9 @@ OTF2_EvtWriter_MpiIsend( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_MpiIsendComplete( OTF2_EvtWriter*     writerHandle,
-                                 OTF2_AttributeList* attributeList,
-                                 OTF2_TimeStamp      time,
-                                 uint64_t            requestID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+uint64_t requestID )
 {
     if ( !writerHandle )
     {
@@ -571,9 +571,9 @@ OTF2_EvtWriter_MpiIsendComplete( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_MpiIrecvRequest( OTF2_EvtWriter*     writerHandle,
-                                OTF2_AttributeList* attributeList,
-                                OTF2_TimeStamp      time,
-                                uint64_t            requestID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+uint64_t requestID )
 {
     if ( !writerHandle )
     {
@@ -634,12 +634,12 @@ OTF2_EvtWriter_MpiIrecvRequest( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_MpiRecv( OTF2_EvtWriter*     writerHandle,
-                        OTF2_AttributeList* attributeList,
-                        OTF2_TimeStamp      time,
-                        uint32_t            sender,
-                        OTF2_CommRef        communicator,
-                        uint32_t            msgTag,
-                        uint64_t            msgLength )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength )
 {
     if ( !writerHandle )
     {
@@ -667,10 +667,10 @@ OTF2_EvtWriter_MpiRecv( OTF2_EvtWriter*     writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( uint32_t ) + 1;     /* sender */
+    record_data_length += sizeof( uint32_t ) + 1; /* sender */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -723,13 +723,13 @@ OTF2_EvtWriter_MpiRecv( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_MpiIrecv( OTF2_EvtWriter*     writerHandle,
-                         OTF2_AttributeList* attributeList,
-                         OTF2_TimeStamp      time,
-                         uint32_t            sender,
-                         OTF2_CommRef        communicator,
-                         uint32_t            msgTag,
-                         uint64_t            msgLength,
-                         uint64_t            requestID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID )
 {
     if ( !writerHandle )
     {
@@ -757,11 +757,11 @@ OTF2_EvtWriter_MpiIrecv( OTF2_EvtWriter*     writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( uint32_t ) + 1;     /* sender */
+    record_data_length += sizeof( uint32_t ) + 1; /* sender */
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;     /* msgTag */
-    record_data_length += sizeof( uint64_t ) + 1;     /* msgLength */
-    record_data_length += sizeof( uint64_t ) + 1;     /* requestID */
+    record_data_length += sizeof( uint32_t ) + 1; /* msgTag */
+    record_data_length += sizeof( uint64_t ) + 1; /* msgLength */
+    record_data_length += sizeof( uint64_t ) + 1; /* requestID */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -817,7 +817,7 @@ OTF2_ErrorCode
 OTF2_EvtWriter_MpiRequestTest( OTF2_EvtWriter*     writerHandle,
                                OTF2_AttributeList* attributeList,
                                OTF2_TimeStamp      time,
-                               uint64_t            requestID )
+uint64_t requestID )
 {
     if ( !writerHandle )
     {
@@ -878,9 +878,9 @@ OTF2_EvtWriter_MpiRequestTest( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_MpiRequestCancelled( OTF2_EvtWriter*     writerHandle,
-                                    OTF2_AttributeList* attributeList,
-                                    OTF2_TimeStamp      time,
-                                    uint64_t            requestID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+uint64_t requestID )
 {
     if ( !writerHandle )
     {
@@ -941,8 +941,8 @@ OTF2_EvtWriter_MpiRequestCancelled( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_MpiCollectiveBegin( OTF2_EvtWriter*     writerHandle,
-                                   OTF2_AttributeList* attributeList,
-                                   OTF2_TimeStamp      time )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time )
 {
     if ( !writerHandle )
     {
@@ -1000,13 +1000,13 @@ OTF2_EvtWriter_MpiCollectiveBegin( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_MpiCollectiveEnd( OTF2_EvtWriter*     writerHandle,
-                                 OTF2_AttributeList* attributeList,
-                                 OTF2_TimeStamp      time,
-                                 OTF2_CollectiveOp   collectiveOp,
-                                 OTF2_CommRef        communicator,
-                                 uint32_t            root,
-                                 uint64_t            sizeSent,
-                                 uint64_t            sizeReceived )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CollectiveOp collectiveOp,
+OTF2_CommRef communicator,
+uint32_t root,
+uint64_t sizeSent,
+uint64_t sizeReceived )
 {
     if ( !writerHandle )
     {
@@ -1035,10 +1035,10 @@ OTF2_EvtWriter_MpiCollectiveEnd( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_CollectiveOp ); /* collectiveOp */
-    record_data_length += sizeof( OTF2_CommRef ) + 1;  /* communicator */
-    record_data_length += sizeof( uint32_t ) + 1;      /* root */
-    record_data_length += sizeof( uint64_t ) + 1;      /* sizeSent */
-    record_data_length += sizeof( uint64_t ) + 1;      /* sizeReceived */
+    record_data_length += sizeof( OTF2_CommRef ) + 1; /* communicator */
+    record_data_length += sizeof( uint32_t ) + 1; /* root */
+    record_data_length += sizeof( uint64_t ) + 1; /* sizeSent */
+    record_data_length += sizeof( uint64_t ) + 1; /* sizeReceived */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -1092,9 +1092,9 @@ OTF2_EvtWriter_MpiCollectiveEnd( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_OmpFork( OTF2_EvtWriter*     writerHandle,
-                        OTF2_AttributeList* attributeList,
-                        OTF2_TimeStamp      time,
-                        uint32_t            numberOfRequestedThreads )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+uint32_t numberOfRequestedThreads )
 {
     if ( !writerHandle )
     {
@@ -1155,8 +1155,8 @@ OTF2_EvtWriter_OmpFork( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_OmpJoin( OTF2_EvtWriter*     writerHandle,
-                        OTF2_AttributeList* attributeList,
-                        OTF2_TimeStamp      time )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time )
 {
     if ( !writerHandle )
     {
@@ -1216,8 +1216,8 @@ OTF2_ErrorCode
 OTF2_EvtWriter_OmpAcquireLock( OTF2_EvtWriter*     writerHandle,
                                OTF2_AttributeList* attributeList,
                                OTF2_TimeStamp      time,
-                               uint32_t            lockID,
-                               uint32_t            acquisitionOrder )
+uint32_t lockID,
+uint32_t acquisitionOrder )
 {
     if ( !writerHandle )
     {
@@ -1299,8 +1299,8 @@ OTF2_ErrorCode
 OTF2_EvtWriter_OmpReleaseLock( OTF2_EvtWriter*     writerHandle,
                                OTF2_AttributeList* attributeList,
                                OTF2_TimeStamp      time,
-                               uint32_t            lockID,
-                               uint32_t            acquisitionOrder )
+uint32_t lockID,
+uint32_t acquisitionOrder )
 {
     if ( !writerHandle )
     {
@@ -1380,9 +1380,9 @@ OTF2_EvtWriter_OmpReleaseLock( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_OmpTaskCreate( OTF2_EvtWriter*     writerHandle,
-                              OTF2_AttributeList* attributeList,
-                              OTF2_TimeStamp      time,
-                              uint64_t            taskID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+uint64_t taskID )
 {
     if ( !writerHandle )
     {
@@ -1443,9 +1443,9 @@ OTF2_EvtWriter_OmpTaskCreate( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_OmpTaskSwitch( OTF2_EvtWriter*     writerHandle,
-                              OTF2_AttributeList* attributeList,
-                              OTF2_TimeStamp      time,
-                              uint64_t            taskID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+uint64_t taskID )
 {
     if ( !writerHandle )
     {
@@ -1506,9 +1506,9 @@ OTF2_EvtWriter_OmpTaskSwitch( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_OmpTaskComplete( OTF2_EvtWriter*     writerHandle,
-                                OTF2_AttributeList* attributeList,
-                                OTF2_TimeStamp      time,
-                                uint64_t            taskID )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+uint64_t taskID )
 {
     if ( !writerHandle )
     {
@@ -1568,13 +1568,13 @@ OTF2_EvtWriter_OmpTaskComplete( OTF2_EvtWriter*     writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_EvtWriter_Metric( OTF2_EvtWriter*         writerHandle,
-                       OTF2_AttributeList*     attributeList,
-                       OTF2_TimeStamp          time,
-                       OTF2_MetricRef          metric,
-                       uint8_t                 numberOfMetrics,
-                       const OTF2_Type*        typeIDs,
-                       const OTF2_MetricValue* metricValues )
+OTF2_EvtWriter_Metric( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_MetricRef metric,
+uint8_t numberOfMetrics,
+const OTF2_Type* typeIDs,
+const OTF2_MetricValue* metricValues )
 {
     if ( !writerHandle )
     {
@@ -1602,8 +1602,8 @@ OTF2_EvtWriter_Metric( OTF2_EvtWriter*         writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_MetricRef ) + 1;              /* metric */
-    record_data_length += sizeof( uint8_t );                         /* numberOfMetrics */
+    record_data_length += sizeof( OTF2_MetricRef ) + 1; /* metric */
+    record_data_length += sizeof( uint8_t ); /* numberOfMetrics */
     record_data_length += numberOfMetrics * ( sizeof( OTF2_Type ) ); /* typeIDs */
     if ( numberOfMetrics > 0 && !typeIDs )
     {
@@ -1661,9 +1661,9 @@ OTF2_EvtWriter_Metric( OTF2_EvtWriter*         writerHandle,
           numberOfMetrics_i++ )
     {
         OTF2_Buffer_WriteUint8( writerHandle->buffer,
-                                typeIDs[ numberOfMetrics_i ] );
+                                                   typeIDs[ numberOfMetrics_i ] );
         OTF2_Buffer_WriteMetricValue( writerHandle->buffer,
-                                      metricValues[ numberOfMetrics_i ] );
+                                                   metricValues[ numberOfMetrics_i ] );
     }
 
     /* Write real record length */
@@ -1675,10 +1675,10 @@ OTF2_EvtWriter_Metric( OTF2_EvtWriter*         writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ParameterString( OTF2_EvtWriter*     writerHandle,
-                                OTF2_AttributeList* attributeList,
-                                OTF2_TimeStamp      time,
-                                OTF2_ParameterRef   parameter,
-                                OTF2_StringRef      string )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_ParameterRef parameter,
+OTF2_StringRef string )
 {
     if ( !writerHandle )
     {
@@ -1707,7 +1707,7 @@ OTF2_EvtWriter_ParameterString( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_ParameterRef ) + 1; /* parameter */
-    record_data_length += sizeof( OTF2_StringRef ) + 1;    /* string */
+    record_data_length += sizeof( OTF2_StringRef ) + 1; /* string */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -1758,10 +1758,10 @@ OTF2_EvtWriter_ParameterString( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ParameterInt( OTF2_EvtWriter*     writerHandle,
-                             OTF2_AttributeList* attributeList,
-                             OTF2_TimeStamp      time,
-                             OTF2_ParameterRef   parameter,
-                             int64_t             value )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_ParameterRef parameter,
+int64_t value )
 {
     if ( !writerHandle )
     {
@@ -1790,7 +1790,7 @@ OTF2_EvtWriter_ParameterInt( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_ParameterRef ) + 1; /* parameter */
-    record_data_length += sizeof( int64_t ) + 1;           /* value */
+    record_data_length += sizeof( int64_t ) + 1; /* value */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -1841,10 +1841,10 @@ OTF2_EvtWriter_ParameterInt( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ParameterUnsignedInt( OTF2_EvtWriter*     writerHandle,
-                                     OTF2_AttributeList* attributeList,
-                                     OTF2_TimeStamp      time,
-                                     OTF2_ParameterRef   parameter,
-                                     uint64_t            value )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_ParameterRef parameter,
+uint64_t value )
 {
     if ( !writerHandle )
     {
@@ -1873,7 +1873,7 @@ OTF2_EvtWriter_ParameterUnsignedInt( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_ParameterRef ) + 1; /* parameter */
-    record_data_length += sizeof( uint64_t ) + 1;          /* value */
+    record_data_length += sizeof( uint64_t ) + 1; /* value */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -1924,9 +1924,9 @@ OTF2_EvtWriter_ParameterUnsignedInt( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaWinCreate( OTF2_EvtWriter*     writerHandle,
-                             OTF2_AttributeList* attributeList,
-                             OTF2_TimeStamp      time,
-                             OTF2_RmaWinRef      win )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win )
 {
     if ( !writerHandle )
     {
@@ -2004,9 +2004,9 @@ OTF2_EvtWriter_RmaWinCreate( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaWinDestroy( OTF2_EvtWriter*     writerHandle,
-                              OTF2_AttributeList* attributeList,
-                              OTF2_TimeStamp      time,
-                              OTF2_RmaWinRef      win )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win )
 {
     if ( !writerHandle )
     {
@@ -2084,8 +2084,8 @@ OTF2_EvtWriter_RmaWinDestroy( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaCollectiveBegin( OTF2_EvtWriter*     writerHandle,
-                                   OTF2_AttributeList* attributeList,
-                                   OTF2_TimeStamp      time )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time )
 {
     if ( !writerHandle )
     {
@@ -2143,14 +2143,14 @@ OTF2_EvtWriter_RmaCollectiveBegin( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaCollectiveEnd( OTF2_EvtWriter*     writerHandle,
-                                 OTF2_AttributeList* attributeList,
-                                 OTF2_TimeStamp      time,
-                                 OTF2_CollectiveOp   collectiveOp,
-                                 OTF2_RmaSyncLevel   syncLevel,
-                                 OTF2_RmaWinRef      win,
-                                 uint32_t            root,
-                                 uint64_t            bytesSent,
-                                 uint64_t            bytesReceived )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CollectiveOp collectiveOp,
+OTF2_RmaSyncLevel syncLevel,
+OTF2_RmaWinRef win,
+uint32_t root,
+uint64_t bytesSent,
+uint64_t bytesReceived )
 {
     if ( !writerHandle )
     {
@@ -2178,12 +2178,12 @@ OTF2_EvtWriter_RmaCollectiveEnd( OTF2_EvtWriter*     writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_CollectiveOp );     /* collectiveOp */
+    record_data_length += sizeof( OTF2_CollectiveOp ); /* collectiveOp */
     record_data_length += sizeof( OTF2_RmaSyncLevel ) + 1; /* syncLevel */
-    record_data_length += sizeof( OTF2_RmaWinRef ) + 1;    /* win */
-    record_data_length += sizeof( uint32_t ) + 1;          /* root */
-    record_data_length += sizeof( uint64_t ) + 1;          /* bytesSent */
-    record_data_length += sizeof( uint64_t ) + 1;          /* bytesReceived */
+    record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
+    record_data_length += sizeof( uint32_t ) + 1; /* root */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesSent */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesReceived */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -2238,11 +2238,11 @@ OTF2_EvtWriter_RmaCollectiveEnd( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaGroupSync( OTF2_EvtWriter*     writerHandle,
-                             OTF2_AttributeList* attributeList,
-                             OTF2_TimeStamp      time,
-                             OTF2_RmaSyncLevel   syncLevel,
-                             OTF2_RmaWinRef      win,
-                             OTF2_GroupRef       group )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaSyncLevel syncLevel,
+OTF2_RmaWinRef win,
+OTF2_GroupRef group )
 {
     if ( !writerHandle )
     {
@@ -2271,8 +2271,8 @@ OTF2_EvtWriter_RmaGroupSync( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaSyncLevel ) + 1; /* syncLevel */
-    record_data_length += sizeof( OTF2_RmaWinRef ) + 1;    /* win */
-    record_data_length += sizeof( OTF2_GroupRef ) + 1;     /* group */
+    record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
+    record_data_length += sizeof( OTF2_GroupRef ) + 1; /* group */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -2326,10 +2326,10 @@ OTF2_ErrorCode
 OTF2_EvtWriter_RmaRequestLock( OTF2_EvtWriter*     writerHandle,
                                OTF2_AttributeList* attributeList,
                                OTF2_TimeStamp      time,
-                               OTF2_RmaWinRef      win,
-                               uint32_t            remote,
-                               uint64_t            lockId,
-                               OTF2_LockType       lockType )
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId,
+OTF2_LockType lockType )
 {
     if ( !writerHandle )
     {
@@ -2358,9 +2358,9 @@ OTF2_EvtWriter_RmaRequestLock( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* lockId */
-    record_data_length += sizeof( OTF2_LockType );      /* lockType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
+    record_data_length += sizeof( OTF2_LockType ); /* lockType */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -2415,10 +2415,10 @@ OTF2_ErrorCode
 OTF2_EvtWriter_RmaAcquireLock( OTF2_EvtWriter*     writerHandle,
                                OTF2_AttributeList* attributeList,
                                OTF2_TimeStamp      time,
-                               OTF2_RmaWinRef      win,
-                               uint32_t            remote,
-                               uint64_t            lockId,
-                               OTF2_LockType       lockType )
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId,
+OTF2_LockType lockType )
 {
     if ( !writerHandle )
     {
@@ -2447,9 +2447,9 @@ OTF2_EvtWriter_RmaAcquireLock( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* lockId */
-    record_data_length += sizeof( OTF2_LockType );      /* lockType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
+    record_data_length += sizeof( OTF2_LockType ); /* lockType */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -2502,12 +2502,12 @@ OTF2_EvtWriter_RmaAcquireLock( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaTryLock( OTF2_EvtWriter*     writerHandle,
-                           OTF2_AttributeList* attributeList,
-                           OTF2_TimeStamp      time,
-                           OTF2_RmaWinRef      win,
-                           uint32_t            remote,
-                           uint64_t            lockId,
-                           OTF2_LockType       lockType )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId,
+OTF2_LockType lockType )
 {
     if ( !writerHandle )
     {
@@ -2536,9 +2536,9 @@ OTF2_EvtWriter_RmaTryLock( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* lockId */
-    record_data_length += sizeof( OTF2_LockType );      /* lockType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
+    record_data_length += sizeof( OTF2_LockType ); /* lockType */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -2593,9 +2593,9 @@ OTF2_ErrorCode
 OTF2_EvtWriter_RmaReleaseLock( OTF2_EvtWriter*     writerHandle,
                                OTF2_AttributeList* attributeList,
                                OTF2_TimeStamp      time,
-                               OTF2_RmaWinRef      win,
-                               uint32_t            remote,
-                               uint64_t            lockId )
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId )
 {
     if ( !writerHandle )
     {
@@ -2624,8 +2624,8 @@ OTF2_EvtWriter_RmaReleaseLock( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* lockId */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* lockId */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -2677,11 +2677,11 @@ OTF2_EvtWriter_RmaReleaseLock( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaSync( OTF2_EvtWriter*     writerHandle,
-                        OTF2_AttributeList* attributeList,
-                        OTF2_TimeStamp      time,
-                        OTF2_RmaWinRef      win,
-                        uint32_t            remote,
-                        OTF2_RmaSyncType    syncType )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win,
+uint32_t remote,
+OTF2_RmaSyncType syncType )
 {
     if ( !writerHandle )
     {
@@ -2710,8 +2710,8 @@ OTF2_EvtWriter_RmaSync( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( OTF2_RmaSyncType );   /* syncType */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( OTF2_RmaSyncType ); /* syncType */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -2763,9 +2763,9 @@ OTF2_EvtWriter_RmaSync( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaWaitChange( OTF2_EvtWriter*     writerHandle,
-                              OTF2_AttributeList* attributeList,
-                              OTF2_TimeStamp      time,
-                              OTF2_RmaWinRef      win )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win )
 {
     if ( !writerHandle )
     {
@@ -2843,12 +2843,12 @@ OTF2_EvtWriter_RmaWaitChange( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaPut( OTF2_EvtWriter*     writerHandle,
-                       OTF2_AttributeList* attributeList,
-                       OTF2_TimeStamp      time,
-                       OTF2_RmaWinRef      win,
-                       uint32_t            remote,
-                       uint64_t            bytes,
-                       uint64_t            matchingId )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t bytes,
+uint64_t matchingId )
 {
     if ( !writerHandle )
     {
@@ -2877,9 +2877,9 @@ OTF2_EvtWriter_RmaPut( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* bytes */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytes */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -2932,12 +2932,12 @@ OTF2_EvtWriter_RmaPut( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaGet( OTF2_EvtWriter*     writerHandle,
-                       OTF2_AttributeList* attributeList,
-                       OTF2_TimeStamp      time,
-                       OTF2_RmaWinRef      win,
-                       uint32_t            remote,
-                       uint64_t            bytes,
-                       uint64_t            matchingId )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t bytes,
+uint64_t matchingId )
 {
     if ( !writerHandle )
     {
@@ -2966,9 +2966,9 @@ OTF2_EvtWriter_RmaGet( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
-    record_data_length += sizeof( uint64_t ) + 1;       /* bytes */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytes */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -3021,14 +3021,14 @@ OTF2_EvtWriter_RmaGet( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaAtomic( OTF2_EvtWriter*     writerHandle,
-                          OTF2_AttributeList* attributeList,
-                          OTF2_TimeStamp      time,
-                          OTF2_RmaWinRef      win,
-                          uint32_t            remote,
-                          OTF2_RmaAtomicType  type,
-                          uint64_t            bytesSent,
-                          uint64_t            bytesReceived,
-                          uint64_t            matchingId )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win,
+uint32_t remote,
+OTF2_RmaAtomicType type,
+uint64_t bytesSent,
+uint64_t bytesReceived,
+uint64_t matchingId )
 {
     if ( !writerHandle )
     {
@@ -3057,11 +3057,11 @@ OTF2_EvtWriter_RmaAtomic( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint32_t ) + 1;       /* remote */
+    record_data_length += sizeof( uint32_t ) + 1; /* remote */
     record_data_length += sizeof( OTF2_RmaAtomicType ); /* type */
-    record_data_length += sizeof( uint64_t ) + 1;       /* bytesSent */
-    record_data_length += sizeof( uint64_t ) + 1;       /* bytesReceived */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesSent */
+    record_data_length += sizeof( uint64_t ) + 1; /* bytesReceived */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -3116,10 +3116,10 @@ OTF2_EvtWriter_RmaAtomic( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaOpCompleteBlocking( OTF2_EvtWriter*     writerHandle,
-                                      OTF2_AttributeList* attributeList,
-                                      OTF2_TimeStamp      time,
-                                      OTF2_RmaWinRef      win,
-                                      uint64_t            matchingId )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win,
+uint64_t matchingId )
 {
     if ( !writerHandle )
     {
@@ -3148,7 +3148,7 @@ OTF2_EvtWriter_RmaOpCompleteBlocking( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -3199,10 +3199,10 @@ OTF2_EvtWriter_RmaOpCompleteBlocking( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaOpCompleteNonBlocking( OTF2_EvtWriter*     writerHandle,
-                                         OTF2_AttributeList* attributeList,
-                                         OTF2_TimeStamp      time,
-                                         OTF2_RmaWinRef      win,
-                                         uint64_t            matchingId )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win,
+uint64_t matchingId )
 {
     if ( !writerHandle )
     {
@@ -3231,7 +3231,7 @@ OTF2_EvtWriter_RmaOpCompleteNonBlocking( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -3282,10 +3282,10 @@ OTF2_EvtWriter_RmaOpCompleteNonBlocking( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaOpTest( OTF2_EvtWriter*     writerHandle,
-                          OTF2_AttributeList* attributeList,
-                          OTF2_TimeStamp      time,
-                          OTF2_RmaWinRef      win,
-                          uint64_t            matchingId )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win,
+uint64_t matchingId )
 {
     if ( !writerHandle )
     {
@@ -3314,7 +3314,7 @@ OTF2_EvtWriter_RmaOpTest( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -3365,10 +3365,10 @@ OTF2_EvtWriter_RmaOpTest( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_RmaOpCompleteRemote( OTF2_EvtWriter*     writerHandle,
-                                    OTF2_AttributeList* attributeList,
-                                    OTF2_TimeStamp      time,
-                                    OTF2_RmaWinRef      win,
-                                    uint64_t            matchingId )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RmaWinRef win,
+uint64_t matchingId )
 {
     if ( !writerHandle )
     {
@@ -3397,7 +3397,7 @@ OTF2_EvtWriter_RmaOpCompleteRemote( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_RmaWinRef ) + 1; /* win */
-    record_data_length += sizeof( uint64_t ) + 1;       /* matchingId */
+    record_data_length += sizeof( uint64_t ) + 1; /* matchingId */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -3448,10 +3448,10 @@ OTF2_EvtWriter_RmaOpCompleteRemote( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadFork( OTF2_EvtWriter*     writerHandle,
-                           OTF2_AttributeList* attributeList,
-                           OTF2_TimeStamp      time,
-                           OTF2_Paradigm       model,
-                           uint32_t            numberOfRequestedThreads )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_Paradigm model,
+uint32_t numberOfRequestedThreads )
 {
     if ( !writerHandle )
     {
@@ -3480,7 +3480,7 @@ OTF2_EvtWriter_ThreadFork( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_Paradigm ); /* model */
-    record_data_length += sizeof( uint32_t ) + 1;  /* numberOfRequestedThreads */
+    record_data_length += sizeof( uint32_t ) + 1; /* numberOfRequestedThreads */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -3531,9 +3531,9 @@ OTF2_EvtWriter_ThreadFork( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadJoin( OTF2_EvtWriter*     writerHandle,
-                           OTF2_AttributeList* attributeList,
-                           OTF2_TimeStamp      time,
-                           OTF2_Paradigm       model )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_Paradigm model )
 {
     if ( !writerHandle )
     {
@@ -3611,9 +3611,9 @@ OTF2_EvtWriter_ThreadJoin( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadTeamBegin( OTF2_EvtWriter*     writerHandle,
-                                OTF2_AttributeList* attributeList,
-                                OTF2_TimeStamp      time,
-                                OTF2_CommRef        threadTeam )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CommRef threadTeam )
 {
     if ( !writerHandle )
     {
@@ -3691,9 +3691,9 @@ OTF2_EvtWriter_ThreadTeamBegin( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadTeamEnd( OTF2_EvtWriter*     writerHandle,
-                              OTF2_AttributeList* attributeList,
-                              OTF2_TimeStamp      time,
-                              OTF2_CommRef        threadTeam )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CommRef threadTeam )
 {
     if ( !writerHandle )
     {
@@ -3771,11 +3771,11 @@ OTF2_EvtWriter_ThreadTeamEnd( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadAcquireLock( OTF2_EvtWriter*     writerHandle,
-                                  OTF2_AttributeList* attributeList,
-                                  OTF2_TimeStamp      time,
-                                  OTF2_Paradigm       model,
-                                  uint32_t            lockID,
-                                  uint32_t            acquisitionOrder )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_Paradigm model,
+uint32_t lockID,
+uint32_t acquisitionOrder )
 {
     if ( !writerHandle )
     {
@@ -3804,8 +3804,8 @@ OTF2_EvtWriter_ThreadAcquireLock( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_Paradigm ); /* model */
-    record_data_length += sizeof( uint32_t ) + 1;  /* lockID */
-    record_data_length += sizeof( uint32_t ) + 1;  /* acquisitionOrder */
+    record_data_length += sizeof( uint32_t ) + 1; /* lockID */
+    record_data_length += sizeof( uint32_t ) + 1; /* acquisitionOrder */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -3857,11 +3857,11 @@ OTF2_EvtWriter_ThreadAcquireLock( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadReleaseLock( OTF2_EvtWriter*     writerHandle,
-                                  OTF2_AttributeList* attributeList,
-                                  OTF2_TimeStamp      time,
-                                  OTF2_Paradigm       model,
-                                  uint32_t            lockID,
-                                  uint32_t            acquisitionOrder )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_Paradigm model,
+uint32_t lockID,
+uint32_t acquisitionOrder )
 {
     if ( !writerHandle )
     {
@@ -3890,8 +3890,8 @@ OTF2_EvtWriter_ThreadReleaseLock( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_Paradigm ); /* model */
-    record_data_length += sizeof( uint32_t ) + 1;  /* lockID */
-    record_data_length += sizeof( uint32_t ) + 1;  /* acquisitionOrder */
+    record_data_length += sizeof( uint32_t ) + 1; /* lockID */
+    record_data_length += sizeof( uint32_t ) + 1; /* acquisitionOrder */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -3943,11 +3943,11 @@ OTF2_EvtWriter_ThreadReleaseLock( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadTaskCreate( OTF2_EvtWriter*     writerHandle,
-                                 OTF2_AttributeList* attributeList,
-                                 OTF2_TimeStamp      time,
-                                 OTF2_CommRef        threadTeam,
-                                 uint32_t            creatingThread,
-                                 uint32_t            generationNumber )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CommRef threadTeam,
+uint32_t creatingThread,
+uint32_t generationNumber )
 {
     if ( !writerHandle )
     {
@@ -3976,8 +3976,8 @@ OTF2_EvtWriter_ThreadTaskCreate( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadTeam */
-    record_data_length += sizeof( uint32_t ) + 1;     /* creatingThread */
-    record_data_length += sizeof( uint32_t ) + 1;     /* generationNumber */
+    record_data_length += sizeof( uint32_t ) + 1; /* creatingThread */
+    record_data_length += sizeof( uint32_t ) + 1; /* generationNumber */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -4029,11 +4029,11 @@ OTF2_EvtWriter_ThreadTaskCreate( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadTaskSwitch( OTF2_EvtWriter*     writerHandle,
-                                 OTF2_AttributeList* attributeList,
-                                 OTF2_TimeStamp      time,
-                                 OTF2_CommRef        threadTeam,
-                                 uint32_t            creatingThread,
-                                 uint32_t            generationNumber )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CommRef threadTeam,
+uint32_t creatingThread,
+uint32_t generationNumber )
 {
     if ( !writerHandle )
     {
@@ -4062,8 +4062,8 @@ OTF2_EvtWriter_ThreadTaskSwitch( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadTeam */
-    record_data_length += sizeof( uint32_t ) + 1;     /* creatingThread */
-    record_data_length += sizeof( uint32_t ) + 1;     /* generationNumber */
+    record_data_length += sizeof( uint32_t ) + 1; /* creatingThread */
+    record_data_length += sizeof( uint32_t ) + 1; /* generationNumber */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -4115,11 +4115,11 @@ OTF2_EvtWriter_ThreadTaskSwitch( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadTaskComplete( OTF2_EvtWriter*     writerHandle,
-                                   OTF2_AttributeList* attributeList,
-                                   OTF2_TimeStamp      time,
-                                   OTF2_CommRef        threadTeam,
-                                   uint32_t            creatingThread,
-                                   uint32_t            generationNumber )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CommRef threadTeam,
+uint32_t creatingThread,
+uint32_t generationNumber )
 {
     if ( !writerHandle )
     {
@@ -4148,8 +4148,8 @@ OTF2_EvtWriter_ThreadTaskComplete( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadTeam */
-    record_data_length += sizeof( uint32_t ) + 1;     /* creatingThread */
-    record_data_length += sizeof( uint32_t ) + 1;     /* generationNumber */
+    record_data_length += sizeof( uint32_t ) + 1; /* creatingThread */
+    record_data_length += sizeof( uint32_t ) + 1; /* generationNumber */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -4201,10 +4201,10 @@ OTF2_EvtWriter_ThreadTaskComplete( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadCreate( OTF2_EvtWriter*     writerHandle,
-                             OTF2_AttributeList* attributeList,
-                             OTF2_TimeStamp      time,
-                             OTF2_CommRef        threadContingent,
-                             uint64_t            sequenceCount )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount )
 {
     if ( !writerHandle )
     {
@@ -4233,7 +4233,7 @@ OTF2_EvtWriter_ThreadCreate( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;     /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -4284,10 +4284,10 @@ OTF2_EvtWriter_ThreadCreate( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadBegin( OTF2_EvtWriter*     writerHandle,
-                            OTF2_AttributeList* attributeList,
-                            OTF2_TimeStamp      time,
-                            OTF2_CommRef        threadContingent,
-                            uint64_t            sequenceCount )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount )
 {
     if ( !writerHandle )
     {
@@ -4316,7 +4316,7 @@ OTF2_EvtWriter_ThreadBegin( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;     /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -4367,10 +4367,10 @@ OTF2_EvtWriter_ThreadBegin( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadWait( OTF2_EvtWriter*     writerHandle,
-                           OTF2_AttributeList* attributeList,
-                           OTF2_TimeStamp      time,
-                           OTF2_CommRef        threadContingent,
-                           uint64_t            sequenceCount )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount )
 {
     if ( !writerHandle )
     {
@@ -4399,7 +4399,7 @@ OTF2_EvtWriter_ThreadWait( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;     /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -4450,10 +4450,10 @@ OTF2_EvtWriter_ThreadWait( OTF2_EvtWriter*     writerHandle,
 
 OTF2_ErrorCode
 OTF2_EvtWriter_ThreadEnd( OTF2_EvtWriter*     writerHandle,
-                          OTF2_AttributeList* attributeList,
-                          OTF2_TimeStamp      time,
-                          OTF2_CommRef        threadContingent,
-                          uint64_t            sequenceCount )
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount )
 {
     if ( !writerHandle )
     {
@@ -4482,7 +4482,7 @@ OTF2_EvtWriter_ThreadEnd( OTF2_EvtWriter*     writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_CommRef ) + 1; /* threadContingent */
-    record_data_length += sizeof( uint64_t ) + 1;     /* sequenceCount */
+    record_data_length += sizeof( uint64_t ) + 1; /* sequenceCount */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -4532,11 +4532,11 @@ OTF2_EvtWriter_ThreadEnd( OTF2_EvtWriter*     writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_EvtWriter_CallingContextEnter( OTF2_EvtWriter*        writerHandle,
-                                    OTF2_AttributeList*    attributeList,
-                                    OTF2_TimeStamp         time,
-                                    OTF2_CallingContextRef callingContext,
-                                    uint32_t               unwindDistance )
+OTF2_EvtWriter_CallingContextEnter( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CallingContextRef callingContext,
+uint32_t unwindDistance )
 {
     if ( !writerHandle )
     {
@@ -4565,7 +4565,7 @@ OTF2_EvtWriter_CallingContextEnter( OTF2_EvtWriter*        writerHandle,
     uint64_t record_data_length = 0;
 
     record_data_length += sizeof( OTF2_CallingContextRef ) + 1; /* callingContext */
-    record_data_length += sizeof( uint32_t ) + 1;               /* unwindDistance */
+    record_data_length += sizeof( uint32_t ) + 1; /* unwindDistance */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
 
@@ -4615,10 +4615,10 @@ OTF2_EvtWriter_CallingContextEnter( OTF2_EvtWriter*        writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_EvtWriter_CallingContextLeave( OTF2_EvtWriter*        writerHandle,
-                                    OTF2_AttributeList*    attributeList,
-                                    OTF2_TimeStamp         time,
-                                    OTF2_CallingContextRef callingContext )
+OTF2_EvtWriter_CallingContextLeave( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CallingContextRef callingContext )
 {
     if ( !writerHandle )
     {
@@ -4695,12 +4695,12 @@ OTF2_EvtWriter_CallingContextLeave( OTF2_EvtWriter*        writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_EvtWriter_CallingContextSample( OTF2_EvtWriter*            writerHandle,
-                                     OTF2_AttributeList*        attributeList,
-                                     OTF2_TimeStamp             time,
-                                     OTF2_CallingContextRef     callingContext,
-                                     uint32_t                   unwindDistance,
-                                     OTF2_InterruptGeneratorRef interruptGenerator )
+OTF2_EvtWriter_CallingContextSample( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_CallingContextRef callingContext,
+uint32_t unwindDistance,
+OTF2_InterruptGeneratorRef interruptGenerator )
 {
     if ( !writerHandle )
     {
@@ -4728,8 +4728,8 @@ OTF2_EvtWriter_CallingContextSample( OTF2_EvtWriter*            writerHandle,
      */
     uint64_t record_data_length = 0;
 
-    record_data_length += sizeof( OTF2_CallingContextRef ) + 1;     /* callingContext */
-    record_data_length += sizeof( uint32_t ) + 1;                   /* unwindDistance */
+    record_data_length += sizeof( OTF2_CallingContextRef ) + 1; /* callingContext */
+    record_data_length += sizeof( uint32_t ) + 1; /* unwindDistance */
     record_data_length += sizeof( OTF2_InterruptGeneratorRef ) + 1; /* interruptGenerator */
     /* Finalize the upper bound of the record. */
     record_length += record_data_length;
@@ -4778,3 +4778,803 @@ OTF2_EvtWriter_CallingContextSample( OTF2_EvtWriter*            writerHandle,
 
     return ret;
 }
+
+
+OTF2_ErrorCode
+OTF2_EvtWriter_TaskCreate( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef region )
+{
+    if ( !writerHandle )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid writerHandle argument." );
+    }
+
+    OTF2_ErrorCode ret;
+
+    /*
+     * Maximum record length is the record id byte, plus the individual sizes of the
+     * attributes (excluding the timestamp), and the size of the attribute list.
+     */
+    uint64_t record_length = 1;
+
+    /*
+     * The size of the attribute list, if any.
+     */
+    uint64_t attribute_list_size = otf2_attribute_list_get_size( attributeList );
+    record_length += attribute_list_size;
+
+    /*
+     * Maximum memory usage of pure record data (excluding timestamp, type ID,
+     * record length information, and optional attribute list).
+     */
+    uint64_t record_data_length = 0;
+
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+    /* Finalize the upper bound of the record. */
+    record_length += record_data_length;
+
+    ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
+                                      time,
+                                      record_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return ret;
+    }
+
+    /* Write only the attribute list, if it is not empty */
+    if ( attribute_list_size )
+    {
+        ret = otf2_attribute_list_write_to_buffer( attributeList,
+                                                   writerHandle->buffer );
+        if ( OTF2_SUCCESS != ret )
+        {
+            return ret;
+        }
+    }
+
+    OTF2_Buffer_WriteUint8( writerHandle->buffer, OTF2_EVENT_TASK_CREATE );
+
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, region );
+
+    return ret;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtWriter_TaskDestroy( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef region )
+{
+    if ( !writerHandle )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid writerHandle argument." );
+    }
+
+    OTF2_ErrorCode ret;
+
+    /*
+     * Maximum record length is the record id byte, plus the individual sizes of the
+     * attributes (excluding the timestamp), and the size of the attribute list.
+     */
+    uint64_t record_length = 1;
+
+    /*
+     * The size of the attribute list, if any.
+     */
+    uint64_t attribute_list_size = otf2_attribute_list_get_size( attributeList );
+    record_length += attribute_list_size;
+
+    /*
+     * Maximum memory usage of pure record data (excluding timestamp, type ID,
+     * record length information, and optional attribute list).
+     */
+    uint64_t record_data_length = 0;
+
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+    /* Finalize the upper bound of the record. */
+    record_length += record_data_length;
+
+    ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
+                                      time,
+                                      record_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return ret;
+    }
+
+    /* Write only the attribute list, if it is not empty */
+    if ( attribute_list_size )
+    {
+        ret = otf2_attribute_list_write_to_buffer( attributeList,
+                                                   writerHandle->buffer );
+        if ( OTF2_SUCCESS != ret )
+        {
+            return ret;
+        }
+    }
+
+    OTF2_Buffer_WriteUint8( writerHandle->buffer, OTF2_EVENT_TASK_DESTROY );
+
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, region );
+
+    return ret;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtWriter_TaskRunnable( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef region )
+{
+    if ( !writerHandle )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid writerHandle argument." );
+    }
+
+    OTF2_ErrorCode ret;
+
+    /*
+     * Maximum record length is the record id byte, plus the individual sizes of the
+     * attributes (excluding the timestamp), and the size of the attribute list.
+     */
+    uint64_t record_length = 1;
+
+    /*
+     * The size of the attribute list, if any.
+     */
+    uint64_t attribute_list_size = otf2_attribute_list_get_size( attributeList );
+    record_length += attribute_list_size;
+
+    /*
+     * Maximum memory usage of pure record data (excluding timestamp, type ID,
+     * record length information, and optional attribute list).
+     */
+    uint64_t record_data_length = 0;
+
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+    /* Finalize the upper bound of the record. */
+    record_length += record_data_length;
+
+    ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
+                                      time,
+                                      record_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return ret;
+    }
+
+    /* Write only the attribute list, if it is not empty */
+    if ( attribute_list_size )
+    {
+        ret = otf2_attribute_list_write_to_buffer( attributeList,
+                                                   writerHandle->buffer );
+        if ( OTF2_SUCCESS != ret )
+        {
+            return ret;
+        }
+    }
+
+    OTF2_Buffer_WriteUint8( writerHandle->buffer, OTF2_EVENT_TASK_RUNNABLE );
+
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, region );
+
+    return ret;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtWriter_AddDependence( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef src,
+OTF2_RegionRef dest )
+{
+    if ( !writerHandle )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid writerHandle argument." );
+    }
+
+    OTF2_ErrorCode ret;
+
+    /*
+     * Maximum record length is the record id byte, plus the individual sizes of the
+     * attributes (excluding the timestamp), and the size of the attribute list.
+     */
+    uint64_t record_length = 1;
+
+    /*
+     * The size of the attribute list, if any.
+     */
+    uint64_t attribute_list_size = otf2_attribute_list_get_size( attributeList );
+    record_length += attribute_list_size;
+
+    /*
+     * Maximum memory usage of pure record data (excluding timestamp, type ID,
+     * record length information, and optional attribute list).
+     */
+    uint64_t record_data_length = 0;
+
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* src */
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* dest */
+    /* Finalize the upper bound of the record. */
+    record_length += record_data_length;
+
+    /*
+     * Additional bytes to store real record length. For records that exceed 255 bytes
+     * we need a maximum of 9 bytes to encode their length. Due to on-line compression
+     * real record length can differ from maximum record length.
+     */
+    record_length += 1;
+    if ( record_data_length >= UINT8_MAX )
+    {
+        record_length += 8;
+    }
+
+    ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
+                                      time,
+                                      record_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return ret;
+    }
+
+    /* Write only the attribute list, if it is not empty */
+    if ( attribute_list_size )
+    {
+        ret = otf2_attribute_list_write_to_buffer( attributeList,
+                                                   writerHandle->buffer );
+        if ( OTF2_SUCCESS != ret )
+        {
+            return ret;
+        }
+    }
+
+    OTF2_Buffer_WriteUint8( writerHandle->buffer, OTF2_EVENT_ADD_DEPENDENCE );
+
+    /* Write initial record length */
+    OTF2_Buffer_WriteInitialRecordLength( writerHandle->buffer, record_data_length );
+
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, src );
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, dest );
+
+    /* Write real record length */
+    ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
+
+    return ret;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtWriter_SatisfyDependence( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef src,
+OTF2_RegionRef dest )
+{
+    if ( !writerHandle )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid writerHandle argument." );
+    }
+
+    OTF2_ErrorCode ret;
+
+    /*
+     * Maximum record length is the record id byte, plus the individual sizes of the
+     * attributes (excluding the timestamp), and the size of the attribute list.
+     */
+    uint64_t record_length = 1;
+
+    /*
+     * The size of the attribute list, if any.
+     */
+    uint64_t attribute_list_size = otf2_attribute_list_get_size( attributeList );
+    record_length += attribute_list_size;
+
+    /*
+     * Maximum memory usage of pure record data (excluding timestamp, type ID,
+     * record length information, and optional attribute list).
+     */
+    uint64_t record_data_length = 0;
+
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* src */
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* dest */
+    /* Finalize the upper bound of the record. */
+    record_length += record_data_length;
+
+    /*
+     * Additional bytes to store real record length. For records that exceed 255 bytes
+     * we need a maximum of 9 bytes to encode their length. Due to on-line compression
+     * real record length can differ from maximum record length.
+     */
+    record_length += 1;
+    if ( record_data_length >= UINT8_MAX )
+    {
+        record_length += 8;
+    }
+
+    ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
+                                      time,
+                                      record_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return ret;
+    }
+
+    /* Write only the attribute list, if it is not empty */
+    if ( attribute_list_size )
+    {
+        ret = otf2_attribute_list_write_to_buffer( attributeList,
+                                                   writerHandle->buffer );
+        if ( OTF2_SUCCESS != ret )
+        {
+            return ret;
+        }
+    }
+
+    OTF2_Buffer_WriteUint8( writerHandle->buffer, OTF2_EVENT_SATISFY_DEPENDENCE );
+
+    /* Write initial record length */
+    OTF2_Buffer_WriteInitialRecordLength( writerHandle->buffer, record_data_length );
+
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, src );
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, dest );
+
+    /* Write real record length */
+    ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
+
+    return ret;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtWriter_DataAcquire( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef task,
+OTF2_RegionRef data,
+uint64_t size )
+{
+    if ( !writerHandle )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid writerHandle argument." );
+    }
+
+    OTF2_ErrorCode ret;
+
+    /*
+     * Maximum record length is the record id byte, plus the individual sizes of the
+     * attributes (excluding the timestamp), and the size of the attribute list.
+     */
+    uint64_t record_length = 1;
+
+    /*
+     * The size of the attribute list, if any.
+     */
+    uint64_t attribute_list_size = otf2_attribute_list_get_size( attributeList );
+    record_length += attribute_list_size;
+
+    /*
+     * Maximum memory usage of pure record data (excluding timestamp, type ID,
+     * record length information, and optional attribute list).
+     */
+    uint64_t record_data_length = 0;
+
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* task */
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* data */
+    record_data_length += sizeof( uint64_t ) + 1; /* size */
+    /* Finalize the upper bound of the record. */
+    record_length += record_data_length;
+
+    /*
+     * Additional bytes to store real record length. For records that exceed 255 bytes
+     * we need a maximum of 9 bytes to encode their length. Due to on-line compression
+     * real record length can differ from maximum record length.
+     */
+    record_length += 1;
+    if ( record_data_length >= UINT8_MAX )
+    {
+        record_length += 8;
+    }
+
+    ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
+                                      time,
+                                      record_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return ret;
+    }
+
+    /* Write only the attribute list, if it is not empty */
+    if ( attribute_list_size )
+    {
+        ret = otf2_attribute_list_write_to_buffer( attributeList,
+                                                   writerHandle->buffer );
+        if ( OTF2_SUCCESS != ret )
+        {
+            return ret;
+        }
+    }
+
+    OTF2_Buffer_WriteUint8( writerHandle->buffer, OTF2_EVENT_DATA_ACQUIRE );
+
+    /* Write initial record length */
+    OTF2_Buffer_WriteInitialRecordLength( writerHandle->buffer, record_data_length );
+
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, task );
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, data );
+    OTF2_Buffer_WriteUint64( writerHandle->buffer, size );
+
+    /* Write real record length */
+    ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
+
+    return ret;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtWriter_DataRelease( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef task,
+OTF2_RegionRef data,
+uint64_t size )
+{
+    if ( !writerHandle )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid writerHandle argument." );
+    }
+
+    OTF2_ErrorCode ret;
+
+    /*
+     * Maximum record length is the record id byte, plus the individual sizes of the
+     * attributes (excluding the timestamp), and the size of the attribute list.
+     */
+    uint64_t record_length = 1;
+
+    /*
+     * The size of the attribute list, if any.
+     */
+    uint64_t attribute_list_size = otf2_attribute_list_get_size( attributeList );
+    record_length += attribute_list_size;
+
+    /*
+     * Maximum memory usage of pure record data (excluding timestamp, type ID,
+     * record length information, and optional attribute list).
+     */
+    uint64_t record_data_length = 0;
+
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* task */
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* data */
+    record_data_length += sizeof( uint64_t ) + 1; /* size */
+    /* Finalize the upper bound of the record. */
+    record_length += record_data_length;
+
+    /*
+     * Additional bytes to store real record length. For records that exceed 255 bytes
+     * we need a maximum of 9 bytes to encode their length. Due to on-line compression
+     * real record length can differ from maximum record length.
+     */
+    record_length += 1;
+    if ( record_data_length >= UINT8_MAX )
+    {
+        record_length += 8;
+    }
+
+    ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
+                                      time,
+                                      record_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return ret;
+    }
+
+    /* Write only the attribute list, if it is not empty */
+    if ( attribute_list_size )
+    {
+        ret = otf2_attribute_list_write_to_buffer( attributeList,
+                                                   writerHandle->buffer );
+        if ( OTF2_SUCCESS != ret )
+        {
+            return ret;
+        }
+    }
+
+    OTF2_Buffer_WriteUint8( writerHandle->buffer, OTF2_EVENT_DATA_RELEASE );
+
+    /* Write initial record length */
+    OTF2_Buffer_WriteInitialRecordLength( writerHandle->buffer, record_data_length );
+
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, task );
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, data );
+    OTF2_Buffer_WriteUint64( writerHandle->buffer, size );
+
+    /* Write real record length */
+    ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
+
+    return ret;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtWriter_EventCreate( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef region )
+{
+    if ( !writerHandle )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid writerHandle argument." );
+    }
+
+    OTF2_ErrorCode ret;
+
+    /*
+     * Maximum record length is the record id byte, plus the individual sizes of the
+     * attributes (excluding the timestamp), and the size of the attribute list.
+     */
+    uint64_t record_length = 1;
+
+    /*
+     * The size of the attribute list, if any.
+     */
+    uint64_t attribute_list_size = otf2_attribute_list_get_size( attributeList );
+    record_length += attribute_list_size;
+
+    /*
+     * Maximum memory usage of pure record data (excluding timestamp, type ID,
+     * record length information, and optional attribute list).
+     */
+    uint64_t record_data_length = 0;
+
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+    /* Finalize the upper bound of the record. */
+    record_length += record_data_length;
+
+    ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
+                                      time,
+                                      record_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return ret;
+    }
+
+    /* Write only the attribute list, if it is not empty */
+    if ( attribute_list_size )
+    {
+        ret = otf2_attribute_list_write_to_buffer( attributeList,
+                                                   writerHandle->buffer );
+        if ( OTF2_SUCCESS != ret )
+        {
+            return ret;
+        }
+    }
+
+    OTF2_Buffer_WriteUint8( writerHandle->buffer, OTF2_EVENT_EVENT_CREATE );
+
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, region );
+
+    return ret;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtWriter_EventDestroy( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef region )
+{
+    if ( !writerHandle )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid writerHandle argument." );
+    }
+
+    OTF2_ErrorCode ret;
+
+    /*
+     * Maximum record length is the record id byte, plus the individual sizes of the
+     * attributes (excluding the timestamp), and the size of the attribute list.
+     */
+    uint64_t record_length = 1;
+
+    /*
+     * The size of the attribute list, if any.
+     */
+    uint64_t attribute_list_size = otf2_attribute_list_get_size( attributeList );
+    record_length += attribute_list_size;
+
+    /*
+     * Maximum memory usage of pure record data (excluding timestamp, type ID,
+     * record length information, and optional attribute list).
+     */
+    uint64_t record_data_length = 0;
+
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+    /* Finalize the upper bound of the record. */
+    record_length += record_data_length;
+
+    ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
+                                      time,
+                                      record_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return ret;
+    }
+
+    /* Write only the attribute list, if it is not empty */
+    if ( attribute_list_size )
+    {
+        ret = otf2_attribute_list_write_to_buffer( attributeList,
+                                                   writerHandle->buffer );
+        if ( OTF2_SUCCESS != ret )
+        {
+            return ret;
+        }
+    }
+
+    OTF2_Buffer_WriteUint8( writerHandle->buffer, OTF2_EVENT_EVENT_DESTROY );
+
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, region );
+
+    return ret;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtWriter_DataCreate( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef region,
+uint64_t size )
+{
+    if ( !writerHandle )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid writerHandle argument." );
+    }
+
+    OTF2_ErrorCode ret;
+
+    /*
+     * Maximum record length is the record id byte, plus the individual sizes of the
+     * attributes (excluding the timestamp), and the size of the attribute list.
+     */
+    uint64_t record_length = 1;
+
+    /*
+     * The size of the attribute list, if any.
+     */
+    uint64_t attribute_list_size = otf2_attribute_list_get_size( attributeList );
+    record_length += attribute_list_size;
+
+    /*
+     * Maximum memory usage of pure record data (excluding timestamp, type ID,
+     * record length information, and optional attribute list).
+     */
+    uint64_t record_data_length = 0;
+
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+    record_data_length += sizeof( uint64_t ) + 1; /* size */
+    /* Finalize the upper bound of the record. */
+    record_length += record_data_length;
+
+    /*
+     * Additional bytes to store real record length. For records that exceed 255 bytes
+     * we need a maximum of 9 bytes to encode their length. Due to on-line compression
+     * real record length can differ from maximum record length.
+     */
+    record_length += 1;
+    if ( record_data_length >= UINT8_MAX )
+    {
+        record_length += 8;
+    }
+
+    ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
+                                      time,
+                                      record_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return ret;
+    }
+
+    /* Write only the attribute list, if it is not empty */
+    if ( attribute_list_size )
+    {
+        ret = otf2_attribute_list_write_to_buffer( attributeList,
+                                                   writerHandle->buffer );
+        if ( OTF2_SUCCESS != ret )
+        {
+            return ret;
+        }
+    }
+
+    OTF2_Buffer_WriteUint8( writerHandle->buffer, OTF2_EVENT_DATA_CREATE );
+
+    /* Write initial record length */
+    OTF2_Buffer_WriteInitialRecordLength( writerHandle->buffer, record_data_length );
+
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, region );
+    OTF2_Buffer_WriteUint64( writerHandle->buffer, size );
+
+    /* Write real record length */
+    ret = OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
+
+    return ret;
+}
+
+
+OTF2_ErrorCode
+OTF2_EvtWriter_DataDestroy( OTF2_EvtWriter*     writerHandle,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      time,
+OTF2_RegionRef region )
+{
+    if ( !writerHandle )
+    {
+        return UTILS_ERROR( OTF2_ERROR_INVALID_ARGUMENT,
+                            "Invalid writerHandle argument." );
+    }
+
+    OTF2_ErrorCode ret;
+
+    /*
+     * Maximum record length is the record id byte, plus the individual sizes of the
+     * attributes (excluding the timestamp), and the size of the attribute list.
+     */
+    uint64_t record_length = 1;
+
+    /*
+     * The size of the attribute list, if any.
+     */
+    uint64_t attribute_list_size = otf2_attribute_list_get_size( attributeList );
+    record_length += attribute_list_size;
+
+    /*
+     * Maximum memory usage of pure record data (excluding timestamp, type ID,
+     * record length information, and optional attribute list).
+     */
+    uint64_t record_data_length = 0;
+
+    record_data_length += sizeof( OTF2_RegionRef ) + 1; /* region */
+    /* Finalize the upper bound of the record. */
+    record_length += record_data_length;
+
+    ret = OTF2_Buffer_WriteTimeStamp( writerHandle->buffer,
+                                      time,
+                                      record_length );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return ret;
+    }
+
+    /* Write only the attribute list, if it is not empty */
+    if ( attribute_list_size )
+    {
+        ret = otf2_attribute_list_write_to_buffer( attributeList,
+                                                   writerHandle->buffer );
+        if ( OTF2_SUCCESS != ret )
+        {
+            return ret;
+        }
+    }
+
+    OTF2_Buffer_WriteUint8( writerHandle->buffer, OTF2_EVENT_DATA_DESTROY );
+
+    OTF2_Buffer_WriteUint32( writerHandle->buffer, region );
+
+    return ret;
+}
+

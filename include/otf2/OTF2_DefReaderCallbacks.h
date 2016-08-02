@@ -98,7 +98,7 @@ OTF2_DefReaderCallbacks_Clear( OTF2_DefReaderCallbacks* defReaderCallbacks );
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_Unknown )( void* userData );
+( *OTF2_DefReaderCallback_Unknown )( void* userData );
 
 
 /** @brief Registers the callback for an unknown definition.
@@ -125,7 +125,7 @@ OTF2_DefReaderCallbacks_SetUnknownCallback(
  *  Mapping tables are needed for situations where an ID is not globally
  *  known at measurement time. They are applied automatically at
  *  reading.
- *
+ *  
  *  @param userData    User data as set by
  *                     @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                     @eref{OTF2_DefReader_SetCallbacks}.
@@ -138,13 +138,13 @@ OTF2_DefReaderCallbacks_SetUnknownCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_MappingTable )( void*             userData,
-                                           OTF2_MappingType  mappingType,
-                                           const OTF2_IdMap* idMap );
+( *OTF2_DefReaderCallback_MappingTable )( void* userData ,
+OTF2_MappingType mappingType,
+const OTF2_IdMap* idMap );
 
 
 /** @brief Registers the callback for the @eref{MappingTable} definition.
- *
+ *  
  *  @param defReaderCallbacks   Struct for all callbacks.
  *  @param mappingTableCallback Function which should be called for all
  *                              @eref{MappingTable} definitions.
@@ -167,7 +167,7 @@ OTF2_DefReaderCallbacks_SetMappingTableCallback(
  *         a @eref{ClockOffset} definition record.
  *
  *  Clock offsets are used for clock corrections.
- *
+ *  
  *  @param userData          User data as set by
  *                           @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                           @eref{OTF2_DefReader_SetCallbacks}.
@@ -182,14 +182,14 @@ OTF2_DefReaderCallbacks_SetMappingTableCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_ClockOffset )( void*          userData,
-                                          OTF2_TimeStamp time,
-                                          int64_t        offset,
-                                          double         standardDeviation );
+( *OTF2_DefReaderCallback_ClockOffset )( void* userData ,
+OTF2_TimeStamp time,
+int64_t offset,
+double standardDeviation );
 
 
 /** @brief Registers the callback for the @eref{ClockOffset} definition.
- *
+ *  
  *  @param defReaderCallbacks  Struct for all callbacks.
  *  @param clockOffsetCallback Function which should be called for all
  *                             @eref{ClockOffset} definitions.
@@ -204,7 +204,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetClockOffsetCallback(
-    OTF2_DefReaderCallbacks*           defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_ClockOffset clockOffsetCallback );
 
 
@@ -212,7 +212,7 @@ OTF2_DefReaderCallbacks_SetClockOffsetCallback(
  *         a @eref{String} definition record.
  *
  *  The string definition.
- *
+ *  
  *  @param userData User data as set by @eref{OTF2_Reader_RegisterDefCallbacks}
  *                  or @eref{OTF2_DefReader_SetCallbacks}.
  *  @param self     The unique identifier for this @eref{String} definition.
@@ -223,13 +223,13 @@ OTF2_DefReaderCallbacks_SetClockOffsetCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_String )( void*          userData,
-                                     OTF2_StringRef self,
-                                     const char*    string );
+( *OTF2_DefReaderCallback_String )( void* userData ,
+OTF2_StringRef self,
+const char* string );
 
 
 /** @brief Registers the callback for the @eref{String} definition.
- *
+ *  
  *  @param defReaderCallbacks Struct for all callbacks.
  *  @param stringCallback     Function which should be called for all
  *                            @eref{String} definitions.
@@ -244,7 +244,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetStringCallback(
-    OTF2_DefReaderCallbacks*      defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_String stringCallback );
 
 
@@ -252,7 +252,7 @@ OTF2_DefReaderCallbacks_SetStringCallback(
  *         a @eref{Attribute} definition record.
  *
  *  The attribute definition.
- *
+ *  
  *  @param userData    User data as set by
  *                     @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                     @eref{OTF2_DefReader_SetCallbacks}.
@@ -269,15 +269,15 @@ OTF2_DefReaderCallbacks_SetStringCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_Attribute )( void*             userData,
-                                        OTF2_AttributeRef self,
-                                        OTF2_StringRef    name,
-                                        OTF2_StringRef    description,
-                                        OTF2_Type         type );
+( *OTF2_DefReaderCallback_Attribute )( void* userData ,
+OTF2_AttributeRef self,
+OTF2_StringRef name,
+OTF2_StringRef description,
+OTF2_Type type );
 
 
 /** @brief Registers the callback for the @eref{Attribute} definition.
- *
+ *  
  *  @param defReaderCallbacks Struct for all callbacks.
  *  @param attributeCallback  Function which should be called for all
  *                            @eref{Attribute} definitions.
@@ -292,7 +292,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetAttributeCallback(
-    OTF2_DefReaderCallbacks*         defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_Attribute attributeCallback );
 
 
@@ -300,7 +300,7 @@ OTF2_DefReaderCallbacks_SetAttributeCallback(
  *         a @eref{SystemTreeNode} definition record.
  *
  *  The system tree node definition.
- *
+ *  
  *  @param userData  User data as set by @eref{OTF2_Reader_RegisterDefCallbacks}
  *                   or @eref{OTF2_DefReader_SetCallbacks}.
  *  @param self      The unique identifier for this @eref{SystemTreeNode}
@@ -319,15 +319,15 @@ OTF2_DefReaderCallbacks_SetAttributeCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_SystemTreeNode )( void*                  userData,
-                                             OTF2_SystemTreeNodeRef self,
-                                             OTF2_StringRef         name,
-                                             OTF2_StringRef         className,
-                                             OTF2_SystemTreeNodeRef parent );
+( *OTF2_DefReaderCallback_SystemTreeNode )( void* userData ,
+OTF2_SystemTreeNodeRef self,
+OTF2_StringRef name,
+OTF2_StringRef className,
+OTF2_SystemTreeNodeRef parent );
 
 
 /** @brief Registers the callback for the @eref{SystemTreeNode} definition.
- *
+ *  
  *  @param defReaderCallbacks     Struct for all callbacks.
  *  @param systemTreeNodeCallback Function which should be called for all
  *                                @eref{SystemTreeNode} definitions.
@@ -342,7 +342,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetSystemTreeNodeCallback(
-    OTF2_DefReaderCallbacks*              defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_SystemTreeNode systemTreeNodeCallback );
 
 
@@ -350,7 +350,7 @@ OTF2_DefReaderCallbacks_SetSystemTreeNodeCallback(
  *         a @eref{LocationGroup} definition record.
  *
  *  The location group definition.
- *
+ *  
  *  @param userData          User data as set by
  *                           @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                           @eref{OTF2_DefReader_SetCallbacks}.
@@ -367,15 +367,15 @@ OTF2_DefReaderCallbacks_SetSystemTreeNodeCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_LocationGroup )( void*                  userData,
-                                            OTF2_LocationGroupRef  self,
-                                            OTF2_StringRef         name,
-                                            OTF2_LocationGroupType locationGroupType,
-                                            OTF2_SystemTreeNodeRef systemTreeParent );
+( *OTF2_DefReaderCallback_LocationGroup )( void* userData ,
+OTF2_LocationGroupRef self,
+OTF2_StringRef name,
+OTF2_LocationGroupType locationGroupType,
+OTF2_SystemTreeNodeRef systemTreeParent );
 
 
 /** @brief Registers the callback for the @eref{LocationGroup} definition.
- *
+ *  
  *  @param defReaderCallbacks    Struct for all callbacks.
  *  @param locationGroupCallback Function which should be called for all
  *                               @eref{LocationGroup} definitions.
@@ -390,7 +390,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetLocationGroupCallback(
-    OTF2_DefReaderCallbacks*             defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_LocationGroup locationGroupCallback );
 
 
@@ -398,7 +398,7 @@ OTF2_DefReaderCallbacks_SetLocationGroupCallback(
  *         a @eref{Location} definition record.
  *
  *  The location definition.
- *
+ *  
  *  @param userData       User data as set by
  *                        @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                        @eref{OTF2_DefReader_SetCallbacks}.
@@ -416,16 +416,16 @@ OTF2_DefReaderCallbacks_SetLocationGroupCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_Location )( void*                 userData,
-                                       OTF2_LocationRef      self,
-                                       OTF2_StringRef        name,
-                                       OTF2_LocationType     locationType,
-                                       uint64_t              numberOfEvents,
-                                       OTF2_LocationGroupRef locationGroup );
+( *OTF2_DefReaderCallback_Location )( void* userData ,
+OTF2_LocationRef self,
+OTF2_StringRef name,
+OTF2_LocationType locationType,
+uint64_t numberOfEvents,
+OTF2_LocationGroupRef locationGroup );
 
 
 /** @brief Registers the callback for the @eref{Location} definition.
- *
+ *  
  *  @param defReaderCallbacks Struct for all callbacks.
  *  @param locationCallback   Function which should be called for all
  *                            @eref{Location} definitions.
@@ -440,7 +440,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetLocationCallback(
-    OTF2_DefReaderCallbacks*        defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_Location locationCallback );
 
 
@@ -448,7 +448,7 @@ OTF2_DefReaderCallbacks_SetLocationCallback(
  *         a @eref{Region} definition record.
  *
  *  The region definition.
- *
+ *  
  *  @param userData        User data as set by
  *                         @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                         @eref{OTF2_DefReader_SetCallbacks}.
@@ -475,21 +475,21 @@ OTF2_DefReaderCallbacks_SetLocationCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_Region )( void*           userData,
-                                     OTF2_RegionRef  self,
-                                     OTF2_StringRef  name,
-                                     OTF2_StringRef  canonicalName,
-                                     OTF2_StringRef  description,
-                                     OTF2_RegionRole regionRole,
-                                     OTF2_Paradigm   paradigm,
-                                     OTF2_RegionFlag regionFlags,
-                                     OTF2_StringRef  sourceFile,
-                                     uint32_t        beginLineNumber,
-                                     uint32_t        endLineNumber );
+( *OTF2_DefReaderCallback_Region )( void* userData ,
+OTF2_RegionRef self,
+OTF2_StringRef name,
+OTF2_StringRef canonicalName,
+OTF2_StringRef description,
+OTF2_RegionRole regionRole,
+OTF2_Paradigm paradigm,
+OTF2_RegionFlag regionFlags,
+OTF2_StringRef sourceFile,
+uint32_t beginLineNumber,
+uint32_t endLineNumber );
 
 
 /** @brief Registers the callback for the @eref{Region} definition.
- *
+ *  
  *  @param defReaderCallbacks Struct for all callbacks.
  *  @param regionCallback     Function which should be called for all
  *                            @eref{Region} definitions.
@@ -504,7 +504,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetRegionCallback(
-    OTF2_DefReaderCallbacks*      defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_Region regionCallback );
 
 
@@ -512,7 +512,7 @@ OTF2_DefReaderCallbacks_SetRegionCallback(
  *         a @eref{Callsite} definition record.
  *
  *  The callsite definition.
- *
+ *  
  *  @param userData      User data as set by
  *                       @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                       @eref{OTF2_DefReader_SetCallbacks}.
@@ -533,16 +533,16 @@ OTF2_DefReaderCallbacks_SetRegionCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_Callsite )( void*            userData,
-                                       OTF2_CallsiteRef self,
-                                       OTF2_StringRef   sourceFile,
-                                       uint32_t         lineNumber,
-                                       OTF2_RegionRef   enteredRegion,
-                                       OTF2_RegionRef   leftRegion );
+( *OTF2_DefReaderCallback_Callsite )( void* userData ,
+OTF2_CallsiteRef self,
+OTF2_StringRef sourceFile,
+uint32_t lineNumber,
+OTF2_RegionRef enteredRegion,
+OTF2_RegionRef leftRegion );
 
 
 /** @brief Registers the callback for the @eref{Callsite} definition.
- *
+ *  
  *  @param defReaderCallbacks Struct for all callbacks.
  *  @param callsiteCallback   Function which should be called for all
  *                            @eref{Callsite} definitions.
@@ -559,7 +559,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetCallsiteCallback(
-    OTF2_DefReaderCallbacks*        defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_Callsite callsiteCallback );
 
 
@@ -567,7 +567,7 @@ OTF2_DefReaderCallbacks_SetCallsiteCallback(
  *         a @eref{Callpath} definition record.
  *
  *  The callpath definition.
- *
+ *  
  *  @param userData User data as set by @eref{OTF2_Reader_RegisterDefCallbacks}
  *                  or @eref{OTF2_DefReader_SetCallbacks}.
  *  @param self     The unique identifier for this @eref{Callpath} definition.
@@ -581,14 +581,14 @@ OTF2_DefReaderCallbacks_SetCallsiteCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_Callpath )( void*            userData,
-                                       OTF2_CallpathRef self,
-                                       OTF2_CallpathRef parent,
-                                       OTF2_RegionRef   region );
+( *OTF2_DefReaderCallback_Callpath )( void* userData ,
+OTF2_CallpathRef self,
+OTF2_CallpathRef parent,
+OTF2_RegionRef region );
 
 
 /** @brief Registers the callback for the @eref{Callpath} definition.
- *
+ *  
  *  @param defReaderCallbacks Struct for all callbacks.
  *  @param callpathCallback   Function which should be called for all
  *                            @eref{Callpath} definitions.
@@ -603,7 +603,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetCallpathCallback(
-    OTF2_DefReaderCallbacks*        defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_Callpath callpathCallback );
 
 
@@ -611,7 +611,7 @@ OTF2_DefReaderCallbacks_SetCallpathCallback(
  *         a @eref{Group} definition record.
  *
  *  The group definition.
- *
+ *  
  *  @param userData        User data as set by
  *                         @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                         @eref{OTF2_DefReader_SetCallbacks}.
@@ -631,18 +631,18 @@ OTF2_DefReaderCallbacks_SetCallpathCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_Group )( void*           userData,
-                                    OTF2_GroupRef   self,
-                                    OTF2_StringRef  name,
-                                    OTF2_GroupType  groupType,
-                                    OTF2_Paradigm   paradigm,
-                                    OTF2_GroupFlag  groupFlags,
-                                    uint32_t        numberOfMembers,
-                                    const uint64_t* members );
+( *OTF2_DefReaderCallback_Group )( void* userData ,
+OTF2_GroupRef self,
+OTF2_StringRef name,
+OTF2_GroupType groupType,
+OTF2_Paradigm paradigm,
+OTF2_GroupFlag groupFlags,
+uint32_t numberOfMembers,
+const uint64_t* members );
 
 
 /** @brief Registers the callback for the @eref{Group} definition.
- *
+ *  
  *  @param defReaderCallbacks Struct for all callbacks.
  *  @param groupCallback      Function which should be called for all
  *                            @eref{Group} definitions.
@@ -657,7 +657,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetGroupCallback(
-    OTF2_DefReaderCallbacks*     defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_Group groupCallback );
 
 
@@ -669,7 +669,7 @@ OTF2_DefReaderCallbacks_SetGroupCallback(
  *  special case of a metric class with only one member. It is not
  *  allowed to reference a metric member id in a metric event, but
  *  only metric class IDs.
- *
+ *  
  *  @param userData    User data as set by
  *                     @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                     @eref{OTF2_DefReader_SetCallbacks}.
@@ -707,20 +707,20 @@ OTF2_DefReaderCallbacks_SetGroupCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_MetricMember )( void*                userData,
-                                           OTF2_MetricMemberRef self,
-                                           OTF2_StringRef       name,
-                                           OTF2_StringRef       description,
-                                           OTF2_MetricType      metricType,
-                                           OTF2_MetricMode      metricMode,
-                                           OTF2_Type            valueType,
-                                           OTF2_Base            base,
-                                           int64_t              exponent,
-                                           OTF2_StringRef       unit );
+( *OTF2_DefReaderCallback_MetricMember )( void* userData ,
+OTF2_MetricMemberRef self,
+OTF2_StringRef name,
+OTF2_StringRef description,
+OTF2_MetricType metricType,
+OTF2_MetricMode metricMode,
+OTF2_Type valueType,
+OTF2_Base base,
+int64_t exponent,
+OTF2_StringRef unit );
 
 
 /** @brief Registers the callback for the @eref{MetricMember} definition.
- *
+ *  
  *  @param defReaderCallbacks   Struct for all callbacks.
  *  @param metricMemberCallback Function which should be called for all
  *                              @eref{MetricMember} definitions.
@@ -745,7 +745,7 @@ OTF2_DefReaderCallbacks_SetMetricMemberCallback(
  *  For a metric class it is implicitly given that the event stream that
  *  records the metric is also the scope. A metric class can contain
  *  multiple different metrics.
- *
+ *  
  *  @param userData         User data as set by
  *                          @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                          @eref{OTF2_DefReader_SetCallbacks}.
@@ -764,16 +764,16 @@ OTF2_DefReaderCallbacks_SetMetricMemberCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_MetricClass )( void*                       userData,
-                                          OTF2_MetricRef              self,
-                                          uint8_t                     numberOfMetrics,
-                                          const OTF2_MetricMemberRef* metricMembers,
-                                          OTF2_MetricOccurrence       metricOccurrence,
-                                          OTF2_RecorderKind           recorderKind );
+( *OTF2_DefReaderCallback_MetricClass )( void* userData ,
+OTF2_MetricRef self,
+uint8_t numberOfMetrics,
+const OTF2_MetricMemberRef* metricMembers,
+OTF2_MetricOccurrence metricOccurrence,
+OTF2_RecorderKind recorderKind );
 
 
 /** @brief Registers the callback for the @eref{MetricClass} definition.
- *
+ *  
  *  @param defReaderCallbacks  Struct for all callbacks.
  *  @param metricClassCallback Function which should be called for all
  *                             @eref{MetricClass} definitions.
@@ -788,7 +788,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetMetricClassCallback(
-    OTF2_DefReaderCallbacks*           defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_MetricClass metricClassCallback );
 
 
@@ -799,7 +799,7 @@ OTF2_DefReaderCallbacks_SetMetricClassCallback(
  *  location for multiple locations or for another location. The
  *  occurrence of a metric instance is implicitly of type
  *  @eref{OTF2_METRIC_ASYNCHRONOUS}.
- *
+ *  
  *  @param userData    User data as set by
  *                     @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                     @eref{OTF2_DefReader_SetCallbacks}.
@@ -820,16 +820,16 @@ OTF2_DefReaderCallbacks_SetMetricClassCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_MetricInstance )( void*            userData,
-                                             OTF2_MetricRef   self,
-                                             OTF2_MetricRef   metricClass,
-                                             OTF2_LocationRef recorder,
-                                             OTF2_MetricScope metricScope,
-                                             uint64_t         scope );
+( *OTF2_DefReaderCallback_MetricInstance )( void* userData ,
+OTF2_MetricRef self,
+OTF2_MetricRef metricClass,
+OTF2_LocationRef recorder,
+OTF2_MetricScope metricScope,
+uint64_t scope );
 
 
 /** @brief Registers the callback for the @eref{MetricInstance} definition.
- *
+ *  
  *  @param defReaderCallbacks     Struct for all callbacks.
  *  @param metricInstanceCallback Function which should be called for all
  *                                @eref{MetricInstance} definitions.
@@ -844,7 +844,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetMetricInstanceCallback(
-    OTF2_DefReaderCallbacks*              defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_MetricInstance metricInstanceCallback );
 
 
@@ -852,7 +852,7 @@ OTF2_DefReaderCallbacks_SetMetricInstanceCallback(
  *         a @eref{Comm} definition record.
  *
  *  The communicator definition.
- *
+ *  
  *  @param userData User data as set by @eref{OTF2_Reader_RegisterDefCallbacks}
  *                  or @eref{OTF2_DefReader_SetCallbacks}.
  *  @param self     The unique identifier for this @eref{Comm} definition.
@@ -872,15 +872,15 @@ OTF2_DefReaderCallbacks_SetMetricInstanceCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_Comm )( void*          userData,
-                                   OTF2_CommRef   self,
-                                   OTF2_StringRef name,
-                                   OTF2_GroupRef  group,
-                                   OTF2_CommRef   parent );
+( *OTF2_DefReaderCallback_Comm )( void* userData ,
+OTF2_CommRef self,
+OTF2_StringRef name,
+OTF2_GroupRef group,
+OTF2_CommRef parent );
 
 
 /** @brief Registers the callback for the @eref{Comm} definition.
- *
+ *  
  *  @param defReaderCallbacks Struct for all callbacks.
  *  @param commCallback       Function which should be called for all @eref{Comm}
  *                            definitions.
@@ -895,7 +895,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetCommCallback(
-    OTF2_DefReaderCallbacks*    defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_Comm commCallback );
 
 
@@ -903,7 +903,7 @@ OTF2_DefReaderCallbacks_SetCommCallback(
  *         a @eref{Parameter} definition record.
  *
  *  The parameter definition.
- *
+ *  
  *  @param userData      User data as set by
  *                       @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                       @eref{OTF2_DefReader_SetCallbacks}.
@@ -919,14 +919,14 @@ OTF2_DefReaderCallbacks_SetCommCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_Parameter )( void*              userData,
-                                        OTF2_ParameterRef  self,
-                                        OTF2_StringRef     name,
-                                        OTF2_ParameterType parameterType );
+( *OTF2_DefReaderCallback_Parameter )( void* userData ,
+OTF2_ParameterRef self,
+OTF2_StringRef name,
+OTF2_ParameterType parameterType );
 
 
 /** @brief Registers the callback for the @eref{Parameter} definition.
- *
+ *  
  *  @param defReaderCallbacks Struct for all callbacks.
  *  @param parameterCallback  Function which should be called for all
  *                            @eref{Parameter} definitions.
@@ -941,7 +941,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetParameterCallback(
-    OTF2_DefReaderCallbacks*         defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_Parameter parameterCallback );
 
 
@@ -950,7 +950,7 @@ OTF2_DefReaderCallbacks_SetParameterCallback(
  *
  *  A window defines the communication context for any remote-memory
  *  access operation.
- *
+ *  
  *  @param userData User data as set by @eref{OTF2_Reader_RegisterDefCallbacks}
  *                  or @eref{OTF2_DefReader_SetCallbacks}.
  *  @param self     The unique identifier for this @eref{RmaWin} definition.
@@ -964,14 +964,14 @@ OTF2_DefReaderCallbacks_SetParameterCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_RmaWin )( void*          userData,
-                                     OTF2_RmaWinRef self,
-                                     OTF2_StringRef name,
-                                     OTF2_CommRef   comm );
+( *OTF2_DefReaderCallback_RmaWin )( void* userData ,
+OTF2_RmaWinRef self,
+OTF2_StringRef name,
+OTF2_CommRef comm );
 
 
 /** @brief Registers the callback for the @eref{RmaWin} definition.
- *
+ *  
  *  @param defReaderCallbacks Struct for all callbacks.
  *  @param rmaWinCallback     Function which should be called for all
  *                            @eref{RmaWin} definitions.
@@ -986,7 +986,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetRmaWinCallback(
-    OTF2_DefReaderCallbacks*      defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_RmaWin rmaWinCallback );
 
 
@@ -994,7 +994,7 @@ OTF2_DefReaderCallbacks_SetRmaWinCallback(
  *         a @eref{MetricClassRecorder} definition record.
  *
  *  The metric class recorder definition.
- *
+ *  
  *  @param userData    User data as set by
  *                     @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                     @eref{OTF2_DefReader_SetCallbacks}.
@@ -1009,13 +1009,13 @@ OTF2_DefReaderCallbacks_SetRmaWinCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_MetricClassRecorder )( void*            userData,
-                                                  OTF2_MetricRef   metricClass,
-                                                  OTF2_LocationRef recorder );
+( *OTF2_DefReaderCallback_MetricClassRecorder )( void* userData ,
+OTF2_MetricRef metricClass,
+OTF2_LocationRef recorder );
 
 
 /** @brief Registers the callback for the @eref{MetricClassRecorder} definition.
- *
+ *  
  *  @param defReaderCallbacks          Struct for all callbacks.
  *  @param metricClassRecorderCallback Function which should be called for all
  *                                     @eref{MetricClassRecorder}
@@ -1031,7 +1031,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetMetricClassRecorderCallback(
-    OTF2_DefReaderCallbacks*                   defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_MetricClassRecorder metricClassRecorderCallback );
 
 
@@ -1040,7 +1040,7 @@ OTF2_DefReaderCallbacks_SetMetricClassRecorderCallback(
  *
  *  An arbitrary key/value property for a @eref{SystemTreeNode}
  *  definition.
- *
+ *  
  *  @param userData       User data as set by
  *                        @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                        @eref{OTF2_DefReader_SetCallbacks}.
@@ -1057,15 +1057,15 @@ OTF2_DefReaderCallbacks_SetMetricClassRecorderCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_SystemTreeNodeProperty )( void*                  userData,
-                                                     OTF2_SystemTreeNodeRef systemTreeNode,
-                                                     OTF2_StringRef         name,
-                                                     OTF2_Type              type,
-                                                     OTF2_AttributeValue    value );
+( *OTF2_DefReaderCallback_SystemTreeNodeProperty )( void* userData ,
+OTF2_SystemTreeNodeRef systemTreeNode,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Registers the callback for the @eref{SystemTreeNodeProperty} definition.
- *
+ *  
  *  @param defReaderCallbacks             Struct for all callbacks.
  *  @param systemTreeNodePropertyCallback Function which should be called for all
  *                                        @eref{SystemTreeNodeProperty}
@@ -1081,7 +1081,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetSystemTreeNodePropertyCallback(
-    OTF2_DefReaderCallbacks*                      defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_SystemTreeNodeProperty systemTreeNodePropertyCallback );
 
 
@@ -1089,7 +1089,7 @@ OTF2_DefReaderCallbacks_SetSystemTreeNodePropertyCallback(
  *         a @eref{SystemTreeNodeDomain} definition record.
  *
  *  The system tree node domain definition.
- *
+ *  
  *  @param userData         User data as set by
  *                          @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                          @eref{OTF2_DefReader_SetCallbacks}.
@@ -1104,13 +1104,13 @@ OTF2_DefReaderCallbacks_SetSystemTreeNodePropertyCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_SystemTreeNodeDomain )( void*                  userData,
-                                                   OTF2_SystemTreeNodeRef systemTreeNode,
-                                                   OTF2_SystemTreeDomain  systemTreeDomain );
+( *OTF2_DefReaderCallback_SystemTreeNodeDomain )( void* userData ,
+OTF2_SystemTreeNodeRef systemTreeNode,
+OTF2_SystemTreeDomain systemTreeDomain );
 
 
 /** @brief Registers the callback for the @eref{SystemTreeNodeDomain} definition.
- *
+ *  
  *  @param defReaderCallbacks           Struct for all callbacks.
  *  @param systemTreeNodeDomainCallback Function which should be called for all
  *                                      @eref{SystemTreeNodeDomain}
@@ -1126,7 +1126,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetSystemTreeNodeDomainCallback(
-    OTF2_DefReaderCallbacks*                    defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_SystemTreeNodeDomain systemTreeNodeDomainCallback );
 
 
@@ -1134,7 +1134,7 @@ OTF2_DefReaderCallbacks_SetSystemTreeNodeDomainCallback(
  *         a @eref{LocationGroupProperty} definition record.
  *
  *  An arbitrary key/value property for a @eref{LocationGroup} definition.
- *
+ *  
  *  @param userData      User data as set by
  *                       @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                       @eref{OTF2_DefReader_SetCallbacks}.
@@ -1151,15 +1151,15 @@ OTF2_DefReaderCallbacks_SetSystemTreeNodeDomainCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_LocationGroupProperty )( void*                 userData,
-                                                    OTF2_LocationGroupRef locationGroup,
-                                                    OTF2_StringRef        name,
-                                                    OTF2_Type             type,
-                                                    OTF2_AttributeValue   value );
+( *OTF2_DefReaderCallback_LocationGroupProperty )( void* userData ,
+OTF2_LocationGroupRef locationGroup,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Registers the callback for the @eref{LocationGroupProperty} definition.
- *
+ *  
  *  @param defReaderCallbacks            Struct for all callbacks.
  *  @param locationGroupPropertyCallback Function which should be called for all
  *                                       @eref{LocationGroupProperty}
@@ -1175,7 +1175,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetLocationGroupPropertyCallback(
-    OTF2_DefReaderCallbacks*                     defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_LocationGroupProperty locationGroupPropertyCallback );
 
 
@@ -1183,7 +1183,7 @@ OTF2_DefReaderCallbacks_SetLocationGroupPropertyCallback(
  *         a @eref{LocationProperty} definition record.
  *
  *  An arbitrary key/value property for a @eref{Location} definition.
- *
+ *  
  *  @param userData    User data as set by
  *                     @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                     @eref{OTF2_DefReader_SetCallbacks}.
@@ -1200,15 +1200,15 @@ OTF2_DefReaderCallbacks_SetLocationGroupPropertyCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_LocationProperty )( void*               userData,
-                                               OTF2_LocationRef    location,
-                                               OTF2_StringRef      name,
-                                               OTF2_Type           type,
-                                               OTF2_AttributeValue value );
+( *OTF2_DefReaderCallback_LocationProperty )( void* userData ,
+OTF2_LocationRef location,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Registers the callback for the @eref{LocationProperty} definition.
- *
+ *  
  *  @param defReaderCallbacks       Struct for all callbacks.
  *  @param locationPropertyCallback Function which should be called for all
  *                                  @eref{LocationProperty} definitions.
@@ -1223,7 +1223,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetLocationPropertyCallback(
-    OTF2_DefReaderCallbacks*                defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_LocationProperty locationPropertyCallback );
 
 
@@ -1232,7 +1232,7 @@ OTF2_DefReaderCallbacks_SetLocationPropertyCallback(
  *
  *  Each dimension in a Cartesian topology is composed of a global id, a
  *  name, its size, and whether it is periodic or not.
- *
+ *  
  *  @param userData        User data as set by
  *                         @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                         @eref{OTF2_DefReader_SetCallbacks}.
@@ -1248,15 +1248,15 @@ OTF2_DefReaderCallbacks_SetLocationPropertyCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_CartDimension )( void*                 userData,
-                                            OTF2_CartDimensionRef self,
-                                            OTF2_StringRef        name,
-                                            uint32_t              size,
-                                            OTF2_CartPeriodicity  cartPeriodicity );
+( *OTF2_DefReaderCallback_CartDimension )( void* userData ,
+OTF2_CartDimensionRef self,
+OTF2_StringRef name,
+uint32_t size,
+OTF2_CartPeriodicity cartPeriodicity );
 
 
 /** @brief Registers the callback for the @eref{CartDimension} definition.
- *
+ *  
  *  @param defReaderCallbacks    Struct for all callbacks.
  *  @param cartDimensionCallback Function which should be called for all
  *                               @eref{CartDimension} definitions.
@@ -1271,7 +1271,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetCartDimensionCallback(
-    OTF2_DefReaderCallbacks*             defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_CartDimension cartDimensionCallback );
 
 
@@ -1283,7 +1283,7 @@ OTF2_DefReaderCallbacks_SetCartDimensionCallback(
  *  references to those dimensions. The topology type is defined by
  *  the paradigm of the group referenced by the associated
  *  communicator.
- *
+ *  
  *  @param userData           User data as set by
  *                            @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                            @eref{OTF2_DefReader_SetCallbacks}.
@@ -1302,16 +1302,16 @@ OTF2_DefReaderCallbacks_SetCartDimensionCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_CartTopology )( void*                        userData,
-                                           OTF2_CartTopologyRef         self,
-                                           OTF2_StringRef               name,
-                                           OTF2_CommRef                 communicator,
-                                           uint8_t                      numberOfDimensions,
-                                           const OTF2_CartDimensionRef* cartDimensions );
+( *OTF2_DefReaderCallback_CartTopology )( void* userData ,
+OTF2_CartTopologyRef self,
+OTF2_StringRef name,
+OTF2_CommRef communicator,
+uint8_t numberOfDimensions,
+const OTF2_CartDimensionRef* cartDimensions );
 
 
 /** @brief Registers the callback for the @eref{CartTopology} definition.
- *
+ *  
  *  @param defReaderCallbacks   Struct for all callbacks.
  *  @param cartTopologyCallback Function which should be called for all
  *                              @eref{CartTopology} definitions.
@@ -1336,7 +1336,7 @@ OTF2_DefReaderCallbacks_SetCartTopologyCallback(
  *  Defines the coordinate of the location referenced by the given rank
  *  (w.r.t. the communicator associated to the topology) in the
  *  referenced topology.
- *
+ *  
  *  @param userData           User data as set by
  *                            @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                            @eref{OTF2_DefReader_SetCallbacks}.
@@ -1353,15 +1353,15 @@ OTF2_DefReaderCallbacks_SetCartTopologyCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_CartCoordinate )( void*                userData,
-                                             OTF2_CartTopologyRef cartTopology,
-                                             uint32_t             rank,
-                                             uint8_t              numberOfDimensions,
-                                             const uint32_t*      coordinates );
+( *OTF2_DefReaderCallback_CartCoordinate )( void* userData ,
+OTF2_CartTopologyRef cartTopology,
+uint32_t rank,
+uint8_t numberOfDimensions,
+const uint32_t* coordinates );
 
 
 /** @brief Registers the callback for the @eref{CartCoordinate} definition.
- *
+ *  
  *  @param defReaderCallbacks     Struct for all callbacks.
  *  @param cartCoordinateCallback Function which should be called for all
  *                                @eref{CartCoordinate} definitions.
@@ -1376,7 +1376,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetCartCoordinateCallback(
-    OTF2_DefReaderCallbacks*              defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_CartCoordinate cartCoordinateCallback );
 
 
@@ -1385,12 +1385,12 @@ OTF2_DefReaderCallbacks_SetCartCoordinateCallback(
  *
  *  The definition of a source code location as tuple of the corresponding
  *  file name and line number.
- *
+ *  
  *  When used to attach source code annotations to events, use the
  *  @eref{OTF2_AttributeList} with a @eref{Attribute} definition named
  *  @c "SOURCE_CODE_LOCATION" and typed
  *  @eref{OTF2_TYPE_SOURCE_CODE_LOCATION}.
- *
+ *  
  *  @param userData   User data as set by @eref{OTF2_Reader_RegisterDefCallbacks}
  *                    or @eref{OTF2_DefReader_SetCallbacks}.
  *  @param self       The unique identifier for this @eref{SourceCodeLocation}
@@ -1404,14 +1404,14 @@ OTF2_DefReaderCallbacks_SetCartCoordinateCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_SourceCodeLocation )( void*                      userData,
-                                                 OTF2_SourceCodeLocationRef self,
-                                                 OTF2_StringRef             file,
-                                                 uint32_t                   lineNumber );
+( *OTF2_DefReaderCallback_SourceCodeLocation )( void* userData ,
+OTF2_SourceCodeLocationRef self,
+OTF2_StringRef file,
+uint32_t lineNumber );
 
 
 /** @brief Registers the callback for the @eref{SourceCodeLocation} definition.
- *
+ *  
  *  @param defReaderCallbacks         Struct for all callbacks.
  *  @param sourceCodeLocationCallback Function which should be called for all
  *                                    @eref{SourceCodeLocation} definitions.
@@ -1426,7 +1426,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetSourceCodeLocationCallback(
-    OTF2_DefReaderCallbacks*                  defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_SourceCodeLocation sourceCodeLocationCallback );
 
 
@@ -1436,13 +1436,13 @@ OTF2_DefReaderCallbacks_SetSourceCodeLocationCallback(
  *  Defines a node in the calling context tree. These nodes are referenced
  *  in the @eref{CallingContextSample}, @eref{CallingContextEnter},
  *  and @eref{CallingContextLeave} events.
- *
+ *  
  *  The referenced @eref{CallingContext} node in these events form a path
  *  which represents the calling context at this time.  This path will
  *  be partitioned into at most three sub-paths by the @a
  *  unwindDistance attribute.  For the @eref{CallingContextLeave}
  *  event, the @a unwindDistance is defined to be 1.
- *
+ *  
  *  Starting from the referenced @eref{CallingContext} node, the first @f$
  *  N \ge 0 @f$ nodes were newly entered regions since the previous
  *  calling context event.  The next node is a region which was not
@@ -1452,28 +1452,28 @@ OTF2_DefReaderCallbacks_SetSourceCodeLocationCallback(
  *  then @f$ N + 1 @f$. In case the @p unwindDistance is @f$ 0 @f$,
  *  there are neither newly entered regions nor regions which made
  *  progress.
- *
+ *  
  *  It is guaranteed, that the node referenced by the @a unwindDistance
  *  exists in the previous and current calling context.  All
  *  descendants of this node's child in the previous calling context
  *  were left since the previous calling context event.
- *
+ *  
  *  It is valid that this node is the
  *  @eref{OTF2_UNDEFINED_CALLING_CONTEXT} node and that this node is
  *  already reached after @a unwindDistance @f$ - 1 @f$ steps.  In the
  *  latter case, there exists no region which made progress, all
  *  regions in the previous calling context were left and all regions
  *  in the current calling context were newly entered.
- *
+ *  
  *  Note that for @eref{CallingContextLeave} events, the parent of the
  *  referenced @eref{CallingContext} must be used as the previous
  *  calling context for the next event.
- *
+ *  
  *  Regions which were entered with a @eref{CallingContextEnter} event
  *  form an upper bound for the unwind distance, i.e., the @a
  *  unwindDistance points either to the parent of the last such
  *  entered region, or a node which is a descendant to this parent.
- *
+ *  
  *  To summarize, an @a unwindDistance of @f$ 0 @f$ means that no regions
  *  were left, newly entered, or made any progress.  An @a
  *  unwindDistance of @f$ 1 @f$ means that some regions were left
@@ -1483,7 +1483,7 @@ OTF2_DefReaderCallbacks_SetSourceCodeLocationCallback(
  *  regions were left regarding the previous calling context, there
  *  was progress in one region, and the first @a unwindDistance @f$ -
  *  1 @f$ regions were newly entered.
- *
+ *  
  *  @param userData           User data as set by
  *                            @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                            @eref{OTF2_DefReader_SetCallbacks}.
@@ -1501,15 +1501,15 @@ OTF2_DefReaderCallbacks_SetSourceCodeLocationCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_CallingContext )( void*                      userData,
-                                             OTF2_CallingContextRef     self,
-                                             OTF2_RegionRef             region,
-                                             OTF2_SourceCodeLocationRef sourceCodeLocation,
-                                             OTF2_CallingContextRef     parent );
+( *OTF2_DefReaderCallback_CallingContext )( void* userData ,
+OTF2_CallingContextRef self,
+OTF2_RegionRef region,
+OTF2_SourceCodeLocationRef sourceCodeLocation,
+OTF2_CallingContextRef parent );
 
 
 /** @brief Registers the callback for the @eref{CallingContext} definition.
- *
+ *  
  *  @param defReaderCallbacks     Struct for all callbacks.
  *  @param callingContextCallback Function which should be called for all
  *                                @eref{CallingContext} definitions.
@@ -1524,7 +1524,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetCallingContextCallback(
-    OTF2_DefReaderCallbacks*              defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_CallingContext callingContextCallback );
 
 
@@ -1533,7 +1533,7 @@ OTF2_DefReaderCallbacks_SetCallingContextCallback(
  *
  *  An arbitrary key/value property for a @eref{CallingContext}
  *  definition.
- *
+ *  
  *  @param userData       User data as set by
  *                        @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                        @eref{OTF2_DefReader_SetCallbacks}.
@@ -1550,15 +1550,15 @@ OTF2_DefReaderCallbacks_SetCallingContextCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_CallingContextProperty )( void*                  userData,
-                                                     OTF2_CallingContextRef callingContext,
-                                                     OTF2_StringRef         name,
-                                                     OTF2_Type              type,
-                                                     OTF2_AttributeValue    value );
+( *OTF2_DefReaderCallback_CallingContextProperty )( void* userData ,
+OTF2_CallingContextRef callingContext,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Registers the callback for the @eref{CallingContextProperty} definition.
- *
+ *  
  *  @param defReaderCallbacks             Struct for all callbacks.
  *  @param callingContextPropertyCallback Function which should be called for all
  *                                        @eref{CallingContextProperty}
@@ -1574,7 +1574,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetCallingContextPropertyCallback(
-    OTF2_DefReaderCallbacks*                      defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_CallingContextProperty callingContextPropertyCallback );
 
 
@@ -1591,13 +1591,13 @@ OTF2_DefReaderCallbacks_SetCallingContextPropertyCallback(
  *  system.  Therefore these samples are unlikely to be uniformly
  *  distributed over time.  The unit of the period is then implicitly
  *  a number (threshold value).
- *
+ *  
  *  The interrupts period in base unit (which is implicitly seconds or
  *  number, based on the @p mode) is derived out of the @p base, the
  *  @p exponent, and the @p period attributes by this formula:
- *
+ *  
  *  base-period = period x base^exponent
- *
+ *  
  *  @param userData               User data as set by
  *                                @eref{OTF2_Reader_RegisterDefCallbacks} or
  *                                @eref{OTF2_DefReader_SetCallbacks}.
@@ -1616,17 +1616,17 @@ OTF2_DefReaderCallbacks_SetCallingContextPropertyCallback(
  *  @return @eref{OTF2_CALLBACK_SUCCESS} or @eref{OTF2_CALLBACK_INTERRUPT}.
  */
 typedef OTF2_CallbackCode
-( * OTF2_DefReaderCallback_InterruptGenerator )( void*                       userData,
-                                                 OTF2_InterruptGeneratorRef  self,
-                                                 OTF2_StringRef              name,
-                                                 OTF2_InterruptGeneratorMode interruptGeneratorMode,
-                                                 OTF2_Base                   base,
-                                                 int64_t                     exponent,
-                                                 uint64_t                    period );
+( *OTF2_DefReaderCallback_InterruptGenerator )( void* userData ,
+OTF2_InterruptGeneratorRef self,
+OTF2_StringRef name,
+OTF2_InterruptGeneratorMode interruptGeneratorMode,
+OTF2_Base base,
+int64_t exponent,
+uint64_t period );
 
 
 /** @brief Registers the callback for the @eref{InterruptGenerator} definition.
- *
+ *  
  *  @param defReaderCallbacks         Struct for all callbacks.
  *  @param interruptGeneratorCallback Function which should be called for all
  *                                    @eref{InterruptGenerator} definitions.
@@ -1641,7 +1641,7 @@ typedef OTF2_CallbackCode
  */
 OTF2_ErrorCode
 OTF2_DefReaderCallbacks_SetInterruptGeneratorCallback(
-    OTF2_DefReaderCallbacks*                  defReaderCallbacks,
+    OTF2_DefReaderCallbacks*            defReaderCallbacks,
     OTF2_DefReaderCallback_InterruptGenerator interruptGeneratorCallback );
 
 

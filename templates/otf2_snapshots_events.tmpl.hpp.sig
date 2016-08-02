@@ -1,5 +1,5 @@
-9398acbf614cc734bd4af32ab21c22ba
-6b5476f39d7587ffd11025f6edbb6a6e
+6feda8145c01e4faa8b464b31ebba2cf
+043f33c0415aa7f4b5f8cc9de4b1ca3f
 ../src/tools/otf2_snapshots/otf2_snapshots_events.hpp
 otf2_snapshots_events.tmpl.hpp
 ../share/otf2/otf2.types

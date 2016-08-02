@@ -3089,6 +3089,344 @@ print_leave( OTF2_LocationRef    location,
 
 
 OTF2_CallbackCode
+print_task_create( OTF2_LocationRef    location,
+             OTF2_TimeStamp      time,
+             void*               userData,
+             OTF2_AttributeList* attributes,
+             OTF2_RegionRef      region )
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "Region: %s"
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "TASK_CREATE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+
+
+
+OTF2_CallbackCode
+print_task_destroy( OTF2_LocationRef    location,
+             OTF2_TimeStamp      time,
+             void*               userData,
+             OTF2_AttributeList* attributes,
+             OTF2_RegionRef      region )
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "Region: %s"
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "TASK_DESTROY",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+
+
+OTF2_CallbackCode
+print_task_runnable( OTF2_LocationRef    location,
+             OTF2_TimeStamp      time,
+             void*               userData,
+             OTF2_AttributeList* attributes,
+             OTF2_RegionRef      region )
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "Region: %s"
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "TASK_RUNNABLE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+
+OTF2_CallbackCode
+print_add_dependence( OTF2_LocationRef    location,
+             OTF2_TimeStamp      time,
+             void*               userData,
+             OTF2_AttributeList* attributes,
+             OTF2_RegionRef      src,
+             OTF2_RegionRef      dest )
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "Src: %s Dest: %s"
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "ADD_DEPENDENCE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, src ),
+            otf2_print_get_def_name( defs->regions, dest ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+
+OTF2_CallbackCode
+print_satisfy_dependence( OTF2_LocationRef    location,
+             OTF2_TimeStamp      time,
+             void*               userData,
+             OTF2_AttributeList* attributes,
+             OTF2_RegionRef      src,
+             OTF2_RegionRef      dest )
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "Src: %s Dest: %s"
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "SATISFY_DEPENDENCE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, src ),
+            otf2_print_get_def_name( defs->regions, dest ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+
+OTF2_CallbackCode
+print_data_acquire( OTF2_LocationRef    location,
+             OTF2_TimeStamp      time,
+             void*               userData,
+             OTF2_AttributeList* attributes,
+             OTF2_RegionRef      task_region,
+             OTF2_RegionRef      data_region,
+             uint64_t            size )
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "Task: %s Data: %s %15" PRIu64
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "DATA_ACQUIRE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, task_region ),
+            otf2_print_get_def_name( defs->regions, data_region ),
+            size,
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+
+OTF2_CallbackCode
+print_data_release( OTF2_LocationRef    location,
+             OTF2_TimeStamp      time,
+             void*               userData,
+             OTF2_AttributeList* attributes,
+             OTF2_RegionRef      task_region,
+             OTF2_RegionRef      data_region,
+             uint64_t            size )
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "Task: %s Data: %s %15" PRIu64
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "DATA_RELEASE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, task_region ),
+            otf2_print_get_def_name( defs->regions, data_region ),
+            size,
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+
+
+
+OTF2_CallbackCode
+print_event_create( OTF2_LocationRef    location,
+             OTF2_TimeStamp      time,
+             void*               userData,
+             OTF2_AttributeList* attributes,
+             OTF2_RegionRef      region )
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "Region: %s"
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "EVENT_CREATE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+
+OTF2_CallbackCode                                    
+print_event_destroy( OTF2_LocationRef    location,
+             OTF2_TimeStamp      time,
+             void*               userData,
+             OTF2_AttributeList* attributes,
+             OTF2_RegionRef      region )
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "Region: %s"
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "EVENT_DESTROY",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+
+OTF2_CallbackCode
+print_data_create( OTF2_LocationRef    location,
+             OTF2_TimeStamp      time,
+             void*               userData,
+             OTF2_AttributeList* attributes,
+             OTF2_RegionRef      region,
+             uint64_t            size )
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "Src: %s %15" PRIu64
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "DATA_CREATE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            size,
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+
+OTF2_CallbackCode                                    
+print_data_destroy( OTF2_LocationRef    location,
+             OTF2_TimeStamp      time,
+             void*               userData,
+             OTF2_AttributeList* attributes,
+             OTF2_RegionRef      region )
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "Region: %s"
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "DATA_DESTROY",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+
+OTF2_CallbackCode
 print_mpi_send( OTF2_LocationRef    location,
                 OTF2_TimeStamp      time,
                 void*               userData,

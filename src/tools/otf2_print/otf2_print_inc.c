@@ -284,42 +284,41 @@ otf2_print_get_attribute_value( struct otf2_print_defs* defs,
 
 
 static OTF2_CallbackCode
-print_global_def_clock_properties( void*    userData,
-                                   uint64_t timerResolution,
-                                   uint64_t globalOffset,
-                                   uint64_t traceLength );
+print_global_def_clock_properties( void* userData ,
+uint64_t timerResolution,
+uint64_t globalOffset,
+uint64_t traceLength );
 
 
 static OTF2_CallbackCode
-print_global_def_paradigm( void*              userData,
-                           OTF2_Paradigm      paradigm,
-                           OTF2_StringRef     name,
-                           OTF2_ParadigmClass paradigmClass );
+print_global_def_paradigm( void* userData ,
+OTF2_Paradigm paradigm,
+OTF2_StringRef name,
+OTF2_ParadigmClass paradigmClass );
 
 
 static OTF2_CallbackCode
-print_global_def_paradigm_property( void*                 userData,
-                                    OTF2_Paradigm         paradigm,
-                                    OTF2_ParadigmProperty property,
-                                    OTF2_Type             type,
-                                    OTF2_AttributeValue   value );
+print_global_def_paradigm_property( void* userData ,
+OTF2_Paradigm paradigm,
+OTF2_ParadigmProperty property,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 static OTF2_CallbackCode
-print_global_def_string( void*          userData,
-                         OTF2_StringRef self,
-                         const char*    string );
-
+print_global_def_string( void* userData ,
+OTF2_StringRef self,
+const char* string );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "String",
-                             defs->strings,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->strings,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -343,22 +342,21 @@ print_global_def_string( void*          userData,
 
 
 static OTF2_CallbackCode
-print_global_def_attribute( void*             userData,
-                            OTF2_AttributeRef self,
-                            OTF2_StringRef    name,
-                            OTF2_StringRef    description,
-                            OTF2_Type         type );
-
+print_global_def_attribute( void* userData ,
+OTF2_AttributeRef self,
+OTF2_StringRef name,
+OTF2_StringRef description,
+OTF2_Type type );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "Attribute",
-                             defs->attributes,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->attributes,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -386,22 +384,21 @@ print_global_def_attribute( void*             userData,
 
 
 static OTF2_CallbackCode
-print_global_def_system_tree_node( void*                  userData,
-                                   OTF2_SystemTreeNodeRef self,
-                                   OTF2_StringRef         name,
-                                   OTF2_StringRef         className,
-                                   OTF2_SystemTreeNodeRef parent );
-
+print_global_def_system_tree_node( void* userData ,
+OTF2_SystemTreeNodeRef self,
+OTF2_StringRef name,
+OTF2_StringRef className,
+OTF2_SystemTreeNodeRef parent );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "SystemTreeNode",
-                             defs->system_tree_nodes,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->system_tree_nodes,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -429,22 +426,21 @@ print_global_def_system_tree_node( void*                  userData,
 
 
 static OTF2_CallbackCode
-print_global_def_location_group( void*                  userData,
-                                 OTF2_LocationGroupRef  self,
-                                 OTF2_StringRef         name,
-                                 OTF2_LocationGroupType locationGroupType,
-                                 OTF2_SystemTreeNodeRef systemTreeParent );
-
+print_global_def_location_group( void* userData ,
+OTF2_LocationGroupRef self,
+OTF2_StringRef name,
+OTF2_LocationGroupType locationGroupType,
+OTF2_SystemTreeNodeRef systemTreeParent );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "LocationGroup",
-                             defs->location_groups,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->location_groups,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -472,23 +468,22 @@ print_global_def_location_group( void*                  userData,
 
 
 static OTF2_CallbackCode
-print_global_def_location( void*                 userData,
-                           OTF2_LocationRef      self,
-                           OTF2_StringRef        name,
-                           OTF2_LocationType     locationType,
-                           uint64_t              numberOfEvents,
-                           OTF2_LocationGroupRef locationGroup );
-
+print_global_def_location( void* userData ,
+OTF2_LocationRef self,
+OTF2_StringRef name,
+OTF2_LocationType locationType,
+uint64_t numberOfEvents,
+OTF2_LocationGroupRef locationGroup );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def64_name( "Location",
-                               defs->locations,
-                               defs->strings,
-                               self,
-                               OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->locations,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -518,28 +513,27 @@ print_global_def_location( void*                 userData,
 
 
 static OTF2_CallbackCode
-print_global_def_region( void*           userData,
-                         OTF2_RegionRef  self,
-                         OTF2_StringRef  name,
-                         OTF2_StringRef  canonicalName,
-                         OTF2_StringRef  description,
-                         OTF2_RegionRole regionRole,
-                         OTF2_Paradigm   paradigm,
-                         OTF2_RegionFlag regionFlags,
-                         OTF2_StringRef  sourceFile,
-                         uint32_t        beginLineNumber,
-                         uint32_t        endLineNumber );
-
+print_global_def_region( void* userData ,
+OTF2_RegionRef self,
+OTF2_StringRef name,
+OTF2_StringRef canonicalName,
+OTF2_StringRef description,
+OTF2_RegionRole regionRole,
+OTF2_Paradigm paradigm,
+OTF2_RegionFlag regionFlags,
+OTF2_StringRef sourceFile,
+uint32_t beginLineNumber,
+uint32_t endLineNumber );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "Region",
-                             defs->regions,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->regions,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -579,23 +573,22 @@ print_global_def_region( void*           userData,
 
 
 static OTF2_CallbackCode
-print_global_def_callsite( void*            userData,
-                           OTF2_CallsiteRef self,
-                           OTF2_StringRef   sourceFile,
-                           uint32_t         lineNumber,
-                           OTF2_RegionRef   enteredRegion,
-                           OTF2_RegionRef   leftRegion );
-
+print_global_def_callsite( void* userData ,
+OTF2_CallsiteRef self,
+OTF2_StringRef sourceFile,
+uint32_t lineNumber,
+OTF2_RegionRef enteredRegion,
+OTF2_RegionRef leftRegion );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "Callsite",
-                             defs->callsites,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->callsites,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -625,21 +618,20 @@ print_global_def_callsite( void*            userData,
 
 
 static OTF2_CallbackCode
-print_global_def_callpath( void*            userData,
-                           OTF2_CallpathRef self,
-                           OTF2_CallpathRef parent,
-                           OTF2_RegionRef   region );
-
+print_global_def_callpath( void* userData ,
+OTF2_CallpathRef self,
+OTF2_CallpathRef parent,
+OTF2_RegionRef region );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "Callpath",
-                             defs->callpaths,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->callpaths,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -665,25 +657,24 @@ print_global_def_callpath( void*            userData,
 
 
 static OTF2_CallbackCode
-print_global_def_group( void*           userData,
-                        OTF2_GroupRef   self,
-                        OTF2_StringRef  name,
-                        OTF2_GroupType  groupType,
-                        OTF2_Paradigm   paradigm,
-                        OTF2_GroupFlag  groupFlags,
-                        uint32_t        numberOfMembers,
-                        const uint64_t* members );
-
+print_global_def_group( void* userData ,
+OTF2_GroupRef self,
+OTF2_StringRef name,
+OTF2_GroupType groupType,
+OTF2_Paradigm paradigm,
+OTF2_GroupFlag groupFlags,
+uint32_t numberOfMembers,
+const uint64_t* members );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "Group",
-                             defs->groups,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->groups,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -715,27 +706,26 @@ print_global_def_group( void*           userData,
 
 
 static OTF2_CallbackCode
-print_global_def_metric_member( void*                userData,
-                                OTF2_MetricMemberRef self,
-                                OTF2_StringRef       name,
-                                OTF2_StringRef       description,
-                                OTF2_MetricType      metricType,
-                                OTF2_MetricMode      metricMode,
-                                OTF2_Type            valueType,
-                                OTF2_Base            base,
-                                int64_t              exponent,
-                                OTF2_StringRef       unit );
-
+print_global_def_metric_member( void* userData ,
+OTF2_MetricMemberRef self,
+OTF2_StringRef name,
+OTF2_StringRef description,
+OTF2_MetricType metricType,
+OTF2_MetricMode metricMode,
+OTF2_Type valueType,
+OTF2_Base base,
+int64_t exponent,
+OTF2_StringRef unit );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "MetricMember",
-                             defs->metric_members,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->metric_members,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -773,23 +763,22 @@ print_global_def_metric_member( void*                userData,
 
 
 static OTF2_CallbackCode
-print_global_def_metric_class( void*                       userData,
-                               OTF2_MetricRef              self,
-                               uint8_t                     numberOfMetrics,
-                               const OTF2_MetricMemberRef* metricMembers,
-                               OTF2_MetricOccurrence       metricOccurrence,
-                               OTF2_RecorderKind           recorderKind );
-
+print_global_def_metric_class( void* userData ,
+OTF2_MetricRef self,
+uint8_t numberOfMetrics,
+const OTF2_MetricMemberRef* metricMembers,
+OTF2_MetricOccurrence metricOccurrence,
+OTF2_RecorderKind recorderKind );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "MetricClass",
-                             defs->metrics,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->metrics,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -817,23 +806,22 @@ print_global_def_metric_class( void*                       userData,
 
 
 static OTF2_CallbackCode
-print_global_def_metric_instance( void*            userData,
-                                  OTF2_MetricRef   self,
-                                  OTF2_MetricRef   metricClass,
-                                  OTF2_LocationRef recorder,
-                                  OTF2_MetricScope metricScope,
-                                  uint64_t         scope );
-
+print_global_def_metric_instance( void* userData ,
+OTF2_MetricRef self,
+OTF2_MetricRef metricClass,
+OTF2_LocationRef recorder,
+OTF2_MetricScope metricScope,
+uint64_t scope );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "MetricInstance",
-                             defs->metrics,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->metrics,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -863,22 +851,21 @@ print_global_def_metric_instance( void*            userData,
 
 
 static OTF2_CallbackCode
-print_global_def_comm( void*          userData,
-                       OTF2_CommRef   self,
-                       OTF2_StringRef name,
-                       OTF2_GroupRef  group,
-                       OTF2_CommRef   parent );
-
+print_global_def_comm( void* userData ,
+OTF2_CommRef self,
+OTF2_StringRef name,
+OTF2_GroupRef group,
+OTF2_CommRef parent );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "Comm",
-                             defs->comms,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->comms,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -906,21 +893,20 @@ print_global_def_comm( void*          userData,
 
 
 static OTF2_CallbackCode
-print_global_def_parameter( void*              userData,
-                            OTF2_ParameterRef  self,
-                            OTF2_StringRef     name,
-                            OTF2_ParameterType parameterType );
-
+print_global_def_parameter( void* userData ,
+OTF2_ParameterRef self,
+OTF2_StringRef name,
+OTF2_ParameterType parameterType );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "Parameter",
-                             defs->parameters,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->parameters,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -946,21 +932,20 @@ print_global_def_parameter( void*              userData,
 
 
 static OTF2_CallbackCode
-print_global_def_rma_win( void*          userData,
-                          OTF2_RmaWinRef self,
-                          OTF2_StringRef name,
-                          OTF2_CommRef   comm );
-
+print_global_def_rma_win( void* userData ,
+OTF2_RmaWinRef self,
+OTF2_StringRef name,
+OTF2_CommRef comm );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "RmaWin",
-                             defs->rma_wins,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->rma_wins,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -986,10 +971,9 @@ print_global_def_rma_win( void*          userData,
 
 
 static OTF2_CallbackCode
-print_global_def_metric_class_recorder( void*            userData,
-                                        OTF2_MetricRef   metricClass,
-                                        OTF2_LocationRef recorder );
-
+print_global_def_metric_class_recorder( void* userData ,
+OTF2_MetricRef metricClass,
+OTF2_LocationRef recorder );
 #if 0
 {
     struct otf2_print_data* data = userData;
@@ -1019,12 +1003,11 @@ print_global_def_metric_class_recorder( void*            userData,
 
 
 static OTF2_CallbackCode
-print_global_def_system_tree_node_property( void*                  userData,
-                                            OTF2_SystemTreeNodeRef systemTreeNode,
-                                            OTF2_StringRef         name,
-                                            OTF2_Type              type,
-                                            OTF2_AttributeValue    value );
-
+print_global_def_system_tree_node_property( void* userData ,
+OTF2_SystemTreeNodeRef systemTreeNode,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 #if 0
 {
     struct otf2_print_data* data = userData;
@@ -1058,10 +1041,9 @@ print_global_def_system_tree_node_property( void*                  userData,
 
 
 static OTF2_CallbackCode
-print_global_def_system_tree_node_domain( void*                  userData,
-                                          OTF2_SystemTreeNodeRef systemTreeNode,
-                                          OTF2_SystemTreeDomain  systemTreeDomain );
-
+print_global_def_system_tree_node_domain( void* userData ,
+OTF2_SystemTreeNodeRef systemTreeNode,
+OTF2_SystemTreeDomain systemTreeDomain );
 #if 0
 {
     struct otf2_print_data* data = userData;
@@ -1091,12 +1073,11 @@ print_global_def_system_tree_node_domain( void*                  userData,
 
 
 static OTF2_CallbackCode
-print_global_def_location_group_property( void*                 userData,
-                                          OTF2_LocationGroupRef locationGroup,
-                                          OTF2_StringRef        name,
-                                          OTF2_Type             type,
-                                          OTF2_AttributeValue   value );
-
+print_global_def_location_group_property( void* userData ,
+OTF2_LocationGroupRef locationGroup,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 #if 0
 {
     struct otf2_print_data* data = userData;
@@ -1130,12 +1111,11 @@ print_global_def_location_group_property( void*                 userData,
 
 
 static OTF2_CallbackCode
-print_global_def_location_property( void*               userData,
-                                    OTF2_LocationRef    location,
-                                    OTF2_StringRef      name,
-                                    OTF2_Type           type,
-                                    OTF2_AttributeValue value );
-
+print_global_def_location_property( void* userData ,
+OTF2_LocationRef location,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 #if 0
 {
     struct otf2_print_data* data = userData;
@@ -1169,22 +1149,21 @@ print_global_def_location_property( void*               userData,
 
 
 static OTF2_CallbackCode
-print_global_def_cart_dimension( void*                 userData,
-                                 OTF2_CartDimensionRef self,
-                                 OTF2_StringRef        name,
-                                 uint32_t              size,
-                                 OTF2_CartPeriodicity  cartPeriodicity );
-
+print_global_def_cart_dimension( void* userData ,
+OTF2_CartDimensionRef self,
+OTF2_StringRef name,
+uint32_t size,
+OTF2_CartPeriodicity cartPeriodicity );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "CartDimension",
-                             defs->cart_dimensions,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->cart_dimensions,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -1212,23 +1191,22 @@ print_global_def_cart_dimension( void*                 userData,
 
 
 static OTF2_CallbackCode
-print_global_def_cart_topology( void*                        userData,
-                                OTF2_CartTopologyRef         self,
-                                OTF2_StringRef               name,
-                                OTF2_CommRef                 communicator,
-                                uint8_t                      numberOfDimensions,
-                                const OTF2_CartDimensionRef* cartDimensions );
-
+print_global_def_cart_topology( void* userData ,
+OTF2_CartTopologyRef self,
+OTF2_StringRef name,
+OTF2_CommRef communicator,
+uint8_t numberOfDimensions,
+const OTF2_CartDimensionRef* cartDimensions );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "CartTopology",
-                             defs->cart_topologys,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->cart_topologys,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -1256,12 +1234,11 @@ print_global_def_cart_topology( void*                        userData,
 
 
 static OTF2_CallbackCode
-print_global_def_cart_coordinate( void*                userData,
-                                  OTF2_CartTopologyRef cartTopology,
-                                  uint32_t             rank,
-                                  uint8_t              numberOfDimensions,
-                                  const uint32_t*      coordinates );
-
+print_global_def_cart_coordinate( void* userData ,
+OTF2_CartTopologyRef cartTopology,
+uint32_t rank,
+uint8_t numberOfDimensions,
+const uint32_t* coordinates );
 #if 0
 {
     struct otf2_print_data* data = userData;
@@ -1293,21 +1270,20 @@ print_global_def_cart_coordinate( void*                userData,
 
 
 static OTF2_CallbackCode
-print_global_def_source_code_location( void*                      userData,
-                                       OTF2_SourceCodeLocationRef self,
-                                       OTF2_StringRef             file,
-                                       uint32_t                   lineNumber );
-
+print_global_def_source_code_location( void* userData ,
+OTF2_SourceCodeLocationRef self,
+OTF2_StringRef file,
+uint32_t lineNumber );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "SourceCodeLocation",
-                             defs->source_code_locations,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->source_code_locations,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -1333,22 +1309,21 @@ print_global_def_source_code_location( void*                      userData,
 
 
 static OTF2_CallbackCode
-print_global_def_calling_context( void*                      userData,
-                                  OTF2_CallingContextRef     self,
-                                  OTF2_RegionRef             region,
-                                  OTF2_SourceCodeLocationRef sourceCodeLocation,
-                                  OTF2_CallingContextRef     parent );
-
+print_global_def_calling_context( void* userData ,
+OTF2_CallingContextRef self,
+OTF2_RegionRef region,
+OTF2_SourceCodeLocationRef sourceCodeLocation,
+OTF2_CallingContextRef parent );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "CallingContext",
-                             defs->calling_contexts,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->calling_contexts,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -1376,12 +1351,11 @@ print_global_def_calling_context( void*                      userData,
 
 
 static OTF2_CallbackCode
-print_global_def_calling_context_property( void*                  userData,
-                                           OTF2_CallingContextRef callingContext,
-                                           OTF2_StringRef         name,
-                                           OTF2_Type              type,
-                                           OTF2_AttributeValue    value );
-
+print_global_def_calling_context_property( void* userData ,
+OTF2_CallingContextRef callingContext,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 #if 0
 {
     struct otf2_print_data* data = userData;
@@ -1415,24 +1389,23 @@ print_global_def_calling_context_property( void*                  userData,
 
 
 static OTF2_CallbackCode
-print_global_def_interrupt_generator( void*                       userData,
-                                      OTF2_InterruptGeneratorRef  self,
-                                      OTF2_StringRef              name,
-                                      OTF2_InterruptGeneratorMode interruptGeneratorMode,
-                                      OTF2_Base                   base,
-                                      int64_t                     exponent,
-                                      uint64_t                    period );
-
+print_global_def_interrupt_generator( void* userData ,
+OTF2_InterruptGeneratorRef self,
+OTF2_StringRef name,
+OTF2_InterruptGeneratorMode interruptGeneratorMode,
+OTF2_Base base,
+int64_t exponent,
+uint64_t period );
 #if 0
 {
     struct otf2_print_data* data = userData;
     struct otf2_print_defs* defs = data->defs;
 
     otf2_print_add_def_name( "InterruptGenerator",
-                             defs->interrupt_generators,
-                             defs->strings,
-                             self,
-                             OTF2_UNDEFINED_STRING /* name attribute */ );
+                                     defs->interrupt_generators,
+                                     defs->strings,
+                                     self,
+                                     OTF2_UNDEFINED_STRING /* name attribute */ );
 
     /* Print definition if selected. */
     if ( !otf2_GLOBDEFS )
@@ -1506,11 +1479,10 @@ otf2_print_create_global_def_callbacks( void )
 
 static OTF2_CallbackCode
 print_buffer_flush( OTF2_LocationRef    location,
-                    OTF2_TimeStamp      time,
-                    void*               userData,
-                    OTF2_AttributeList* attributes,
-                    OTF2_TimeStamp      stopTime );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_TimeStamp stopTime );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1538,12 +1510,11 @@ print_buffer_flush( OTF2_LocationRef    location,
 
 
 static OTF2_CallbackCode
-print_measurement_on_off( OTF2_LocationRef     location,
-                          OTF2_TimeStamp       time,
-                          void*                userData,
-                          OTF2_AttributeList*  attributes,
-                          OTF2_MeasurementMode measurementMode );
-
+print_measurement_on_off( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_MeasurementMode measurementMode );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1572,11 +1543,10 @@ print_measurement_on_off( OTF2_LocationRef     location,
 
 static OTF2_CallbackCode
 print_enter( OTF2_LocationRef    location,
-             OTF2_TimeStamp      time,
-             void*               userData,
-             OTF2_AttributeList* attributes,
-             OTF2_RegionRef      region );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef region );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1605,11 +1575,10 @@ print_enter( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_leave( OTF2_LocationRef    location,
-             OTF2_TimeStamp      time,
-             void*               userData,
-             OTF2_AttributeList* attributes,
-             OTF2_RegionRef      region );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef region );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1638,14 +1607,13 @@ print_leave( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_mpi_send( OTF2_LocationRef    location,
-                OTF2_TimeStamp      time,
-                void*               userData,
-                OTF2_AttributeList* attributes,
-                uint32_t            receiver,
-                OTF2_CommRef        communicator,
-                uint32_t            msgTag,
-                uint64_t            msgLength );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1680,15 +1648,14 @@ print_mpi_send( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_mpi_isend( OTF2_LocationRef    location,
-                 OTF2_TimeStamp      time,
-                 void*               userData,
-                 OTF2_AttributeList* attributes,
-                 uint32_t            receiver,
-                 OTF2_CommRef        communicator,
-                 uint32_t            msgTag,
-                 uint64_t            msgLength,
-                 uint64_t            requestID );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1725,11 +1692,10 @@ print_mpi_isend( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_mpi_isend_complete( OTF2_LocationRef    location,
-                          OTF2_TimeStamp      time,
-                          void*               userData,
-                          OTF2_AttributeList* attributes,
-                          uint64_t            requestID );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint64_t requestID );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1758,11 +1724,10 @@ print_mpi_isend_complete( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_mpi_irecv_request( OTF2_LocationRef    location,
-                         OTF2_TimeStamp      time,
-                         void*               userData,
-                         OTF2_AttributeList* attributes,
-                         uint64_t            requestID );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint64_t requestID );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1791,14 +1756,13 @@ print_mpi_irecv_request( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_mpi_recv( OTF2_LocationRef    location,
-                OTF2_TimeStamp      time,
-                void*               userData,
-                OTF2_AttributeList* attributes,
-                uint32_t            sender,
-                OTF2_CommRef        communicator,
-                uint32_t            msgTag,
-                uint64_t            msgLength );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1833,15 +1797,14 @@ print_mpi_recv( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_mpi_irecv( OTF2_LocationRef    location,
-                 OTF2_TimeStamp      time,
-                 void*               userData,
-                 OTF2_AttributeList* attributes,
-                 uint32_t            sender,
-                 OTF2_CommRef        communicator,
-                 uint32_t            msgTag,
-                 uint64_t            msgLength,
-                 uint64_t            requestID );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1878,11 +1841,10 @@ print_mpi_irecv( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_mpi_request_test( OTF2_LocationRef    location,
-                        OTF2_TimeStamp      time,
-                        void*               userData,
-                        OTF2_AttributeList* attributes,
-                        uint64_t            requestID );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint64_t requestID );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1911,11 +1873,10 @@ print_mpi_request_test( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_mpi_request_cancelled( OTF2_LocationRef    location,
-                             OTF2_TimeStamp      time,
-                             void*               userData,
-                             OTF2_AttributeList* attributes,
-                             uint64_t            requestID );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint64_t requestID );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1944,10 +1905,9 @@ print_mpi_request_cancelled( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_mpi_collective_begin( OTF2_LocationRef    location,
-                            OTF2_TimeStamp      time,
-                            void*               userData,
-                            OTF2_AttributeList* attributes );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -1974,15 +1934,14 @@ print_mpi_collective_begin( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_mpi_collective_end( OTF2_LocationRef    location,
-                          OTF2_TimeStamp      time,
-                          void*               userData,
-                          OTF2_AttributeList* attributes,
-                          OTF2_CollectiveOp   collectiveOp,
-                          OTF2_CommRef        communicator,
-                          uint32_t            root,
-                          uint64_t            sizeSent,
-                          uint64_t            sizeReceived );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CollectiveOp collectiveOp,
+OTF2_CommRef communicator,
+uint32_t root,
+uint64_t sizeSent,
+uint64_t sizeReceived );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2019,11 +1978,10 @@ print_mpi_collective_end( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_omp_fork( OTF2_LocationRef    location,
-                OTF2_TimeStamp      time,
-                void*               userData,
-                OTF2_AttributeList* attributes,
-                uint32_t            numberOfRequestedThreads );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint32_t numberOfRequestedThreads );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2052,10 +2010,9 @@ print_omp_fork( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_omp_join( OTF2_LocationRef    location,
-                OTF2_TimeStamp      time,
-                void*               userData,
-                OTF2_AttributeList* attributes );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2082,12 +2039,11 @@ print_omp_join( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_omp_acquire_lock( OTF2_LocationRef    location,
-                        OTF2_TimeStamp      time,
-                        void*               userData,
-                        OTF2_AttributeList* attributes,
-                        uint32_t            lockID,
-                        uint32_t            acquisitionOrder );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint32_t lockID,
+uint32_t acquisitionOrder );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2118,12 +2074,11 @@ print_omp_acquire_lock( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_omp_release_lock( OTF2_LocationRef    location,
-                        OTF2_TimeStamp      time,
-                        void*               userData,
-                        OTF2_AttributeList* attributes,
-                        uint32_t            lockID,
-                        uint32_t            acquisitionOrder );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint32_t lockID,
+uint32_t acquisitionOrder );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2157,8 +2112,7 @@ print_omp_task_create( OTF2_LocationRef    location,
                        OTF2_TimeStamp      time,
                        void*               userData,
                        OTF2_AttributeList* attributes,
-                       uint64_t            taskID );
-
+uint64_t taskID );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2190,8 +2144,7 @@ print_omp_task_switch( OTF2_LocationRef    location,
                        OTF2_TimeStamp      time,
                        void*               userData,
                        OTF2_AttributeList* attributes,
-                       uint64_t            taskID );
-
+uint64_t taskID );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2220,11 +2173,10 @@ print_omp_task_switch( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_omp_task_complete( OTF2_LocationRef    location,
-                         OTF2_TimeStamp      time,
-                         void*               userData,
-                         OTF2_AttributeList* attributes,
-                         uint64_t            taskID );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+uint64_t taskID );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2252,15 +2204,14 @@ print_omp_task_complete( OTF2_LocationRef    location,
 
 
 static OTF2_CallbackCode
-print_metric( OTF2_LocationRef        location,
-              OTF2_TimeStamp          time,
-              void*                   userData,
-              OTF2_AttributeList*     attributes,
-              OTF2_MetricRef          metric,
-              uint8_t                 numberOfMetrics,
-              const OTF2_Type*        typeIDs,
-              const OTF2_MetricValue* metricValues );
-
+print_metric( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_MetricRef metric,
+uint8_t numberOfMetrics,
+const OTF2_Type* typeIDs,
+const OTF2_MetricValue* metricValues );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2291,12 +2242,11 @@ print_metric( OTF2_LocationRef        location,
 
 static OTF2_CallbackCode
 print_parameter_string( OTF2_LocationRef    location,
-                        OTF2_TimeStamp      time,
-                        void*               userData,
-                        OTF2_AttributeList* attributes,
-                        OTF2_ParameterRef   parameter,
-                        OTF2_StringRef      string );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_ParameterRef parameter,
+OTF2_StringRef string );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2327,12 +2277,11 @@ print_parameter_string( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_parameter_int( OTF2_LocationRef    location,
-                     OTF2_TimeStamp      time,
-                     void*               userData,
-                     OTF2_AttributeList* attributes,
-                     OTF2_ParameterRef   parameter,
-                     int64_t             value );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_ParameterRef parameter,
+int64_t value );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2363,12 +2312,11 @@ print_parameter_int( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_parameter_unsigned_int( OTF2_LocationRef    location,
-                              OTF2_TimeStamp      time,
-                              void*               userData,
-                              OTF2_AttributeList* attributes,
-                              OTF2_ParameterRef   parameter,
-                              uint64_t            value );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_ParameterRef parameter,
+uint64_t value );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2399,11 +2347,10 @@ print_parameter_unsigned_int( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_win_create( OTF2_LocationRef    location,
-                      OTF2_TimeStamp      time,
-                      void*               userData,
-                      OTF2_AttributeList* attributes,
-                      OTF2_RmaWinRef      win );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2435,8 +2382,7 @@ print_rma_win_destroy( OTF2_LocationRef    location,
                        OTF2_TimeStamp      time,
                        void*               userData,
                        OTF2_AttributeList* attributes,
-                       OTF2_RmaWinRef      win );
-
+OTF2_RmaWinRef win );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2465,10 +2411,9 @@ print_rma_win_destroy( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_collective_begin( OTF2_LocationRef    location,
-                            OTF2_TimeStamp      time,
-                            void*               userData,
-                            OTF2_AttributeList* attributes );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2495,16 +2440,15 @@ print_rma_collective_begin( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_collective_end( OTF2_LocationRef    location,
-                          OTF2_TimeStamp      time,
-                          void*               userData,
-                          OTF2_AttributeList* attributes,
-                          OTF2_CollectiveOp   collectiveOp,
-                          OTF2_RmaSyncLevel   syncLevel,
-                          OTF2_RmaWinRef      win,
-                          uint32_t            root,
-                          uint64_t            bytesSent,
-                          uint64_t            bytesReceived );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CollectiveOp collectiveOp,
+OTF2_RmaSyncLevel syncLevel,
+OTF2_RmaWinRef win,
+uint32_t root,
+uint64_t bytesSent,
+uint64_t bytesReceived );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2543,13 +2487,12 @@ print_rma_collective_end( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_group_sync( OTF2_LocationRef    location,
-                      OTF2_TimeStamp      time,
-                      void*               userData,
-                      OTF2_AttributeList* attributes,
-                      OTF2_RmaSyncLevel   syncLevel,
-                      OTF2_RmaWinRef      win,
-                      OTF2_GroupRef       group );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaSyncLevel syncLevel,
+OTF2_RmaWinRef win,
+OTF2_GroupRef group );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2582,14 +2525,13 @@ print_rma_group_sync( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_request_lock( OTF2_LocationRef    location,
-                        OTF2_TimeStamp      time,
-                        void*               userData,
-                        OTF2_AttributeList* attributes,
-                        OTF2_RmaWinRef      win,
-                        uint32_t            remote,
-                        uint64_t            lockId,
-                        OTF2_LockType       lockType );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId,
+OTF2_LockType lockType );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2624,14 +2566,13 @@ print_rma_request_lock( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_acquire_lock( OTF2_LocationRef    location,
-                        OTF2_TimeStamp      time,
-                        void*               userData,
-                        OTF2_AttributeList* attributes,
-                        OTF2_RmaWinRef      win,
-                        uint32_t            remote,
-                        uint64_t            lockId,
-                        OTF2_LockType       lockType );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId,
+OTF2_LockType lockType );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2666,14 +2607,13 @@ print_rma_acquire_lock( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_try_lock( OTF2_LocationRef    location,
-                    OTF2_TimeStamp      time,
-                    void*               userData,
-                    OTF2_AttributeList* attributes,
-                    OTF2_RmaWinRef      win,
-                    uint32_t            remote,
-                    uint64_t            lockId,
-                    OTF2_LockType       lockType );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId,
+OTF2_LockType lockType );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2708,13 +2648,12 @@ print_rma_try_lock( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_release_lock( OTF2_LocationRef    location,
-                        OTF2_TimeStamp      time,
-                        void*               userData,
-                        OTF2_AttributeList* attributes,
-                        OTF2_RmaWinRef      win,
-                        uint32_t            remote,
-                        uint64_t            lockId );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t lockId );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2747,13 +2686,12 @@ print_rma_release_lock( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_sync( OTF2_LocationRef    location,
-                OTF2_TimeStamp      time,
-                void*               userData,
-                OTF2_AttributeList* attributes,
-                OTF2_RmaWinRef      win,
-                uint32_t            remote,
-                OTF2_RmaSyncType    syncType );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint32_t remote,
+OTF2_RmaSyncType syncType );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2789,8 +2727,7 @@ print_rma_wait_change( OTF2_LocationRef    location,
                        OTF2_TimeStamp      time,
                        void*               userData,
                        OTF2_AttributeList* attributes,
-                       OTF2_RmaWinRef      win );
-
+OTF2_RmaWinRef win );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2819,14 +2756,13 @@ print_rma_wait_change( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_put( OTF2_LocationRef    location,
-               OTF2_TimeStamp      time,
-               void*               userData,
-               OTF2_AttributeList* attributes,
-               OTF2_RmaWinRef      win,
-               uint32_t            remote,
-               uint64_t            bytes,
-               uint64_t            matchingId );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t bytes,
+uint64_t matchingId );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2861,14 +2797,13 @@ print_rma_put( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_get( OTF2_LocationRef    location,
-               OTF2_TimeStamp      time,
-               void*               userData,
-               OTF2_AttributeList* attributes,
-               OTF2_RmaWinRef      win,
-               uint32_t            remote,
-               uint64_t            bytes,
-               uint64_t            matchingId );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint32_t remote,
+uint64_t bytes,
+uint64_t matchingId );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2903,16 +2838,15 @@ print_rma_get( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_atomic( OTF2_LocationRef    location,
-                  OTF2_TimeStamp      time,
-                  void*               userData,
-                  OTF2_AttributeList* attributes,
-                  OTF2_RmaWinRef      win,
-                  uint32_t            remote,
-                  OTF2_RmaAtomicType  type,
-                  uint64_t            bytesSent,
-                  uint64_t            bytesReceived,
-                  uint64_t            matchingId );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint32_t remote,
+OTF2_RmaAtomicType type,
+uint64_t bytesSent,
+uint64_t bytesReceived,
+uint64_t matchingId );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2951,12 +2885,11 @@ print_rma_atomic( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_op_complete_blocking( OTF2_LocationRef    location,
-                                OTF2_TimeStamp      time,
-                                void*               userData,
-                                OTF2_AttributeList* attributes,
-                                OTF2_RmaWinRef      win,
-                                uint64_t            matchingId );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint64_t matchingId );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -2987,12 +2920,11 @@ print_rma_op_complete_blocking( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_op_complete_non_blocking( OTF2_LocationRef    location,
-                                    OTF2_TimeStamp      time,
-                                    void*               userData,
-                                    OTF2_AttributeList* attributes,
-                                    OTF2_RmaWinRef      win,
-                                    uint64_t            matchingId );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint64_t matchingId );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3023,12 +2955,11 @@ print_rma_op_complete_non_blocking( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_op_test( OTF2_LocationRef    location,
-                   OTF2_TimeStamp      time,
-                   void*               userData,
-                   OTF2_AttributeList* attributes,
-                   OTF2_RmaWinRef      win,
-                   uint64_t            matchingId );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint64_t matchingId );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3059,12 +2990,11 @@ print_rma_op_test( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_rma_op_complete_remote( OTF2_LocationRef    location,
-                              OTF2_TimeStamp      time,
-                              void*               userData,
-                              OTF2_AttributeList* attributes,
-                              OTF2_RmaWinRef      win,
-                              uint64_t            matchingId );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RmaWinRef win,
+uint64_t matchingId );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3095,12 +3025,11 @@ print_rma_op_complete_remote( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_fork( OTF2_LocationRef    location,
-                   OTF2_TimeStamp      time,
-                   void*               userData,
-                   OTF2_AttributeList* attributes,
-                   OTF2_Paradigm       model,
-                   uint32_t            numberOfRequestedThreads );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_Paradigm model,
+uint32_t numberOfRequestedThreads );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3131,11 +3060,10 @@ print_thread_fork( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_join( OTF2_LocationRef    location,
-                   OTF2_TimeStamp      time,
-                   void*               userData,
-                   OTF2_AttributeList* attributes,
-                   OTF2_Paradigm       model );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_Paradigm model );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3164,11 +3092,10 @@ print_thread_join( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_team_begin( OTF2_LocationRef    location,
-                         OTF2_TimeStamp      time,
-                         void*               userData,
-                         OTF2_AttributeList* attributes,
-                         OTF2_CommRef        threadTeam );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CommRef threadTeam );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3200,8 +3127,7 @@ print_thread_team_end( OTF2_LocationRef    location,
                        OTF2_TimeStamp      time,
                        void*               userData,
                        OTF2_AttributeList* attributes,
-                       OTF2_CommRef        threadTeam );
-
+OTF2_CommRef threadTeam );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3230,13 +3156,12 @@ print_thread_team_end( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_acquire_lock( OTF2_LocationRef    location,
-                           OTF2_TimeStamp      time,
-                           void*               userData,
-                           OTF2_AttributeList* attributes,
-                           OTF2_Paradigm       model,
-                           uint32_t            lockID,
-                           uint32_t            acquisitionOrder );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_Paradigm model,
+uint32_t lockID,
+uint32_t acquisitionOrder );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3269,13 +3194,12 @@ print_thread_acquire_lock( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_release_lock( OTF2_LocationRef    location,
-                           OTF2_TimeStamp      time,
-                           void*               userData,
-                           OTF2_AttributeList* attributes,
-                           OTF2_Paradigm       model,
-                           uint32_t            lockID,
-                           uint32_t            acquisitionOrder );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_Paradigm model,
+uint32_t lockID,
+uint32_t acquisitionOrder );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3308,13 +3232,12 @@ print_thread_release_lock( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_task_create( OTF2_LocationRef    location,
-                          OTF2_TimeStamp      time,
-                          void*               userData,
-                          OTF2_AttributeList* attributes,
-                          OTF2_CommRef        threadTeam,
-                          uint32_t            creatingThread,
-                          uint32_t            generationNumber );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CommRef threadTeam,
+uint32_t creatingThread,
+uint32_t generationNumber );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3347,13 +3270,12 @@ print_thread_task_create( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_task_switch( OTF2_LocationRef    location,
-                          OTF2_TimeStamp      time,
-                          void*               userData,
-                          OTF2_AttributeList* attributes,
-                          OTF2_CommRef        threadTeam,
-                          uint32_t            creatingThread,
-                          uint32_t            generationNumber );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CommRef threadTeam,
+uint32_t creatingThread,
+uint32_t generationNumber );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3386,13 +3308,12 @@ print_thread_task_switch( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_task_complete( OTF2_LocationRef    location,
-                            OTF2_TimeStamp      time,
-                            void*               userData,
-                            OTF2_AttributeList* attributes,
-                            OTF2_CommRef        threadTeam,
-                            uint32_t            creatingThread,
-                            uint32_t            generationNumber );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CommRef threadTeam,
+uint32_t creatingThread,
+uint32_t generationNumber );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3425,12 +3346,11 @@ print_thread_task_complete( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_create( OTF2_LocationRef    location,
-                     OTF2_TimeStamp      time,
-                     void*               userData,
-                     OTF2_AttributeList* attributes,
-                     OTF2_CommRef        threadContingent,
-                     uint64_t            sequenceCount );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3461,12 +3381,11 @@ print_thread_create( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_begin( OTF2_LocationRef    location,
-                    OTF2_TimeStamp      time,
-                    void*               userData,
-                    OTF2_AttributeList* attributes,
-                    OTF2_CommRef        threadContingent,
-                    uint64_t            sequenceCount );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3497,12 +3416,11 @@ print_thread_begin( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_wait( OTF2_LocationRef    location,
-                   OTF2_TimeStamp      time,
-                   void*               userData,
-                   OTF2_AttributeList* attributes,
-                   OTF2_CommRef        threadContingent,
-                   uint64_t            sequenceCount );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3533,12 +3451,11 @@ print_thread_wait( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_thread_end( OTF2_LocationRef    location,
-                  OTF2_TimeStamp      time,
-                  void*               userData,
-                  OTF2_AttributeList* attributes,
-                  OTF2_CommRef        threadContingent,
-                  uint64_t            sequenceCount );
-
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CommRef threadContingent,
+uint64_t sequenceCount );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3568,13 +3485,12 @@ print_thread_end( OTF2_LocationRef    location,
 
 
 static OTF2_CallbackCode
-print_calling_context_enter( OTF2_LocationRef       location,
-                             OTF2_TimeStamp         time,
-                             void*                  userData,
-                             OTF2_AttributeList*    attributes,
-                             OTF2_CallingContextRef callingContext,
-                             uint32_t               unwindDistance );
-
+print_calling_context_enter( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CallingContextRef callingContext,
+uint32_t unwindDistance );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3604,12 +3520,11 @@ print_calling_context_enter( OTF2_LocationRef       location,
 
 
 static OTF2_CallbackCode
-print_calling_context_leave( OTF2_LocationRef       location,
-                             OTF2_TimeStamp         time,
-                             void*                  userData,
-                             OTF2_AttributeList*    attributes,
-                             OTF2_CallingContextRef callingContext );
-
+print_calling_context_leave( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CallingContextRef callingContext );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3637,14 +3552,13 @@ print_calling_context_leave( OTF2_LocationRef       location,
 
 
 static OTF2_CallbackCode
-print_calling_context_sample( OTF2_LocationRef           location,
-                              OTF2_TimeStamp             time,
-                              void*                      userData,
-                              OTF2_AttributeList*        attributes,
-                              OTF2_CallingContextRef     callingContext,
-                              uint32_t                   unwindDistance,
-                              OTF2_InterruptGeneratorRef interruptGenerator );
-
+print_calling_context_sample( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_CallingContextRef callingContext,
+uint32_t unwindDistance,
+OTF2_InterruptGeneratorRef interruptGenerator );
 #if 0
 {
     if ( time < otf2_MINTIME || time > otf2_MAXTIME )
@@ -3675,14 +3589,386 @@ print_calling_context_sample( OTF2_LocationRef           location,
 #endif
 
 
+static OTF2_CallbackCode
+print_task_create( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef region );
+#if 0
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "region: %s, "
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "TASK_CREATE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+#endif
+
+
+static OTF2_CallbackCode
+print_task_destroy( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef region );
+#if 0
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "region: %s, "
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "TASK_DESTROY",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+#endif
+
+
+static OTF2_CallbackCode
+print_task_runnable( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef region );
+#if 0
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "region: %s, "
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "TASK_RUNNABLE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+#endif
+
+
+static OTF2_CallbackCode
+print_add_dependence( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef src,
+OTF2_RegionRef dest );
+#if 0
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "src: %s, "
+            "dest: %s, "
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "ADD_DEPENDENCE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, src ),
+            otf2_print_get_def_name( defs->regions, dest ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+#endif
+
+
+static OTF2_CallbackCode
+print_satisfy_dependence( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef src,
+OTF2_RegionRef dest );
+#if 0
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "src: %s, "
+            "dest: %s, "
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "SATISFY_DEPENDENCE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, src ),
+            otf2_print_get_def_name( defs->regions, dest ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+#endif
+
+
+static OTF2_CallbackCode
+print_data_acquire( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef task,
+OTF2_RegionRef data,
+uint64_t size );
+#if 0
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "task: %s, "
+            "data: %s, "
+            "size: %" PRIUint64 ", "
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "DATA_ACQUIRE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, task ),
+            otf2_print_get_def_name( defs->regions, data ),
+            size,
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+#endif
+
+
+static OTF2_CallbackCode
+print_data_release( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef task,
+OTF2_RegionRef data,
+uint64_t size );
+#if 0
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "task: %s, "
+            "data: %s, "
+            "size: %" PRIUint64 ", "
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "DATA_RELEASE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, task ),
+            otf2_print_get_def_name( defs->regions, data ),
+            size,
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+#endif
+
+
+static OTF2_CallbackCode
+print_event_create( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef region );
+#if 0
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "region: %s, "
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "EVENT_CREATE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+#endif
+
+
+static OTF2_CallbackCode
+print_event_destroy( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef region );
+#if 0
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "region: %s, "
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "EVENT_DESTROY",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+#endif
+
+
+static OTF2_CallbackCode
+print_data_create( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef region,
+uint64_t size );
+#if 0
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "region: %s, "
+            "size: %" PRIUint64 ", "
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "DATA_CREATE",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            size,
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+#endif
+
+
+static OTF2_CallbackCode
+print_data_destroy( OTF2_LocationRef    location,
+                       OTF2_TimeStamp      time,
+                       void*               userData,
+                       OTF2_AttributeList* attributes,
+OTF2_RegionRef region );
+#if 0
+{
+    if ( time < otf2_MINTIME || time > otf2_MAXTIME )
+    {
+        return OTF2_CALLBACK_SUCCESS;
+    }
+
+    struct otf2_print_data* data = userData;
+    struct otf2_print_defs* defs = data->defs;
+
+    printf( "%-*s %15" PRIu64 " %20s  "
+            "region: %s, "
+            "%s",
+            otf2_EVENT_COLUMN_WIDTH, "DATA_DESTROY",
+            location,
+            otf2_print_get_timestamp( data, time ),
+            otf2_print_get_def_name( defs->regions, region ),
+            "\n" );
+
+    otf2_print_attribute_list( data, attributes );
+
+    return OTF2_CALLBACK_SUCCESS;
+}
+#endif
+
+
 
 static OTF2_CallbackCode
 print_snap_snapshot_start( OTF2_LocationRef    location,
                            OTF2_TimeStamp      snapTime,
                            void*               userData,
                            OTF2_AttributeList* attributes,
-                           uint64_t            numberOfRecords );
-
+uint64_t numberOfRecords );
 #if 0
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
@@ -3711,11 +3997,10 @@ print_snap_snapshot_start( OTF2_LocationRef    location,
 
 static OTF2_CallbackCode
 print_snap_snapshot_end( OTF2_LocationRef    location,
-                         OTF2_TimeStamp      snapTime,
-                         void*               userData,
-                         OTF2_AttributeList* attributes,
-                         uint64_t            contReadPos );
-
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+uint64_t contReadPos );
 #if 0
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
@@ -3743,12 +4028,12 @@ print_snap_snapshot_end( OTF2_LocationRef    location,
 
 
 static OTF2_CallbackCode
-print_snap_measurement_on_off( OTF2_LocationRef     location,
-                               OTF2_TimeStamp       snapTime,
-                               void*                userData,
-                               OTF2_AttributeList*  attributes,
-                               OTF2_TimeStamp       origEventTime,
-                               OTF2_MeasurementMode measurementMode )
+print_snap_measurement_on_off( OTF2_LocationRef    location,
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+OTF2_MeasurementMode measurementMode )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -3756,20 +4041,20 @@ print_snap_measurement_on_off( OTF2_LocationRef     location,
     }
 
     return print_measurement_on_off( location,
-                                     origEventTime,
-                                     userData,
-                                     attributes,
-                                     measurementMode );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+measurementMode );
 }
 
 
 static OTF2_CallbackCode
 print_snap_enter( OTF2_LocationRef    location,
-                  OTF2_TimeStamp      snapTime,
-                  void*               userData,
-                  OTF2_AttributeList* attributes,
-                  OTF2_TimeStamp      origEventTime,
-                  OTF2_RegionRef      region )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+OTF2_RegionRef region )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -3777,23 +4062,23 @@ print_snap_enter( OTF2_LocationRef    location,
     }
 
     return print_enter( location,
-                        origEventTime,
-                        userData,
-                        attributes,
-                        region );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+region );
 }
 
 
 static OTF2_CallbackCode
 print_snap_mpi_send( OTF2_LocationRef    location,
-                     OTF2_TimeStamp      snapTime,
-                     void*               userData,
-                     OTF2_AttributeList* attributes,
-                     OTF2_TimeStamp      origEventTime,
-                     uint32_t            receiver,
-                     OTF2_CommRef        communicator,
-                     uint32_t            msgTag,
-                     uint64_t            msgLength )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -3801,27 +4086,27 @@ print_snap_mpi_send( OTF2_LocationRef    location,
     }
 
     return print_mpi_send( location,
-                           origEventTime,
-                           userData,
-                           attributes,
-                           receiver,
-                           communicator,
-                           msgTag,
-                           msgLength );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+receiver,
+communicator,
+msgTag,
+msgLength );
 }
 
 
 static OTF2_CallbackCode
 print_snap_mpi_isend( OTF2_LocationRef    location,
-                      OTF2_TimeStamp      snapTime,
-                      void*               userData,
-                      OTF2_AttributeList* attributes,
-                      OTF2_TimeStamp      origEventTime,
-                      uint32_t            receiver,
-                      OTF2_CommRef        communicator,
-                      uint32_t            msgTag,
-                      uint64_t            msgLength,
-                      uint64_t            requestID )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -3829,24 +4114,24 @@ print_snap_mpi_isend( OTF2_LocationRef    location,
     }
 
     return print_mpi_isend( location,
-                            origEventTime,
-                            userData,
-                            attributes,
-                            receiver,
-                            communicator,
-                            msgTag,
-                            msgLength,
-                            requestID );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+receiver,
+communicator,
+msgTag,
+msgLength,
+requestID );
 }
 
 
 static OTF2_CallbackCode
 print_snap_mpi_isend_complete( OTF2_LocationRef    location,
-                               OTF2_TimeStamp      snapTime,
-                               void*               userData,
-                               OTF2_AttributeList* attributes,
-                               OTF2_TimeStamp      origEventTime,
-                               uint64_t            requestID )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+uint64_t requestID )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -3854,23 +4139,23 @@ print_snap_mpi_isend_complete( OTF2_LocationRef    location,
     }
 
     return print_mpi_isend_complete( location,
-                                     origEventTime,
-                                     userData,
-                                     attributes,
-                                     requestID );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+requestID );
 }
 
 
 static OTF2_CallbackCode
 print_snap_mpi_recv( OTF2_LocationRef    location,
-                     OTF2_TimeStamp      snapTime,
-                     void*               userData,
-                     OTF2_AttributeList* attributes,
-                     OTF2_TimeStamp      origEventTime,
-                     uint32_t            sender,
-                     OTF2_CommRef        communicator,
-                     uint32_t            msgTag,
-                     uint64_t            msgLength )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -3878,23 +4163,23 @@ print_snap_mpi_recv( OTF2_LocationRef    location,
     }
 
     return print_mpi_recv( location,
-                           origEventTime,
-                           userData,
-                           attributes,
-                           sender,
-                           communicator,
-                           msgTag,
-                           msgLength );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+sender,
+communicator,
+msgTag,
+msgLength );
 }
 
 
 static OTF2_CallbackCode
 print_snap_mpi_irecv_request( OTF2_LocationRef    location,
-                              OTF2_TimeStamp      snapTime,
-                              void*               userData,
-                              OTF2_AttributeList* attributes,
-                              OTF2_TimeStamp      origEventTime,
-                              uint64_t            requestID )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+uint64_t requestID )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -3902,24 +4187,24 @@ print_snap_mpi_irecv_request( OTF2_LocationRef    location,
     }
 
     return print_mpi_irecv_request( location,
-                                    origEventTime,
-                                    userData,
-                                    attributes,
-                                    requestID );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+requestID );
 }
 
 
 static OTF2_CallbackCode
 print_snap_mpi_irecv( OTF2_LocationRef    location,
-                      OTF2_TimeStamp      snapTime,
-                      void*               userData,
-                      OTF2_AttributeList* attributes,
-                      OTF2_TimeStamp      origEventTime,
-                      uint32_t            sender,
-                      OTF2_CommRef        communicator,
-                      uint32_t            msgTag,
-                      uint64_t            msgLength,
-                      uint64_t            requestID )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -3927,23 +4212,23 @@ print_snap_mpi_irecv( OTF2_LocationRef    location,
     }
 
     return print_mpi_irecv( location,
-                            origEventTime,
-                            userData,
-                            attributes,
-                            sender,
-                            communicator,
-                            msgTag,
-                            msgLength,
-                            requestID );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+sender,
+communicator,
+msgTag,
+msgLength,
+requestID );
 }
 
 
 static OTF2_CallbackCode
 print_snap_mpi_collective_begin( OTF2_LocationRef    location,
-                                 OTF2_TimeStamp      snapTime,
-                                 void*               userData,
-                                 OTF2_AttributeList* attributes,
-                                 OTF2_TimeStamp      origEventTime )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -3951,23 +4236,23 @@ print_snap_mpi_collective_begin( OTF2_LocationRef    location,
     }
 
     return print_mpi_collective_begin( location,
-                                       origEventTime,
-                                       userData,
-                                       attributes );
+                                 origEventTime,
+                                 userData,
+                                 attributes );
 }
 
 
 static OTF2_CallbackCode
 print_snap_mpi_collective_end( OTF2_LocationRef    location,
-                               OTF2_TimeStamp      snapTime,
-                               void*               userData,
-                               OTF2_AttributeList* attributes,
-                               OTF2_TimeStamp      origEventTime,
-                               OTF2_CollectiveOp   collectiveOp,
-                               OTF2_CommRef        communicator,
-                               uint32_t            root,
-                               uint64_t            sizeSent,
-                               uint64_t            sizeReceived )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+OTF2_CollectiveOp collectiveOp,
+OTF2_CommRef communicator,
+uint32_t root,
+uint64_t sizeSent,
+uint64_t sizeReceived )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -3975,24 +4260,24 @@ print_snap_mpi_collective_end( OTF2_LocationRef    location,
     }
 
     return print_mpi_collective_end( location,
-                                     origEventTime,
-                                     userData,
-                                     attributes,
-                                     collectiveOp,
-                                     communicator,
-                                     root,
-                                     sizeSent,
-                                     sizeReceived );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+collectiveOp,
+communicator,
+root,
+sizeSent,
+sizeReceived );
 }
 
 
 static OTF2_CallbackCode
 print_snap_omp_fork( OTF2_LocationRef    location,
-                     OTF2_TimeStamp      snapTime,
-                     void*               userData,
-                     OTF2_AttributeList* attributes,
-                     OTF2_TimeStamp      origEventTime,
-                     uint32_t            numberOfRequestedThreads )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+uint32_t numberOfRequestedThreads )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -4000,21 +4285,21 @@ print_snap_omp_fork( OTF2_LocationRef    location,
     }
 
     return print_omp_fork( location,
-                           origEventTime,
-                           userData,
-                           attributes,
-                           numberOfRequestedThreads );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+numberOfRequestedThreads );
 }
 
 
 static OTF2_CallbackCode
 print_snap_omp_acquire_lock( OTF2_LocationRef    location,
-                             OTF2_TimeStamp      snapTime,
-                             void*               userData,
-                             OTF2_AttributeList* attributes,
-                             OTF2_TimeStamp      origEventTime,
-                             uint32_t            lockID,
-                             uint32_t            acquisitionOrder )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+uint32_t lockID,
+uint32_t acquisitionOrder )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -4022,21 +4307,21 @@ print_snap_omp_acquire_lock( OTF2_LocationRef    location,
     }
 
     return print_omp_acquire_lock( location,
-                                   origEventTime,
-                                   userData,
-                                   attributes,
-                                   lockID,
-                                   acquisitionOrder );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+lockID,
+acquisitionOrder );
 }
 
 
 static OTF2_CallbackCode
 print_snap_omp_task_create( OTF2_LocationRef    location,
-                            OTF2_TimeStamp      snapTime,
-                            void*               userData,
-                            OTF2_AttributeList* attributes,
-                            OTF2_TimeStamp      origEventTime,
-                            uint64_t            taskID )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+uint64_t taskID )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -4044,20 +4329,20 @@ print_snap_omp_task_create( OTF2_LocationRef    location,
     }
 
     return print_omp_task_create( location,
-                                  origEventTime,
-                                  userData,
-                                  attributes,
-                                  taskID );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+taskID );
 }
 
 
 static OTF2_CallbackCode
 print_snap_omp_task_switch( OTF2_LocationRef    location,
-                            OTF2_TimeStamp      snapTime,
-                            void*               userData,
-                            OTF2_AttributeList* attributes,
-                            OTF2_TimeStamp      origEventTime,
-                            uint64_t            taskID )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+uint64_t taskID )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -4065,23 +4350,23 @@ print_snap_omp_task_switch( OTF2_LocationRef    location,
     }
 
     return print_omp_task_switch( location,
-                                  origEventTime,
-                                  userData,
-                                  attributes,
-                                  taskID );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+taskID );
 }
 
 
 static OTF2_CallbackCode
-print_snap_metric( OTF2_LocationRef        location,
-                   OTF2_TimeStamp          snapTime,
-                   void*                   userData,
-                   OTF2_AttributeList*     attributes,
-                   OTF2_TimeStamp          origEventTime,
-                   OTF2_MetricRef          metric,
-                   uint8_t                 numberOfMetrics,
-                   const OTF2_Type*        typeIDs,
-                   const OTF2_MetricValue* metricValues )
+print_snap_metric( OTF2_LocationRef    location,
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+OTF2_MetricRef metric,
+uint8_t numberOfMetrics,
+const OTF2_Type* typeIDs,
+const OTF2_MetricValue* metricValues )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -4089,24 +4374,24 @@ print_snap_metric( OTF2_LocationRef        location,
     }
 
     return print_metric( location,
-                         origEventTime,
-                         userData,
-                         attributes,
-                         metric,
-                         numberOfMetrics,
-                         typeIDs,
-                         metricValues );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+metric,
+numberOfMetrics,
+typeIDs,
+metricValues );
 }
 
 
 static OTF2_CallbackCode
 print_snap_parameter_string( OTF2_LocationRef    location,
-                             OTF2_TimeStamp      snapTime,
-                             void*               userData,
-                             OTF2_AttributeList* attributes,
-                             OTF2_TimeStamp      origEventTime,
-                             OTF2_ParameterRef   parameter,
-                             OTF2_StringRef      string )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+OTF2_StringRef string )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -4114,22 +4399,22 @@ print_snap_parameter_string( OTF2_LocationRef    location,
     }
 
     return print_parameter_string( location,
-                                   origEventTime,
-                                   userData,
-                                   attributes,
-                                   parameter,
-                                   string );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+parameter,
+string );
 }
 
 
 static OTF2_CallbackCode
 print_snap_parameter_int( OTF2_LocationRef    location,
-                          OTF2_TimeStamp      snapTime,
-                          void*               userData,
-                          OTF2_AttributeList* attributes,
-                          OTF2_TimeStamp      origEventTime,
-                          OTF2_ParameterRef   parameter,
-                          int64_t             value )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+int64_t value )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -4137,22 +4422,22 @@ print_snap_parameter_int( OTF2_LocationRef    location,
     }
 
     return print_parameter_int( location,
-                                origEventTime,
-                                userData,
-                                attributes,
-                                parameter,
-                                value );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+parameter,
+value );
 }
 
 
 static OTF2_CallbackCode
 print_snap_parameter_unsigned_int( OTF2_LocationRef    location,
-                                   OTF2_TimeStamp      snapTime,
-                                   void*               userData,
-                                   OTF2_AttributeList* attributes,
-                                   OTF2_TimeStamp      origEventTime,
-                                   OTF2_ParameterRef   parameter,
-                                   uint64_t            value )
+                           OTF2_TimeStamp      snapTime,
+                           void*               userData,
+                           OTF2_AttributeList* attributes,
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+uint64_t value )
 {
     if ( snapTime < otf2_MINTIME || snapTime > otf2_MAXTIME )
     {
@@ -4160,11 +4445,11 @@ print_snap_parameter_unsigned_int( OTF2_LocationRef    location,
     }
 
     return print_parameter_unsigned_int( location,
-                                         origEventTime,
-                                         userData,
-                                         attributes,
-                                         parameter,
-                                         value );
+                                 origEventTime,
+                                 userData,
+                                 attributes,
+parameter,
+value );
 }
 
 
@@ -4233,6 +4518,17 @@ otf2_print_create_global_evt_callbacks( void )
     OTF2_GlobalEvtReaderCallbacks_SetCallingContextEnterCallback( evt_callbacks, print_calling_context_enter );
     OTF2_GlobalEvtReaderCallbacks_SetCallingContextLeaveCallback( evt_callbacks, print_calling_context_leave );
     OTF2_GlobalEvtReaderCallbacks_SetCallingContextSampleCallback( evt_callbacks, print_calling_context_sample );
+    OTF2_GlobalEvtReaderCallbacks_SetTaskCreateCallback( evt_callbacks, print_task_create );
+    OTF2_GlobalEvtReaderCallbacks_SetTaskDestroyCallback( evt_callbacks, print_task_destroy );
+    OTF2_GlobalEvtReaderCallbacks_SetTaskRunnableCallback( evt_callbacks, print_task_runnable );
+    OTF2_GlobalEvtReaderCallbacks_SetAddDependenceCallback( evt_callbacks, print_add_dependence );
+    OTF2_GlobalEvtReaderCallbacks_SetSatisfyDependenceCallback( evt_callbacks, print_satisfy_dependence );
+    OTF2_GlobalEvtReaderCallbacks_SetDataAcquireCallback( evt_callbacks, print_data_acquire );
+    OTF2_GlobalEvtReaderCallbacks_SetDataReleaseCallback( evt_callbacks, print_data_release );
+    OTF2_GlobalEvtReaderCallbacks_SetEventCreateCallback( evt_callbacks, print_event_create );
+    OTF2_GlobalEvtReaderCallbacks_SetEventDestroyCallback( evt_callbacks, print_event_destroy );
+    OTF2_GlobalEvtReaderCallbacks_SetDataCreateCallback( evt_callbacks, print_data_create );
+    OTF2_GlobalEvtReaderCallbacks_SetDataDestroyCallback( evt_callbacks, print_data_destroy );
 
     return evt_callbacks;
 }

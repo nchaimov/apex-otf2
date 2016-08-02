@@ -103,7 +103,7 @@ OTF2_GlobalDefWriter_GetNumberOfLocations( OTF2_GlobalDefWriter* writerHandle,
  *  be no event with a timestamp less than @p globalOffset, and no
  *  event with timestamp greater than (@p globalOffset + @p
  *  traceLength).
- *
+ *  
  *  @param writerHandle    The writer handle.
  *  @param timerResolution Ticks per seconds.
  *  @param globalOffset    A timestamp smaller than all event timestamps.
@@ -116,10 +116,10 @@ OTF2_GlobalDefWriter_GetNumberOfLocations( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteClockProperties( OTF2_GlobalDefWriter* writerHandle,
-                                           uint64_t              timerResolution,
-                                           uint64_t              globalOffset,
-                                           uint64_t              traceLength );
+OTF2_GlobalDefWriter_WriteClockProperties( OTF2_GlobalDefWriter* writerHandle ,
+uint64_t timerResolution,
+uint64_t globalOffset,
+uint64_t traceLength );
 
 
 /** @brief Writes a @eref{Paradigm} definition record into the GlobalDefWriter.
@@ -130,7 +130,7 @@ OTF2_GlobalDefWriter_WriteClockProperties( OTF2_GlobalDefWriter* writerHandle,
  *  includes a proper name for the paradigm and a classification.
  *  This definition is only allowed to appear at most once in the
  *  definitions per @eref{Paradigm}.
- *
+ *  
  *  @param writerHandle  The writer handle.
  *  @param paradigm      The paradigm to attest.
  *  @param name          The name of the paradigm. References a @eref{String}
@@ -142,18 +142,18 @@ OTF2_GlobalDefWriter_WriteClockProperties( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteParadigm( OTF2_GlobalDefWriter* writerHandle,
-                                    OTF2_Paradigm         paradigm,
-                                    OTF2_StringRef        name,
-                                    OTF2_ParadigmClass    paradigmClass );
+OTF2_GlobalDefWriter_WriteParadigm( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_Paradigm paradigm,
+OTF2_StringRef name,
+OTF2_ParadigmClass paradigmClass );
 
 
 /** @brief Writes a @eref{ParadigmProperty} definition record into the GlobalDefWriter.
  *
  *  Extensible annotation for the @eref{Paradigm} definition.
- *
+ *  
  *  The tuple (@a paradigm, @a property) must be unique.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param paradigm     The paradigm to annotate.
  *  @param property     The property.
@@ -166,17 +166,17 @@ OTF2_GlobalDefWriter_WriteParadigm( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteParadigmProperty( OTF2_GlobalDefWriter* writerHandle,
-                                            OTF2_Paradigm         paradigm,
-                                            OTF2_ParadigmProperty property,
-                                            OTF2_Type             type,
-                                            OTF2_AttributeValue   value );
+OTF2_GlobalDefWriter_WriteParadigmProperty( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_Paradigm paradigm,
+OTF2_ParadigmProperty property,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Writes a @eref{String} definition record into the GlobalDefWriter.
  *
  *  The string definition.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param self         The unique identifier for this @eref{String} definition.
  *  @param string       The string, null terminated.
@@ -186,15 +186,15 @@ OTF2_GlobalDefWriter_WriteParadigmProperty( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteString( OTF2_GlobalDefWriter* writerHandle,
-                                  OTF2_StringRef        self,
-                                  const char*           string );
+OTF2_GlobalDefWriter_WriteString( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_StringRef self,
+const char* string );
 
 
 /** @brief Writes a @eref{Attribute} definition record into the GlobalDefWriter.
  *
  *  The attribute definition.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param self         The unique identifier for this @eref{Attribute}
  *                      definition.
@@ -209,17 +209,17 @@ OTF2_GlobalDefWriter_WriteString( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteAttribute( OTF2_GlobalDefWriter* writerHandle,
-                                     OTF2_AttributeRef     self,
-                                     OTF2_StringRef        name,
-                                     OTF2_StringRef        description,
-                                     OTF2_Type             type );
+OTF2_GlobalDefWriter_WriteAttribute( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_AttributeRef self,
+OTF2_StringRef name,
+OTF2_StringRef description,
+OTF2_Type type );
 
 
 /** @brief Writes a @eref{SystemTreeNode} definition record into the GlobalDefWriter.
  *
  *  The system tree node definition.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param self         The unique identifier for this @eref{SystemTreeNode}
  *                      definition.
@@ -237,17 +237,17 @@ OTF2_GlobalDefWriter_WriteAttribute( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteSystemTreeNode( OTF2_GlobalDefWriter*  writerHandle,
-                                          OTF2_SystemTreeNodeRef self,
-                                          OTF2_StringRef         name,
-                                          OTF2_StringRef         className,
-                                          OTF2_SystemTreeNodeRef parent );
+OTF2_GlobalDefWriter_WriteSystemTreeNode( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_SystemTreeNodeRef self,
+OTF2_StringRef name,
+OTF2_StringRef className,
+OTF2_SystemTreeNodeRef parent );
 
 
 /** @brief Writes a @eref{LocationGroup} definition record into the GlobalDefWriter.
  *
  *  The location group definition.
- *
+ *  
  *  @param writerHandle      The writer handle.
  *  @param self              The unique identifier for this @eref{LocationGroup}
  *                           definition.
@@ -262,17 +262,17 @@ OTF2_GlobalDefWriter_WriteSystemTreeNode( OTF2_GlobalDefWriter*  writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteLocationGroup( OTF2_GlobalDefWriter*  writerHandle,
-                                         OTF2_LocationGroupRef  self,
-                                         OTF2_StringRef         name,
-                                         OTF2_LocationGroupType locationGroupType,
-                                         OTF2_SystemTreeNodeRef systemTreeParent );
+OTF2_GlobalDefWriter_WriteLocationGroup( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_LocationGroupRef self,
+OTF2_StringRef name,
+OTF2_LocationGroupType locationGroupType,
+OTF2_SystemTreeNodeRef systemTreeParent );
 
 
 /** @brief Writes a @eref{Location} definition record into the GlobalDefWriter.
  *
  *  The location definition.
- *
+ *  
  *  @param writerHandle   The writer handle.
  *  @param self           The unique identifier for this @eref{Location}
  *                        definition.
@@ -288,18 +288,18 @@ OTF2_GlobalDefWriter_WriteLocationGroup( OTF2_GlobalDefWriter*  writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteLocation( OTF2_GlobalDefWriter* writerHandle,
-                                    OTF2_LocationRef      self,
-                                    OTF2_StringRef        name,
-                                    OTF2_LocationType     locationType,
-                                    uint64_t              numberOfEvents,
-                                    OTF2_LocationGroupRef locationGroup );
+OTF2_GlobalDefWriter_WriteLocation( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_LocationRef self,
+OTF2_StringRef name,
+OTF2_LocationType locationType,
+uint64_t numberOfEvents,
+OTF2_LocationGroupRef locationGroup );
 
 
 /** @brief Writes a @eref{Region} definition record into the GlobalDefWriter.
  *
  *  The region definition.
- *
+ *  
  *  @param writerHandle    The writer handle.
  *  @param self            The unique identifier for this @eref{Region}
  *                         definition.
@@ -324,23 +324,23 @@ OTF2_GlobalDefWriter_WriteLocation( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteRegion( OTF2_GlobalDefWriter* writerHandle,
-                                  OTF2_RegionRef        self,
-                                  OTF2_StringRef        name,
-                                  OTF2_StringRef        canonicalName,
-                                  OTF2_StringRef        description,
-                                  OTF2_RegionRole       regionRole,
-                                  OTF2_Paradigm         paradigm,
-                                  OTF2_RegionFlag       regionFlags,
-                                  OTF2_StringRef        sourceFile,
-                                  uint32_t              beginLineNumber,
-                                  uint32_t              endLineNumber );
+OTF2_GlobalDefWriter_WriteRegion( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_RegionRef self,
+OTF2_StringRef name,
+OTF2_StringRef canonicalName,
+OTF2_StringRef description,
+OTF2_RegionRole regionRole,
+OTF2_Paradigm paradigm,
+OTF2_RegionFlag regionFlags,
+OTF2_StringRef sourceFile,
+uint32_t beginLineNumber,
+uint32_t endLineNumber );
 
 
 /** @brief Writes a @eref{Callsite} definition record into the GlobalDefWriter.
  *
  *  The callsite definition.
- *
+ *  
  *  @param writerHandle  The writer handle.
  *  @param self          The unique identifier for this @eref{Callsite}
  *                       definition.
@@ -359,18 +359,18 @@ OTF2_GlobalDefWriter_WriteRegion( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteCallsite( OTF2_GlobalDefWriter* writerHandle,
-                                    OTF2_CallsiteRef      self,
-                                    OTF2_StringRef        sourceFile,
-                                    uint32_t              lineNumber,
-                                    OTF2_RegionRef        enteredRegion,
-                                    OTF2_RegionRef        leftRegion );
+OTF2_GlobalDefWriter_WriteCallsite( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_CallsiteRef self,
+OTF2_StringRef sourceFile,
+uint32_t lineNumber,
+OTF2_RegionRef enteredRegion,
+OTF2_RegionRef leftRegion );
 
 
 /** @brief Writes a @eref{Callpath} definition record into the GlobalDefWriter.
  *
  *  The callpath definition.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param self         The unique identifier for this @eref{Callpath}
  *                      definition.
@@ -384,16 +384,16 @@ OTF2_GlobalDefWriter_WriteCallsite( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteCallpath( OTF2_GlobalDefWriter* writerHandle,
-                                    OTF2_CallpathRef      self,
-                                    OTF2_CallpathRef      parent,
-                                    OTF2_RegionRef        region );
+OTF2_GlobalDefWriter_WriteCallpath( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_CallpathRef self,
+OTF2_CallpathRef parent,
+OTF2_RegionRef region );
 
 
 /** @brief Writes a @eref{Group} definition record into the GlobalDefWriter.
  *
  *  The group definition.
- *
+ *  
  *  @param writerHandle    The writer handle.
  *  @param self            The unique identifier for this @eref{Group}
  *                         definition.
@@ -411,14 +411,14 @@ OTF2_GlobalDefWriter_WriteCallpath( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteGroup( OTF2_GlobalDefWriter* writerHandle,
-                                 OTF2_GroupRef         self,
-                                 OTF2_StringRef        name,
-                                 OTF2_GroupType        groupType,
-                                 OTF2_Paradigm         paradigm,
-                                 OTF2_GroupFlag        groupFlags,
-                                 uint32_t              numberOfMembers,
-                                 const uint64_t*       members );
+OTF2_GlobalDefWriter_WriteGroup( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_GroupRef self,
+OTF2_StringRef name,
+OTF2_GroupType groupType,
+OTF2_Paradigm paradigm,
+OTF2_GroupFlag groupFlags,
+uint32_t numberOfMembers,
+const uint64_t* members );
 
 
 /** @brief Writes a @eref{MetricMember} definition record into the GlobalDefWriter.
@@ -428,7 +428,7 @@ OTF2_GlobalDefWriter_WriteGroup( OTF2_GlobalDefWriter* writerHandle,
  *  special case of a metric class with only one member. It is not
  *  allowed to reference a metric member id in a metric event, but
  *  only metric class IDs.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param self         The unique identifier for this @eref{MetricMember}
  *                      definition.
@@ -466,16 +466,16 @@ OTF2_GlobalDefWriter_WriteGroup( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteMetricMember( OTF2_GlobalDefWriter* writerHandle,
-                                        OTF2_MetricMemberRef  self,
-                                        OTF2_StringRef        name,
-                                        OTF2_StringRef        description,
-                                        OTF2_MetricType       metricType,
-                                        OTF2_MetricMode       metricMode,
-                                        OTF2_Type             valueType,
-                                        OTF2_Base             base,
-                                        int64_t               exponent,
-                                        OTF2_StringRef        unit );
+OTF2_GlobalDefWriter_WriteMetricMember( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_MetricMemberRef self,
+OTF2_StringRef name,
+OTF2_StringRef description,
+OTF2_MetricType metricType,
+OTF2_MetricMode metricMode,
+OTF2_Type valueType,
+OTF2_Base base,
+int64_t exponent,
+OTF2_StringRef unit );
 
 
 /** @brief Writes a @eref{MetricClass} definition record into the GlobalDefWriter.
@@ -483,7 +483,7 @@ OTF2_GlobalDefWriter_WriteMetricMember( OTF2_GlobalDefWriter* writerHandle,
  *  For a metric class it is implicitly given that the event stream that
  *  records the metric is also the scope. A metric class can contain
  *  multiple different metrics.
- *
+ *  
  *  @param writerHandle     The writer handle.
  *  @param self             The unique identifier for this @eref{MetricClass}
  *                          definition.
@@ -500,12 +500,12 @@ OTF2_GlobalDefWriter_WriteMetricMember( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteMetricClass( OTF2_GlobalDefWriter*       writerHandle,
-                                       OTF2_MetricRef              self,
-                                       uint8_t                     numberOfMetrics,
-                                       const OTF2_MetricMemberRef* metricMembers,
-                                       OTF2_MetricOccurrence       metricOccurrence,
-                                       OTF2_RecorderKind           recorderKind );
+OTF2_GlobalDefWriter_WriteMetricClass( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_MetricRef self,
+uint8_t numberOfMetrics,
+const OTF2_MetricMemberRef* metricMembers,
+OTF2_MetricOccurrence metricOccurrence,
+OTF2_RecorderKind recorderKind );
 
 
 /** @brief Writes a @eref{MetricInstance} definition record into the GlobalDefWriter.
@@ -514,7 +514,7 @@ OTF2_GlobalDefWriter_WriteMetricClass( OTF2_GlobalDefWriter*       writerHandle,
  *  location for multiple locations or for another location. The
  *  occurrence of a metric instance is implicitly of type
  *  @eref{OTF2_METRIC_ASYNCHRONOUS}.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param self         The unique identifier for this @eref{MetricClass}
  *                      definition.
@@ -533,18 +533,18 @@ OTF2_GlobalDefWriter_WriteMetricClass( OTF2_GlobalDefWriter*       writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteMetricInstance( OTF2_GlobalDefWriter* writerHandle,
-                                          OTF2_MetricRef        self,
-                                          OTF2_MetricRef        metricClass,
-                                          OTF2_LocationRef      recorder,
-                                          OTF2_MetricScope      metricScope,
-                                          uint64_t              scope );
+OTF2_GlobalDefWriter_WriteMetricInstance( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_MetricRef self,
+OTF2_MetricRef metricClass,
+OTF2_LocationRef recorder,
+OTF2_MetricScope metricScope,
+uint64_t scope );
 
 
 /** @brief Writes a @eref{Comm} definition record into the GlobalDefWriter.
  *
  *  The communicator definition.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param self         The unique identifier for this @eref{Comm} definition.
  *  @param name         The name given by calling MPI_Comm_set_name on this
@@ -566,17 +566,17 @@ OTF2_GlobalDefWriter_WriteMetricInstance( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteComm( OTF2_GlobalDefWriter* writerHandle,
-                                OTF2_CommRef          self,
-                                OTF2_StringRef        name,
-                                OTF2_GroupRef         group,
-                                OTF2_CommRef          parent );
+OTF2_GlobalDefWriter_WriteComm( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_CommRef self,
+OTF2_StringRef name,
+OTF2_GroupRef group,
+OTF2_CommRef parent );
 
 
 /** @brief Writes a @eref{Parameter} definition record into the GlobalDefWriter.
  *
  *  The parameter definition.
- *
+ *  
  *  @param writerHandle  The writer handle.
  *  @param self          The unique identifier for this @eref{Parameter}
  *                       definition.
@@ -590,17 +590,17 @@ OTF2_GlobalDefWriter_WriteComm( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteParameter( OTF2_GlobalDefWriter* writerHandle,
-                                     OTF2_ParameterRef     self,
-                                     OTF2_StringRef        name,
-                                     OTF2_ParameterType    parameterType );
+OTF2_GlobalDefWriter_WriteParameter( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_ParameterRef self,
+OTF2_StringRef name,
+OTF2_ParameterType parameterType );
 
 
 /** @brief Writes a @eref{RmaWin} definition record into the GlobalDefWriter.
  *
  *  A window defines the communication context for any remote-memory
  *  access operation.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param self         The unique identifier for this @eref{RmaWin} definition.
  *  @param name         Name, e.g. 'GASPI Queue 1', 'NVidia Card 2', etc..
@@ -613,16 +613,16 @@ OTF2_GlobalDefWriter_WriteParameter( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteRmaWin( OTF2_GlobalDefWriter* writerHandle,
-                                  OTF2_RmaWinRef        self,
-                                  OTF2_StringRef        name,
-                                  OTF2_CommRef          comm );
+OTF2_GlobalDefWriter_WriteRmaWin( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_RmaWinRef self,
+OTF2_StringRef name,
+OTF2_CommRef comm );
 
 
 /** @brief Writes a @eref{MetricClassRecorder} definition record into the GlobalDefWriter.
  *
  *  The metric class recorder definition.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param metricClass  Parent @eref{MetricClass} definition to which this one is
  *                      a supplementary definition. References a
@@ -635,16 +635,16 @@ OTF2_GlobalDefWriter_WriteRmaWin( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteMetricClassRecorder( OTF2_GlobalDefWriter* writerHandle,
-                                               OTF2_MetricRef        metricClass,
-                                               OTF2_LocationRef      recorder );
+OTF2_GlobalDefWriter_WriteMetricClassRecorder( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_MetricRef metricClass,
+OTF2_LocationRef recorder );
 
 
 /** @brief Writes a @eref{SystemTreeNodeProperty} definition record into the GlobalDefWriter.
  *
  *  An arbitrary key/value property for a @eref{SystemTreeNode}
  *  definition.
- *
+ *  
  *  @param writerHandle   The writer handle.
  *  @param systemTreeNode Parent @eref{SystemTreeNode} definition to which this
  *                        one is a supplementary definition. References a
@@ -659,17 +659,17 @@ OTF2_GlobalDefWriter_WriteMetricClassRecorder( OTF2_GlobalDefWriter* writerHandl
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteSystemTreeNodeProperty( OTF2_GlobalDefWriter*  writerHandle,
-                                                  OTF2_SystemTreeNodeRef systemTreeNode,
-                                                  OTF2_StringRef         name,
-                                                  OTF2_Type              type,
-                                                  OTF2_AttributeValue    value );
+OTF2_GlobalDefWriter_WriteSystemTreeNodeProperty( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_SystemTreeNodeRef systemTreeNode,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Writes a @eref{SystemTreeNodeDomain} definition record into the GlobalDefWriter.
  *
  *  The system tree node domain definition.
- *
+ *  
  *  @param writerHandle     The writer handle.
  *  @param systemTreeNode   Parent @eref{SystemTreeNode} definition to which this
  *                          one is a supplementary definition. References a
@@ -682,15 +682,15 @@ OTF2_GlobalDefWriter_WriteSystemTreeNodeProperty( OTF2_GlobalDefWriter*  writerH
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteSystemTreeNodeDomain( OTF2_GlobalDefWriter*  writerHandle,
-                                                OTF2_SystemTreeNodeRef systemTreeNode,
-                                                OTF2_SystemTreeDomain  systemTreeDomain );
+OTF2_GlobalDefWriter_WriteSystemTreeNodeDomain( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_SystemTreeNodeRef systemTreeNode,
+OTF2_SystemTreeDomain systemTreeDomain );
 
 
 /** @brief Writes a @eref{LocationGroupProperty} definition record into the GlobalDefWriter.
  *
  *  An arbitrary key/value property for a @eref{LocationGroup} definition.
- *
+ *  
  *  @param writerHandle  The writer handle.
  *  @param locationGroup Parent @eref{LocationGroup} definition to which this one
  *                       is a supplementary definition. References a
@@ -705,17 +705,17 @@ OTF2_GlobalDefWriter_WriteSystemTreeNodeDomain( OTF2_GlobalDefWriter*  writerHan
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteLocationGroupProperty( OTF2_GlobalDefWriter* writerHandle,
-                                                 OTF2_LocationGroupRef locationGroup,
-                                                 OTF2_StringRef        name,
-                                                 OTF2_Type             type,
-                                                 OTF2_AttributeValue   value );
+OTF2_GlobalDefWriter_WriteLocationGroupProperty( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_LocationGroupRef locationGroup,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Writes a @eref{LocationProperty} definition record into the GlobalDefWriter.
  *
  *  An arbitrary key/value property for a @eref{Location} definition.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param location     Parent @eref{Location} definition to which this one is a
  *                      supplementary definition. References a
@@ -730,18 +730,18 @@ OTF2_GlobalDefWriter_WriteLocationGroupProperty( OTF2_GlobalDefWriter* writerHan
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteLocationProperty( OTF2_GlobalDefWriter* writerHandle,
-                                            OTF2_LocationRef      location,
-                                            OTF2_StringRef        name,
-                                            OTF2_Type             type,
-                                            OTF2_AttributeValue   value );
+OTF2_GlobalDefWriter_WriteLocationProperty( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_LocationRef location,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Writes a @eref{CartDimension} definition record into the GlobalDefWriter.
  *
  *  Each dimension in a Cartesian topology is composed of a global id, a
  *  name, its size, and whether it is periodic or not.
- *
+ *  
  *  @param writerHandle    The writer handle.
  *  @param self            The unique identifier for this @eref{CartDimension}
  *                         definition.
@@ -755,11 +755,11 @@ OTF2_GlobalDefWriter_WriteLocationProperty( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteCartDimension( OTF2_GlobalDefWriter* writerHandle,
-                                         OTF2_CartDimensionRef self,
-                                         OTF2_StringRef        name,
-                                         uint32_t              size,
-                                         OTF2_CartPeriodicity  cartPeriodicity );
+OTF2_GlobalDefWriter_WriteCartDimension( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_CartDimensionRef self,
+OTF2_StringRef name,
+uint32_t size,
+OTF2_CartPeriodicity cartPeriodicity );
 
 
 /** @brief Writes a @eref{CartTopology} definition record into the GlobalDefWriter.
@@ -769,7 +769,7 @@ OTF2_GlobalDefWriter_WriteCartDimension( OTF2_GlobalDefWriter* writerHandle,
  *  references to those dimensions. The topology type is defined by
  *  the paradigm of the group referenced by the associated
  *  communicator.
- *
+ *  
  *  @param writerHandle       The writer handle.
  *  @param self               The unique identifier for this @eref{CartTopology}
  *                            definition.
@@ -786,12 +786,12 @@ OTF2_GlobalDefWriter_WriteCartDimension( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteCartTopology( OTF2_GlobalDefWriter*        writerHandle,
-                                        OTF2_CartTopologyRef         self,
-                                        OTF2_StringRef               name,
-                                        OTF2_CommRef                 communicator,
-                                        uint8_t                      numberOfDimensions,
-                                        const OTF2_CartDimensionRef* cartDimensions );
+OTF2_GlobalDefWriter_WriteCartTopology( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_CartTopologyRef self,
+OTF2_StringRef name,
+OTF2_CommRef communicator,
+uint8_t numberOfDimensions,
+const OTF2_CartDimensionRef* cartDimensions );
 
 
 /** @brief Writes a @eref{CartCoordinate} definition record into the GlobalDefWriter.
@@ -799,7 +799,7 @@ OTF2_GlobalDefWriter_WriteCartTopology( OTF2_GlobalDefWriter*        writerHandl
  *  Defines the coordinate of the location referenced by the given rank
  *  (w.r.t. the communicator associated to the topology) in the
  *  referenced topology.
- *
+ *  
  *  @param writerHandle       The writer handle.
  *  @param cartTopology       Parent @eref{CartTopology} definition to which this
  *                            one is a supplementary definition. References a
@@ -814,23 +814,23 @@ OTF2_GlobalDefWriter_WriteCartTopology( OTF2_GlobalDefWriter*        writerHandl
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteCartCoordinate( OTF2_GlobalDefWriter* writerHandle,
-                                          OTF2_CartTopologyRef  cartTopology,
-                                          uint32_t              rank,
-                                          uint8_t               numberOfDimensions,
-                                          const uint32_t*       coordinates );
+OTF2_GlobalDefWriter_WriteCartCoordinate( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_CartTopologyRef cartTopology,
+uint32_t rank,
+uint8_t numberOfDimensions,
+const uint32_t* coordinates );
 
 
 /** @brief Writes a @eref{SourceCodeLocation} definition record into the GlobalDefWriter.
  *
  *  The definition of a source code location as tuple of the corresponding
  *  file name and line number.
- *
+ *  
  *  When used to attach source code annotations to events, use the
  *  @eref{OTF2_AttributeList} with a @eref{Attribute} definition named
  *  @c "SOURCE_CODE_LOCATION" and typed
  *  @eref{OTF2_TYPE_SOURCE_CODE_LOCATION}.
- *
+ *  
  *  @param writerHandle The writer handle.
  *  @param self         The unique identifier for this @eref{SourceCodeLocation}
  *                      definition.
@@ -843,10 +843,10 @@ OTF2_GlobalDefWriter_WriteCartCoordinate( OTF2_GlobalDefWriter* writerHandle,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteSourceCodeLocation( OTF2_GlobalDefWriter*      writerHandle,
-                                              OTF2_SourceCodeLocationRef self,
-                                              OTF2_StringRef             file,
-                                              uint32_t                   lineNumber );
+OTF2_GlobalDefWriter_WriteSourceCodeLocation( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_SourceCodeLocationRef self,
+OTF2_StringRef file,
+uint32_t lineNumber );
 
 
 /** @brief Writes a @eref{CallingContext} definition record into the GlobalDefWriter.
@@ -854,13 +854,13 @@ OTF2_GlobalDefWriter_WriteSourceCodeLocation( OTF2_GlobalDefWriter*      writerH
  *  Defines a node in the calling context tree. These nodes are referenced
  *  in the @eref{CallingContextSample}, @eref{CallingContextEnter},
  *  and @eref{CallingContextLeave} events.
- *
+ *  
  *  The referenced @eref{CallingContext} node in these events form a path
  *  which represents the calling context at this time.  This path will
  *  be partitioned into at most three sub-paths by the @a
  *  unwindDistance attribute.  For the @eref{CallingContextLeave}
  *  event, the @a unwindDistance is defined to be 1.
- *
+ *  
  *  Starting from the referenced @eref{CallingContext} node, the first @f$
  *  N \ge 0 @f$ nodes were newly entered regions since the previous
  *  calling context event.  The next node is a region which was not
@@ -870,28 +870,28 @@ OTF2_GlobalDefWriter_WriteSourceCodeLocation( OTF2_GlobalDefWriter*      writerH
  *  then @f$ N + 1 @f$. In case the @p unwindDistance is @f$ 0 @f$,
  *  there are neither newly entered regions nor regions which made
  *  progress.
- *
+ *  
  *  It is guaranteed, that the node referenced by the @a unwindDistance
  *  exists in the previous and current calling context.  All
  *  descendants of this node's child in the previous calling context
  *  were left since the previous calling context event.
- *
+ *  
  *  It is valid that this node is the
  *  @eref{OTF2_UNDEFINED_CALLING_CONTEXT} node and that this node is
  *  already reached after @a unwindDistance @f$ - 1 @f$ steps.  In the
  *  latter case, there exists no region which made progress, all
  *  regions in the previous calling context were left and all regions
  *  in the current calling context were newly entered.
- *
+ *  
  *  Note that for @eref{CallingContextLeave} events, the parent of the
  *  referenced @eref{CallingContext} must be used as the previous
  *  calling context for the next event.
- *
+ *  
  *  Regions which were entered with a @eref{CallingContextEnter} event
  *  form an upper bound for the unwind distance, i.e., the @a
  *  unwindDistance points either to the parent of the last such
  *  entered region, or a node which is a descendant to this parent.
- *
+ *  
  *  To summarize, an @a unwindDistance of @f$ 0 @f$ means that no regions
  *  were left, newly entered, or made any progress.  An @a
  *  unwindDistance of @f$ 1 @f$ means that some regions were left
@@ -901,7 +901,7 @@ OTF2_GlobalDefWriter_WriteSourceCodeLocation( OTF2_GlobalDefWriter*      writerH
  *  regions were left regarding the previous calling context, there
  *  was progress in one region, and the first @a unwindDistance @f$ -
  *  1 @f$ regions were newly entered.
- *
+ *  
  *  @param writerHandle       The writer handle.
  *  @param self               The unique identifier for this
  *                            @eref{CallingContext} definition.
@@ -917,18 +917,18 @@ OTF2_GlobalDefWriter_WriteSourceCodeLocation( OTF2_GlobalDefWriter*      writerH
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteCallingContext( OTF2_GlobalDefWriter*      writerHandle,
-                                          OTF2_CallingContextRef     self,
-                                          OTF2_RegionRef             region,
-                                          OTF2_SourceCodeLocationRef sourceCodeLocation,
-                                          OTF2_CallingContextRef     parent );
+OTF2_GlobalDefWriter_WriteCallingContext( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_CallingContextRef self,
+OTF2_RegionRef region,
+OTF2_SourceCodeLocationRef sourceCodeLocation,
+OTF2_CallingContextRef parent );
 
 
 /** @brief Writes a @eref{CallingContextProperty} definition record into the GlobalDefWriter.
  *
  *  An arbitrary key/value property for a @eref{CallingContext}
  *  definition.
- *
+ *  
  *  @param writerHandle   The writer handle.
  *  @param callingContext Parent @eref{CallingContext} definition to which this
  *                        one is a supplementary definition. References a
@@ -943,11 +943,11 @@ OTF2_GlobalDefWriter_WriteCallingContext( OTF2_GlobalDefWriter*      writerHandl
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteCallingContextProperty( OTF2_GlobalDefWriter*  writerHandle,
-                                                  OTF2_CallingContextRef callingContext,
-                                                  OTF2_StringRef         name,
-                                                  OTF2_Type              type,
-                                                  OTF2_AttributeValue    value );
+OTF2_GlobalDefWriter_WriteCallingContextProperty( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_CallingContextRef callingContext,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Writes a @eref{InterruptGenerator} definition record into the GlobalDefWriter.
@@ -962,13 +962,13 @@ OTF2_GlobalDefWriter_WriteCallingContextProperty( OTF2_GlobalDefWriter*  writerH
  *  system.  Therefore these samples are unlikely to be uniformly
  *  distributed over time.  The unit of the period is then implicitly
  *  a number (threshold value).
- *
+ *  
  *  The interrupts period in base unit (which is implicitly seconds or
  *  number, based on the @p mode) is derived out of the @p base, the
  *  @p exponent, and the @p period attributes by this formula:
- *
+ *  
  *  base-period = period x base^exponent
- *
+ *  
  *  @param writerHandle           The writer handle.
  *  @param self                   The unique identifier for this
  *                                @eref{InterruptGenerator} definition.
@@ -985,13 +985,13 @@ OTF2_GlobalDefWriter_WriteCallingContextProperty( OTF2_GlobalDefWriter*  writerH
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_GlobalDefWriter_WriteInterruptGenerator( OTF2_GlobalDefWriter*       writerHandle,
-                                              OTF2_InterruptGeneratorRef  self,
-                                              OTF2_StringRef              name,
-                                              OTF2_InterruptGeneratorMode interruptGeneratorMode,
-                                              OTF2_Base                   base,
-                                              int64_t                     exponent,
-                                              uint64_t                    period );
+OTF2_GlobalDefWriter_WriteInterruptGenerator( OTF2_GlobalDefWriter* writerHandle ,
+OTF2_InterruptGeneratorRef self,
+OTF2_StringRef name,
+OTF2_InterruptGeneratorMode interruptGeneratorMode,
+OTF2_Base base,
+int64_t exponent,
+uint64_t period );
 
 
 #ifdef __cplusplus

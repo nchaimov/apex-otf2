@@ -1,5 +1,5 @@
-d9542c5ee9886be7528a85070d4a4f17
-afd3565773948e96eb5898480679696b
+65e70eb282341f542c6f060e2ed69daf
+574363efbf70f38e1c9ac06a2152e93a
 ../src/OTF2_DefWriter_inc.c
 OTF2_DefWriter_inc.tmpl.c
 ../share/otf2/otf2.types

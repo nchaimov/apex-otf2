@@ -38,9 +38,9 @@
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddUint8( OTF2_AttributeList* attributeList,
-                             OTF2_AttributeRef   attributeID,
-                             uint8_t             uint8Value )
+OTF2_AttributeList_AddUint8( OTF2_AttributeList*  attributeList,
+                                           OTF2_AttributeRef    attributeID,
+                                           uint8_t       uint8Value )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.uint8 = uint8Value;
@@ -54,9 +54,9 @@ OTF2_AttributeList_AddUint8( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddUint16( OTF2_AttributeList* attributeList,
-                              OTF2_AttributeRef   attributeID,
-                              uint16_t            uint16Value )
+OTF2_AttributeList_AddUint16( OTF2_AttributeList*  attributeList,
+                                           OTF2_AttributeRef    attributeID,
+                                           uint16_t       uint16Value )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.uint16 = uint16Value;
@@ -70,9 +70,9 @@ OTF2_AttributeList_AddUint16( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddUint32( OTF2_AttributeList* attributeList,
-                              OTF2_AttributeRef   attributeID,
-                              uint32_t            uint32Value )
+OTF2_AttributeList_AddUint32( OTF2_AttributeList*  attributeList,
+                                           OTF2_AttributeRef    attributeID,
+                                           uint32_t       uint32Value )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.uint32 = uint32Value;
@@ -86,9 +86,9 @@ OTF2_AttributeList_AddUint32( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddUint64( OTF2_AttributeList* attributeList,
-                              OTF2_AttributeRef   attributeID,
-                              uint64_t            uint64Value )
+OTF2_AttributeList_AddUint64( OTF2_AttributeList*  attributeList,
+                                           OTF2_AttributeRef    attributeID,
+                                           uint64_t       uint64Value )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.uint64 = uint64Value;
@@ -102,9 +102,9 @@ OTF2_AttributeList_AddUint64( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddInt8( OTF2_AttributeList* attributeList,
-                            OTF2_AttributeRef   attributeID,
-                            int8_t              int8Value )
+OTF2_AttributeList_AddInt8( OTF2_AttributeList*  attributeList,
+                                           OTF2_AttributeRef    attributeID,
+                                           int8_t       int8Value )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.int8 = int8Value;
@@ -118,9 +118,9 @@ OTF2_AttributeList_AddInt8( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddInt16( OTF2_AttributeList* attributeList,
-                             OTF2_AttributeRef   attributeID,
-                             int16_t             int16Value )
+OTF2_AttributeList_AddInt16( OTF2_AttributeList*  attributeList,
+                                           OTF2_AttributeRef    attributeID,
+                                           int16_t       int16Value )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.int16 = int16Value;
@@ -134,9 +134,9 @@ OTF2_AttributeList_AddInt16( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddInt32( OTF2_AttributeList* attributeList,
-                             OTF2_AttributeRef   attributeID,
-                             int32_t             int32Value )
+OTF2_AttributeList_AddInt32( OTF2_AttributeList*  attributeList,
+                                           OTF2_AttributeRef    attributeID,
+                                           int32_t       int32Value )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.int32 = int32Value;
@@ -150,9 +150,9 @@ OTF2_AttributeList_AddInt32( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddInt64( OTF2_AttributeList* attributeList,
-                             OTF2_AttributeRef   attributeID,
-                             int64_t             int64Value )
+OTF2_AttributeList_AddInt64( OTF2_AttributeList*  attributeList,
+                                           OTF2_AttributeRef    attributeID,
+                                           int64_t       int64Value )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.int64 = int64Value;
@@ -166,9 +166,9 @@ OTF2_AttributeList_AddInt64( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddFloat( OTF2_AttributeList* attributeList,
-                             OTF2_AttributeRef   attributeID,
-                             float               float32Value )
+OTF2_AttributeList_AddFloat( OTF2_AttributeList*  attributeList,
+                                           OTF2_AttributeRef    attributeID,
+                                           float       float32Value )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.float32 = float32Value;
@@ -182,9 +182,9 @@ OTF2_AttributeList_AddFloat( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddDouble( OTF2_AttributeList* attributeList,
-                              OTF2_AttributeRef   attributeID,
-                              double              float64Value )
+OTF2_AttributeList_AddDouble( OTF2_AttributeList*  attributeList,
+                                           OTF2_AttributeRef    attributeID,
+                                           double       float64Value )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.float64 = float64Value;
@@ -198,9 +198,9 @@ OTF2_AttributeList_AddDouble( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddStringRef( OTF2_AttributeList* attributeList,
-                                 OTF2_AttributeRef   attributeID,
-                                 OTF2_StringRef      stringRef )
+OTF2_AttributeList_AddStringRef( OTF2_AttributeList*    attributeList,
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_StringRef stringRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.stringRef = stringRef;
@@ -214,9 +214,9 @@ OTF2_AttributeList_AddStringRef( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddAttributeRef( OTF2_AttributeList* attributeList,
-                                    OTF2_AttributeRef   attributeID,
-                                    OTF2_AttributeRef   attributeRef )
+OTF2_AttributeList_AddAttributeRef( OTF2_AttributeList*    attributeList,
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_AttributeRef attributeRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.attributeRef = attributeRef;
@@ -230,9 +230,9 @@ OTF2_AttributeList_AddAttributeRef( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddLocationRef( OTF2_AttributeList* attributeList,
-                                   OTF2_AttributeRef   attributeID,
-                                   OTF2_LocationRef    locationRef )
+OTF2_AttributeList_AddLocationRef( OTF2_AttributeList*    attributeList,
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_LocationRef locationRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.locationRef = locationRef;
@@ -246,9 +246,9 @@ OTF2_AttributeList_AddLocationRef( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddRegionRef( OTF2_AttributeList* attributeList,
-                                 OTF2_AttributeRef   attributeID,
-                                 OTF2_RegionRef      regionRef )
+OTF2_AttributeList_AddRegionRef( OTF2_AttributeList*    attributeList,
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_RegionRef regionRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.regionRef = regionRef;
@@ -262,9 +262,9 @@ OTF2_AttributeList_AddRegionRef( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddGroupRef( OTF2_AttributeList* attributeList,
-                                OTF2_AttributeRef   attributeID,
-                                OTF2_GroupRef       groupRef )
+OTF2_AttributeList_AddGroupRef( OTF2_AttributeList*    attributeList,
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_GroupRef groupRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.groupRef = groupRef;
@@ -278,9 +278,9 @@ OTF2_AttributeList_AddGroupRef( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddMetricRef( OTF2_AttributeList* attributeList,
-                                 OTF2_AttributeRef   attributeID,
-                                 OTF2_MetricRef      metricRef )
+OTF2_AttributeList_AddMetricRef( OTF2_AttributeList*    attributeList,
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_MetricRef metricRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.metricRef = metricRef;
@@ -294,9 +294,9 @@ OTF2_AttributeList_AddMetricRef( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddCommRef( OTF2_AttributeList* attributeList,
-                               OTF2_AttributeRef   attributeID,
-                               OTF2_CommRef        commRef )
+OTF2_AttributeList_AddCommRef( OTF2_AttributeList*    attributeList,
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_CommRef commRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.commRef = commRef;
@@ -310,9 +310,9 @@ OTF2_AttributeList_AddCommRef( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddParameterRef( OTF2_AttributeList* attributeList,
-                                    OTF2_AttributeRef   attributeID,
-                                    OTF2_ParameterRef   parameterRef )
+OTF2_AttributeList_AddParameterRef( OTF2_AttributeList*    attributeList,
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_ParameterRef parameterRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.parameterRef = parameterRef;
@@ -326,9 +326,9 @@ OTF2_AttributeList_AddParameterRef( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddRmaWinRef( OTF2_AttributeList* attributeList,
-                                 OTF2_AttributeRef   attributeID,
-                                 OTF2_RmaWinRef      rmaWinRef )
+OTF2_AttributeList_AddRmaWinRef( OTF2_AttributeList*    attributeList,
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_RmaWinRef rmaWinRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.rmaWinRef = rmaWinRef;
@@ -342,9 +342,9 @@ OTF2_AttributeList_AddRmaWinRef( OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddSourceCodeLocationRef( OTF2_AttributeList*        attributeList,
-                                             OTF2_AttributeRef          attributeID,
-                                             OTF2_SourceCodeLocationRef sourceCodeLocationRef )
+OTF2_AttributeList_AddSourceCodeLocationRef( OTF2_AttributeList*    attributeList,
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_SourceCodeLocationRef sourceCodeLocationRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.sourceCodeLocationRef = sourceCodeLocationRef;
@@ -359,8 +359,8 @@ OTF2_AttributeList_AddSourceCodeLocationRef( OTF2_AttributeList*        attribut
 
 OTF2_ErrorCode
 OTF2_AttributeList_AddCallingContextRef( OTF2_AttributeList*    attributeList,
-                                         OTF2_AttributeRef      attributeID,
-                                         OTF2_CallingContextRef callingContextRef )
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_CallingContextRef callingContextRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.callingContextRef = callingContextRef;
@@ -374,9 +374,9 @@ OTF2_AttributeList_AddCallingContextRef( OTF2_AttributeList*    attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_AddInterruptGeneratorRef( OTF2_AttributeList*        attributeList,
-                                             OTF2_AttributeRef          attributeID,
-                                             OTF2_InterruptGeneratorRef interruptGeneratorRef )
+OTF2_AttributeList_AddInterruptGeneratorRef( OTF2_AttributeList*    attributeList,
+                                           OTF2_AttributeRef      attributeID,
+                                           OTF2_InterruptGeneratorRef interruptGeneratorRef )
 {
     OTF2_AttributeValue attribute_value;
     attribute_value.interruptGeneratorRef = interruptGeneratorRef;
@@ -391,8 +391,8 @@ OTF2_AttributeList_AddInterruptGeneratorRef( OTF2_AttributeList*        attribut
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetUint8( const OTF2_AttributeList* attributeList,
-                             OTF2_AttributeRef         attributeID,
-                             uint8_t*                  uint8Value )
+                                           OTF2_AttributeRef         attributeID,
+                                           uint8_t*           uint8Value )
 {
     if ( !uint8Value )
     {
@@ -428,8 +428,8 @@ OTF2_AttributeList_GetUint8( const OTF2_AttributeList* attributeList,
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetUint16( const OTF2_AttributeList* attributeList,
-                              OTF2_AttributeRef         attributeID,
-                              uint16_t*                 uint16Value )
+                                           OTF2_AttributeRef         attributeID,
+                                           uint16_t*           uint16Value )
 {
     if ( !uint16Value )
     {
@@ -465,8 +465,8 @@ OTF2_AttributeList_GetUint16( const OTF2_AttributeList* attributeList,
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetUint32( const OTF2_AttributeList* attributeList,
-                              OTF2_AttributeRef         attributeID,
-                              uint32_t*                 uint32Value )
+                                           OTF2_AttributeRef         attributeID,
+                                           uint32_t*           uint32Value )
 {
     if ( !uint32Value )
     {
@@ -502,8 +502,8 @@ OTF2_AttributeList_GetUint32( const OTF2_AttributeList* attributeList,
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetUint64( const OTF2_AttributeList* attributeList,
-                              OTF2_AttributeRef         attributeID,
-                              uint64_t*                 uint64Value )
+                                           OTF2_AttributeRef         attributeID,
+                                           uint64_t*           uint64Value )
 {
     if ( !uint64Value )
     {
@@ -539,8 +539,8 @@ OTF2_AttributeList_GetUint64( const OTF2_AttributeList* attributeList,
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetInt8( const OTF2_AttributeList* attributeList,
-                            OTF2_AttributeRef         attributeID,
-                            int8_t*                   int8Value )
+                                           OTF2_AttributeRef         attributeID,
+                                           int8_t*           int8Value )
 {
     if ( !int8Value )
     {
@@ -576,8 +576,8 @@ OTF2_AttributeList_GetInt8( const OTF2_AttributeList* attributeList,
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetInt16( const OTF2_AttributeList* attributeList,
-                             OTF2_AttributeRef         attributeID,
-                             int16_t*                  int16Value )
+                                           OTF2_AttributeRef         attributeID,
+                                           int16_t*           int16Value )
 {
     if ( !int16Value )
     {
@@ -613,8 +613,8 @@ OTF2_AttributeList_GetInt16( const OTF2_AttributeList* attributeList,
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetInt32( const OTF2_AttributeList* attributeList,
-                             OTF2_AttributeRef         attributeID,
-                             int32_t*                  int32Value )
+                                           OTF2_AttributeRef         attributeID,
+                                           int32_t*           int32Value )
 {
     if ( !int32Value )
     {
@@ -650,8 +650,8 @@ OTF2_AttributeList_GetInt32( const OTF2_AttributeList* attributeList,
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetInt64( const OTF2_AttributeList* attributeList,
-                             OTF2_AttributeRef         attributeID,
-                             int64_t*                  int64Value )
+                                           OTF2_AttributeRef         attributeID,
+                                           int64_t*           int64Value )
 {
     if ( !int64Value )
     {
@@ -687,8 +687,8 @@ OTF2_AttributeList_GetInt64( const OTF2_AttributeList* attributeList,
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetFloat( const OTF2_AttributeList* attributeList,
-                             OTF2_AttributeRef         attributeID,
-                             float*                    float32Value )
+                                           OTF2_AttributeRef         attributeID,
+                                           float*           float32Value )
 {
     if ( !float32Value )
     {
@@ -724,8 +724,8 @@ OTF2_AttributeList_GetFloat( const OTF2_AttributeList* attributeList,
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetDouble( const OTF2_AttributeList* attributeList,
-                              OTF2_AttributeRef         attributeID,
-                              double*                   float64Value )
+                                           OTF2_AttributeRef         attributeID,
+                                           double*           float64Value )
 {
     if ( !float64Value )
     {
@@ -760,9 +760,9 @@ OTF2_AttributeList_GetDouble( const OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_GetStringRef( const OTF2_AttributeList* attributeList,
-                                 OTF2_AttributeRef         attributeID,
-                                 OTF2_StringRef*           stringRef )
+OTF2_AttributeList_GetStringRef( const OTF2_AttributeList*   attributeList,
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_StringRef*     stringRef )
 {
     if ( !stringRef )
     {
@@ -797,9 +797,9 @@ OTF2_AttributeList_GetStringRef( const OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_GetAttributeRef( const OTF2_AttributeList* attributeList,
-                                    OTF2_AttributeRef         attributeID,
-                                    OTF2_AttributeRef*        attributeRef )
+OTF2_AttributeList_GetAttributeRef( const OTF2_AttributeList*   attributeList,
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_AttributeRef*     attributeRef )
 {
     if ( !attributeRef )
     {
@@ -834,9 +834,9 @@ OTF2_AttributeList_GetAttributeRef( const OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_GetLocationRef( const OTF2_AttributeList* attributeList,
-                                   OTF2_AttributeRef         attributeID,
-                                   OTF2_LocationRef*         locationRef )
+OTF2_AttributeList_GetLocationRef( const OTF2_AttributeList*   attributeList,
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_LocationRef*     locationRef )
 {
     if ( !locationRef )
     {
@@ -871,9 +871,9 @@ OTF2_AttributeList_GetLocationRef( const OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_GetRegionRef( const OTF2_AttributeList* attributeList,
-                                 OTF2_AttributeRef         attributeID,
-                                 OTF2_RegionRef*           regionRef )
+OTF2_AttributeList_GetRegionRef( const OTF2_AttributeList*   attributeList,
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_RegionRef*     regionRef )
 {
     if ( !regionRef )
     {
@@ -908,9 +908,9 @@ OTF2_AttributeList_GetRegionRef( const OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_GetGroupRef( const OTF2_AttributeList* attributeList,
-                                OTF2_AttributeRef         attributeID,
-                                OTF2_GroupRef*            groupRef )
+OTF2_AttributeList_GetGroupRef( const OTF2_AttributeList*   attributeList,
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_GroupRef*     groupRef )
 {
     if ( !groupRef )
     {
@@ -945,9 +945,9 @@ OTF2_AttributeList_GetGroupRef( const OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_GetMetricRef( const OTF2_AttributeList* attributeList,
-                                 OTF2_AttributeRef         attributeID,
-                                 OTF2_MetricRef*           metricRef )
+OTF2_AttributeList_GetMetricRef( const OTF2_AttributeList*   attributeList,
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_MetricRef*     metricRef )
 {
     if ( !metricRef )
     {
@@ -982,9 +982,9 @@ OTF2_AttributeList_GetMetricRef( const OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_GetCommRef( const OTF2_AttributeList* attributeList,
-                               OTF2_AttributeRef         attributeID,
-                               OTF2_CommRef*             commRef )
+OTF2_AttributeList_GetCommRef( const OTF2_AttributeList*   attributeList,
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_CommRef*     commRef )
 {
     if ( !commRef )
     {
@@ -1019,9 +1019,9 @@ OTF2_AttributeList_GetCommRef( const OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_GetParameterRef( const OTF2_AttributeList* attributeList,
-                                    OTF2_AttributeRef         attributeID,
-                                    OTF2_ParameterRef*        parameterRef )
+OTF2_AttributeList_GetParameterRef( const OTF2_AttributeList*   attributeList,
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_ParameterRef*     parameterRef )
 {
     if ( !parameterRef )
     {
@@ -1056,9 +1056,9 @@ OTF2_AttributeList_GetParameterRef( const OTF2_AttributeList* attributeList,
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_GetRmaWinRef( const OTF2_AttributeList* attributeList,
-                                 OTF2_AttributeRef         attributeID,
-                                 OTF2_RmaWinRef*           rmaWinRef )
+OTF2_AttributeList_GetRmaWinRef( const OTF2_AttributeList*   attributeList,
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_RmaWinRef*     rmaWinRef )
 {
     if ( !rmaWinRef )
     {
@@ -1094,8 +1094,8 @@ OTF2_AttributeList_GetRmaWinRef( const OTF2_AttributeList* attributeList,
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetSourceCodeLocationRef( const OTF2_AttributeList*   attributeList,
-                                             OTF2_AttributeRef           attributeID,
-                                             OTF2_SourceCodeLocationRef* sourceCodeLocationRef )
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_SourceCodeLocationRef*     sourceCodeLocationRef )
 {
     if ( !sourceCodeLocationRef )
     {
@@ -1130,9 +1130,9 @@ OTF2_AttributeList_GetSourceCodeLocationRef( const OTF2_AttributeList*   attribu
 
 
 OTF2_ErrorCode
-OTF2_AttributeList_GetCallingContextRef( const OTF2_AttributeList* attributeList,
-                                         OTF2_AttributeRef         attributeID,
-                                         OTF2_CallingContextRef*   callingContextRef )
+OTF2_AttributeList_GetCallingContextRef( const OTF2_AttributeList*   attributeList,
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_CallingContextRef*     callingContextRef )
 {
     if ( !callingContextRef )
     {
@@ -1168,8 +1168,8 @@ OTF2_AttributeList_GetCallingContextRef( const OTF2_AttributeList* attributeList
 
 OTF2_ErrorCode
 OTF2_AttributeList_GetInterruptGeneratorRef( const OTF2_AttributeList*   attributeList,
-                                             OTF2_AttributeRef           attributeID,
-                                             OTF2_InterruptGeneratorRef* interruptGeneratorRef )
+                                           OTF2_AttributeRef           attributeID,
+                                           OTF2_InterruptGeneratorRef*     interruptGeneratorRef )
 {
     if ( !interruptGeneratorRef )
     {
@@ -1201,3 +1201,4 @@ OTF2_AttributeList_GetInterruptGeneratorRef( const OTF2_AttributeList*   attribu
 
     return OTF2_SUCCESS;
 }
+

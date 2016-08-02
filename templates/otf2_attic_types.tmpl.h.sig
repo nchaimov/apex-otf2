@@ -1,5 +1,5 @@
-fc3ba7104270bd2d5d3e0f0d3cdd191d
-1ca4c84c4537e15895b0ba2f1356b718
+a0772cfe06b0dfdc6c76c63a93693391
+e95bc7e0cee3475f8c0fb80f6e7ebd4f
 ../src/otf2_attic_types.h
 otf2_attic_types.tmpl.h
 ../share/otf2/otf2.types

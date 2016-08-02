@@ -76,7 +76,7 @@ OTF2_EventSizeEstimator_Delete( OTF2_EventSizeEstimator* estimator );
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfStringDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                      uint32_t                 numberOfStringDefinitions );
+                                                                      uint32_t numberOfStringDefinitions );
 
 
 /** @brief Sets the number of Attribute definitions used.
@@ -93,7 +93,7 @@ OTF2_EventSizeEstimator_SetNumberOfStringDefinitions( OTF2_EventSizeEstimator* e
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfAttributeDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                         uint32_t                 numberOfAttributeDefinitions );
+                                                                      uint32_t numberOfAttributeDefinitions );
 
 
 /** @brief Sets the number of Location definitions used.
@@ -110,7 +110,7 @@ OTF2_EventSizeEstimator_SetNumberOfAttributeDefinitions( OTF2_EventSizeEstimator
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfLocationDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                        uint64_t                 numberOfLocationDefinitions );
+                                                                      uint64_t numberOfLocationDefinitions );
 
 
 /** @brief Sets the number of Region definitions used.
@@ -127,7 +127,7 @@ OTF2_EventSizeEstimator_SetNumberOfLocationDefinitions( OTF2_EventSizeEstimator*
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfRegionDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                      uint32_t                 numberOfRegionDefinitions );
+                                                                      uint32_t numberOfRegionDefinitions );
 
 
 /** @brief Sets the number of Group definitions used.
@@ -144,7 +144,7 @@ OTF2_EventSizeEstimator_SetNumberOfRegionDefinitions( OTF2_EventSizeEstimator* e
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfGroupDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                     uint32_t                 numberOfGroupDefinitions );
+                                                                      uint32_t numberOfGroupDefinitions );
 
 
 /** @brief Sets the number of Metric definitions used.
@@ -161,7 +161,7 @@ OTF2_EventSizeEstimator_SetNumberOfGroupDefinitions( OTF2_EventSizeEstimator* es
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfMetricDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                      uint32_t                 numberOfMetricDefinitions );
+                                                                      uint32_t numberOfMetricDefinitions );
 
 
 /** @brief Sets the number of Comm definitions used.
@@ -178,7 +178,7 @@ OTF2_EventSizeEstimator_SetNumberOfMetricDefinitions( OTF2_EventSizeEstimator* e
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfCommDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                    uint32_t                 numberOfCommDefinitions );
+                                                                      uint32_t numberOfCommDefinitions );
 
 
 /** @brief Sets the number of Parameter definitions used.
@@ -195,7 +195,7 @@ OTF2_EventSizeEstimator_SetNumberOfCommDefinitions( OTF2_EventSizeEstimator* est
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfParameterDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                         uint32_t                 numberOfParameterDefinitions );
+                                                                      uint32_t numberOfParameterDefinitions );
 
 
 /** @brief Sets the number of RmaWin definitions used.
@@ -212,7 +212,7 @@ OTF2_EventSizeEstimator_SetNumberOfParameterDefinitions( OTF2_EventSizeEstimator
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfRmaWinDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                      uint32_t                 numberOfRmaWinDefinitions );
+                                                                      uint32_t numberOfRmaWinDefinitions );
 
 
 /** @brief Sets the number of SourceCodeLocation definitions used.
@@ -229,7 +229,7 @@ OTF2_EventSizeEstimator_SetNumberOfRmaWinDefinitions( OTF2_EventSizeEstimator* e
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfSourceCodeLocationDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                                  uint32_t                 numberOfSourceCodeLocationDefinitions );
+                                                                      uint32_t numberOfSourceCodeLocationDefinitions );
 
 
 /** @brief Sets the number of CallingContext definitions used.
@@ -246,7 +246,7 @@ OTF2_EventSizeEstimator_SetNumberOfSourceCodeLocationDefinitions( OTF2_EventSize
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfCallingContextDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                              uint32_t                 numberOfCallingContextDefinitions );
+                                                                      uint32_t numberOfCallingContextDefinitions );
 
 
 /** @brief Sets the number of InterruptGenerator definitions used.
@@ -263,7 +263,7 @@ OTF2_EventSizeEstimator_SetNumberOfCallingContextDefinitions( OTF2_EventSizeEsti
  */
 OTF2_ErrorCode
 OTF2_EventSizeEstimator_SetNumberOfInterruptGeneratorDefinitions( OTF2_EventSizeEstimator* estimator,
-                                                                  uint32_t                 numberOfInterruptGeneratorDefinitions );
+                                                                      uint32_t numberOfInterruptGeneratorDefinitions );
 
 
 /** @brief Returns an estimate for the size of the definition chunk size.
@@ -314,7 +314,7 @@ OTF2_EventSizeEstimator_GetSizeOfAttributeList( const OTF2_EventSizeEstimator* e
 
 
 /** @brief Calculates the size estimate for the BufferFlush event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -326,7 +326,7 @@ OTF2_EventSizeEstimator_GetSizeOfBufferFlushEvent( OTF2_EventSizeEstimator* esti
 
 
 /** @brief Calculates the size estimate for the MeasurementOnOff event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -338,7 +338,7 @@ OTF2_EventSizeEstimator_GetSizeOfMeasurementOnOffEvent( OTF2_EventSizeEstimator*
 
 
 /** @brief Calculates the size estimate for the Enter event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -350,7 +350,7 @@ OTF2_EventSizeEstimator_GetSizeOfEnterEvent( OTF2_EventSizeEstimator* estimator 
 
 
 /** @brief Calculates the size estimate for the Leave event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -362,7 +362,7 @@ OTF2_EventSizeEstimator_GetSizeOfLeaveEvent( OTF2_EventSizeEstimator* estimator 
 
 
 /** @brief Calculates the size estimate for the MpiSend event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -374,7 +374,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiSendEvent( OTF2_EventSizeEstimator* estimato
 
 
 /** @brief Calculates the size estimate for the MpiIsend event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -386,7 +386,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiIsendEvent( OTF2_EventSizeEstimator* estimat
 
 
 /** @brief Calculates the size estimate for the MpiIsendComplete event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -398,7 +398,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiIsendCompleteEvent( OTF2_EventSizeEstimator*
 
 
 /** @brief Calculates the size estimate for the MpiIrecvRequest event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -410,7 +410,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiIrecvRequestEvent( OTF2_EventSizeEstimator* 
 
 
 /** @brief Calculates the size estimate for the MpiRecv event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -422,7 +422,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiRecvEvent( OTF2_EventSizeEstimator* estimato
 
 
 /** @brief Calculates the size estimate for the MpiIrecv event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -434,7 +434,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiIrecvEvent( OTF2_EventSizeEstimator* estimat
 
 
 /** @brief Calculates the size estimate for the MpiRequestTest event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -446,7 +446,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiRequestTestEvent( OTF2_EventSizeEstimator* e
 
 
 /** @brief Calculates the size estimate for the MpiRequestCancelled event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -458,7 +458,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiRequestCancelledEvent( OTF2_EventSizeEstimat
 
 
 /** @brief Calculates the size estimate for the MpiCollectiveBegin event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -470,7 +470,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiCollectiveBeginEvent( OTF2_EventSizeEstimato
 
 
 /** @brief Calculates the size estimate for the MpiCollectiveEnd event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -482,7 +482,7 @@ OTF2_EventSizeEstimator_GetSizeOfMpiCollectiveEndEvent( OTF2_EventSizeEstimator*
 
 
 /** @brief Calculates the size estimate for the OmpFork event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -496,7 +496,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpForkEvent( OTF2_EventSizeEstimator* estimato
 
 
 /** @brief Calculates the size estimate for the OmpJoin event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -510,7 +510,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpJoinEvent( OTF2_EventSizeEstimator* estimato
 
 
 /** @brief Calculates the size estimate for the OmpAcquireLock event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -524,7 +524,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpAcquireLockEvent( OTF2_EventSizeEstimator* e
 
 
 /** @brief Calculates the size estimate for the OmpReleaseLock event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -538,7 +538,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpReleaseLockEvent( OTF2_EventSizeEstimator* e
 
 
 /** @brief Calculates the size estimate for the OmpTaskCreate event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -552,7 +552,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpTaskCreateEvent( OTF2_EventSizeEstimator* es
 
 
 /** @brief Calculates the size estimate for the OmpTaskSwitch event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -566,7 +566,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpTaskSwitchEvent( OTF2_EventSizeEstimator* es
 
 
 /** @brief Calculates the size estimate for the OmpTaskComplete event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -580,7 +580,7 @@ OTF2_EventSizeEstimator_GetSizeOfOmpTaskCompleteEvent( OTF2_EventSizeEstimator* 
 
 
 /** @brief Calculates the size estimate for the Metric event.
- *
+ *  
  *  @param estimator       Estimator object.
  *  @param numberOfMetrics Number of metrics with in the set.
  *
@@ -590,11 +590,11 @@ OTF2_EventSizeEstimator_GetSizeOfOmpTaskCompleteEvent( OTF2_EventSizeEstimator* 
  */
 size_t
 OTF2_EventSizeEstimator_GetSizeOfMetricEvent( OTF2_EventSizeEstimator* estimator,
-                                              uint8_t                  numberOfMetrics );
+uint8_t numberOfMetrics );
 
 
 /** @brief Calculates the size estimate for the ParameterString event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -606,7 +606,7 @@ OTF2_EventSizeEstimator_GetSizeOfParameterStringEvent( OTF2_EventSizeEstimator* 
 
 
 /** @brief Calculates the size estimate for the ParameterInt event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -618,7 +618,7 @@ OTF2_EventSizeEstimator_GetSizeOfParameterIntEvent( OTF2_EventSizeEstimator* est
 
 
 /** @brief Calculates the size estimate for the ParameterUnsignedInt event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.0
@@ -630,7 +630,7 @@ OTF2_EventSizeEstimator_GetSizeOfParameterUnsignedIntEvent( OTF2_EventSizeEstima
 
 
 /** @brief Calculates the size estimate for the RmaWinCreate event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -642,7 +642,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaWinCreateEvent( OTF2_EventSizeEstimator* est
 
 
 /** @brief Calculates the size estimate for the RmaWinDestroy event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -654,7 +654,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaWinDestroyEvent( OTF2_EventSizeEstimator* es
 
 
 /** @brief Calculates the size estimate for the RmaCollectiveBegin event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -666,7 +666,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaCollectiveBeginEvent( OTF2_EventSizeEstimato
 
 
 /** @brief Calculates the size estimate for the RmaCollectiveEnd event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -678,7 +678,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaCollectiveEndEvent( OTF2_EventSizeEstimator*
 
 
 /** @brief Calculates the size estimate for the RmaGroupSync event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -690,7 +690,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaGroupSyncEvent( OTF2_EventSizeEstimator* est
 
 
 /** @brief Calculates the size estimate for the RmaRequestLock event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -702,7 +702,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaRequestLockEvent( OTF2_EventSizeEstimator* e
 
 
 /** @brief Calculates the size estimate for the RmaAcquireLock event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -714,7 +714,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaAcquireLockEvent( OTF2_EventSizeEstimator* e
 
 
 /** @brief Calculates the size estimate for the RmaTryLock event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -726,7 +726,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaTryLockEvent( OTF2_EventSizeEstimator* estim
 
 
 /** @brief Calculates the size estimate for the RmaReleaseLock event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -738,7 +738,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaReleaseLockEvent( OTF2_EventSizeEstimator* e
 
 
 /** @brief Calculates the size estimate for the RmaSync event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -750,7 +750,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaSyncEvent( OTF2_EventSizeEstimator* estimato
 
 
 /** @brief Calculates the size estimate for the RmaWaitChange event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -762,7 +762,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaWaitChangeEvent( OTF2_EventSizeEstimator* es
 
 
 /** @brief Calculates the size estimate for the RmaPut event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -774,7 +774,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaPutEvent( OTF2_EventSizeEstimator* estimator
 
 
 /** @brief Calculates the size estimate for the RmaGet event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -786,7 +786,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaGetEvent( OTF2_EventSizeEstimator* estimator
 
 
 /** @brief Calculates the size estimate for the RmaAtomic event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -798,7 +798,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaAtomicEvent( OTF2_EventSizeEstimator* estima
 
 
 /** @brief Calculates the size estimate for the RmaOpCompleteBlocking event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -810,7 +810,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpCompleteBlockingEvent( OTF2_EventSizeEstim
 
 
 /** @brief Calculates the size estimate for the RmaOpCompleteNonBlocking event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -822,7 +822,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpCompleteNonBlockingEvent( OTF2_EventSizeEs
 
 
 /** @brief Calculates the size estimate for the RmaOpTest event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -834,7 +834,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpTestEvent( OTF2_EventSizeEstimator* estima
 
 
 /** @brief Calculates the size estimate for the RmaOpCompleteRemote event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -846,7 +846,7 @@ OTF2_EventSizeEstimator_GetSizeOfRmaOpCompleteRemoteEvent( OTF2_EventSizeEstimat
 
 
 /** @brief Calculates the size estimate for the ThreadFork event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -858,7 +858,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadForkEvent( OTF2_EventSizeEstimator* estim
 
 
 /** @brief Calculates the size estimate for the ThreadJoin event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -870,7 +870,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadJoinEvent( OTF2_EventSizeEstimator* estim
 
 
 /** @brief Calculates the size estimate for the ThreadTeamBegin event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -882,7 +882,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTeamBeginEvent( OTF2_EventSizeEstimator* 
 
 
 /** @brief Calculates the size estimate for the ThreadTeamEnd event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -894,7 +894,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTeamEndEvent( OTF2_EventSizeEstimator* es
 
 
 /** @brief Calculates the size estimate for the ThreadAcquireLock event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -906,7 +906,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadAcquireLockEvent( OTF2_EventSizeEstimator
 
 
 /** @brief Calculates the size estimate for the ThreadReleaseLock event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -918,7 +918,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadReleaseLockEvent( OTF2_EventSizeEstimator
 
 
 /** @brief Calculates the size estimate for the ThreadTaskCreate event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -930,7 +930,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTaskCreateEvent( OTF2_EventSizeEstimator*
 
 
 /** @brief Calculates the size estimate for the ThreadTaskSwitch event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -942,7 +942,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTaskSwitchEvent( OTF2_EventSizeEstimator*
 
 
 /** @brief Calculates the size estimate for the ThreadTaskComplete event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.2
@@ -954,7 +954,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadTaskCompleteEvent( OTF2_EventSizeEstimato
 
 
 /** @brief Calculates the size estimate for the ThreadCreate event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.3
@@ -966,7 +966,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadCreateEvent( OTF2_EventSizeEstimator* est
 
 
 /** @brief Calculates the size estimate for the ThreadBegin event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.3
@@ -978,7 +978,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadBeginEvent( OTF2_EventSizeEstimator* esti
 
 
 /** @brief Calculates the size estimate for the ThreadWait event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.3
@@ -990,7 +990,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadWaitEvent( OTF2_EventSizeEstimator* estim
 
 
 /** @brief Calculates the size estimate for the ThreadEnd event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.3
@@ -1002,7 +1002,7 @@ OTF2_EventSizeEstimator_GetSizeOfThreadEndEvent( OTF2_EventSizeEstimator* estima
 
 
 /** @brief Calculates the size estimate for the CallingContextEnter event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 2.0
@@ -1014,7 +1014,7 @@ OTF2_EventSizeEstimator_GetSizeOfCallingContextEnterEvent( OTF2_EventSizeEstimat
 
 
 /** @brief Calculates the size estimate for the CallingContextLeave event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 2.0
@@ -1026,7 +1026,7 @@ OTF2_EventSizeEstimator_GetSizeOfCallingContextLeaveEvent( OTF2_EventSizeEstimat
 
 
 /** @brief Calculates the size estimate for the CallingContextSample event.
- *
+ *  
  *  @param estimator Estimator object.
  *
  *  @since Version 1.5
@@ -1035,6 +1035,138 @@ OTF2_EventSizeEstimator_GetSizeOfCallingContextLeaveEvent( OTF2_EventSizeEstimat
  */
 size_t
 OTF2_EventSizeEstimator_GetSizeOfCallingContextSampleEvent( OTF2_EventSizeEstimator* estimator );
+
+
+/** @brief Calculates the size estimate for the TaskCreate event.
+ *  
+ *  @param estimator Estimator object.
+ *
+ *  @since Version 1.0
+ *
+ *  @return The estimated size.
+ */
+size_t
+OTF2_EventSizeEstimator_GetSizeOfTaskCreateEvent( OTF2_EventSizeEstimator* estimator );
+
+
+/** @brief Calculates the size estimate for the TaskDestroy event.
+ *  
+ *  @param estimator Estimator object.
+ *
+ *  @since Version 1.0
+ *
+ *  @return The estimated size.
+ */
+size_t
+OTF2_EventSizeEstimator_GetSizeOfTaskDestroyEvent( OTF2_EventSizeEstimator* estimator );
+
+
+/** @brief Calculates the size estimate for the TaskRunnable event.
+ *  
+ *  @param estimator Estimator object.
+ *
+ *  @since Version 1.0
+ *
+ *  @return The estimated size.
+ */
+size_t
+OTF2_EventSizeEstimator_GetSizeOfTaskRunnableEvent( OTF2_EventSizeEstimator* estimator );
+
+
+/** @brief Calculates the size estimate for the AddDependence event.
+ *  
+ *  @param estimator Estimator object.
+ *
+ *  @since Version 1.0
+ *
+ *  @return The estimated size.
+ */
+size_t
+OTF2_EventSizeEstimator_GetSizeOfAddDependenceEvent( OTF2_EventSizeEstimator* estimator );
+
+
+/** @brief Calculates the size estimate for the SatisfyDependence event.
+ *  
+ *  @param estimator Estimator object.
+ *
+ *  @since Version 1.0
+ *
+ *  @return The estimated size.
+ */
+size_t
+OTF2_EventSizeEstimator_GetSizeOfSatisfyDependenceEvent( OTF2_EventSizeEstimator* estimator );
+
+
+/** @brief Calculates the size estimate for the DataAcquire event.
+ *  
+ *  @param estimator Estimator object.
+ *
+ *  @since Version 1.0
+ *
+ *  @return The estimated size.
+ */
+size_t
+OTF2_EventSizeEstimator_GetSizeOfDataAcquireEvent( OTF2_EventSizeEstimator* estimator );
+
+
+/** @brief Calculates the size estimate for the DataRelease event.
+ *  
+ *  @param estimator Estimator object.
+ *
+ *  @since Version 1.0
+ *
+ *  @return The estimated size.
+ */
+size_t
+OTF2_EventSizeEstimator_GetSizeOfDataReleaseEvent( OTF2_EventSizeEstimator* estimator );
+
+
+/** @brief Calculates the size estimate for the EventCreate event.
+ *  
+ *  @param estimator Estimator object.
+ *
+ *  @since Version 1.0
+ *
+ *  @return The estimated size.
+ */
+size_t
+OTF2_EventSizeEstimator_GetSizeOfEventCreateEvent( OTF2_EventSizeEstimator* estimator );
+
+
+/** @brief Calculates the size estimate for the EventDestroy event.
+ *  
+ *  @param estimator Estimator object.
+ *
+ *  @since Version 1.0
+ *
+ *  @return The estimated size.
+ */
+size_t
+OTF2_EventSizeEstimator_GetSizeOfEventDestroyEvent( OTF2_EventSizeEstimator* estimator );
+
+
+/** @brief Calculates the size estimate for the DataCreate event.
+ *  
+ *  @param estimator Estimator object.
+ *
+ *  @since Version 1.0
+ *
+ *  @return The estimated size.
+ */
+size_t
+OTF2_EventSizeEstimator_GetSizeOfDataCreateEvent( OTF2_EventSizeEstimator* estimator );
+
+
+/** @brief Calculates the size estimate for the DataDestroy event.
+ *  
+ *  @param estimator Estimator object.
+ *
+ *  @since Version 1.0
+ *
+ *  @return The estimated size.
+ */
+size_t
+OTF2_EventSizeEstimator_GetSizeOfDataDestroyEvent( OTF2_EventSizeEstimator* estimator );
 
 
 #ifdef __cplusplus

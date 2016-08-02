@@ -50,7 +50,7 @@ otf2_global_def_reader_read_clock_properties( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefClockProperties static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -90,10 +90,10 @@ otf2_global_def_reader_read_clock_properties( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.clock_properties )
     {
-        interrupt = reader->reader_callbacks.clock_properties( reader->user_data,
-                                                               static_record.timer_resolution,
-                                                               static_record.global_offset,
-                                                               static_record.trace_length );
+        interrupt = reader->reader_callbacks.clock_properties( reader->user_data ,
+static_record.timer_resolution,
+static_record.global_offset,
+static_record.trace_length );
     }
 
 
@@ -112,7 +112,7 @@ otf2_global_def_reader_read_paradigm( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefParadigm static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -144,10 +144,10 @@ otf2_global_def_reader_read_paradigm( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.paradigm )
     {
-        interrupt = reader->reader_callbacks.paradigm( reader->user_data,
-                                                       static_record.paradigm,
-                                                       static_record.name,
-                                                       static_record.paradigm_class );
+        interrupt = reader->reader_callbacks.paradigm( reader->user_data ,
+static_record.paradigm,
+static_record.name,
+static_record.paradigm_class );
     }
 
 
@@ -166,7 +166,7 @@ otf2_global_def_reader_read_paradigm_property( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefParadigmProperty static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -199,11 +199,11 @@ otf2_global_def_reader_read_paradigm_property( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.paradigm_property )
     {
-        interrupt = reader->reader_callbacks.paradigm_property( reader->user_data,
-                                                                static_record.paradigm,
-                                                                static_record.property,
-                                                                static_record.type,
-                                                                static_record.value );
+        interrupt = reader->reader_callbacks.paradigm_property( reader->user_data ,
+static_record.paradigm,
+static_record.property,
+static_record.type,
+static_record.value );
     }
 
 
@@ -222,7 +222,7 @@ otf2_global_def_reader_read_string( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefString static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -257,9 +257,9 @@ otf2_global_def_reader_read_string( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.string )
     {
-        interrupt = reader->reader_callbacks.string( reader->user_data,
-                                                     static_record.self,
-                                                     static_record.string );
+        interrupt = reader->reader_callbacks.string( reader->user_data ,
+static_record.self,
+static_record.string );
     }
 
 
@@ -278,7 +278,7 @@ otf2_global_def_reader_read_attribute( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefAttribute static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -309,11 +309,11 @@ otf2_global_def_reader_read_attribute( OTF2_GlobalDefReader* reader )
     OTF2_Buffer_GetPosition( reader->buffer, &current_pos );
     if ( current_pos < record_end_pos )
     {
-        ret = OTF2_Buffer_ReadUint32( reader->buffer, &static_record.description );
-        if ( OTF2_SUCCESS != ret )
-        {
-            return UTILS_ERROR( ret, "Could not read description attribute of Attribute record. Invalid compression size." );
-        }
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &static_record.description );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read description attribute of Attribute record. Invalid compression size." );
+    }
     }
     else
     {
@@ -333,11 +333,11 @@ otf2_global_def_reader_read_attribute( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.attribute )
     {
-        interrupt = reader->reader_callbacks.attribute( reader->user_data,
-                                                        static_record.self,
-                                                        static_record.name,
-                                                        static_record.description,
-                                                        static_record.type );
+        interrupt = reader->reader_callbacks.attribute( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.description,
+static_record.type );
     }
 
 
@@ -356,7 +356,7 @@ otf2_global_def_reader_read_system_tree_node( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefSystemTreeNode static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -401,11 +401,11 @@ otf2_global_def_reader_read_system_tree_node( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.system_tree_node )
     {
-        interrupt = reader->reader_callbacks.system_tree_node( reader->user_data,
-                                                               static_record.self,
-                                                               static_record.name,
-                                                               static_record.class_name,
-                                                               static_record.parent );
+        interrupt = reader->reader_callbacks.system_tree_node( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.class_name,
+static_record.parent );
     }
 
 
@@ -424,7 +424,7 @@ otf2_global_def_reader_read_location_group( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefLocationGroup static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -465,11 +465,11 @@ otf2_global_def_reader_read_location_group( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.location_group )
     {
-        interrupt = reader->reader_callbacks.location_group( reader->user_data,
-                                                             static_record.self,
-                                                             static_record.name,
-                                                             static_record.location_group_type,
-                                                             static_record.system_tree_parent );
+        interrupt = reader->reader_callbacks.location_group( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.location_group_type,
+static_record.system_tree_parent );
     }
 
 
@@ -488,7 +488,7 @@ otf2_global_def_reader_read_location( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefLocation static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -534,12 +534,12 @@ otf2_global_def_reader_read_location( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.location )
     {
-        interrupt = reader->reader_callbacks.location( reader->user_data,
-                                                       static_record.self,
-                                                       static_record.name,
-                                                       static_record.location_type,
-                                                       static_record.number_of_events,
-                                                       static_record.location_group );
+        interrupt = reader->reader_callbacks.location( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.location_type,
+static_record.number_of_events,
+static_record.location_group );
     }
 
 
@@ -558,7 +558,7 @@ otf2_global_def_reader_read_region( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefRegion static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -609,18 +609,18 @@ otf2_global_def_reader_read_region( OTF2_GlobalDefReader* reader )
     OTF2_Buffer_GetPosition( reader->buffer, &current_pos );
     if ( current_pos < record_end_pos )
     {
-        ret = OTF2_Buffer_ReadUint32( reader->buffer, &static_record.canonical_name );
-        if ( OTF2_SUCCESS != ret )
-        {
-            return UTILS_ERROR( ret, "Could not read canonicalName attribute of Region record. Invalid compression size." );
-        }
-        OTF2_Buffer_ReadUint8( reader->buffer, &static_record.region_role );
-        OTF2_Buffer_ReadUint8( reader->buffer, &static_record.paradigm );
-        ret = OTF2_Buffer_ReadUint32( reader->buffer, &static_record.region_flags );
-        if ( OTF2_SUCCESS != ret )
-        {
-            return UTILS_ERROR( ret, "Could not read regionFlags attribute of Region record. Invalid compression size." );
-        }
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &static_record.canonical_name );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read canonicalName attribute of Region record. Invalid compression size." );
+    }
+    OTF2_Buffer_ReadUint8( reader->buffer, &static_record.region_role );
+    OTF2_Buffer_ReadUint8( reader->buffer, &static_record.paradigm );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &static_record.region_flags );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read regionFlags attribute of Region record. Invalid compression size." );
+    }
     }
     else
     {
@@ -640,17 +640,17 @@ otf2_global_def_reader_read_region( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.region )
     {
-        interrupt = reader->reader_callbacks.region( reader->user_data,
-                                                     static_record.self,
-                                                     static_record.name,
-                                                     static_record.canonical_name,
-                                                     static_record.description,
-                                                     static_record.region_role,
-                                                     static_record.paradigm,
-                                                     static_record.region_flags,
-                                                     static_record.source_file,
-                                                     static_record.begin_line_number,
-                                                     static_record.end_line_number );
+        interrupt = reader->reader_callbacks.region( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.canonical_name,
+static_record.description,
+static_record.region_role,
+static_record.paradigm,
+static_record.region_flags,
+static_record.source_file,
+static_record.begin_line_number,
+static_record.end_line_number );
     }
 
 
@@ -669,7 +669,7 @@ otf2_global_def_reader_read_callsite( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefCallsite static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -719,12 +719,12 @@ otf2_global_def_reader_read_callsite( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.callsite )
     {
-        interrupt = reader->reader_callbacks.callsite( reader->user_data,
-                                                       static_record.self,
-                                                       static_record.source_file,
-                                                       static_record.line_number,
-                                                       static_record.entered_region,
-                                                       static_record.left_region );
+        interrupt = reader->reader_callbacks.callsite( reader->user_data ,
+static_record.self,
+static_record.source_file,
+static_record.line_number,
+static_record.entered_region,
+static_record.left_region );
     }
 
 
@@ -743,7 +743,7 @@ otf2_global_def_reader_read_callpath( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefCallpath static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -783,10 +783,10 @@ otf2_global_def_reader_read_callpath( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.callpath )
     {
-        interrupt = reader->reader_callbacks.callpath( reader->user_data,
-                                                       static_record.self,
-                                                       static_record.parent,
-                                                       static_record.region );
+        interrupt = reader->reader_callbacks.callpath( reader->user_data ,
+static_record.self,
+static_record.parent,
+static_record.region );
     }
 
 
@@ -805,7 +805,7 @@ otf2_global_def_reader_read_group( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefGroup static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -844,7 +844,7 @@ otf2_global_def_reader_read_group( OTF2_GlobalDefReader* reader )
           number_of_members_i++ )
     {
         ret = OTF2_Buffer_ReadUint64( reader->buffer,
-                                      static_record.members + number_of_members_i );
+                                                        static_record.members + number_of_members_i );
         if ( OTF2_SUCCESS != ret )
         {
             free( static_record.members );
@@ -859,13 +859,13 @@ otf2_global_def_reader_read_group( OTF2_GlobalDefReader* reader )
     OTF2_Buffer_GetPosition( reader->buffer, &current_pos );
     if ( current_pos < record_end_pos )
     {
-        OTF2_Buffer_ReadUint8( reader->buffer, &static_record.group_type );
-        OTF2_Buffer_ReadUint8( reader->buffer, &static_record.paradigm );
-        ret = OTF2_Buffer_ReadUint32( reader->buffer, &static_record.group_flags );
-        if ( OTF2_SUCCESS != ret )
-        {
-            return UTILS_ERROR( ret, "Could not read groupFlags attribute of Group record. Invalid compression size." );
-        }
+    OTF2_Buffer_ReadUint8( reader->buffer, &static_record.group_type );
+    OTF2_Buffer_ReadUint8( reader->buffer, &static_record.paradigm );
+    ret = OTF2_Buffer_ReadUint32( reader->buffer, &static_record.group_flags );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read groupFlags attribute of Group record. Invalid compression size." );
+    }
     }
     else
     {
@@ -886,14 +886,14 @@ otf2_global_def_reader_read_group( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.group )
     {
-        interrupt = reader->reader_callbacks.group( reader->user_data,
-                                                    static_record.self,
-                                                    static_record.name,
-                                                    static_record.group_type,
-                                                    static_record.paradigm,
-                                                    static_record.group_flags,
-                                                    static_record.number_of_members,
-                                                    static_record.members );
+        interrupt = reader->reader_callbacks.group( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.group_type,
+static_record.paradigm,
+static_record.group_flags,
+static_record.number_of_members,
+static_record.members );
     }
 
     free( static_record.members );
@@ -913,7 +913,7 @@ otf2_global_def_reader_read_metric_member( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefMetricMember static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -967,16 +967,16 @@ otf2_global_def_reader_read_metric_member( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.metric_member )
     {
-        interrupt = reader->reader_callbacks.metric_member( reader->user_data,
-                                                            static_record.self,
-                                                            static_record.name,
-                                                            static_record.description,
-                                                            static_record.metric_type,
-                                                            static_record.metric_mode,
-                                                            static_record.value_type,
-                                                            static_record.base,
-                                                            static_record.exponent,
-                                                            static_record.unit );
+        interrupt = reader->reader_callbacks.metric_member( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.description,
+static_record.metric_type,
+static_record.metric_mode,
+static_record.value_type,
+static_record.base,
+static_record.exponent,
+static_record.unit );
     }
 
 
@@ -995,7 +995,7 @@ otf2_global_def_reader_read_metric_class( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefMetricClass static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1024,7 +1024,7 @@ otf2_global_def_reader_read_metric_class( OTF2_GlobalDefReader* reader )
           number_of_metrics_i++ )
     {
         ret = OTF2_Buffer_ReadUint32( reader->buffer,
-                                      static_record.metric_members + number_of_metrics_i );
+                                                        static_record.metric_members + number_of_metrics_i );
         if ( OTF2_SUCCESS != ret )
         {
             free( static_record.metric_members );
@@ -1040,7 +1040,7 @@ otf2_global_def_reader_read_metric_class( OTF2_GlobalDefReader* reader )
     OTF2_Buffer_GetPosition( reader->buffer, &current_pos );
     if ( current_pos < record_end_pos )
     {
-        OTF2_Buffer_ReadUint8( reader->buffer, &static_record.recorder_kind );
+    OTF2_Buffer_ReadUint8( reader->buffer, &static_record.recorder_kind );
     }
     else
     {
@@ -1061,12 +1061,12 @@ otf2_global_def_reader_read_metric_class( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.metric_class )
     {
-        interrupt = reader->reader_callbacks.metric_class( reader->user_data,
-                                                           static_record.self,
-                                                           static_record.number_of_metrics,
-                                                           static_record.metric_members,
-                                                           static_record.metric_occurrence,
-                                                           static_record.recorder_kind );
+        interrupt = reader->reader_callbacks.metric_class( reader->user_data ,
+static_record.self,
+static_record.number_of_metrics,
+static_record.metric_members,
+static_record.metric_occurrence,
+static_record.recorder_kind );
     }
 
     free( static_record.metric_members );
@@ -1086,7 +1086,7 @@ otf2_global_def_reader_read_metric_instance( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefMetricInstance static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1132,12 +1132,12 @@ otf2_global_def_reader_read_metric_instance( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.metric_instance )
     {
-        interrupt = reader->reader_callbacks.metric_instance( reader->user_data,
-                                                              static_record.self,
-                                                              static_record.metric_class,
-                                                              static_record.recorder,
-                                                              static_record.metric_scope,
-                                                              static_record.scope );
+        interrupt = reader->reader_callbacks.metric_instance( reader->user_data ,
+static_record.self,
+static_record.metric_class,
+static_record.recorder,
+static_record.metric_scope,
+static_record.scope );
     }
 
 
@@ -1156,7 +1156,7 @@ otf2_global_def_reader_read_comm( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefComm static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1201,11 +1201,11 @@ otf2_global_def_reader_read_comm( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.comm )
     {
-        interrupt = reader->reader_callbacks.comm( reader->user_data,
-                                                   static_record.self,
-                                                   static_record.name,
-                                                   static_record.group,
-                                                   static_record.parent );
+        interrupt = reader->reader_callbacks.comm( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.group,
+static_record.parent );
     }
 
 
@@ -1224,7 +1224,7 @@ otf2_global_def_reader_read_parameter( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefParameter static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1260,10 +1260,10 @@ otf2_global_def_reader_read_parameter( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.parameter )
     {
-        interrupt = reader->reader_callbacks.parameter( reader->user_data,
-                                                        static_record.self,
-                                                        static_record.name,
-                                                        static_record.parameter_type );
+        interrupt = reader->reader_callbacks.parameter( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.parameter_type );
     }
 
 
@@ -1282,7 +1282,7 @@ otf2_global_def_reader_read_rma_win( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefRmaWin static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1322,10 +1322,10 @@ otf2_global_def_reader_read_rma_win( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.rma_win )
     {
-        interrupt = reader->reader_callbacks.rma_win( reader->user_data,
-                                                      static_record.self,
-                                                      static_record.name,
-                                                      static_record.comm );
+        interrupt = reader->reader_callbacks.rma_win( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.comm );
     }
 
 
@@ -1344,7 +1344,7 @@ otf2_global_def_reader_read_metric_class_recorder( OTF2_GlobalDefReader* reader 
     OTF2_GlobalDefMetricClassRecorder static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1379,9 +1379,9 @@ otf2_global_def_reader_read_metric_class_recorder( OTF2_GlobalDefReader* reader 
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.metric_class_recorder )
     {
-        interrupt = reader->reader_callbacks.metric_class_recorder( reader->user_data,
-                                                                    static_record.metric_class,
-                                                                    static_record.recorder );
+        interrupt = reader->reader_callbacks.metric_class_recorder( reader->user_data ,
+static_record.metric_class,
+static_record.recorder );
     }
 
 
@@ -1400,7 +1400,7 @@ otf2_global_def_reader_read_system_tree_node_property( OTF2_GlobalDefReader* rea
     OTF2_GlobalDefSystemTreeNodeProperty static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1435,12 +1435,12 @@ otf2_global_def_reader_read_system_tree_node_property( OTF2_GlobalDefReader* rea
     OTF2_Buffer_GetPosition( reader->buffer, &current_pos );
     if ( current_pos < record_end_pos )
     {
-        OTF2_Buffer_ReadUint8( reader->buffer, &static_record.type );
-        ret = OTF2_Buffer_ReadAttributeValue( reader->buffer, &static_record.value );
-        if ( OTF2_SUCCESS != ret )
-        {
-            return UTILS_ERROR( ret, "Could not read value attribute of SystemTreeNodeProperty record. Could not read attribute value." );
-        }
+    OTF2_Buffer_ReadUint8( reader->buffer, &static_record.type );
+    ret = OTF2_Buffer_ReadAttributeValue( reader->buffer, &static_record.value );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read value attribute of SystemTreeNodeProperty record. Could not read attribute value." );
+    }
     }
     else
     {
@@ -1460,11 +1460,11 @@ otf2_global_def_reader_read_system_tree_node_property( OTF2_GlobalDefReader* rea
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.system_tree_node_property )
     {
-        interrupt = reader->reader_callbacks.system_tree_node_property( reader->user_data,
-                                                                        static_record.system_tree_node,
-                                                                        static_record.name,
-                                                                        static_record.type,
-                                                                        static_record.value );
+        interrupt = reader->reader_callbacks.system_tree_node_property( reader->user_data ,
+static_record.system_tree_node,
+static_record.name,
+static_record.type,
+static_record.value );
     }
 
 
@@ -1483,7 +1483,7 @@ otf2_global_def_reader_read_system_tree_node_domain( OTF2_GlobalDefReader* reade
     OTF2_GlobalDefSystemTreeNodeDomain static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1514,9 +1514,9 @@ otf2_global_def_reader_read_system_tree_node_domain( OTF2_GlobalDefReader* reade
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.system_tree_node_domain )
     {
-        interrupt = reader->reader_callbacks.system_tree_node_domain( reader->user_data,
-                                                                      static_record.system_tree_node,
-                                                                      static_record.system_tree_domain );
+        interrupt = reader->reader_callbacks.system_tree_node_domain( reader->user_data ,
+static_record.system_tree_node,
+static_record.system_tree_domain );
     }
 
 
@@ -1535,7 +1535,7 @@ otf2_global_def_reader_read_location_group_property( OTF2_GlobalDefReader* reade
     OTF2_GlobalDefLocationGroupProperty static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1570,12 +1570,12 @@ otf2_global_def_reader_read_location_group_property( OTF2_GlobalDefReader* reade
     OTF2_Buffer_GetPosition( reader->buffer, &current_pos );
     if ( current_pos < record_end_pos )
     {
-        OTF2_Buffer_ReadUint8( reader->buffer, &static_record.type );
-        ret = OTF2_Buffer_ReadAttributeValue( reader->buffer, &static_record.value );
-        if ( OTF2_SUCCESS != ret )
-        {
-            return UTILS_ERROR( ret, "Could not read value attribute of LocationGroupProperty record. Could not read attribute value." );
-        }
+    OTF2_Buffer_ReadUint8( reader->buffer, &static_record.type );
+    ret = OTF2_Buffer_ReadAttributeValue( reader->buffer, &static_record.value );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read value attribute of LocationGroupProperty record. Could not read attribute value." );
+    }
     }
     else
     {
@@ -1595,11 +1595,11 @@ otf2_global_def_reader_read_location_group_property( OTF2_GlobalDefReader* reade
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.location_group_property )
     {
-        interrupt = reader->reader_callbacks.location_group_property( reader->user_data,
-                                                                      static_record.location_group,
-                                                                      static_record.name,
-                                                                      static_record.type,
-                                                                      static_record.value );
+        interrupt = reader->reader_callbacks.location_group_property( reader->user_data ,
+static_record.location_group,
+static_record.name,
+static_record.type,
+static_record.value );
     }
 
 
@@ -1618,7 +1618,7 @@ otf2_global_def_reader_read_location_property( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefLocationProperty static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1653,12 +1653,12 @@ otf2_global_def_reader_read_location_property( OTF2_GlobalDefReader* reader )
     OTF2_Buffer_GetPosition( reader->buffer, &current_pos );
     if ( current_pos < record_end_pos )
     {
-        OTF2_Buffer_ReadUint8( reader->buffer, &static_record.type );
-        ret = OTF2_Buffer_ReadAttributeValue( reader->buffer, &static_record.value );
-        if ( OTF2_SUCCESS != ret )
-        {
-            return UTILS_ERROR( ret, "Could not read value attribute of LocationProperty record. Could not read attribute value." );
-        }
+    OTF2_Buffer_ReadUint8( reader->buffer, &static_record.type );
+    ret = OTF2_Buffer_ReadAttributeValue( reader->buffer, &static_record.value );
+    if ( OTF2_SUCCESS != ret )
+    {
+        return UTILS_ERROR( ret, "Could not read value attribute of LocationProperty record. Could not read attribute value." );
+    }
     }
     else
     {
@@ -1678,11 +1678,11 @@ otf2_global_def_reader_read_location_property( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.location_property )
     {
-        interrupt = reader->reader_callbacks.location_property( reader->user_data,
-                                                                static_record.location,
-                                                                static_record.name,
-                                                                static_record.type,
-                                                                static_record.value );
+        interrupt = reader->reader_callbacks.location_property( reader->user_data ,
+static_record.location,
+static_record.name,
+static_record.type,
+static_record.value );
     }
 
 
@@ -1701,7 +1701,7 @@ otf2_global_def_reader_read_cart_dimension( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefCartDimension static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1742,11 +1742,11 @@ otf2_global_def_reader_read_cart_dimension( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.cart_dimension )
     {
-        interrupt = reader->reader_callbacks.cart_dimension( reader->user_data,
-                                                             static_record.self,
-                                                             static_record.name,
-                                                             static_record.size,
-                                                             static_record.cart_periodicity );
+        interrupt = reader->reader_callbacks.cart_dimension( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.size,
+static_record.cart_periodicity );
     }
 
 
@@ -1765,7 +1765,7 @@ otf2_global_def_reader_read_cart_topology( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefCartTopology static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1803,7 +1803,7 @@ otf2_global_def_reader_read_cart_topology( OTF2_GlobalDefReader* reader )
           number_of_dimensions_i++ )
     {
         ret = OTF2_Buffer_ReadUint32( reader->buffer,
-                                      static_record.cart_dimensions + number_of_dimensions_i );
+                                                        static_record.cart_dimensions + number_of_dimensions_i );
         if ( OTF2_SUCCESS != ret )
         {
             free( static_record.cart_dimensions );
@@ -1825,12 +1825,12 @@ otf2_global_def_reader_read_cart_topology( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.cart_topology )
     {
-        interrupt = reader->reader_callbacks.cart_topology( reader->user_data,
-                                                            static_record.self,
-                                                            static_record.name,
-                                                            static_record.communicator,
-                                                            static_record.number_of_dimensions,
-                                                            static_record.cart_dimensions );
+        interrupt = reader->reader_callbacks.cart_topology( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.communicator,
+static_record.number_of_dimensions,
+static_record.cart_dimensions );
     }
 
     free( static_record.cart_dimensions );
@@ -1850,7 +1850,7 @@ otf2_global_def_reader_read_cart_coordinate( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefCartCoordinate static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1883,7 +1883,7 @@ otf2_global_def_reader_read_cart_coordinate( OTF2_GlobalDefReader* reader )
           number_of_dimensions_i++ )
     {
         ret = OTF2_Buffer_ReadUint32( reader->buffer,
-                                      static_record.coordinates + number_of_dimensions_i );
+                                                        static_record.coordinates + number_of_dimensions_i );
         if ( OTF2_SUCCESS != ret )
         {
             free( static_record.coordinates );
@@ -1905,11 +1905,11 @@ otf2_global_def_reader_read_cart_coordinate( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.cart_coordinate )
     {
-        interrupt = reader->reader_callbacks.cart_coordinate( reader->user_data,
-                                                              static_record.cart_topology,
-                                                              static_record.rank,
-                                                              static_record.number_of_dimensions,
-                                                              static_record.coordinates );
+        interrupt = reader->reader_callbacks.cart_coordinate( reader->user_data ,
+static_record.cart_topology,
+static_record.rank,
+static_record.number_of_dimensions,
+static_record.coordinates );
     }
 
     free( static_record.coordinates );
@@ -1929,7 +1929,7 @@ otf2_global_def_reader_read_source_code_location( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefSourceCodeLocation static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -1969,10 +1969,10 @@ otf2_global_def_reader_read_source_code_location( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.source_code_location )
     {
-        interrupt = reader->reader_callbacks.source_code_location( reader->user_data,
-                                                                   static_record.self,
-                                                                   static_record.file,
-                                                                   static_record.line_number );
+        interrupt = reader->reader_callbacks.source_code_location( reader->user_data ,
+static_record.self,
+static_record.file,
+static_record.line_number );
     }
 
 
@@ -1991,7 +1991,7 @@ otf2_global_def_reader_read_calling_context( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefCallingContext static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2033,20 +2033,20 @@ otf2_global_def_reader_read_calling_context( OTF2_GlobalDefReader* reader )
         return UTILS_ERROR( ret, "Could not read record of unknown type." );
     }
 
-    ret = otf2_archive_add_calling_context( reader->archive,
-                                            static_record.self,
-                                            static_record.region,
-                                            static_record.source_code_location,
-                                            static_record.parent );
+    ret = otf2_archive_add_calling_context( reader->archive ,
+static_record.self,
+static_record.region,
+static_record.source_code_location,
+static_record.parent );
 
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.calling_context )
     {
-        interrupt = reader->reader_callbacks.calling_context( reader->user_data,
-                                                              static_record.self,
-                                                              static_record.region,
-                                                              static_record.source_code_location,
-                                                              static_record.parent );
+        interrupt = reader->reader_callbacks.calling_context( reader->user_data ,
+static_record.self,
+static_record.region,
+static_record.source_code_location,
+static_record.parent );
     }
 
 
@@ -2070,7 +2070,7 @@ otf2_global_def_reader_read_calling_context_property( OTF2_GlobalDefReader* read
     OTF2_GlobalDefCallingContextProperty static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2111,11 +2111,11 @@ otf2_global_def_reader_read_calling_context_property( OTF2_GlobalDefReader* read
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.calling_context_property )
     {
-        interrupt = reader->reader_callbacks.calling_context_property( reader->user_data,
-                                                                       static_record.calling_context,
-                                                                       static_record.name,
-                                                                       static_record.type,
-                                                                       static_record.value );
+        interrupt = reader->reader_callbacks.calling_context_property( reader->user_data ,
+static_record.calling_context,
+static_record.name,
+static_record.type,
+static_record.value );
     }
 
 
@@ -2134,7 +2134,7 @@ otf2_global_def_reader_read_interrupt_generator( OTF2_GlobalDefReader* reader )
     OTF2_GlobalDefInterruptGenerator static_record;
 
     OTF2_ErrorCode ret;
-    uint64_t       record_data_length;
+    uint64_t          record_data_length;
     /* Get record length and test memory availability */
     ret = OTF2_Buffer_GuaranteeRecord( reader->buffer, &record_data_length );
     if ( OTF2_SUCCESS != ret )
@@ -2181,13 +2181,13 @@ otf2_global_def_reader_read_interrupt_generator( OTF2_GlobalDefReader* reader )
     OTF2_CallbackCode interrupt = OTF2_CALLBACK_SUCCESS;
     if ( reader->reader_callbacks.interrupt_generator )
     {
-        interrupt = reader->reader_callbacks.interrupt_generator( reader->user_data,
-                                                                  static_record.self,
-                                                                  static_record.name,
-                                                                  static_record.interrupt_generator_mode,
-                                                                  static_record.base,
-                                                                  static_record.exponent,
-                                                                  static_record.period );
+        interrupt = reader->reader_callbacks.interrupt_generator( reader->user_data ,
+static_record.self,
+static_record.name,
+static_record.interrupt_generator_mode,
+static_record.base,
+static_record.exponent,
+static_record.period );
     }
 
 
@@ -2324,7 +2324,7 @@ otf2_global_def_reader_read( OTF2_GlobalDefReader* reader )
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetClockPropertiesCallback(
-    OTF2_GlobalDefReaderCallbacks*               globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_ClockProperties clockPropertiesCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2341,7 +2341,7 @@ OTF2_GlobalDefReaderCallbacks_SetClockPropertiesCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetParadigmCallback(
-    OTF2_GlobalDefReaderCallbacks*        globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_Paradigm paradigmCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2358,7 +2358,7 @@ OTF2_GlobalDefReaderCallbacks_SetParadigmCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetParadigmPropertyCallback(
-    OTF2_GlobalDefReaderCallbacks*                globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_ParadigmProperty paradigmPropertyCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2375,7 +2375,7 @@ OTF2_GlobalDefReaderCallbacks_SetParadigmPropertyCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetStringCallback(
-    OTF2_GlobalDefReaderCallbacks*      globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_String stringCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2392,7 +2392,7 @@ OTF2_GlobalDefReaderCallbacks_SetStringCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetAttributeCallback(
-    OTF2_GlobalDefReaderCallbacks*         globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_Attribute attributeCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2409,7 +2409,7 @@ OTF2_GlobalDefReaderCallbacks_SetAttributeCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetSystemTreeNodeCallback(
-    OTF2_GlobalDefReaderCallbacks*              globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_SystemTreeNode systemTreeNodeCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2426,7 +2426,7 @@ OTF2_GlobalDefReaderCallbacks_SetSystemTreeNodeCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetLocationGroupCallback(
-    OTF2_GlobalDefReaderCallbacks*             globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_LocationGroup locationGroupCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2443,7 +2443,7 @@ OTF2_GlobalDefReaderCallbacks_SetLocationGroupCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetLocationCallback(
-    OTF2_GlobalDefReaderCallbacks*        globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_Location locationCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2460,7 +2460,7 @@ OTF2_GlobalDefReaderCallbacks_SetLocationCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetRegionCallback(
-    OTF2_GlobalDefReaderCallbacks*      globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_Region regionCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2477,7 +2477,7 @@ OTF2_GlobalDefReaderCallbacks_SetRegionCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetCallsiteCallback(
-    OTF2_GlobalDefReaderCallbacks*        globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_Callsite callsiteCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2494,7 +2494,7 @@ OTF2_GlobalDefReaderCallbacks_SetCallsiteCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetCallpathCallback(
-    OTF2_GlobalDefReaderCallbacks*        globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_Callpath callpathCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2511,7 +2511,7 @@ OTF2_GlobalDefReaderCallbacks_SetCallpathCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetGroupCallback(
-    OTF2_GlobalDefReaderCallbacks*     globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_Group groupCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2545,7 +2545,7 @@ OTF2_GlobalDefReaderCallbacks_SetMetricMemberCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetMetricClassCallback(
-    OTF2_GlobalDefReaderCallbacks*           globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_MetricClass metricClassCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2562,7 +2562,7 @@ OTF2_GlobalDefReaderCallbacks_SetMetricClassCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetMetricInstanceCallback(
-    OTF2_GlobalDefReaderCallbacks*              globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_MetricInstance metricInstanceCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2579,7 +2579,7 @@ OTF2_GlobalDefReaderCallbacks_SetMetricInstanceCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetCommCallback(
-    OTF2_GlobalDefReaderCallbacks*    globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_Comm commCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2596,7 +2596,7 @@ OTF2_GlobalDefReaderCallbacks_SetCommCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetParameterCallback(
-    OTF2_GlobalDefReaderCallbacks*         globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_Parameter parameterCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2613,7 +2613,7 @@ OTF2_GlobalDefReaderCallbacks_SetParameterCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetRmaWinCallback(
-    OTF2_GlobalDefReaderCallbacks*      globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_RmaWin rmaWinCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2630,7 +2630,7 @@ OTF2_GlobalDefReaderCallbacks_SetRmaWinCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetMetricClassRecorderCallback(
-    OTF2_GlobalDefReaderCallbacks*                   globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_MetricClassRecorder metricClassRecorderCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2647,7 +2647,7 @@ OTF2_GlobalDefReaderCallbacks_SetMetricClassRecorderCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetSystemTreeNodePropertyCallback(
-    OTF2_GlobalDefReaderCallbacks*                      globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_SystemTreeNodeProperty systemTreeNodePropertyCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2664,7 +2664,7 @@ OTF2_GlobalDefReaderCallbacks_SetSystemTreeNodePropertyCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetSystemTreeNodeDomainCallback(
-    OTF2_GlobalDefReaderCallbacks*                    globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_SystemTreeNodeDomain systemTreeNodeDomainCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2681,7 +2681,7 @@ OTF2_GlobalDefReaderCallbacks_SetSystemTreeNodeDomainCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetLocationGroupPropertyCallback(
-    OTF2_GlobalDefReaderCallbacks*                     globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_LocationGroupProperty locationGroupPropertyCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2698,7 +2698,7 @@ OTF2_GlobalDefReaderCallbacks_SetLocationGroupPropertyCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetLocationPropertyCallback(
-    OTF2_GlobalDefReaderCallbacks*                globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_LocationProperty locationPropertyCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2715,7 +2715,7 @@ OTF2_GlobalDefReaderCallbacks_SetLocationPropertyCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetCartDimensionCallback(
-    OTF2_GlobalDefReaderCallbacks*             globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_CartDimension cartDimensionCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2749,7 +2749,7 @@ OTF2_GlobalDefReaderCallbacks_SetCartTopologyCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetCartCoordinateCallback(
-    OTF2_GlobalDefReaderCallbacks*              globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_CartCoordinate cartCoordinateCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2766,7 +2766,7 @@ OTF2_GlobalDefReaderCallbacks_SetCartCoordinateCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetSourceCodeLocationCallback(
-    OTF2_GlobalDefReaderCallbacks*                  globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_SourceCodeLocation sourceCodeLocationCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2783,7 +2783,7 @@ OTF2_GlobalDefReaderCallbacks_SetSourceCodeLocationCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetCallingContextCallback(
-    OTF2_GlobalDefReaderCallbacks*              globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_CallingContext callingContextCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2800,7 +2800,7 @@ OTF2_GlobalDefReaderCallbacks_SetCallingContextCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetCallingContextPropertyCallback(
-    OTF2_GlobalDefReaderCallbacks*                      globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_CallingContextProperty callingContextPropertyCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2817,7 +2817,7 @@ OTF2_GlobalDefReaderCallbacks_SetCallingContextPropertyCallback(
 
 OTF2_ErrorCode
 OTF2_GlobalDefReaderCallbacks_SetInterruptGeneratorCallback(
-    OTF2_GlobalDefReaderCallbacks*                  globalDefReaderCallbacks,
+    OTF2_GlobalDefReaderCallbacks*            globalDefReaderCallbacks,
     OTF2_GlobalDefReaderCallback_InterruptGenerator interruptGeneratorCallback )
 {
     if ( !globalDefReaderCallbacks )
@@ -2830,3 +2830,4 @@ OTF2_GlobalDefReaderCallbacks_SetInterruptGeneratorCallback(
 
     return OTF2_SUCCESS;
 }
+

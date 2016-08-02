@@ -48,65 +48,76 @@ enum OTF2_EventType_enum
 {
     /* First five entries are reserved for OTF2 internals */
 
-    OTF2_EVENT_BUFFER_FLUSH                 = 10, /** Event record identifier for the BufferFlush event. */
-    OTF2_EVENT_MEASUREMENT_ON_OFF           = 11, /** Event record identifier for the MeasurementOnOff event. */
-    OTF2_EVENT_ENTER                        = 12, /** Event record identifier for the Enter event. */
-    OTF2_EVENT_LEAVE                        = 13, /** Event record identifier for the Leave event. */
-    OTF2_EVENT_MPI_SEND                     = 14, /** Event record identifier for the MpiSend event. */
-    OTF2_EVENT_MPI_ISEND                    = 15, /** Event record identifier for the MpiIsend event. */
-    OTF2_EVENT_MPI_ISEND_COMPLETE           = 16, /** Event record identifier for the MpiIsendComplete event. */
-    OTF2_EVENT_MPI_IRECV_REQUEST            = 17, /** Event record identifier for the MpiIrecvRequest event. */
-    OTF2_EVENT_MPI_RECV                     = 18, /** Event record identifier for the MpiRecv event. */
-    OTF2_EVENT_MPI_IRECV                    = 19, /** Event record identifier for the MpiIrecv event. */
-    OTF2_EVENT_MPI_REQUEST_TEST             = 20, /** Event record identifier for the MpiRequestTest event. */
-    OTF2_EVENT_MPI_REQUEST_CANCELLED        = 21, /** Event record identifier for the MpiRequestCancelled event. */
-    OTF2_EVENT_MPI_COLLECTIVE_BEGIN         = 22, /** Event record identifier for the MpiCollectiveBegin event. */
-    OTF2_EVENT_MPI_COLLECTIVE_END           = 23, /** Event record identifier for the MpiCollectiveEnd event. */
-    OTF2_EVENT_OMP_FORK                     = 24, /** Event record identifier for the OmpFork event. */
-    OTF2_EVENT_OMP_JOIN                     = 25, /** Event record identifier for the OmpJoin event. */
-    OTF2_EVENT_OMP_ACQUIRE_LOCK             = 26, /** Event record identifier for the OmpAcquireLock event. */
-    OTF2_EVENT_OMP_RELEASE_LOCK             = 27, /** Event record identifier for the OmpReleaseLock event. */
-    OTF2_EVENT_OMP_TASK_CREATE              = 28, /** Event record identifier for the OmpTaskCreate event. */
-    OTF2_EVENT_OMP_TASK_SWITCH              = 29, /** Event record identifier for the OmpTaskSwitch event. */
-    OTF2_EVENT_OMP_TASK_COMPLETE            = 30, /** Event record identifier for the OmpTaskComplete event. */
-    OTF2_EVENT_METRIC                       = 31, /** Event record identifier for the Metric event. */
-    OTF2_EVENT_PARAMETER_STRING             = 32, /** Event record identifier for the ParameterString event. */
-    OTF2_EVENT_PARAMETER_INT                = 33, /** Event record identifier for the ParameterInt event. */
-    OTF2_EVENT_PARAMETER_UNSIGNED_INT       = 34, /** Event record identifier for the ParameterUnsignedInt event. */
-    OTF2_EVENT_RMA_WIN_CREATE               = 35, /** Event record identifier for the RmaWinCreate event. */
-    OTF2_EVENT_RMA_WIN_DESTROY              = 36, /** Event record identifier for the RmaWinDestroy event. */
-    OTF2_EVENT_RMA_COLLECTIVE_BEGIN         = 37, /** Event record identifier for the RmaCollectiveBegin event. */
-    OTF2_EVENT_RMA_COLLECTIVE_END           = 38, /** Event record identifier for the RmaCollectiveEnd event. */
-    OTF2_EVENT_RMA_GROUP_SYNC               = 39, /** Event record identifier for the RmaGroupSync event. */
-    OTF2_EVENT_RMA_REQUEST_LOCK             = 40, /** Event record identifier for the RmaRequestLock event. */
-    OTF2_EVENT_RMA_ACQUIRE_LOCK             = 41, /** Event record identifier for the RmaAcquireLock event. */
-    OTF2_EVENT_RMA_TRY_LOCK                 = 42, /** Event record identifier for the RmaTryLock event. */
-    OTF2_EVENT_RMA_RELEASE_LOCK             = 43, /** Event record identifier for the RmaReleaseLock event. */
-    OTF2_EVENT_RMA_SYNC                     = 44, /** Event record identifier for the RmaSync event. */
-    OTF2_EVENT_RMA_WAIT_CHANGE              = 45, /** Event record identifier for the RmaWaitChange event. */
-    OTF2_EVENT_RMA_PUT                      = 46, /** Event record identifier for the RmaPut event. */
-    OTF2_EVENT_RMA_GET                      = 47, /** Event record identifier for the RmaGet event. */
-    OTF2_EVENT_RMA_ATOMIC                   = 48, /** Event record identifier for the RmaAtomic event. */
-    OTF2_EVENT_RMA_OP_COMPLETE_BLOCKING     = 49, /** Event record identifier for the RmaOpCompleteBlocking event. */
-    OTF2_EVENT_RMA_OP_COMPLETE_NON_BLOCKING = 50, /** Event record identifier for the RmaOpCompleteNonBlocking event. */
-    OTF2_EVENT_RMA_OP_TEST                  = 51, /** Event record identifier for the RmaOpTest event. */
-    OTF2_EVENT_RMA_OP_COMPLETE_REMOTE       = 52, /** Event record identifier for the RmaOpCompleteRemote event. */
-    OTF2_EVENT_THREAD_FORK                  = 53, /** Event record identifier for the ThreadFork event. */
-    OTF2_EVENT_THREAD_JOIN                  = 54, /** Event record identifier for the ThreadJoin event. */
-    OTF2_EVENT_THREAD_TEAM_BEGIN            = 55, /** Event record identifier for the ThreadTeamBegin event. */
-    OTF2_EVENT_THREAD_TEAM_END              = 56, /** Event record identifier for the ThreadTeamEnd event. */
-    OTF2_EVENT_THREAD_ACQUIRE_LOCK          = 57, /** Event record identifier for the ThreadAcquireLock event. */
-    OTF2_EVENT_THREAD_RELEASE_LOCK          = 58, /** Event record identifier for the ThreadReleaseLock event. */
-    OTF2_EVENT_THREAD_TASK_CREATE           = 59, /** Event record identifier for the ThreadTaskCreate event. */
-    OTF2_EVENT_THREAD_TASK_SWITCH           = 60, /** Event record identifier for the ThreadTaskSwitch event. */
-    OTF2_EVENT_THREAD_TASK_COMPLETE         = 61, /** Event record identifier for the ThreadTaskComplete event. */
-    OTF2_EVENT_THREAD_CREATE                = 62, /** Event record identifier for the ThreadCreate event. */
-    OTF2_EVENT_THREAD_BEGIN                 = 63, /** Event record identifier for the ThreadBegin event. */
-    OTF2_EVENT_THREAD_WAIT                  = 64, /** Event record identifier for the ThreadWait event. */
-    OTF2_EVENT_THREAD_END                   = 65, /** Event record identifier for the ThreadEnd event. */
-    OTF2_EVENT_CALLING_CONTEXT_ENTER        = 66, /** Event record identifier for the CallingContextEnter event. */
-    OTF2_EVENT_CALLING_CONTEXT_LEAVE        = 67, /** Event record identifier for the CallingContextLeave event. */
-    OTF2_EVENT_CALLING_CONTEXT_SAMPLE       = 68, /** Event record identifier for the CallingContextSample event. */
+    OTF2_EVENT_BUFFER_FLUSH = 10,  /** Event record identifier for the BufferFlush event. */
+    OTF2_EVENT_MEASUREMENT_ON_OFF = 11,  /** Event record identifier for the MeasurementOnOff event. */
+    OTF2_EVENT_ENTER = 12,  /** Event record identifier for the Enter event. */
+    OTF2_EVENT_LEAVE = 13,  /** Event record identifier for the Leave event. */
+    OTF2_EVENT_MPI_SEND = 14,  /** Event record identifier for the MpiSend event. */
+    OTF2_EVENT_MPI_ISEND = 15,  /** Event record identifier for the MpiIsend event. */
+    OTF2_EVENT_MPI_ISEND_COMPLETE = 16,  /** Event record identifier for the MpiIsendComplete event. */
+    OTF2_EVENT_MPI_IRECV_REQUEST = 17,  /** Event record identifier for the MpiIrecvRequest event. */
+    OTF2_EVENT_MPI_RECV = 18,  /** Event record identifier for the MpiRecv event. */
+    OTF2_EVENT_MPI_IRECV = 19,  /** Event record identifier for the MpiIrecv event. */
+    OTF2_EVENT_MPI_REQUEST_TEST = 20,  /** Event record identifier for the MpiRequestTest event. */
+    OTF2_EVENT_MPI_REQUEST_CANCELLED = 21,  /** Event record identifier for the MpiRequestCancelled event. */
+    OTF2_EVENT_MPI_COLLECTIVE_BEGIN = 22,  /** Event record identifier for the MpiCollectiveBegin event. */
+    OTF2_EVENT_MPI_COLLECTIVE_END = 23,  /** Event record identifier for the MpiCollectiveEnd event. */
+    OTF2_EVENT_OMP_FORK = 24,  /** Event record identifier for the OmpFork event. */
+    OTF2_EVENT_OMP_JOIN = 25,  /** Event record identifier for the OmpJoin event. */
+    OTF2_EVENT_OMP_ACQUIRE_LOCK = 26,  /** Event record identifier for the OmpAcquireLock event. */
+    OTF2_EVENT_OMP_RELEASE_LOCK = 27,  /** Event record identifier for the OmpReleaseLock event. */
+    OTF2_EVENT_OMP_TASK_CREATE = 28,  /** Event record identifier for the OmpTaskCreate event. */
+    OTF2_EVENT_OMP_TASK_SWITCH = 29,  /** Event record identifier for the OmpTaskSwitch event. */
+    OTF2_EVENT_OMP_TASK_COMPLETE = 30,  /** Event record identifier for the OmpTaskComplete event. */
+    OTF2_EVENT_METRIC = 31,  /** Event record identifier for the Metric event. */
+    OTF2_EVENT_PARAMETER_STRING = 32,  /** Event record identifier for the ParameterString event. */
+    OTF2_EVENT_PARAMETER_INT = 33,  /** Event record identifier for the ParameterInt event. */
+    OTF2_EVENT_PARAMETER_UNSIGNED_INT = 34,  /** Event record identifier for the ParameterUnsignedInt event. */
+    OTF2_EVENT_RMA_WIN_CREATE = 35,  /** Event record identifier for the RmaWinCreate event. */
+    OTF2_EVENT_RMA_WIN_DESTROY = 36,  /** Event record identifier for the RmaWinDestroy event. */
+    OTF2_EVENT_RMA_COLLECTIVE_BEGIN = 37,  /** Event record identifier for the RmaCollectiveBegin event. */
+    OTF2_EVENT_RMA_COLLECTIVE_END = 38,  /** Event record identifier for the RmaCollectiveEnd event. */
+    OTF2_EVENT_RMA_GROUP_SYNC = 39,  /** Event record identifier for the RmaGroupSync event. */
+    OTF2_EVENT_RMA_REQUEST_LOCK = 40,  /** Event record identifier for the RmaRequestLock event. */
+    OTF2_EVENT_RMA_ACQUIRE_LOCK = 41,  /** Event record identifier for the RmaAcquireLock event. */
+    OTF2_EVENT_RMA_TRY_LOCK = 42,  /** Event record identifier for the RmaTryLock event. */
+    OTF2_EVENT_RMA_RELEASE_LOCK = 43,  /** Event record identifier for the RmaReleaseLock event. */
+    OTF2_EVENT_RMA_SYNC = 44,  /** Event record identifier for the RmaSync event. */
+    OTF2_EVENT_RMA_WAIT_CHANGE = 45,  /** Event record identifier for the RmaWaitChange event. */
+    OTF2_EVENT_RMA_PUT = 46,  /** Event record identifier for the RmaPut event. */
+    OTF2_EVENT_RMA_GET = 47,  /** Event record identifier for the RmaGet event. */
+    OTF2_EVENT_RMA_ATOMIC = 48,  /** Event record identifier for the RmaAtomic event. */
+    OTF2_EVENT_RMA_OP_COMPLETE_BLOCKING = 49,  /** Event record identifier for the RmaOpCompleteBlocking event. */
+    OTF2_EVENT_RMA_OP_COMPLETE_NON_BLOCKING = 50,  /** Event record identifier for the RmaOpCompleteNonBlocking event. */
+    OTF2_EVENT_RMA_OP_TEST = 51,  /** Event record identifier for the RmaOpTest event. */
+    OTF2_EVENT_RMA_OP_COMPLETE_REMOTE = 52,  /** Event record identifier for the RmaOpCompleteRemote event. */
+    OTF2_EVENT_THREAD_FORK = 53,  /** Event record identifier for the ThreadFork event. */
+    OTF2_EVENT_THREAD_JOIN = 54,  /** Event record identifier for the ThreadJoin event. */
+    OTF2_EVENT_THREAD_TEAM_BEGIN = 55,  /** Event record identifier for the ThreadTeamBegin event. */
+    OTF2_EVENT_THREAD_TEAM_END = 56,  /** Event record identifier for the ThreadTeamEnd event. */
+    OTF2_EVENT_THREAD_ACQUIRE_LOCK = 57,  /** Event record identifier for the ThreadAcquireLock event. */
+    OTF2_EVENT_THREAD_RELEASE_LOCK = 58,  /** Event record identifier for the ThreadReleaseLock event. */
+    OTF2_EVENT_THREAD_TASK_CREATE = 59,  /** Event record identifier for the ThreadTaskCreate event. */
+    OTF2_EVENT_THREAD_TASK_SWITCH = 60,  /** Event record identifier for the ThreadTaskSwitch event. */
+    OTF2_EVENT_THREAD_TASK_COMPLETE = 61,  /** Event record identifier for the ThreadTaskComplete event. */
+    OTF2_EVENT_THREAD_CREATE = 62,  /** Event record identifier for the ThreadCreate event. */
+    OTF2_EVENT_THREAD_BEGIN = 63,  /** Event record identifier for the ThreadBegin event. */
+    OTF2_EVENT_THREAD_WAIT = 64,  /** Event record identifier for the ThreadWait event. */
+    OTF2_EVENT_THREAD_END = 65,  /** Event record identifier for the ThreadEnd event. */
+    OTF2_EVENT_CALLING_CONTEXT_ENTER = 66,  /** Event record identifier for the CallingContextEnter event. */
+    OTF2_EVENT_CALLING_CONTEXT_LEAVE = 67,  /** Event record identifier for the CallingContextLeave event. */
+    OTF2_EVENT_CALLING_CONTEXT_SAMPLE = 68,  /** Event record identifier for the CallingContextSample event. */
+    OTF2_EVENT_TASK_CREATE = 69,  /** Event record identifier for the TaskCreate event. */
+    OTF2_EVENT_TASK_DESTROY = 70,  /** Event record identifier for the TaskDestroy event. */
+    OTF2_EVENT_TASK_RUNNABLE = 71,  /** Event record identifier for the TaskRunnable event. */
+    OTF2_EVENT_ADD_DEPENDENCE = 72,  /** Event record identifier for the AddDependence event. */
+    OTF2_EVENT_SATISFY_DEPENDENCE = 73,  /** Event record identifier for the SatisfyDependence event. */
+    OTF2_EVENT_DATA_ACQUIRE = 74,  /** Event record identifier for the DataAcquire event. */
+    OTF2_EVENT_DATA_RELEASE = 75,  /** Event record identifier for the DataRelease event. */
+    OTF2_EVENT_EVENT_CREATE = 76,  /** Event record identifier for the EventCreate event. */
+    OTF2_EVENT_EVENT_DESTROY = 77,  /** Event record identifier for the EventDestroy event. */
+    OTF2_EVENT_DATA_CREATE = 78,  /** Event record identifier for the DataCreate event. */
+    OTF2_EVENT_DATA_DESTROY = 79,  /** Event record identifier for the DataDestroy event. */
 
     OTF2_EVENT_MAX_ID
 };
@@ -127,7 +138,7 @@ typedef struct OTF2_BufferFlush_struct
 typedef struct OTF2_MeasurementOnOff_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp       time;
+    OTF2_TimeStamp time;
     OTF2_MeasurementMode measurement_mode;
 } OTF2_MeasurementOnOff;
 
@@ -158,10 +169,10 @@ typedef struct OTF2_MpiSend_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint32_t       receiver;
-    OTF2_CommRef   communicator;
-    uint32_t       msg_tag;
-    uint64_t       msg_length;
+    uint32_t receiver;
+    OTF2_CommRef communicator;
+    uint32_t msg_tag;
+    uint64_t msg_length;
 } OTF2_MpiSend;
 
 
@@ -171,11 +182,11 @@ typedef struct OTF2_MpiIsend_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint32_t       receiver;
-    OTF2_CommRef   communicator;
-    uint32_t       msg_tag;
-    uint64_t       msg_length;
-    uint64_t       request_id;
+    uint32_t receiver;
+    OTF2_CommRef communicator;
+    uint32_t msg_tag;
+    uint64_t msg_length;
+    uint64_t request_id;
 } OTF2_MpiIsend;
 
 
@@ -185,7 +196,7 @@ typedef struct OTF2_MpiIsendComplete_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint64_t       request_id;
+    uint64_t request_id;
 } OTF2_MpiIsendComplete;
 
 
@@ -195,7 +206,7 @@ typedef struct OTF2_MpiIrecvRequest_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint64_t       request_id;
+    uint64_t request_id;
 } OTF2_MpiIrecvRequest;
 
 
@@ -205,10 +216,10 @@ typedef struct OTF2_MpiRecv_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint32_t       sender;
-    OTF2_CommRef   communicator;
-    uint32_t       msg_tag;
-    uint64_t       msg_length;
+    uint32_t sender;
+    OTF2_CommRef communicator;
+    uint32_t msg_tag;
+    uint64_t msg_length;
 } OTF2_MpiRecv;
 
 
@@ -218,11 +229,11 @@ typedef struct OTF2_MpiIrecv_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint32_t       sender;
-    OTF2_CommRef   communicator;
-    uint32_t       msg_tag;
-    uint64_t       msg_length;
-    uint64_t       request_id;
+    uint32_t sender;
+    OTF2_CommRef communicator;
+    uint32_t msg_tag;
+    uint64_t msg_length;
+    uint64_t request_id;
 } OTF2_MpiIrecv;
 
 
@@ -232,7 +243,7 @@ typedef struct OTF2_MpiRequestTest_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint64_t       request_id;
+    uint64_t request_id;
 } OTF2_MpiRequestTest;
 
 
@@ -242,7 +253,7 @@ typedef struct OTF2_MpiRequestCancelled_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint64_t       request_id;
+    uint64_t request_id;
 } OTF2_MpiRequestCancelled;
 
 
@@ -252,6 +263,7 @@ typedef struct OTF2_MpiCollectiveBegin_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
+    
 } OTF2_MpiCollectiveBegin;
 
 
@@ -260,12 +272,12 @@ typedef struct OTF2_MpiCollectiveBegin_struct
 typedef struct OTF2_MpiCollectiveEnd_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp    time;
+    OTF2_TimeStamp time;
     OTF2_CollectiveOp collective_op;
-    OTF2_CommRef      communicator;
-    uint32_t          root;
-    uint64_t          size_sent;
-    uint64_t          size_received;
+    OTF2_CommRef communicator;
+    uint32_t root;
+    uint64_t size_sent;
+    uint64_t size_received;
 } OTF2_MpiCollectiveEnd;
 
 
@@ -275,7 +287,7 @@ typedef struct OTF2_OmpFork_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint32_t       number_of_requested_threads;
+    uint32_t number_of_requested_threads;
 } OTF2_OmpFork;
 
 
@@ -285,6 +297,7 @@ typedef struct OTF2_OmpJoin_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
+    
 } OTF2_OmpJoin;
 
 
@@ -294,8 +307,8 @@ typedef struct OTF2_OmpAcquireLock_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint32_t       lock_id;
-    uint32_t       acquisition_order;
+    uint32_t lock_id;
+    uint32_t acquisition_order;
 } OTF2_OmpAcquireLock;
 
 
@@ -305,8 +318,8 @@ typedef struct OTF2_OmpReleaseLock_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint32_t       lock_id;
-    uint32_t       acquisition_order;
+    uint32_t lock_id;
+    uint32_t acquisition_order;
 } OTF2_OmpReleaseLock;
 
 
@@ -316,7 +329,7 @@ typedef struct OTF2_OmpTaskCreate_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint64_t       task_id;
+    uint64_t task_id;
 } OTF2_OmpTaskCreate;
 
 
@@ -326,7 +339,7 @@ typedef struct OTF2_OmpTaskSwitch_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint64_t       task_id;
+    uint64_t task_id;
 } OTF2_OmpTaskSwitch;
 
 
@@ -336,7 +349,7 @@ typedef struct OTF2_OmpTaskComplete_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    uint64_t       task_id;
+    uint64_t task_id;
 } OTF2_OmpTaskComplete;
 
 
@@ -345,10 +358,10 @@ typedef struct OTF2_OmpTaskComplete_struct
 typedef struct OTF2_Metric_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp    time;
-    OTF2_MetricRef    metric;
-    uint8_t           number_of_metrics;
-    OTF2_Type*        type_ids;
+    OTF2_TimeStamp time;
+    OTF2_MetricRef metric;
+    uint8_t number_of_metrics;
+    OTF2_Type* type_ids;
     OTF2_MetricValue* metric_values;
 } OTF2_Metric;
 
@@ -358,9 +371,9 @@ typedef struct OTF2_Metric_struct
 typedef struct OTF2_ParameterString_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp    time;
+    OTF2_TimeStamp time;
     OTF2_ParameterRef parameter;
-    OTF2_StringRef    string;
+    OTF2_StringRef string;
 } OTF2_ParameterString;
 
 
@@ -369,9 +382,9 @@ typedef struct OTF2_ParameterString_struct
 typedef struct OTF2_ParameterInt_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp    time;
+    OTF2_TimeStamp time;
     OTF2_ParameterRef parameter;
-    int64_t           value;
+    int64_t value;
 } OTF2_ParameterInt;
 
 
@@ -380,9 +393,9 @@ typedef struct OTF2_ParameterInt_struct
 typedef struct OTF2_ParameterUnsignedInt_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp    time;
+    OTF2_TimeStamp time;
     OTF2_ParameterRef parameter;
-    uint64_t          value;
+    uint64_t value;
 } OTF2_ParameterUnsignedInt;
 
 
@@ -412,6 +425,7 @@ typedef struct OTF2_RmaCollectiveBegin_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
+    
 } OTF2_RmaCollectiveBegin;
 
 
@@ -420,13 +434,13 @@ typedef struct OTF2_RmaCollectiveBegin_struct
 typedef struct OTF2_RmaCollectiveEnd_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp    time;
+    OTF2_TimeStamp time;
     OTF2_CollectiveOp collective_op;
     OTF2_RmaSyncLevel sync_level;
-    OTF2_RmaWinRef    win;
-    uint32_t          root;
-    uint64_t          bytes_sent;
-    uint64_t          bytes_received;
+    OTF2_RmaWinRef win;
+    uint32_t root;
+    uint64_t bytes_sent;
+    uint64_t bytes_received;
 } OTF2_RmaCollectiveEnd;
 
 
@@ -435,10 +449,10 @@ typedef struct OTF2_RmaCollectiveEnd_struct
 typedef struct OTF2_RmaGroupSync_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp    time;
+    OTF2_TimeStamp time;
     OTF2_RmaSyncLevel sync_level;
-    OTF2_RmaWinRef    win;
-    OTF2_GroupRef     group;
+    OTF2_RmaWinRef win;
+    OTF2_GroupRef group;
 } OTF2_RmaGroupSync;
 
 
@@ -449,9 +463,9 @@ typedef struct OTF2_RmaRequestLock_struct
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
     OTF2_RmaWinRef win;
-    uint32_t       remote;
-    uint64_t       lock_id;
-    OTF2_LockType  lock_type;
+    uint32_t remote;
+    uint64_t lock_id;
+    OTF2_LockType lock_type;
 } OTF2_RmaRequestLock;
 
 
@@ -462,9 +476,9 @@ typedef struct OTF2_RmaAcquireLock_struct
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
     OTF2_RmaWinRef win;
-    uint32_t       remote;
-    uint64_t       lock_id;
-    OTF2_LockType  lock_type;
+    uint32_t remote;
+    uint64_t lock_id;
+    OTF2_LockType lock_type;
 } OTF2_RmaAcquireLock;
 
 
@@ -475,9 +489,9 @@ typedef struct OTF2_RmaTryLock_struct
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
     OTF2_RmaWinRef win;
-    uint32_t       remote;
-    uint64_t       lock_id;
-    OTF2_LockType  lock_type;
+    uint32_t remote;
+    uint64_t lock_id;
+    OTF2_LockType lock_type;
 } OTF2_RmaTryLock;
 
 
@@ -488,8 +502,8 @@ typedef struct OTF2_RmaReleaseLock_struct
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
     OTF2_RmaWinRef win;
-    uint32_t       remote;
-    uint64_t       lock_id;
+    uint32_t remote;
+    uint64_t lock_id;
 } OTF2_RmaReleaseLock;
 
 
@@ -498,9 +512,9 @@ typedef struct OTF2_RmaReleaseLock_struct
 typedef struct OTF2_RmaSync_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp   time;
-    OTF2_RmaWinRef   win;
-    uint32_t         remote;
+    OTF2_TimeStamp time;
+    OTF2_RmaWinRef win;
+    uint32_t remote;
     OTF2_RmaSyncType sync_type;
 } OTF2_RmaSync;
 
@@ -522,9 +536,9 @@ typedef struct OTF2_RmaPut_struct
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
     OTF2_RmaWinRef win;
-    uint32_t       remote;
-    uint64_t       bytes;
-    uint64_t       matching_id;
+    uint32_t remote;
+    uint64_t bytes;
+    uint64_t matching_id;
 } OTF2_RmaPut;
 
 
@@ -535,9 +549,9 @@ typedef struct OTF2_RmaGet_struct
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
     OTF2_RmaWinRef win;
-    uint32_t       remote;
-    uint64_t       bytes;
-    uint64_t       matching_id;
+    uint32_t remote;
+    uint64_t bytes;
+    uint64_t matching_id;
 } OTF2_RmaGet;
 
 
@@ -546,13 +560,13 @@ typedef struct OTF2_RmaGet_struct
 typedef struct OTF2_RmaAtomic_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp     time;
-    OTF2_RmaWinRef     win;
-    uint32_t           remote;
+    OTF2_TimeStamp time;
+    OTF2_RmaWinRef win;
+    uint32_t remote;
     OTF2_RmaAtomicType type;
-    uint64_t           bytes_sent;
-    uint64_t           bytes_received;
-    uint64_t           matching_id;
+    uint64_t bytes_sent;
+    uint64_t bytes_received;
+    uint64_t matching_id;
 } OTF2_RmaAtomic;
 
 
@@ -563,7 +577,7 @@ typedef struct OTF2_RmaOpCompleteBlocking_struct
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
     OTF2_RmaWinRef win;
-    uint64_t       matching_id;
+    uint64_t matching_id;
 } OTF2_RmaOpCompleteBlocking;
 
 
@@ -574,7 +588,7 @@ typedef struct OTF2_RmaOpCompleteNonBlocking_struct
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
     OTF2_RmaWinRef win;
-    uint64_t       matching_id;
+    uint64_t matching_id;
 } OTF2_RmaOpCompleteNonBlocking;
 
 
@@ -585,7 +599,7 @@ typedef struct OTF2_RmaOpTest_struct
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
     OTF2_RmaWinRef win;
-    uint64_t       matching_id;
+    uint64_t matching_id;
 } OTF2_RmaOpTest;
 
 
@@ -596,7 +610,7 @@ typedef struct OTF2_RmaOpCompleteRemote_struct
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
     OTF2_RmaWinRef win;
-    uint64_t       matching_id;
+    uint64_t matching_id;
 } OTF2_RmaOpCompleteRemote;
 
 
@@ -606,8 +620,8 @@ typedef struct OTF2_ThreadFork_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_Paradigm  model;
-    uint32_t       number_of_requested_threads;
+    OTF2_Paradigm model;
+    uint32_t number_of_requested_threads;
 } OTF2_ThreadFork;
 
 
@@ -617,7 +631,7 @@ typedef struct OTF2_ThreadJoin_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_Paradigm  model;
+    OTF2_Paradigm model;
 } OTF2_ThreadJoin;
 
 
@@ -627,7 +641,7 @@ typedef struct OTF2_ThreadTeamBegin_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_CommRef   thread_team;
+    OTF2_CommRef thread_team;
 } OTF2_ThreadTeamBegin;
 
 
@@ -637,7 +651,7 @@ typedef struct OTF2_ThreadTeamEnd_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_CommRef   thread_team;
+    OTF2_CommRef thread_team;
 } OTF2_ThreadTeamEnd;
 
 
@@ -647,9 +661,9 @@ typedef struct OTF2_ThreadAcquireLock_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_Paradigm  model;
-    uint32_t       lock_id;
-    uint32_t       acquisition_order;
+    OTF2_Paradigm model;
+    uint32_t lock_id;
+    uint32_t acquisition_order;
 } OTF2_ThreadAcquireLock;
 
 
@@ -659,9 +673,9 @@ typedef struct OTF2_ThreadReleaseLock_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_Paradigm  model;
-    uint32_t       lock_id;
-    uint32_t       acquisition_order;
+    OTF2_Paradigm model;
+    uint32_t lock_id;
+    uint32_t acquisition_order;
 } OTF2_ThreadReleaseLock;
 
 
@@ -671,9 +685,9 @@ typedef struct OTF2_ThreadTaskCreate_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_CommRef   thread_team;
-    uint32_t       creating_thread;
-    uint32_t       generation_number;
+    OTF2_CommRef thread_team;
+    uint32_t creating_thread;
+    uint32_t generation_number;
 } OTF2_ThreadTaskCreate;
 
 
@@ -683,9 +697,9 @@ typedef struct OTF2_ThreadTaskSwitch_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_CommRef   thread_team;
-    uint32_t       creating_thread;
-    uint32_t       generation_number;
+    OTF2_CommRef thread_team;
+    uint32_t creating_thread;
+    uint32_t generation_number;
 } OTF2_ThreadTaskSwitch;
 
 
@@ -695,9 +709,9 @@ typedef struct OTF2_ThreadTaskComplete_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_CommRef   thread_team;
-    uint32_t       creating_thread;
-    uint32_t       generation_number;
+    OTF2_CommRef thread_team;
+    uint32_t creating_thread;
+    uint32_t generation_number;
 } OTF2_ThreadTaskComplete;
 
 
@@ -707,8 +721,8 @@ typedef struct OTF2_ThreadCreate_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_CommRef   thread_contingent;
-    uint64_t       sequence_count;
+    OTF2_CommRef thread_contingent;
+    uint64_t sequence_count;
 } OTF2_ThreadCreate;
 
 
@@ -718,8 +732,8 @@ typedef struct OTF2_ThreadBegin_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_CommRef   thread_contingent;
-    uint64_t       sequence_count;
+    OTF2_CommRef thread_contingent;
+    uint64_t sequence_count;
 } OTF2_ThreadBegin;
 
 
@@ -729,8 +743,8 @@ typedef struct OTF2_ThreadWait_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_CommRef   thread_contingent;
-    uint64_t       sequence_count;
+    OTF2_CommRef thread_contingent;
+    uint64_t sequence_count;
 } OTF2_ThreadWait;
 
 
@@ -740,8 +754,8 @@ typedef struct OTF2_ThreadEnd_struct
 {
     /** Timestamp, which is exactly here in every event record */
     OTF2_TimeStamp time;
-    OTF2_CommRef   thread_contingent;
-    uint64_t       sequence_count;
+    OTF2_CommRef thread_contingent;
+    uint64_t sequence_count;
 } OTF2_ThreadEnd;
 
 
@@ -750,9 +764,9 @@ typedef struct OTF2_ThreadEnd_struct
 typedef struct OTF2_CallingContextEnter_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp         time;
+    OTF2_TimeStamp time;
     OTF2_CallingContextRef calling_context;
-    uint32_t               unwind_distance;
+    uint32_t unwind_distance;
 } OTF2_CallingContextEnter;
 
 
@@ -761,7 +775,7 @@ typedef struct OTF2_CallingContextEnter_struct
 typedef struct OTF2_CallingContextLeave_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp         time;
+    OTF2_TimeStamp time;
     OTF2_CallingContextRef calling_context;
 } OTF2_CallingContextLeave;
 
@@ -771,11 +785,128 @@ typedef struct OTF2_CallingContextLeave_struct
 typedef struct OTF2_CallingContextSample_struct
 {
     /** Timestamp, which is exactly here in every event record */
-    OTF2_TimeStamp             time;
-    OTF2_CallingContextRef     calling_context;
-    uint32_t                   unwind_distance;
+    OTF2_TimeStamp time;
+    OTF2_CallingContextRef calling_context;
+    uint32_t unwind_distance;
     OTF2_InterruptGeneratorRef interrupt_generator;
 } OTF2_CallingContextSample;
+
+
+/** @brief TaskCreate event.
+ */
+typedef struct OTF2_TaskCreate_struct
+{
+    /** Timestamp, which is exactly here in every event record */
+    OTF2_TimeStamp time;
+    OTF2_RegionRef region;
+} OTF2_TaskCreate;
+
+
+/** @brief TaskDestroy event.
+ */
+typedef struct OTF2_TaskDestroy_struct
+{
+    /** Timestamp, which is exactly here in every event record */
+    OTF2_TimeStamp time;
+    OTF2_RegionRef region;
+} OTF2_TaskDestroy;
+
+
+/** @brief TaskRunnable event.
+ */
+typedef struct OTF2_TaskRunnable_struct
+{
+    /** Timestamp, which is exactly here in every event record */
+    OTF2_TimeStamp time;
+    OTF2_RegionRef region;
+} OTF2_TaskRunnable;
+
+
+/** @brief AddDependence event.
+ */
+typedef struct OTF2_AddDependence_struct
+{
+    /** Timestamp, which is exactly here in every event record */
+    OTF2_TimeStamp time;
+    OTF2_RegionRef src;
+    OTF2_RegionRef dest;
+} OTF2_AddDependence;
+
+
+/** @brief SatisfyDependence event.
+ */
+typedef struct OTF2_SatisfyDependence_struct
+{
+    /** Timestamp, which is exactly here in every event record */
+    OTF2_TimeStamp time;
+    OTF2_RegionRef src;
+    OTF2_RegionRef dest;
+} OTF2_SatisfyDependence;
+
+
+/** @brief DataAcquire event.
+ */
+typedef struct OTF2_DataAcquire_struct
+{
+    /** Timestamp, which is exactly here in every event record */
+    OTF2_TimeStamp time;
+    OTF2_RegionRef task;
+    OTF2_RegionRef data;
+    uint64_t size;
+} OTF2_DataAcquire;
+
+
+/** @brief DataRelease event.
+ */
+typedef struct OTF2_DataRelease_struct
+{
+    /** Timestamp, which is exactly here in every event record */
+    OTF2_TimeStamp time;
+    OTF2_RegionRef task;
+    OTF2_RegionRef data;
+    uint64_t size;
+} OTF2_DataRelease;
+
+
+/** @brief EventCreate event.
+ */
+typedef struct OTF2_EventCreate_struct
+{
+    /** Timestamp, which is exactly here in every event record */
+    OTF2_TimeStamp time;
+    OTF2_RegionRef region;
+} OTF2_EventCreate;
+
+
+/** @brief EventDestroy event.
+ */
+typedef struct OTF2_EventDestroy_struct
+{
+    /** Timestamp, which is exactly here in every event record */
+    OTF2_TimeStamp time;
+    OTF2_RegionRef region;
+} OTF2_EventDestroy;
+
+
+/** @brief DataCreate event.
+ */
+typedef struct OTF2_DataCreate_struct
+{
+    /** Timestamp, which is exactly here in every event record */
+    OTF2_TimeStamp time;
+    OTF2_RegionRef region;
+    uint64_t size;
+} OTF2_DataCreate;
+
+
+/** @brief DataDestroy event.
+ */
+typedef struct OTF2_DataDestroy_struct
+{
+    /** Timestamp, which is exactly here in every event record */
+    OTF2_TimeStamp time;
+    OTF2_RegionRef region;
+} OTF2_DataDestroy;
 
 
 typedef struct OTF2_GenericEvent_struct OTF2_GenericEvent;
@@ -784,242 +915,268 @@ typedef struct OTF2_GenericEvent_struct OTF2_GenericEvent;
 struct OTF2_GenericEvent_struct
 {
     OTF2_EventType type;
-    union
-    {
-        OTF2_TimeStamp                time; /**< Timestamp, which is exactly here in every record */
-        OTF2_BufferFlush              buffer_flush;
-        OTF2_MeasurementOnOff         measurement_on_off;
-        OTF2_Enter                    enter;
-        OTF2_Leave                    leave;
-        OTF2_MpiSend                  mpi_send;
-        OTF2_MpiIsend                 mpi_isend;
-        OTF2_MpiIsendComplete         mpi_isend_complete;
-        OTF2_MpiIrecvRequest          mpi_irecv_request;
-        OTF2_MpiRecv                  mpi_recv;
-        OTF2_MpiIrecv                 mpi_irecv;
-        OTF2_MpiRequestTest           mpi_request_test;
-        OTF2_MpiRequestCancelled      mpi_request_cancelled;
-        OTF2_MpiCollectiveBegin       mpi_collective_begin;
-        OTF2_MpiCollectiveEnd         mpi_collective_end;
-        OTF2_OmpFork                  omp_fork;
-        OTF2_OmpJoin                  omp_join;
-        OTF2_OmpAcquireLock           omp_acquire_lock;
-        OTF2_OmpReleaseLock           omp_release_lock;
-        OTF2_OmpTaskCreate            omp_task_create;
-        OTF2_OmpTaskSwitch            omp_task_switch;
-        OTF2_OmpTaskComplete          omp_task_complete;
-        OTF2_Metric                   metric;
-        OTF2_ParameterString          parameter_string;
-        OTF2_ParameterInt             parameter_int;
-        OTF2_ParameterUnsignedInt     parameter_unsigned_int;
-        OTF2_RmaWinCreate             rma_win_create;
-        OTF2_RmaWinDestroy            rma_win_destroy;
-        OTF2_RmaCollectiveBegin       rma_collective_begin;
-        OTF2_RmaCollectiveEnd         rma_collective_end;
-        OTF2_RmaGroupSync             rma_group_sync;
-        OTF2_RmaRequestLock           rma_request_lock;
-        OTF2_RmaAcquireLock           rma_acquire_lock;
-        OTF2_RmaTryLock               rma_try_lock;
-        OTF2_RmaReleaseLock           rma_release_lock;
-        OTF2_RmaSync                  rma_sync;
-        OTF2_RmaWaitChange            rma_wait_change;
-        OTF2_RmaPut                   rma_put;
-        OTF2_RmaGet                   rma_get;
-        OTF2_RmaAtomic                rma_atomic;
-        OTF2_RmaOpCompleteBlocking    rma_op_complete_blocking;
+    union {
+        OTF2_TimeStamp time;   /**< Timestamp, which is exactly here in every record */
+        OTF2_BufferFlush buffer_flush;
+        OTF2_MeasurementOnOff measurement_on_off;
+        OTF2_Enter enter;
+        OTF2_Leave leave;
+        OTF2_MpiSend mpi_send;
+        OTF2_MpiIsend mpi_isend;
+        OTF2_MpiIsendComplete mpi_isend_complete;
+        OTF2_MpiIrecvRequest mpi_irecv_request;
+        OTF2_MpiRecv mpi_recv;
+        OTF2_MpiIrecv mpi_irecv;
+        OTF2_MpiRequestTest mpi_request_test;
+        OTF2_MpiRequestCancelled mpi_request_cancelled;
+        OTF2_MpiCollectiveBegin mpi_collective_begin;
+        OTF2_MpiCollectiveEnd mpi_collective_end;
+        OTF2_OmpFork omp_fork;
+        OTF2_OmpJoin omp_join;
+        OTF2_OmpAcquireLock omp_acquire_lock;
+        OTF2_OmpReleaseLock omp_release_lock;
+        OTF2_OmpTaskCreate omp_task_create;
+        OTF2_OmpTaskSwitch omp_task_switch;
+        OTF2_OmpTaskComplete omp_task_complete;
+        OTF2_Metric metric;
+        OTF2_ParameterString parameter_string;
+        OTF2_ParameterInt parameter_int;
+        OTF2_ParameterUnsignedInt parameter_unsigned_int;
+        OTF2_RmaWinCreate rma_win_create;
+        OTF2_RmaWinDestroy rma_win_destroy;
+        OTF2_RmaCollectiveBegin rma_collective_begin;
+        OTF2_RmaCollectiveEnd rma_collective_end;
+        OTF2_RmaGroupSync rma_group_sync;
+        OTF2_RmaRequestLock rma_request_lock;
+        OTF2_RmaAcquireLock rma_acquire_lock;
+        OTF2_RmaTryLock rma_try_lock;
+        OTF2_RmaReleaseLock rma_release_lock;
+        OTF2_RmaSync rma_sync;
+        OTF2_RmaWaitChange rma_wait_change;
+        OTF2_RmaPut rma_put;
+        OTF2_RmaGet rma_get;
+        OTF2_RmaAtomic rma_atomic;
+        OTF2_RmaOpCompleteBlocking rma_op_complete_blocking;
         OTF2_RmaOpCompleteNonBlocking rma_op_complete_non_blocking;
-        OTF2_RmaOpTest                rma_op_test;
-        OTF2_RmaOpCompleteRemote      rma_op_complete_remote;
-        OTF2_ThreadFork               thread_fork;
-        OTF2_ThreadJoin               thread_join;
-        OTF2_ThreadTeamBegin          thread_team_begin;
-        OTF2_ThreadTeamEnd            thread_team_end;
-        OTF2_ThreadAcquireLock        thread_acquire_lock;
-        OTF2_ThreadReleaseLock        thread_release_lock;
-        OTF2_ThreadTaskCreate         thread_task_create;
-        OTF2_ThreadTaskSwitch         thread_task_switch;
-        OTF2_ThreadTaskComplete       thread_task_complete;
-        OTF2_ThreadCreate             thread_create;
-        OTF2_ThreadBegin              thread_begin;
-        OTF2_ThreadWait               thread_wait;
-        OTF2_ThreadEnd                thread_end;
-        OTF2_CallingContextEnter      calling_context_enter;
-        OTF2_CallingContextLeave      calling_context_leave;
-        OTF2_CallingContextSample     calling_context_sample;
+        OTF2_RmaOpTest rma_op_test;
+        OTF2_RmaOpCompleteRemote rma_op_complete_remote;
+        OTF2_ThreadFork thread_fork;
+        OTF2_ThreadJoin thread_join;
+        OTF2_ThreadTeamBegin thread_team_begin;
+        OTF2_ThreadTeamEnd thread_team_end;
+        OTF2_ThreadAcquireLock thread_acquire_lock;
+        OTF2_ThreadReleaseLock thread_release_lock;
+        OTF2_ThreadTaskCreate thread_task_create;
+        OTF2_ThreadTaskSwitch thread_task_switch;
+        OTF2_ThreadTaskComplete thread_task_complete;
+        OTF2_ThreadCreate thread_create;
+        OTF2_ThreadBegin thread_begin;
+        OTF2_ThreadWait thread_wait;
+        OTF2_ThreadEnd thread_end;
+        OTF2_CallingContextEnter calling_context_enter;
+        OTF2_CallingContextLeave calling_context_leave;
+        OTF2_CallingContextSample calling_context_sample;
+        OTF2_TaskCreate task_create;
+        OTF2_TaskDestroy task_destroy;
+        OTF2_TaskRunnable task_runnable;
+        OTF2_AddDependence add_dependence;
+        OTF2_SatisfyDependence satisfy_dependence;
+        OTF2_DataAcquire data_acquire;
+        OTF2_DataRelease data_release;
+        OTF2_EventCreate event_create;
+        OTF2_EventDestroy event_destroy;
+        OTF2_DataCreate data_create;
+        OTF2_DataDestroy data_destroy;
     } record;
 };
 
 
 struct OTF2_EvtReaderCallbacks_struct
 {
-    OTF2_EvtReaderCallback_Unknown                  unknown;
-    OTF2_EvtReaderCallback_BufferFlush              buffer_flush;
-    OTF2_EvtReaderCallback_MeasurementOnOff         measurement_on_off;
-    OTF2_EvtReaderCallback_Enter                    enter;
-    OTF2_EvtReaderCallback_Leave                    leave;
-    OTF2_EvtReaderCallback_MpiSend                  mpi_send;
-    OTF2_EvtReaderCallback_MpiIsend                 mpi_isend;
-    OTF2_EvtReaderCallback_MpiIsendComplete         mpi_isend_complete;
-    OTF2_EvtReaderCallback_MpiIrecvRequest          mpi_irecv_request;
-    OTF2_EvtReaderCallback_MpiRecv                  mpi_recv;
-    OTF2_EvtReaderCallback_MpiIrecv                 mpi_irecv;
-    OTF2_EvtReaderCallback_MpiRequestTest           mpi_request_test;
-    OTF2_EvtReaderCallback_MpiRequestCancelled      mpi_request_cancelled;
-    OTF2_EvtReaderCallback_MpiCollectiveBegin       mpi_collective_begin;
-    OTF2_EvtReaderCallback_MpiCollectiveEnd         mpi_collective_end;
-    OTF2_EvtReaderCallback_OmpFork                  omp_fork;
-    OTF2_EvtReaderCallback_OmpJoin                  omp_join;
-    OTF2_EvtReaderCallback_OmpAcquireLock           omp_acquire_lock;
-    OTF2_EvtReaderCallback_OmpReleaseLock           omp_release_lock;
-    OTF2_EvtReaderCallback_OmpTaskCreate            omp_task_create;
-    OTF2_EvtReaderCallback_OmpTaskSwitch            omp_task_switch;
-    OTF2_EvtReaderCallback_OmpTaskComplete          omp_task_complete;
-    OTF2_EvtReaderCallback_Metric                   metric;
-    OTF2_EvtReaderCallback_ParameterString          parameter_string;
-    OTF2_EvtReaderCallback_ParameterInt             parameter_int;
-    OTF2_EvtReaderCallback_ParameterUnsignedInt     parameter_unsigned_int;
-    OTF2_EvtReaderCallback_RmaWinCreate             rma_win_create;
-    OTF2_EvtReaderCallback_RmaWinDestroy            rma_win_destroy;
-    OTF2_EvtReaderCallback_RmaCollectiveBegin       rma_collective_begin;
-    OTF2_EvtReaderCallback_RmaCollectiveEnd         rma_collective_end;
-    OTF2_EvtReaderCallback_RmaGroupSync             rma_group_sync;
-    OTF2_EvtReaderCallback_RmaRequestLock           rma_request_lock;
-    OTF2_EvtReaderCallback_RmaAcquireLock           rma_acquire_lock;
-    OTF2_EvtReaderCallback_RmaTryLock               rma_try_lock;
-    OTF2_EvtReaderCallback_RmaReleaseLock           rma_release_lock;
-    OTF2_EvtReaderCallback_RmaSync                  rma_sync;
-    OTF2_EvtReaderCallback_RmaWaitChange            rma_wait_change;
-    OTF2_EvtReaderCallback_RmaPut                   rma_put;
-    OTF2_EvtReaderCallback_RmaGet                   rma_get;
-    OTF2_EvtReaderCallback_RmaAtomic                rma_atomic;
-    OTF2_EvtReaderCallback_RmaOpCompleteBlocking    rma_op_complete_blocking;
+    OTF2_EvtReaderCallback_Unknown unknown;
+    OTF2_EvtReaderCallback_BufferFlush buffer_flush;
+    OTF2_EvtReaderCallback_MeasurementOnOff measurement_on_off;
+    OTF2_EvtReaderCallback_Enter enter;
+    OTF2_EvtReaderCallback_Leave leave;
+    OTF2_EvtReaderCallback_MpiSend mpi_send;
+    OTF2_EvtReaderCallback_MpiIsend mpi_isend;
+    OTF2_EvtReaderCallback_MpiIsendComplete mpi_isend_complete;
+    OTF2_EvtReaderCallback_MpiIrecvRequest mpi_irecv_request;
+    OTF2_EvtReaderCallback_MpiRecv mpi_recv;
+    OTF2_EvtReaderCallback_MpiIrecv mpi_irecv;
+    OTF2_EvtReaderCallback_MpiRequestTest mpi_request_test;
+    OTF2_EvtReaderCallback_MpiRequestCancelled mpi_request_cancelled;
+    OTF2_EvtReaderCallback_MpiCollectiveBegin mpi_collective_begin;
+    OTF2_EvtReaderCallback_MpiCollectiveEnd mpi_collective_end;
+    OTF2_EvtReaderCallback_OmpFork omp_fork;
+    OTF2_EvtReaderCallback_OmpJoin omp_join;
+    OTF2_EvtReaderCallback_OmpAcquireLock omp_acquire_lock;
+    OTF2_EvtReaderCallback_OmpReleaseLock omp_release_lock;
+    OTF2_EvtReaderCallback_OmpTaskCreate omp_task_create;
+    OTF2_EvtReaderCallback_OmpTaskSwitch omp_task_switch;
+    OTF2_EvtReaderCallback_OmpTaskComplete omp_task_complete;
+    OTF2_EvtReaderCallback_Metric metric;
+    OTF2_EvtReaderCallback_ParameterString parameter_string;
+    OTF2_EvtReaderCallback_ParameterInt parameter_int;
+    OTF2_EvtReaderCallback_ParameterUnsignedInt parameter_unsigned_int;
+    OTF2_EvtReaderCallback_RmaWinCreate rma_win_create;
+    OTF2_EvtReaderCallback_RmaWinDestroy rma_win_destroy;
+    OTF2_EvtReaderCallback_RmaCollectiveBegin rma_collective_begin;
+    OTF2_EvtReaderCallback_RmaCollectiveEnd rma_collective_end;
+    OTF2_EvtReaderCallback_RmaGroupSync rma_group_sync;
+    OTF2_EvtReaderCallback_RmaRequestLock rma_request_lock;
+    OTF2_EvtReaderCallback_RmaAcquireLock rma_acquire_lock;
+    OTF2_EvtReaderCallback_RmaTryLock rma_try_lock;
+    OTF2_EvtReaderCallback_RmaReleaseLock rma_release_lock;
+    OTF2_EvtReaderCallback_RmaSync rma_sync;
+    OTF2_EvtReaderCallback_RmaWaitChange rma_wait_change;
+    OTF2_EvtReaderCallback_RmaPut rma_put;
+    OTF2_EvtReaderCallback_RmaGet rma_get;
+    OTF2_EvtReaderCallback_RmaAtomic rma_atomic;
+    OTF2_EvtReaderCallback_RmaOpCompleteBlocking rma_op_complete_blocking;
     OTF2_EvtReaderCallback_RmaOpCompleteNonBlocking rma_op_complete_non_blocking;
-    OTF2_EvtReaderCallback_RmaOpTest                rma_op_test;
-    OTF2_EvtReaderCallback_RmaOpCompleteRemote      rma_op_complete_remote;
-    OTF2_EvtReaderCallback_ThreadFork               thread_fork;
-    OTF2_EvtReaderCallback_ThreadJoin               thread_join;
-    OTF2_EvtReaderCallback_ThreadTeamBegin          thread_team_begin;
-    OTF2_EvtReaderCallback_ThreadTeamEnd            thread_team_end;
-    OTF2_EvtReaderCallback_ThreadAcquireLock        thread_acquire_lock;
-    OTF2_EvtReaderCallback_ThreadReleaseLock        thread_release_lock;
-    OTF2_EvtReaderCallback_ThreadTaskCreate         thread_task_create;
-    OTF2_EvtReaderCallback_ThreadTaskSwitch         thread_task_switch;
-    OTF2_EvtReaderCallback_ThreadTaskComplete       thread_task_complete;
-    OTF2_EvtReaderCallback_ThreadCreate             thread_create;
-    OTF2_EvtReaderCallback_ThreadBegin              thread_begin;
-    OTF2_EvtReaderCallback_ThreadWait               thread_wait;
-    OTF2_EvtReaderCallback_ThreadEnd                thread_end;
-    OTF2_EvtReaderCallback_CallingContextEnter      calling_context_enter;
-    OTF2_EvtReaderCallback_CallingContextLeave      calling_context_leave;
-    OTF2_EvtReaderCallback_CallingContextSample     calling_context_sample;
+    OTF2_EvtReaderCallback_RmaOpTest rma_op_test;
+    OTF2_EvtReaderCallback_RmaOpCompleteRemote rma_op_complete_remote;
+    OTF2_EvtReaderCallback_ThreadFork thread_fork;
+    OTF2_EvtReaderCallback_ThreadJoin thread_join;
+    OTF2_EvtReaderCallback_ThreadTeamBegin thread_team_begin;
+    OTF2_EvtReaderCallback_ThreadTeamEnd thread_team_end;
+    OTF2_EvtReaderCallback_ThreadAcquireLock thread_acquire_lock;
+    OTF2_EvtReaderCallback_ThreadReleaseLock thread_release_lock;
+    OTF2_EvtReaderCallback_ThreadTaskCreate thread_task_create;
+    OTF2_EvtReaderCallback_ThreadTaskSwitch thread_task_switch;
+    OTF2_EvtReaderCallback_ThreadTaskComplete thread_task_complete;
+    OTF2_EvtReaderCallback_ThreadCreate thread_create;
+    OTF2_EvtReaderCallback_ThreadBegin thread_begin;
+    OTF2_EvtReaderCallback_ThreadWait thread_wait;
+    OTF2_EvtReaderCallback_ThreadEnd thread_end;
+    OTF2_EvtReaderCallback_CallingContextEnter calling_context_enter;
+    OTF2_EvtReaderCallback_CallingContextLeave calling_context_leave;
+    OTF2_EvtReaderCallback_CallingContextSample calling_context_sample;
+    OTF2_EvtReaderCallback_TaskCreate task_create;
+    OTF2_EvtReaderCallback_TaskDestroy task_destroy;
+    OTF2_EvtReaderCallback_TaskRunnable task_runnable;
+    OTF2_EvtReaderCallback_AddDependence add_dependence;
+    OTF2_EvtReaderCallback_SatisfyDependence satisfy_dependence;
+    OTF2_EvtReaderCallback_DataAcquire data_acquire;
+    OTF2_EvtReaderCallback_DataRelease data_release;
+    OTF2_EvtReaderCallback_EventCreate event_create;
+    OTF2_EvtReaderCallback_EventDestroy event_destroy;
+    OTF2_EvtReaderCallback_DataCreate data_create;
+    OTF2_EvtReaderCallback_DataDestroy data_destroy;
 };
 
 
 struct OTF2_GlobalEvtReaderCallbacks_struct
 {
-    OTF2_GlobalEvtReaderCallback_Unknown                  unknown;
-    OTF2_GlobalEvtReaderCallback_BufferFlush              buffer_flush;
-    OTF2_GlobalEvtReaderCallback_MeasurementOnOff         measurement_on_off;
-    OTF2_GlobalEvtReaderCallback_Enter                    enter;
-    OTF2_GlobalEvtReaderCallback_Leave                    leave;
-    OTF2_GlobalEvtReaderCallback_MpiSend                  mpi_send;
-    OTF2_GlobalEvtReaderCallback_MpiIsend                 mpi_isend;
-    OTF2_GlobalEvtReaderCallback_MpiIsendComplete         mpi_isend_complete;
-    OTF2_GlobalEvtReaderCallback_MpiIrecvRequest          mpi_irecv_request;
-    OTF2_GlobalEvtReaderCallback_MpiRecv                  mpi_recv;
-    OTF2_GlobalEvtReaderCallback_MpiIrecv                 mpi_irecv;
-    OTF2_GlobalEvtReaderCallback_MpiRequestTest           mpi_request_test;
-    OTF2_GlobalEvtReaderCallback_MpiRequestCancelled      mpi_request_cancelled;
-    OTF2_GlobalEvtReaderCallback_MpiCollectiveBegin       mpi_collective_begin;
-    OTF2_GlobalEvtReaderCallback_MpiCollectiveEnd         mpi_collective_end;
-    OTF2_GlobalEvtReaderCallback_OmpFork                  omp_fork;
-    OTF2_GlobalEvtReaderCallback_OmpJoin                  omp_join;
-    OTF2_GlobalEvtReaderCallback_OmpAcquireLock           omp_acquire_lock;
-    OTF2_GlobalEvtReaderCallback_OmpReleaseLock           omp_release_lock;
-    OTF2_GlobalEvtReaderCallback_OmpTaskCreate            omp_task_create;
-    OTF2_GlobalEvtReaderCallback_OmpTaskSwitch            omp_task_switch;
-    OTF2_GlobalEvtReaderCallback_OmpTaskComplete          omp_task_complete;
-    OTF2_GlobalEvtReaderCallback_Metric                   metric;
-    OTF2_GlobalEvtReaderCallback_ParameterString          parameter_string;
-    OTF2_GlobalEvtReaderCallback_ParameterInt             parameter_int;
-    OTF2_GlobalEvtReaderCallback_ParameterUnsignedInt     parameter_unsigned_int;
-    OTF2_GlobalEvtReaderCallback_RmaWinCreate             rma_win_create;
-    OTF2_GlobalEvtReaderCallback_RmaWinDestroy            rma_win_destroy;
-    OTF2_GlobalEvtReaderCallback_RmaCollectiveBegin       rma_collective_begin;
-    OTF2_GlobalEvtReaderCallback_RmaCollectiveEnd         rma_collective_end;
-    OTF2_GlobalEvtReaderCallback_RmaGroupSync             rma_group_sync;
-    OTF2_GlobalEvtReaderCallback_RmaRequestLock           rma_request_lock;
-    OTF2_GlobalEvtReaderCallback_RmaAcquireLock           rma_acquire_lock;
-    OTF2_GlobalEvtReaderCallback_RmaTryLock               rma_try_lock;
-    OTF2_GlobalEvtReaderCallback_RmaReleaseLock           rma_release_lock;
-    OTF2_GlobalEvtReaderCallback_RmaSync                  rma_sync;
-    OTF2_GlobalEvtReaderCallback_RmaWaitChange            rma_wait_change;
-    OTF2_GlobalEvtReaderCallback_RmaPut                   rma_put;
-    OTF2_GlobalEvtReaderCallback_RmaGet                   rma_get;
-    OTF2_GlobalEvtReaderCallback_RmaAtomic                rma_atomic;
-    OTF2_GlobalEvtReaderCallback_RmaOpCompleteBlocking    rma_op_complete_blocking;
+    OTF2_GlobalEvtReaderCallback_Unknown unknown;
+    OTF2_GlobalEvtReaderCallback_BufferFlush buffer_flush;
+    OTF2_GlobalEvtReaderCallback_MeasurementOnOff measurement_on_off;
+    OTF2_GlobalEvtReaderCallback_Enter enter;
+    OTF2_GlobalEvtReaderCallback_Leave leave;
+    OTF2_GlobalEvtReaderCallback_MpiSend mpi_send;
+    OTF2_GlobalEvtReaderCallback_MpiIsend mpi_isend;
+    OTF2_GlobalEvtReaderCallback_MpiIsendComplete mpi_isend_complete;
+    OTF2_GlobalEvtReaderCallback_MpiIrecvRequest mpi_irecv_request;
+    OTF2_GlobalEvtReaderCallback_MpiRecv mpi_recv;
+    OTF2_GlobalEvtReaderCallback_MpiIrecv mpi_irecv;
+    OTF2_GlobalEvtReaderCallback_MpiRequestTest mpi_request_test;
+    OTF2_GlobalEvtReaderCallback_MpiRequestCancelled mpi_request_cancelled;
+    OTF2_GlobalEvtReaderCallback_MpiCollectiveBegin mpi_collective_begin;
+    OTF2_GlobalEvtReaderCallback_MpiCollectiveEnd mpi_collective_end;
+    OTF2_GlobalEvtReaderCallback_OmpFork omp_fork;
+    OTF2_GlobalEvtReaderCallback_OmpJoin omp_join;
+    OTF2_GlobalEvtReaderCallback_OmpAcquireLock omp_acquire_lock;
+    OTF2_GlobalEvtReaderCallback_OmpReleaseLock omp_release_lock;
+    OTF2_GlobalEvtReaderCallback_OmpTaskCreate omp_task_create;
+    OTF2_GlobalEvtReaderCallback_OmpTaskSwitch omp_task_switch;
+    OTF2_GlobalEvtReaderCallback_OmpTaskComplete omp_task_complete;
+    OTF2_GlobalEvtReaderCallback_Metric metric;
+    OTF2_GlobalEvtReaderCallback_ParameterString parameter_string;
+    OTF2_GlobalEvtReaderCallback_ParameterInt parameter_int;
+    OTF2_GlobalEvtReaderCallback_ParameterUnsignedInt parameter_unsigned_int;
+    OTF2_GlobalEvtReaderCallback_RmaWinCreate rma_win_create;
+    OTF2_GlobalEvtReaderCallback_RmaWinDestroy rma_win_destroy;
+    OTF2_GlobalEvtReaderCallback_RmaCollectiveBegin rma_collective_begin;
+    OTF2_GlobalEvtReaderCallback_RmaCollectiveEnd rma_collective_end;
+    OTF2_GlobalEvtReaderCallback_RmaGroupSync rma_group_sync;
+    OTF2_GlobalEvtReaderCallback_RmaRequestLock rma_request_lock;
+    OTF2_GlobalEvtReaderCallback_RmaAcquireLock rma_acquire_lock;
+    OTF2_GlobalEvtReaderCallback_RmaTryLock rma_try_lock;
+    OTF2_GlobalEvtReaderCallback_RmaReleaseLock rma_release_lock;
+    OTF2_GlobalEvtReaderCallback_RmaSync rma_sync;
+    OTF2_GlobalEvtReaderCallback_RmaWaitChange rma_wait_change;
+    OTF2_GlobalEvtReaderCallback_RmaPut rma_put;
+    OTF2_GlobalEvtReaderCallback_RmaGet rma_get;
+    OTF2_GlobalEvtReaderCallback_RmaAtomic rma_atomic;
+    OTF2_GlobalEvtReaderCallback_RmaOpCompleteBlocking rma_op_complete_blocking;
     OTF2_GlobalEvtReaderCallback_RmaOpCompleteNonBlocking rma_op_complete_non_blocking;
-    OTF2_GlobalEvtReaderCallback_RmaOpTest                rma_op_test;
-    OTF2_GlobalEvtReaderCallback_RmaOpCompleteRemote      rma_op_complete_remote;
-    OTF2_GlobalEvtReaderCallback_ThreadFork               thread_fork;
-    OTF2_GlobalEvtReaderCallback_ThreadJoin               thread_join;
-    OTF2_GlobalEvtReaderCallback_ThreadTeamBegin          thread_team_begin;
-    OTF2_GlobalEvtReaderCallback_ThreadTeamEnd            thread_team_end;
-    OTF2_GlobalEvtReaderCallback_ThreadAcquireLock        thread_acquire_lock;
-    OTF2_GlobalEvtReaderCallback_ThreadReleaseLock        thread_release_lock;
-    OTF2_GlobalEvtReaderCallback_ThreadTaskCreate         thread_task_create;
-    OTF2_GlobalEvtReaderCallback_ThreadTaskSwitch         thread_task_switch;
-    OTF2_GlobalEvtReaderCallback_ThreadTaskComplete       thread_task_complete;
-    OTF2_GlobalEvtReaderCallback_ThreadCreate             thread_create;
-    OTF2_GlobalEvtReaderCallback_ThreadBegin              thread_begin;
-    OTF2_GlobalEvtReaderCallback_ThreadWait               thread_wait;
-    OTF2_GlobalEvtReaderCallback_ThreadEnd                thread_end;
-    OTF2_GlobalEvtReaderCallback_CallingContextEnter      calling_context_enter;
-    OTF2_GlobalEvtReaderCallback_CallingContextLeave      calling_context_leave;
-    OTF2_GlobalEvtReaderCallback_CallingContextSample     calling_context_sample;
+    OTF2_GlobalEvtReaderCallback_RmaOpTest rma_op_test;
+    OTF2_GlobalEvtReaderCallback_RmaOpCompleteRemote rma_op_complete_remote;
+    OTF2_GlobalEvtReaderCallback_ThreadFork thread_fork;
+    OTF2_GlobalEvtReaderCallback_ThreadJoin thread_join;
+    OTF2_GlobalEvtReaderCallback_ThreadTeamBegin thread_team_begin;
+    OTF2_GlobalEvtReaderCallback_ThreadTeamEnd thread_team_end;
+    OTF2_GlobalEvtReaderCallback_ThreadAcquireLock thread_acquire_lock;
+    OTF2_GlobalEvtReaderCallback_ThreadReleaseLock thread_release_lock;
+    OTF2_GlobalEvtReaderCallback_ThreadTaskCreate thread_task_create;
+    OTF2_GlobalEvtReaderCallback_ThreadTaskSwitch thread_task_switch;
+    OTF2_GlobalEvtReaderCallback_ThreadTaskComplete thread_task_complete;
+    OTF2_GlobalEvtReaderCallback_ThreadCreate thread_create;
+    OTF2_GlobalEvtReaderCallback_ThreadBegin thread_begin;
+    OTF2_GlobalEvtReaderCallback_ThreadWait thread_wait;
+    OTF2_GlobalEvtReaderCallback_ThreadEnd thread_end;
+    OTF2_GlobalEvtReaderCallback_CallingContextEnter calling_context_enter;
+    OTF2_GlobalEvtReaderCallback_CallingContextLeave calling_context_leave;
+    OTF2_GlobalEvtReaderCallback_CallingContextSample calling_context_sample;
+    OTF2_GlobalEvtReaderCallback_TaskCreate task_create;
+    OTF2_GlobalEvtReaderCallback_TaskDestroy task_destroy;
+    OTF2_GlobalEvtReaderCallback_TaskRunnable task_runnable;
+    OTF2_GlobalEvtReaderCallback_AddDependence add_dependence;
+    OTF2_GlobalEvtReaderCallback_SatisfyDependence satisfy_dependence;
+    OTF2_GlobalEvtReaderCallback_DataAcquire data_acquire;
+    OTF2_GlobalEvtReaderCallback_DataRelease data_release;
+    OTF2_GlobalEvtReaderCallback_EventCreate event_create;
+    OTF2_GlobalEvtReaderCallback_EventDestroy event_destroy;
+    OTF2_GlobalEvtReaderCallback_DataCreate data_create;
+    OTF2_GlobalEvtReaderCallback_DataDestroy data_destroy;
 };
 
 
-bool
-otf2_event_thread_fork_convert_to_omp_fork( OTF2_Archive*          archive,
-                                            const OTF2_ThreadFork* threadForkRecord,
-                                            OTF2_AttributeList*    attributeList,
-                                            OTF2_OmpFork*          ompForkRecord );
+bool otf2_event_thread_fork_convert_to_omp_fork( OTF2_Archive*                          archive,
+                                                                              const OTF2_ThreadFork*             threadForkRecord,
+                                                                              OTF2_AttributeList*                    attributeList,
+                                                                              OTF2_OmpFork* ompForkRecord );
 
 
-bool
-otf2_event_thread_join_convert_to_omp_join( OTF2_Archive*          archive,
-                                            const OTF2_ThreadJoin* threadJoinRecord,
-                                            OTF2_AttributeList*    attributeList,
-                                            OTF2_OmpJoin*          ompJoinRecord );
+bool otf2_event_thread_join_convert_to_omp_join( OTF2_Archive*                          archive,
+                                                                              const OTF2_ThreadJoin*             threadJoinRecord,
+                                                                              OTF2_AttributeList*                    attributeList,
+                                                                              OTF2_OmpJoin* ompJoinRecord );
 
 
-bool
-otf2_event_thread_acquire_lock_convert_to_omp_acquire_lock( OTF2_Archive*                 archive,
-                                                            const OTF2_ThreadAcquireLock* threadAcquireLockRecord,
-                                                            OTF2_AttributeList*           attributeList,
-                                                            OTF2_OmpAcquireLock*          ompAcquireLockRecord );
+bool otf2_event_thread_acquire_lock_convert_to_omp_acquire_lock( OTF2_Archive*                          archive,
+                                                                              const OTF2_ThreadAcquireLock*             threadAcquireLockRecord,
+                                                                              OTF2_AttributeList*                    attributeList,
+                                                                              OTF2_OmpAcquireLock* ompAcquireLockRecord );
 
 
-bool
-otf2_event_thread_release_lock_convert_to_omp_release_lock( OTF2_Archive*                 archive,
-                                                            const OTF2_ThreadReleaseLock* threadReleaseLockRecord,
-                                                            OTF2_AttributeList*           attributeList,
-                                                            OTF2_OmpReleaseLock*          ompReleaseLockRecord );
+bool otf2_event_thread_release_lock_convert_to_omp_release_lock( OTF2_Archive*                          archive,
+                                                                              const OTF2_ThreadReleaseLock*             threadReleaseLockRecord,
+                                                                              OTF2_AttributeList*                    attributeList,
+                                                                              OTF2_OmpReleaseLock* ompReleaseLockRecord );
 
 
-bool
-otf2_event_calling_context_enter_convert_to_enter( OTF2_Archive*                   archive,
-                                                   const OTF2_CallingContextEnter* callingContextEnterRecord,
-                                                   OTF2_AttributeList*             attributeList,
-                                                   OTF2_Enter*                     enterRecord );
+bool otf2_event_calling_context_enter_convert_to_enter( OTF2_Archive*                          archive,
+                                                                              const OTF2_CallingContextEnter*             callingContextEnterRecord,
+                                                                              OTF2_AttributeList*                    attributeList,
+                                                                              OTF2_Enter* enterRecord );
 
 
-bool
-otf2_event_calling_context_leave_convert_to_leave( OTF2_Archive*                   archive,
-                                                   const OTF2_CallingContextLeave* callingContextLeaveRecord,
-                                                   OTF2_AttributeList*             attributeList,
-                                                   OTF2_Leave*                     leaveRecord );
+bool otf2_event_calling_context_leave_convert_to_leave( OTF2_Archive*                          archive,
+                                                                              const OTF2_CallingContextLeave*             callingContextLeaveRecord,
+                                                                              OTF2_AttributeList*                    attributeList,
+                                                                              OTF2_Leave* leaveRecord );
 
 
 #endif /* OTF2_INTERNAL_EVENTS_H */

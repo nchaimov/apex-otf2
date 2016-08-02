@@ -42,9 +42,9 @@
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteMappingTable( OTF2_DefWriter*   writerHandle,
-                                  OTF2_MappingType  mappingType,
-                                  const OTF2_IdMap* idMap )
+OTF2_DefWriter_WriteMappingTable( OTF2_DefWriter* writerHandle ,
+OTF2_MappingType mappingType,
+const OTF2_IdMap* idMap )
 {
     if ( !writerHandle )
     {
@@ -105,10 +105,10 @@ OTF2_DefWriter_WriteMappingTable( OTF2_DefWriter*   writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteClockOffset( OTF2_DefWriter* writerHandle,
-                                 OTF2_TimeStamp  time,
-                                 int64_t         offset,
-                                 double          standardDeviation )
+OTF2_DefWriter_WriteClockOffset( OTF2_DefWriter* writerHandle ,
+OTF2_TimeStamp time,
+int64_t offset,
+double standardDeviation )
 {
     if ( !writerHandle )
     {
@@ -166,9 +166,9 @@ OTF2_DefWriter_WriteClockOffset( OTF2_DefWriter* writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteString( OTF2_DefWriter* writerHandle,
-                            OTF2_StringRef  self,
-                            const char*     string )
+OTF2_DefWriter_WriteString( OTF2_DefWriter* writerHandle ,
+OTF2_StringRef self,
+const char* string )
 {
     if ( !writerHandle )
     {
@@ -229,11 +229,11 @@ OTF2_DefWriter_WriteString( OTF2_DefWriter* writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteAttribute( OTF2_DefWriter*   writerHandle,
-                               OTF2_AttributeRef self,
-                               OTF2_StringRef    name,
-                               OTF2_StringRef    description,
-                               OTF2_Type         type )
+OTF2_DefWriter_WriteAttribute( OTF2_DefWriter* writerHandle ,
+OTF2_AttributeRef self,
+OTF2_StringRef name,
+OTF2_StringRef description,
+OTF2_Type type )
 {
     if ( !writerHandle )
     {
@@ -293,11 +293,11 @@ OTF2_DefWriter_WriteAttribute( OTF2_DefWriter*   writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteSystemTreeNode( OTF2_DefWriter*        writerHandle,
-                                    OTF2_SystemTreeNodeRef self,
-                                    OTF2_StringRef         name,
-                                    OTF2_StringRef         className,
-                                    OTF2_SystemTreeNodeRef parent )
+OTF2_DefWriter_WriteSystemTreeNode( OTF2_DefWriter* writerHandle ,
+OTF2_SystemTreeNodeRef self,
+OTF2_StringRef name,
+OTF2_StringRef className,
+OTF2_SystemTreeNodeRef parent )
 {
     if ( !writerHandle )
     {
@@ -357,11 +357,11 @@ OTF2_DefWriter_WriteSystemTreeNode( OTF2_DefWriter*        writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteLocationGroup( OTF2_DefWriter*        writerHandle,
-                                   OTF2_LocationGroupRef  self,
-                                   OTF2_StringRef         name,
-                                   OTF2_LocationGroupType locationGroupType,
-                                   OTF2_SystemTreeNodeRef systemTreeParent )
+OTF2_DefWriter_WriteLocationGroup( OTF2_DefWriter* writerHandle ,
+OTF2_LocationGroupRef self,
+OTF2_StringRef name,
+OTF2_LocationGroupType locationGroupType,
+OTF2_SystemTreeNodeRef systemTreeParent )
 {
     if ( !writerHandle )
     {
@@ -421,12 +421,12 @@ OTF2_DefWriter_WriteLocationGroup( OTF2_DefWriter*        writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteLocation( OTF2_DefWriter*       writerHandle,
-                              OTF2_LocationRef      self,
-                              OTF2_StringRef        name,
-                              OTF2_LocationType     locationType,
-                              uint64_t              numberOfEvents,
-                              OTF2_LocationGroupRef locationGroup )
+OTF2_DefWriter_WriteLocation( OTF2_DefWriter* writerHandle ,
+OTF2_LocationRef self,
+OTF2_StringRef name,
+OTF2_LocationType locationType,
+uint64_t numberOfEvents,
+OTF2_LocationGroupRef locationGroup )
 {
     if ( !writerHandle )
     {
@@ -488,17 +488,17 @@ OTF2_DefWriter_WriteLocation( OTF2_DefWriter*       writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteRegion( OTF2_DefWriter* writerHandle,
-                            OTF2_RegionRef  self,
-                            OTF2_StringRef  name,
-                            OTF2_StringRef  canonicalName,
-                            OTF2_StringRef  description,
-                            OTF2_RegionRole regionRole,
-                            OTF2_Paradigm   paradigm,
-                            OTF2_RegionFlag regionFlags,
-                            OTF2_StringRef  sourceFile,
-                            uint32_t        beginLineNumber,
-                            uint32_t        endLineNumber )
+OTF2_DefWriter_WriteRegion( OTF2_DefWriter* writerHandle ,
+OTF2_RegionRef self,
+OTF2_StringRef name,
+OTF2_StringRef canonicalName,
+OTF2_StringRef description,
+OTF2_RegionRole regionRole,
+OTF2_Paradigm paradigm,
+OTF2_RegionFlag regionFlags,
+OTF2_StringRef sourceFile,
+uint32_t beginLineNumber,
+uint32_t endLineNumber )
 {
     if ( !writerHandle )
     {
@@ -510,16 +510,16 @@ OTF2_DefWriter_WriteRegion( OTF2_DefWriter* writerHandle,
 
     /* Generate pre 1.1 record fields */
     OTF2_RegionType regionType;
-    otf2_local_def_region_provide_pre_1_1( &regionType,
-                                           name,
-                                           canonicalName,
-                                           description,
-                                           regionRole,
-                                           paradigm,
-                                           regionFlags,
-                                           sourceFile,
-                                           beginLineNumber,
-                                           endLineNumber );
+    otf2_local_def_region_provide_pre_1_1( &regionType ,
+name,
+canonicalName,
+description,
+regionRole,
+paradigm,
+regionFlags,
+sourceFile,
+beginLineNumber,
+endLineNumber );
 
     /*
      * Maximum memory usage of pure record data (excluding type ID
@@ -585,12 +585,12 @@ OTF2_DefWriter_WriteRegion( OTF2_DefWriter* writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCallsite( OTF2_DefWriter*  writerHandle,
-                              OTF2_CallsiteRef self,
-                              OTF2_StringRef   sourceFile,
-                              uint32_t         lineNumber,
-                              OTF2_RegionRef   enteredRegion,
-                              OTF2_RegionRef   leftRegion )
+OTF2_DefWriter_WriteCallsite( OTF2_DefWriter* writerHandle ,
+OTF2_CallsiteRef self,
+OTF2_StringRef sourceFile,
+uint32_t lineNumber,
+OTF2_RegionRef enteredRegion,
+OTF2_RegionRef leftRegion )
 {
     if ( !writerHandle )
     {
@@ -652,10 +652,10 @@ OTF2_DefWriter_WriteCallsite( OTF2_DefWriter*  writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCallpath( OTF2_DefWriter*  writerHandle,
-                              OTF2_CallpathRef self,
-                              OTF2_CallpathRef parent,
-                              OTF2_RegionRef   region )
+OTF2_DefWriter_WriteCallpath( OTF2_DefWriter* writerHandle ,
+OTF2_CallpathRef self,
+OTF2_CallpathRef parent,
+OTF2_RegionRef region )
 {
     if ( !writerHandle )
     {
@@ -713,14 +713,14 @@ OTF2_DefWriter_WriteCallpath( OTF2_DefWriter*  writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteGroup( OTF2_DefWriter* writerHandle,
-                           OTF2_GroupRef   self,
-                           OTF2_StringRef  name,
-                           OTF2_GroupType  groupType,
-                           OTF2_Paradigm   paradigm,
-                           OTF2_GroupFlag  groupFlags,
-                           uint32_t        numberOfMembers,
-                           const uint64_t* members )
+OTF2_DefWriter_WriteGroup( OTF2_DefWriter* writerHandle ,
+OTF2_GroupRef self,
+OTF2_StringRef name,
+OTF2_GroupType groupType,
+OTF2_Paradigm paradigm,
+OTF2_GroupFlag groupFlags,
+uint32_t numberOfMembers,
+const uint64_t* members )
 {
     if ( !writerHandle )
     {
@@ -732,13 +732,13 @@ OTF2_DefWriter_WriteGroup( OTF2_DefWriter* writerHandle,
 
     /* Generate pre 1.2 record fields */
     OTF2_GroupTypePre12 groupTypePre12;
-    otf2_local_def_group_provide_pre_1_2( &groupTypePre12,
-                                          name,
-                                          groupType,
-                                          paradigm,
-                                          groupFlags,
-                                          numberOfMembers,
-                                          members );
+    otf2_local_def_group_provide_pre_1_2( &groupTypePre12 ,
+name,
+groupType,
+paradigm,
+groupFlags,
+numberOfMembers,
+members );
 
     /*
      * Maximum memory usage of pure record data (excluding type ID
@@ -797,7 +797,7 @@ OTF2_DefWriter_WriteGroup( OTF2_DefWriter* writerHandle,
           numberOfMembers_i++ )
     {
         OTF2_Buffer_WriteUint64( writerHandle->buffer,
-                                 members[ numberOfMembers_i ] );
+                                                   members[ numberOfMembers_i ] );
     }
     OTF2_Buffer_WriteUint8( writerHandle->buffer, groupType );
     OTF2_Buffer_WriteUint8( writerHandle->buffer, paradigm );
@@ -809,16 +809,16 @@ OTF2_DefWriter_WriteGroup( OTF2_DefWriter* writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteMetricMember( OTF2_DefWriter*      writerHandle,
-                                  OTF2_MetricMemberRef self,
-                                  OTF2_StringRef       name,
-                                  OTF2_StringRef       description,
-                                  OTF2_MetricType      metricType,
-                                  OTF2_MetricMode      metricMode,
-                                  OTF2_Type            valueType,
-                                  OTF2_Base            base,
-                                  int64_t              exponent,
-                                  OTF2_StringRef       unit )
+OTF2_DefWriter_WriteMetricMember( OTF2_DefWriter* writerHandle ,
+OTF2_MetricMemberRef self,
+OTF2_StringRef name,
+OTF2_StringRef description,
+OTF2_MetricType metricType,
+OTF2_MetricMode metricMode,
+OTF2_Type valueType,
+OTF2_Base base,
+int64_t exponent,
+OTF2_StringRef unit )
 {
     if ( !writerHandle )
     {
@@ -888,12 +888,12 @@ OTF2_DefWriter_WriteMetricMember( OTF2_DefWriter*      writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteMetricClass( OTF2_DefWriter*             writerHandle,
-                                 OTF2_MetricRef              self,
-                                 uint8_t                     numberOfMetrics,
-                                 const OTF2_MetricMemberRef* metricMembers,
-                                 OTF2_MetricOccurrence       metricOccurrence,
-                                 OTF2_RecorderKind           recorderKind )
+OTF2_DefWriter_WriteMetricClass( OTF2_DefWriter* writerHandle ,
+OTF2_MetricRef self,
+uint8_t numberOfMetrics,
+const OTF2_MetricMemberRef* metricMembers,
+OTF2_MetricOccurrence metricOccurrence,
+OTF2_RecorderKind recorderKind )
 {
     if ( !writerHandle )
     {
@@ -955,7 +955,7 @@ OTF2_DefWriter_WriteMetricClass( OTF2_DefWriter*             writerHandle,
           numberOfMetrics_i++ )
     {
         OTF2_Buffer_WriteUint32( writerHandle->buffer,
-                                 metricMembers[ numberOfMetrics_i ] );
+                                                   metricMembers[ numberOfMetrics_i ] );
     }
     OTF2_Buffer_WriteUint8( writerHandle->buffer, metricOccurrence );
     OTF2_Buffer_WriteUint8( writerHandle->buffer, recorderKind );
@@ -966,12 +966,12 @@ OTF2_DefWriter_WriteMetricClass( OTF2_DefWriter*             writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteMetricInstance( OTF2_DefWriter*  writerHandle,
-                                    OTF2_MetricRef   self,
-                                    OTF2_MetricRef   metricClass,
-                                    OTF2_LocationRef recorder,
-                                    OTF2_MetricScope metricScope,
-                                    uint64_t         scope )
+OTF2_DefWriter_WriteMetricInstance( OTF2_DefWriter* writerHandle ,
+OTF2_MetricRef self,
+OTF2_MetricRef metricClass,
+OTF2_LocationRef recorder,
+OTF2_MetricScope metricScope,
+uint64_t scope )
 {
     if ( !writerHandle )
     {
@@ -1033,11 +1033,11 @@ OTF2_DefWriter_WriteMetricInstance( OTF2_DefWriter*  writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteComm( OTF2_DefWriter* writerHandle,
-                          OTF2_CommRef    self,
-                          OTF2_StringRef  name,
-                          OTF2_GroupRef   group,
-                          OTF2_CommRef    parent )
+OTF2_DefWriter_WriteComm( OTF2_DefWriter* writerHandle ,
+OTF2_CommRef self,
+OTF2_StringRef name,
+OTF2_GroupRef group,
+OTF2_CommRef parent )
 {
     if ( !writerHandle )
     {
@@ -1097,10 +1097,10 @@ OTF2_DefWriter_WriteComm( OTF2_DefWriter* writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteParameter( OTF2_DefWriter*    writerHandle,
-                               OTF2_ParameterRef  self,
-                               OTF2_StringRef     name,
-                               OTF2_ParameterType parameterType )
+OTF2_DefWriter_WriteParameter( OTF2_DefWriter* writerHandle ,
+OTF2_ParameterRef self,
+OTF2_StringRef name,
+OTF2_ParameterType parameterType )
 {
     if ( !writerHandle )
     {
@@ -1158,10 +1158,10 @@ OTF2_DefWriter_WriteParameter( OTF2_DefWriter*    writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteRmaWin( OTF2_DefWriter* writerHandle,
-                            OTF2_RmaWinRef  self,
-                            OTF2_StringRef  name,
-                            OTF2_CommRef    comm )
+OTF2_DefWriter_WriteRmaWin( OTF2_DefWriter* writerHandle ,
+OTF2_RmaWinRef self,
+OTF2_StringRef name,
+OTF2_CommRef comm )
 {
     if ( !writerHandle )
     {
@@ -1219,9 +1219,9 @@ OTF2_DefWriter_WriteRmaWin( OTF2_DefWriter* writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteMetricClassRecorder( OTF2_DefWriter*  writerHandle,
-                                         OTF2_MetricRef   metricClass,
-                                         OTF2_LocationRef recorder )
+OTF2_DefWriter_WriteMetricClassRecorder( OTF2_DefWriter* writerHandle ,
+OTF2_MetricRef metricClass,
+OTF2_LocationRef recorder )
 {
     if ( !writerHandle )
     {
@@ -1277,11 +1277,11 @@ OTF2_DefWriter_WriteMetricClassRecorder( OTF2_DefWriter*  writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteSystemTreeNodeProperty( OTF2_DefWriter*        writerHandle,
-                                            OTF2_SystemTreeNodeRef systemTreeNode,
-                                            OTF2_StringRef         name,
-                                            OTF2_Type              type,
-                                            OTF2_AttributeValue    value )
+OTF2_DefWriter_WriteSystemTreeNodeProperty( OTF2_DefWriter* writerHandle ,
+OTF2_SystemTreeNodeRef systemTreeNode,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value )
 {
     if ( !writerHandle )
     {
@@ -1293,10 +1293,10 @@ OTF2_DefWriter_WriteSystemTreeNodeProperty( OTF2_DefWriter*        writerHandle,
 
     /* Generate pre 2.0 record fields */
     OTF2_StringRef stringValue;
-    otf2_local_def_system_tree_node_property_provide_pre_2_0( &stringValue,
-                                                              name,
-                                                              type,
-                                                              value );
+    otf2_local_def_system_tree_node_property_provide_pre_2_0( &stringValue ,
+name,
+type,
+value );
 
     /*
      * Maximum memory usage of pure record data (excluding type ID
@@ -1350,9 +1350,9 @@ OTF2_DefWriter_WriteSystemTreeNodeProperty( OTF2_DefWriter*        writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteSystemTreeNodeDomain( OTF2_DefWriter*        writerHandle,
-                                          OTF2_SystemTreeNodeRef systemTreeNode,
-                                          OTF2_SystemTreeDomain  systemTreeDomain )
+OTF2_DefWriter_WriteSystemTreeNodeDomain( OTF2_DefWriter* writerHandle ,
+OTF2_SystemTreeNodeRef systemTreeNode,
+OTF2_SystemTreeDomain systemTreeDomain )
 {
     if ( !writerHandle )
     {
@@ -1408,11 +1408,11 @@ OTF2_DefWriter_WriteSystemTreeNodeDomain( OTF2_DefWriter*        writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteLocationGroupProperty( OTF2_DefWriter*       writerHandle,
-                                           OTF2_LocationGroupRef locationGroup,
-                                           OTF2_StringRef        name,
-                                           OTF2_Type             type,
-                                           OTF2_AttributeValue   value )
+OTF2_DefWriter_WriteLocationGroupProperty( OTF2_DefWriter* writerHandle ,
+OTF2_LocationGroupRef locationGroup,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value )
 {
     if ( !writerHandle )
     {
@@ -1424,10 +1424,10 @@ OTF2_DefWriter_WriteLocationGroupProperty( OTF2_DefWriter*       writerHandle,
 
     /* Generate pre 2.0 record fields */
     OTF2_StringRef stringValue;
-    otf2_local_def_location_group_property_provide_pre_2_0( &stringValue,
-                                                            name,
-                                                            type,
-                                                            value );
+    otf2_local_def_location_group_property_provide_pre_2_0( &stringValue ,
+name,
+type,
+value );
 
     /*
      * Maximum memory usage of pure record data (excluding type ID
@@ -1481,11 +1481,11 @@ OTF2_DefWriter_WriteLocationGroupProperty( OTF2_DefWriter*       writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteLocationProperty( OTF2_DefWriter*     writerHandle,
-                                      OTF2_LocationRef    location,
-                                      OTF2_StringRef      name,
-                                      OTF2_Type           type,
-                                      OTF2_AttributeValue value )
+OTF2_DefWriter_WriteLocationProperty( OTF2_DefWriter* writerHandle ,
+OTF2_LocationRef location,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value )
 {
     if ( !writerHandle )
     {
@@ -1497,10 +1497,10 @@ OTF2_DefWriter_WriteLocationProperty( OTF2_DefWriter*     writerHandle,
 
     /* Generate pre 2.0 record fields */
     OTF2_StringRef stringValue;
-    otf2_local_def_location_property_provide_pre_2_0( &stringValue,
-                                                      name,
-                                                      type,
-                                                      value );
+    otf2_local_def_location_property_provide_pre_2_0( &stringValue ,
+name,
+type,
+value );
 
     /*
      * Maximum memory usage of pure record data (excluding type ID
@@ -1554,11 +1554,11 @@ OTF2_DefWriter_WriteLocationProperty( OTF2_DefWriter*     writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCartDimension( OTF2_DefWriter*       writerHandle,
-                                   OTF2_CartDimensionRef self,
-                                   OTF2_StringRef        name,
-                                   uint32_t              size,
-                                   OTF2_CartPeriodicity  cartPeriodicity )
+OTF2_DefWriter_WriteCartDimension( OTF2_DefWriter* writerHandle ,
+OTF2_CartDimensionRef self,
+OTF2_StringRef name,
+uint32_t size,
+OTF2_CartPeriodicity cartPeriodicity )
 {
     if ( !writerHandle )
     {
@@ -1618,12 +1618,12 @@ OTF2_DefWriter_WriteCartDimension( OTF2_DefWriter*       writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCartTopology( OTF2_DefWriter*              writerHandle,
-                                  OTF2_CartTopologyRef         self,
-                                  OTF2_StringRef               name,
-                                  OTF2_CommRef                 communicator,
-                                  uint8_t                      numberOfDimensions,
-                                  const OTF2_CartDimensionRef* cartDimensions )
+OTF2_DefWriter_WriteCartTopology( OTF2_DefWriter* writerHandle ,
+OTF2_CartTopologyRef self,
+OTF2_StringRef name,
+OTF2_CommRef communicator,
+uint8_t numberOfDimensions,
+const OTF2_CartDimensionRef* cartDimensions )
 {
     if ( !writerHandle )
     {
@@ -1687,7 +1687,7 @@ OTF2_DefWriter_WriteCartTopology( OTF2_DefWriter*              writerHandle,
           numberOfDimensions_i++ )
     {
         OTF2_Buffer_WriteUint32( writerHandle->buffer,
-                                 cartDimensions[ numberOfDimensions_i ] );
+                                                   cartDimensions[ numberOfDimensions_i ] );
     }
 
     /* Write real record length */
@@ -1696,11 +1696,11 @@ OTF2_DefWriter_WriteCartTopology( OTF2_DefWriter*              writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCartCoordinate( OTF2_DefWriter*      writerHandle,
-                                    OTF2_CartTopologyRef cartTopology,
-                                    uint32_t             rank,
-                                    uint8_t              numberOfDimensions,
-                                    const uint32_t*      coordinates )
+OTF2_DefWriter_WriteCartCoordinate( OTF2_DefWriter* writerHandle ,
+OTF2_CartTopologyRef cartTopology,
+uint32_t rank,
+uint8_t numberOfDimensions,
+const uint32_t* coordinates )
 {
     if ( !writerHandle )
     {
@@ -1762,7 +1762,7 @@ OTF2_DefWriter_WriteCartCoordinate( OTF2_DefWriter*      writerHandle,
           numberOfDimensions_i++ )
     {
         OTF2_Buffer_WriteUint32( writerHandle->buffer,
-                                 coordinates[ numberOfDimensions_i ] );
+                                                   coordinates[ numberOfDimensions_i ] );
     }
 
     /* Write real record length */
@@ -1771,10 +1771,10 @@ OTF2_DefWriter_WriteCartCoordinate( OTF2_DefWriter*      writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteSourceCodeLocation( OTF2_DefWriter*            writerHandle,
-                                        OTF2_SourceCodeLocationRef self,
-                                        OTF2_StringRef             file,
-                                        uint32_t                   lineNumber )
+OTF2_DefWriter_WriteSourceCodeLocation( OTF2_DefWriter* writerHandle ,
+OTF2_SourceCodeLocationRef self,
+OTF2_StringRef file,
+uint32_t lineNumber )
 {
     if ( !writerHandle )
     {
@@ -1832,11 +1832,11 @@ OTF2_DefWriter_WriteSourceCodeLocation( OTF2_DefWriter*            writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCallingContext( OTF2_DefWriter*            writerHandle,
-                                    OTF2_CallingContextRef     self,
-                                    OTF2_RegionRef             region,
-                                    OTF2_SourceCodeLocationRef sourceCodeLocation,
-                                    OTF2_CallingContextRef     parent )
+OTF2_DefWriter_WriteCallingContext( OTF2_DefWriter* writerHandle ,
+OTF2_CallingContextRef self,
+OTF2_RegionRef region,
+OTF2_SourceCodeLocationRef sourceCodeLocation,
+OTF2_CallingContextRef parent )
 {
     if ( !writerHandle )
     {
@@ -1896,11 +1896,11 @@ OTF2_DefWriter_WriteCallingContext( OTF2_DefWriter*            writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCallingContextProperty( OTF2_DefWriter*        writerHandle,
-                                            OTF2_CallingContextRef callingContext,
-                                            OTF2_StringRef         name,
-                                            OTF2_Type              type,
-                                            OTF2_AttributeValue    value )
+OTF2_DefWriter_WriteCallingContextProperty( OTF2_DefWriter* writerHandle ,
+OTF2_CallingContextRef callingContext,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value )
 {
     if ( !writerHandle )
     {
@@ -1960,13 +1960,13 @@ OTF2_DefWriter_WriteCallingContextProperty( OTF2_DefWriter*        writerHandle,
 
 
 OTF2_ErrorCode
-OTF2_DefWriter_WriteInterruptGenerator( OTF2_DefWriter*             writerHandle,
-                                        OTF2_InterruptGeneratorRef  self,
-                                        OTF2_StringRef              name,
-                                        OTF2_InterruptGeneratorMode interruptGeneratorMode,
-                                        OTF2_Base                   base,
-                                        int64_t                     exponent,
-                                        uint64_t                    period )
+OTF2_DefWriter_WriteInterruptGenerator( OTF2_DefWriter* writerHandle ,
+OTF2_InterruptGeneratorRef self,
+OTF2_StringRef name,
+OTF2_InterruptGeneratorMode interruptGeneratorMode,
+OTF2_Base base,
+int64_t exponent,
+uint64_t period )
 {
     if ( !writerHandle )
     {
@@ -2027,3 +2027,4 @@ OTF2_DefWriter_WriteInterruptGenerator( OTF2_DefWriter*             writerHandle
     /* Write real record length */
     return OTF2_Buffer_WriteFinalRecordLength( writerHandle->buffer, record_data_length );
 }
+

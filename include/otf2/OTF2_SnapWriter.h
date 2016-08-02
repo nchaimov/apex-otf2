@@ -41,7 +41,7 @@ extern "C" {
 
 /** @brief Keeps all necessary information about the snap writer.
  *  See OTF2_SnapWriter_struct for detailed information.
- *
+ * 
  *  @since Version 1.2
  *  */
 typedef struct OTF2_SnapWriter_struct OTF2_SnapWriter;
@@ -52,7 +52,7 @@ typedef struct OTF2_SnapWriter_struct OTF2_SnapWriter;
  *
  *  @param writer       Snap writer object of interest
  *  @param locationID   Pointer to a variable where the ID is returned in
- *
+ * 
  *  @since Version 1.2
  *
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
@@ -66,7 +66,7 @@ OTF2_SnapWriter_GetLocationID( const OTF2_SnapWriter* writer,
 /** @brief Records a SnapshotStart snapshot record.
  *
  *  This record marks the start of a snapshot.
- *
+ *  
  *  A snapshot consists of a timestamp and a set of snapshot records. All
  *  these snapshot records have the same snapshot time. A snapshot
  *  starts with one @eref{SnapshotStart} record and closes with one
@@ -74,7 +74,7 @@ OTF2_SnapWriter_GetLocationID( const OTF2_SnapWriter* writer,
  *  ordered by the @p origEventTime, which are also less than the
  *  snapshot timestamp. Ie. The timestamp of the next event read from
  *  the event stream is greater or equal to the snapshot time.
- *
+ *  
  *  @param writer          Writer object.
  *  @param attributeList   Generic attributes for the snap.
  *  @param snapTime        Snapshot time.
@@ -88,8 +88,8 @@ OTF2_SnapWriter_GetLocationID( const OTF2_SnapWriter* writer,
 OTF2_ErrorCode
 OTF2_SnapWriter_SnapshotStart( OTF2_SnapWriter*    writer,
                                OTF2_AttributeList* attributeList,
-                               OTF2_TimeStamp      snapTime,
-                               uint64_t            numberOfRecords );
+                               OTF2_TimeStamp      snapTime ,
+uint64_t numberOfRecords );
 
 
 /** @brief Records a SnapshotEnd snapshot record.
@@ -97,7 +97,7 @@ OTF2_SnapWriter_SnapshotStart( OTF2_SnapWriter*    writer,
  *  This record marks the end of a snapshot. It contains the position to
  *  continue reading in the event trace for this location. Use
  *  @eref{OTF2_EvtReader_Seek} with @p contReadPos as the position.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -109,16 +109,16 @@ OTF2_SnapWriter_SnapshotStart( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_SnapshotEnd( OTF2_SnapWriter*    writer,
-                             OTF2_AttributeList* attributeList,
-                             OTF2_TimeStamp      snapTime,
-                             uint64_t            contReadPos );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+uint64_t contReadPos );
 
 
 /** @brief Records a MeasurementOnOff snapshot record.
  *
  *  The last occurrence of a @eref{MeasurementOnOff} event of this
  *  location, if any.
- *
+ *  
  *  @param writer          Writer object.
  *  @param attributeList   Generic attributes for the snap.
  *  @param snapTime        Snapshot time.
@@ -132,18 +132,18 @@ OTF2_SnapWriter_SnapshotEnd( OTF2_SnapWriter*    writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_SnapWriter_MeasurementOnOff( OTF2_SnapWriter*     writer,
-                                  OTF2_AttributeList*  attributeList,
-                                  OTF2_TimeStamp       snapTime,
-                                  OTF2_TimeStamp       origEventTime,
-                                  OTF2_MeasurementMode measurementMode );
+OTF2_SnapWriter_MeasurementOnOff( OTF2_SnapWriter*    writer,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_MeasurementMode measurementMode );
 
 
 /** @brief Records a Enter snapshot record.
  *
  *  This record exists for each @eref{Enter} event where the corresponding
  *  @eref{Leave} event did not occur before the snapshot.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -159,10 +159,10 @@ OTF2_SnapWriter_MeasurementOnOff( OTF2_SnapWriter*     writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_Enter( OTF2_SnapWriter*    writer,
-                       OTF2_AttributeList* attributeList,
-                       OTF2_TimeStamp      snapTime,
-                       OTF2_TimeStamp      origEventTime,
-                       OTF2_RegionRef      region );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_RegionRef region );
 
 
 /** @brief Records a MpiSend snapshot record.
@@ -174,7 +174,7 @@ OTF2_SnapWriter_Enter( OTF2_SnapWriter*    writer,
  *  @eref{MpiIsend} with the same envelope than this one is neither
  *  completed not canceled yet, thus the matching receive may already
  *  occurred, but the matching couldn't be done yet.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -192,13 +192,13 @@ OTF2_SnapWriter_Enter( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiSend( OTF2_SnapWriter*    writer,
-                         OTF2_AttributeList* attributeList,
-                         OTF2_TimeStamp      snapTime,
-                         OTF2_TimeStamp      origEventTime,
-                         uint32_t            receiver,
-                         OTF2_CommRef        communicator,
-                         uint32_t            msgTag,
-                         uint64_t            msgLength );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength );
 
 
 /** @brief Records a MpiIsend snapshot record.
@@ -211,7 +211,7 @@ OTF2_SnapWriter_MpiSend( OTF2_SnapWriter*    writer,
  *  snapshot) but the matching receive message event did not occur on
  *  the remote location before the snapshot. (This could either be
  *  an@eref{MpiRecv} or a @eref{MpiIrecv} event.)
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -230,14 +230,14 @@ OTF2_SnapWriter_MpiSend( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiIsend( OTF2_SnapWriter*    writer,
-                          OTF2_AttributeList* attributeList,
-                          OTF2_TimeStamp      snapTime,
-                          OTF2_TimeStamp      origEventTime,
-                          uint32_t            receiver,
-                          OTF2_CommRef        communicator,
-                          uint32_t            msgTag,
-                          uint64_t            msgLength,
-                          uint64_t            requestID );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t receiver,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID );
 
 
 /** @brief Records a MpiIsendComplete snapshot record.
@@ -247,7 +247,7 @@ OTF2_SnapWriter_MpiIsend( OTF2_SnapWriter*    writer,
  *  the matching receive message event did not occur on the remote
  *  location before the snapshot. (This could either be a
  *  @eref{MpiRecv} or a @eref{MpiIrecv} event.) .
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -260,10 +260,10 @@ OTF2_SnapWriter_MpiIsend( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiIsendComplete( OTF2_SnapWriter*    writer,
-                                  OTF2_AttributeList* attributeList,
-                                  OTF2_TimeStamp      snapTime,
-                                  OTF2_TimeStamp      origEventTime,
-                                  uint64_t            requestID );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint64_t requestID );
 
 
 /** @brief Records a MpiRecv snapshot record.
@@ -276,7 +276,7 @@ OTF2_SnapWriter_MpiIsendComplete( OTF2_SnapWriter*    writer,
  *  event did not occurred before this snapshot. In this case the
  *  message matching couldn't performed yet, because the envelope of
  *  the ongoing @eref{MpiIrecvRequest} is not yet known.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -294,13 +294,13 @@ OTF2_SnapWriter_MpiIsendComplete( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiRecv( OTF2_SnapWriter*    writer,
-                         OTF2_AttributeList* attributeList,
-                         OTF2_TimeStamp      snapTime,
-                         OTF2_TimeStamp      origEventTime,
-                         uint32_t            sender,
-                         OTF2_CommRef        communicator,
-                         uint32_t            msgTag,
-                         uint64_t            msgLength );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength );
 
 
 /** @brief Records a MpiIrecvRequest snapshot record.
@@ -313,7 +313,7 @@ OTF2_SnapWriter_MpiRecv( OTF2_SnapWriter*    writer,
  *  matching receive message event did not occur on the remote
  *  location before the snapshot. This could either be an
  *  @eref{MpiRecv} or a @eref{MpiIrecv} event.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -326,10 +326,10 @@ OTF2_SnapWriter_MpiRecv( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiIrecvRequest( OTF2_SnapWriter*    writer,
-                                 OTF2_AttributeList* attributeList,
-                                 OTF2_TimeStamp      snapTime,
-                                 OTF2_TimeStamp      origEventTime,
-                                 uint64_t            requestID );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint64_t requestID );
 
 
 /** @brief Records a MpiIrecv snapshot record.
@@ -342,7 +342,7 @@ OTF2_SnapWriter_MpiIrecvRequest( OTF2_SnapWriter*    writer,
  *  event did not occurred before this snapshot. In this case the
  *  message matching couldn't performed yet, because the envelope of
  *  the ongoing @eref{MpiIrecvRequest} is not yet known.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -361,14 +361,14 @@ OTF2_SnapWriter_MpiIrecvRequest( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiIrecv( OTF2_SnapWriter*    writer,
-                          OTF2_AttributeList* attributeList,
-                          OTF2_TimeStamp      snapTime,
-                          OTF2_TimeStamp      origEventTime,
-                          uint32_t            sender,
-                          OTF2_CommRef        communicator,
-                          uint32_t            msgTag,
-                          uint64_t            msgLength,
-                          uint64_t            requestID );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t sender,
+OTF2_CommRef communicator,
+uint32_t msgTag,
+uint64_t msgLength,
+uint64_t requestID );
 
 
 /** @brief Records a MpiCollectiveBegin snapshot record.
@@ -376,7 +376,7 @@ OTF2_SnapWriter_MpiIrecv( OTF2_SnapWriter*    writer,
  *  Indicates that this location started a collective operation but not
  *  all of the participating locations completed the operation yet,
  *  including this location.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -388,9 +388,9 @@ OTF2_SnapWriter_MpiIrecv( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiCollectiveBegin( OTF2_SnapWriter*    writer,
-                                    OTF2_AttributeList* attributeList,
-                                    OTF2_TimeStamp      snapTime,
-                                    OTF2_TimeStamp      origEventTime );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime );
 
 
 /** @brief Records a MpiCollectiveEnd snapshot record.
@@ -399,7 +399,7 @@ OTF2_SnapWriter_MpiCollectiveBegin( OTF2_SnapWriter*    writer,
  *  but not all of the participating locations completed the operation
  *  yet. The corresponding @eref{MpiCollectiveBeginSnap} record is
  *  still in the snapshot though.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -418,14 +418,14 @@ OTF2_SnapWriter_MpiCollectiveBegin( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_MpiCollectiveEnd( OTF2_SnapWriter*    writer,
-                                  OTF2_AttributeList* attributeList,
-                                  OTF2_TimeStamp      snapTime,
-                                  OTF2_TimeStamp      origEventTime,
-                                  OTF2_CollectiveOp   collectiveOp,
-                                  OTF2_CommRef        communicator,
-                                  uint32_t            root,
-                                  uint64_t            sizeSent,
-                                  uint64_t            sizeReceived );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_CollectiveOp collectiveOp,
+OTF2_CommRef communicator,
+uint32_t root,
+uint64_t sizeSent,
+uint64_t sizeReceived );
 
 
 /** @brief Records a OmpFork snapshot record.
@@ -433,7 +433,7 @@ OTF2_SnapWriter_MpiCollectiveEnd( OTF2_SnapWriter*    writer,
  *  This record exists for each @eref{OmpFork} event where the
  *  corresponding @eref{OmpJoin} did not occurred before this
  *  snapshot.
- *
+ *  
  *  @param writer                   Writer object.
  *  @param attributeList            Generic attributes for the snap.
  *  @param snapTime                 Snapshot time.
@@ -446,10 +446,10 @@ OTF2_SnapWriter_MpiCollectiveEnd( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_OmpFork( OTF2_SnapWriter*    writer,
-                         OTF2_AttributeList* attributeList,
-                         OTF2_TimeStamp      snapTime,
-                         OTF2_TimeStamp      origEventTime,
-                         uint32_t            numberOfRequestedThreads );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t numberOfRequestedThreads );
 
 
 /** @brief Records a OmpAcquireLock snapshot record.
@@ -457,7 +457,7 @@ OTF2_SnapWriter_OmpFork( OTF2_SnapWriter*    writer,
  *  This record exists for each @eref{OmpAcquireLock} event where the
  *  corresponding @eref{OmpReleaseLock} did not occurred before this
  *  snapshot yet.
- *
+ *  
  *  @param writer           Writer object.
  *  @param attributeList    Generic attributes for the snap.
  *  @param snapTime         Snapshot time.
@@ -475,11 +475,11 @@ OTF2_SnapWriter_OmpFork( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_OmpAcquireLock( OTF2_SnapWriter*    writer,
-                                OTF2_AttributeList* attributeList,
-                                OTF2_TimeStamp      snapTime,
-                                OTF2_TimeStamp      origEventTime,
-                                uint32_t            lockID,
-                                uint32_t            acquisitionOrder );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint32_t lockID,
+uint32_t acquisitionOrder );
 
 
 /** @brief Records a OmpTaskCreate snapshot record.
@@ -488,7 +488,7 @@ OTF2_SnapWriter_OmpAcquireLock( OTF2_SnapWriter*    writer,
  *  corresponding @eref{OmpTaskComplete} event did not occurred before
  *  this snapshot. Neither on this location nor on any other location
  *  in the current thread team.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -502,9 +502,9 @@ OTF2_SnapWriter_OmpAcquireLock( OTF2_SnapWriter*    writer,
 OTF2_ErrorCode
 OTF2_SnapWriter_OmpTaskCreate( OTF2_SnapWriter*    writer,
                                OTF2_AttributeList* attributeList,
-                               OTF2_TimeStamp      snapTime,
-                               OTF2_TimeStamp      origEventTime,
-                               uint64_t            taskID );
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint64_t taskID );
 
 
 /** @brief Records a OmpTaskSwitch snapshot record.
@@ -513,7 +513,7 @@ OTF2_SnapWriter_OmpTaskCreate( OTF2_SnapWriter*    writer,
  *  corresponding @eref{OmpTaskComplete} event did not occurred before
  *  this snapshot. Neither on this location nor on any other location
  *  in the current thread team.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -527,9 +527,9 @@ OTF2_SnapWriter_OmpTaskCreate( OTF2_SnapWriter*    writer,
 OTF2_ErrorCode
 OTF2_SnapWriter_OmpTaskSwitch( OTF2_SnapWriter*    writer,
                                OTF2_AttributeList* attributeList,
-                               OTF2_TimeStamp      snapTime,
-                               OTF2_TimeStamp      origEventTime,
-                               uint64_t            taskID );
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+uint64_t taskID );
 
 
 /** @brief Records a Metric snapshot record.
@@ -537,11 +537,11 @@ OTF2_SnapWriter_OmpTaskSwitch( OTF2_SnapWriter*    writer,
  *  This record exists for each referenced metric class or metric instance
  *  event this location recorded metrics before and provides the last
  *  known recorded metric values.
- *
+ *  
  *  As an exception for metric classes where the metric mode denotes an
  *  @eref{OTF2_METRIC_VALUE_RELATIVE} mode the value indicates the
  *  accumulation of all previous metric values recorded.
- *
+ *  
  *  @param writer          Writer object.
  *  @param attributeList   Generic attributes for the snap.
  *  @param snapTime        Snapshot time.
@@ -561,14 +561,14 @@ OTF2_SnapWriter_OmpTaskSwitch( OTF2_SnapWriter*    writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_SnapWriter_Metric( OTF2_SnapWriter*        writer,
-                        OTF2_AttributeList*     attributeList,
-                        OTF2_TimeStamp          snapTime,
-                        OTF2_TimeStamp          origEventTime,
-                        OTF2_MetricRef          metric,
-                        uint8_t                 numberOfMetrics,
-                        const OTF2_Type*        typeIDs,
-                        const OTF2_MetricValue* metricValues );
+OTF2_SnapWriter_Metric( OTF2_SnapWriter*    writer,
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_MetricRef metric,
+uint8_t numberOfMetrics,
+const OTF2_Type* typeIDs,
+const OTF2_MetricValue* metricValues );
 
 
 /** @brief Records a ParameterString snapshot record.
@@ -576,7 +576,7 @@ OTF2_SnapWriter_Metric( OTF2_SnapWriter*        writer,
  *  This record must be included in the snapshot until the leave event for
  *  the enter event occurs which has the greatest timestamp less or
  *  equal the timestamp of this record.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -596,11 +596,11 @@ OTF2_SnapWriter_Metric( OTF2_SnapWriter*        writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_ParameterString( OTF2_SnapWriter*    writer,
-                                 OTF2_AttributeList* attributeList,
-                                 OTF2_TimeStamp      snapTime,
-                                 OTF2_TimeStamp      origEventTime,
-                                 OTF2_ParameterRef   parameter,
-                                 OTF2_StringRef      string );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+OTF2_StringRef string );
 
 
 /** @brief Records a ParameterInt snapshot record.
@@ -608,7 +608,7 @@ OTF2_SnapWriter_ParameterString( OTF2_SnapWriter*    writer,
  *  This record must be included in the snapshot until the leave event for
  *  the enter event occurs which has the greatest timestamp less or
  *  equal the timestamp of this record.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -625,11 +625,11 @@ OTF2_SnapWriter_ParameterString( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_ParameterInt( OTF2_SnapWriter*    writer,
-                              OTF2_AttributeList* attributeList,
-                              OTF2_TimeStamp      snapTime,
-                              OTF2_TimeStamp      origEventTime,
-                              OTF2_ParameterRef   parameter,
-                              int64_t             value );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+int64_t value );
 
 
 /** @brief Records a ParameterUnsignedInt snapshot record.
@@ -637,7 +637,7 @@ OTF2_SnapWriter_ParameterInt( OTF2_SnapWriter*    writer,
  *  This record must be included in the snapshot until the leave event for
  *  the enter event occurs which has the greatest timestamp less or
  *  equal the timestamp of this record.
- *
+ *  
  *  @param writer        Writer object.
  *  @param attributeList Generic attributes for the snap.
  *  @param snapTime      Snapshot time.
@@ -654,11 +654,11 @@ OTF2_SnapWriter_ParameterInt( OTF2_SnapWriter*    writer,
  */
 OTF2_ErrorCode
 OTF2_SnapWriter_ParameterUnsignedInt( OTF2_SnapWriter*    writer,
-                                      OTF2_AttributeList* attributeList,
-                                      OTF2_TimeStamp      snapTime,
-                                      OTF2_TimeStamp      origEventTime,
-                                      OTF2_ParameterRef   parameter,
-                                      uint64_t            value );
+                               OTF2_AttributeList* attributeList,
+                               OTF2_TimeStamp      snapTime ,
+OTF2_TimeStamp origEventTime,
+OTF2_ParameterRef parameter,
+uint64_t value );
 
 
 

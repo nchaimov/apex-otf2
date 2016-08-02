@@ -82,7 +82,7 @@ OTF2_DefWriter_GetLocationID( const OTF2_DefWriter* writer,
  *  Mapping tables are needed for situations where an ID is not globally
  *  known at measurement time. They are applied automatically at
  *  reading.
- *
+ *  
  *  @param writer      Writer object.
  *  @param mappingType Says to what type of ID the mapping table has to be
  *                     applied.
@@ -93,15 +93,15 @@ OTF2_DefWriter_GetLocationID( const OTF2_DefWriter* writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteMappingTable( OTF2_DefWriter*   writer,
-                                  OTF2_MappingType  mappingType,
-                                  const OTF2_IdMap* idMap );
+OTF2_DefWriter_WriteMappingTable( OTF2_DefWriter* writer ,
+OTF2_MappingType mappingType,
+const OTF2_IdMap* idMap );
 
 
 /** @brief Writes a ClockOffset definition record into the DefWriter.
  *
  *  Clock offsets are used for clock corrections.
- *
+ *  
  *  @param writer            Writer object.
  *  @param time              Time when this offset was determined.
  *  @param offset            The offset to the global clock which was determined
@@ -114,16 +114,16 @@ OTF2_DefWriter_WriteMappingTable( OTF2_DefWriter*   writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteClockOffset( OTF2_DefWriter* writer,
-                                 OTF2_TimeStamp  time,
-                                 int64_t         offset,
-                                 double          standardDeviation );
+OTF2_DefWriter_WriteClockOffset( OTF2_DefWriter* writer ,
+OTF2_TimeStamp time,
+int64_t offset,
+double standardDeviation );
 
 
 /** @brief Writes a String definition record into the DefWriter.
  *
  *  The string definition.
- *
+ *  
  *  @param writer Writer object.
  *  @param self   The unique identifier for this @eref{String} definition.
  *  @param string The string, null terminated.
@@ -133,15 +133,15 @@ OTF2_DefWriter_WriteClockOffset( OTF2_DefWriter* writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteString( OTF2_DefWriter* writer,
-                            OTF2_StringRef  self,
-                            const char*     string );
+OTF2_DefWriter_WriteString( OTF2_DefWriter* writer ,
+OTF2_StringRef self,
+const char* string );
 
 
 /** @brief Writes a Attribute definition record into the DefWriter.
  *
  *  The attribute definition.
- *
+ *  
  *  @param writer      Writer object.
  *  @param self        The unique identifier for this @eref{Attribute}
  *                     definition.
@@ -156,17 +156,17 @@ OTF2_DefWriter_WriteString( OTF2_DefWriter* writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteAttribute( OTF2_DefWriter*   writer,
-                               OTF2_AttributeRef self,
-                               OTF2_StringRef    name,
-                               OTF2_StringRef    description,
-                               OTF2_Type         type );
+OTF2_DefWriter_WriteAttribute( OTF2_DefWriter* writer ,
+OTF2_AttributeRef self,
+OTF2_StringRef name,
+OTF2_StringRef description,
+OTF2_Type type );
 
 
 /** @brief Writes a SystemTreeNode definition record into the DefWriter.
  *
  *  The system tree node definition.
- *
+ *  
  *  @param writer    Writer object.
  *  @param self      The unique identifier for this @eref{SystemTreeNode}
  *                   definition.
@@ -184,17 +184,17 @@ OTF2_DefWriter_WriteAttribute( OTF2_DefWriter*   writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteSystemTreeNode( OTF2_DefWriter*        writer,
-                                    OTF2_SystemTreeNodeRef self,
-                                    OTF2_StringRef         name,
-                                    OTF2_StringRef         className,
-                                    OTF2_SystemTreeNodeRef parent );
+OTF2_DefWriter_WriteSystemTreeNode( OTF2_DefWriter* writer ,
+OTF2_SystemTreeNodeRef self,
+OTF2_StringRef name,
+OTF2_StringRef className,
+OTF2_SystemTreeNodeRef parent );
 
 
 /** @brief Writes a LocationGroup definition record into the DefWriter.
  *
  *  The location group definition.
- *
+ *  
  *  @param writer            Writer object.
  *  @param self              The unique identifier for this @eref{LocationGroup}
  *                           definition.
@@ -209,17 +209,17 @@ OTF2_DefWriter_WriteSystemTreeNode( OTF2_DefWriter*        writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteLocationGroup( OTF2_DefWriter*        writer,
-                                   OTF2_LocationGroupRef  self,
-                                   OTF2_StringRef         name,
-                                   OTF2_LocationGroupType locationGroupType,
-                                   OTF2_SystemTreeNodeRef systemTreeParent );
+OTF2_DefWriter_WriteLocationGroup( OTF2_DefWriter* writer ,
+OTF2_LocationGroupRef self,
+OTF2_StringRef name,
+OTF2_LocationGroupType locationGroupType,
+OTF2_SystemTreeNodeRef systemTreeParent );
 
 
 /** @brief Writes a Location definition record into the DefWriter.
  *
  *  The location definition.
- *
+ *  
  *  @param writer         Writer object.
  *  @param self           The unique identifier for this @eref{Location}
  *                        definition.
@@ -235,18 +235,18 @@ OTF2_DefWriter_WriteLocationGroup( OTF2_DefWriter*        writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteLocation( OTF2_DefWriter*       writer,
-                              OTF2_LocationRef      self,
-                              OTF2_StringRef        name,
-                              OTF2_LocationType     locationType,
-                              uint64_t              numberOfEvents,
-                              OTF2_LocationGroupRef locationGroup );
+OTF2_DefWriter_WriteLocation( OTF2_DefWriter* writer ,
+OTF2_LocationRef self,
+OTF2_StringRef name,
+OTF2_LocationType locationType,
+uint64_t numberOfEvents,
+OTF2_LocationGroupRef locationGroup );
 
 
 /** @brief Writes a Region definition record into the DefWriter.
  *
  *  The region definition.
- *
+ *  
  *  @param writer          Writer object.
  *  @param self            The unique identifier for this @eref{Region}
  *                         definition.
@@ -271,23 +271,23 @@ OTF2_DefWriter_WriteLocation( OTF2_DefWriter*       writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteRegion( OTF2_DefWriter* writer,
-                            OTF2_RegionRef  self,
-                            OTF2_StringRef  name,
-                            OTF2_StringRef  canonicalName,
-                            OTF2_StringRef  description,
-                            OTF2_RegionRole regionRole,
-                            OTF2_Paradigm   paradigm,
-                            OTF2_RegionFlag regionFlags,
-                            OTF2_StringRef  sourceFile,
-                            uint32_t        beginLineNumber,
-                            uint32_t        endLineNumber );
+OTF2_DefWriter_WriteRegion( OTF2_DefWriter* writer ,
+OTF2_RegionRef self,
+OTF2_StringRef name,
+OTF2_StringRef canonicalName,
+OTF2_StringRef description,
+OTF2_RegionRole regionRole,
+OTF2_Paradigm paradigm,
+OTF2_RegionFlag regionFlags,
+OTF2_StringRef sourceFile,
+uint32_t beginLineNumber,
+uint32_t endLineNumber );
 
 
 /** @brief Writes a Callsite definition record into the DefWriter.
  *
  *  The callsite definition.
- *
+ *  
  *  @param writer        Writer object.
  *  @param self          The unique identifier for this @eref{Callsite}
  *                       definition.
@@ -306,18 +306,18 @@ OTF2_DefWriter_WriteRegion( OTF2_DefWriter* writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCallsite( OTF2_DefWriter*  writer,
-                              OTF2_CallsiteRef self,
-                              OTF2_StringRef   sourceFile,
-                              uint32_t         lineNumber,
-                              OTF2_RegionRef   enteredRegion,
-                              OTF2_RegionRef   leftRegion );
+OTF2_DefWriter_WriteCallsite( OTF2_DefWriter* writer ,
+OTF2_CallsiteRef self,
+OTF2_StringRef sourceFile,
+uint32_t lineNumber,
+OTF2_RegionRef enteredRegion,
+OTF2_RegionRef leftRegion );
 
 
 /** @brief Writes a Callpath definition record into the DefWriter.
  *
  *  The callpath definition.
- *
+ *  
  *  @param writer Writer object.
  *  @param self   The unique identifier for this @eref{Callpath} definition.
  *  @param parent The parent of this callpath. References a @eref{Callpath}
@@ -330,16 +330,16 @@ OTF2_DefWriter_WriteCallsite( OTF2_DefWriter*  writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCallpath( OTF2_DefWriter*  writer,
-                              OTF2_CallpathRef self,
-                              OTF2_CallpathRef parent,
-                              OTF2_RegionRef   region );
+OTF2_DefWriter_WriteCallpath( OTF2_DefWriter* writer ,
+OTF2_CallpathRef self,
+OTF2_CallpathRef parent,
+OTF2_RegionRef region );
 
 
 /** @brief Writes a Group definition record into the DefWriter.
  *
  *  The group definition.
- *
+ *  
  *  @param writer          Writer object.
  *  @param self            The unique identifier for this @eref{Group}
  *                         definition.
@@ -357,14 +357,14 @@ OTF2_DefWriter_WriteCallpath( OTF2_DefWriter*  writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteGroup( OTF2_DefWriter* writer,
-                           OTF2_GroupRef   self,
-                           OTF2_StringRef  name,
-                           OTF2_GroupType  groupType,
-                           OTF2_Paradigm   paradigm,
-                           OTF2_GroupFlag  groupFlags,
-                           uint32_t        numberOfMembers,
-                           const uint64_t* members );
+OTF2_DefWriter_WriteGroup( OTF2_DefWriter* writer ,
+OTF2_GroupRef self,
+OTF2_StringRef name,
+OTF2_GroupType groupType,
+OTF2_Paradigm paradigm,
+OTF2_GroupFlag groupFlags,
+uint32_t numberOfMembers,
+const uint64_t* members );
 
 
 /** @brief Writes a MetricMember definition record into the DefWriter.
@@ -374,7 +374,7 @@ OTF2_DefWriter_WriteGroup( OTF2_DefWriter* writer,
  *  special case of a metric class with only one member. It is not
  *  allowed to reference a metric member id in a metric event, but
  *  only metric class IDs.
- *
+ *  
  *  @param writer      Writer object.
  *  @param self        The unique identifier for this @eref{MetricMember}
  *                     definition.
@@ -410,16 +410,16 @@ OTF2_DefWriter_WriteGroup( OTF2_DefWriter* writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteMetricMember( OTF2_DefWriter*      writer,
-                                  OTF2_MetricMemberRef self,
-                                  OTF2_StringRef       name,
-                                  OTF2_StringRef       description,
-                                  OTF2_MetricType      metricType,
-                                  OTF2_MetricMode      metricMode,
-                                  OTF2_Type            valueType,
-                                  OTF2_Base            base,
-                                  int64_t              exponent,
-                                  OTF2_StringRef       unit );
+OTF2_DefWriter_WriteMetricMember( OTF2_DefWriter* writer ,
+OTF2_MetricMemberRef self,
+OTF2_StringRef name,
+OTF2_StringRef description,
+OTF2_MetricType metricType,
+OTF2_MetricMode metricMode,
+OTF2_Type valueType,
+OTF2_Base base,
+int64_t exponent,
+OTF2_StringRef unit );
 
 
 /** @brief Writes a MetricClass definition record into the DefWriter.
@@ -427,7 +427,7 @@ OTF2_DefWriter_WriteMetricMember( OTF2_DefWriter*      writer,
  *  For a metric class it is implicitly given that the event stream that
  *  records the metric is also the scope. A metric class can contain
  *  multiple different metrics.
- *
+ *  
  *  @param writer           Writer object.
  *  @param self             The unique identifier for this @eref{MetricClass}
  *                          definition.
@@ -444,12 +444,12 @@ OTF2_DefWriter_WriteMetricMember( OTF2_DefWriter*      writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteMetricClass( OTF2_DefWriter*             writer,
-                                 OTF2_MetricRef              self,
-                                 uint8_t                     numberOfMetrics,
-                                 const OTF2_MetricMemberRef* metricMembers,
-                                 OTF2_MetricOccurrence       metricOccurrence,
-                                 OTF2_RecorderKind           recorderKind );
+OTF2_DefWriter_WriteMetricClass( OTF2_DefWriter* writer ,
+OTF2_MetricRef self,
+uint8_t numberOfMetrics,
+const OTF2_MetricMemberRef* metricMembers,
+OTF2_MetricOccurrence metricOccurrence,
+OTF2_RecorderKind recorderKind );
 
 
 /** @brief Writes a MetricInstance definition record into the DefWriter.
@@ -458,7 +458,7 @@ OTF2_DefWriter_WriteMetricClass( OTF2_DefWriter*             writer,
  *  location for multiple locations or for another location. The
  *  occurrence of a metric instance is implicitly of type
  *  @eref{OTF2_METRIC_ASYNCHRONOUS}.
- *
+ *  
  *  @param writer      Writer object.
  *  @param self        The unique identifier for this @eref{MetricClass}
  *                     definition.
@@ -477,18 +477,18 @@ OTF2_DefWriter_WriteMetricClass( OTF2_DefWriter*             writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteMetricInstance( OTF2_DefWriter*  writer,
-                                    OTF2_MetricRef   self,
-                                    OTF2_MetricRef   metricClass,
-                                    OTF2_LocationRef recorder,
-                                    OTF2_MetricScope metricScope,
-                                    uint64_t         scope );
+OTF2_DefWriter_WriteMetricInstance( OTF2_DefWriter* writer ,
+OTF2_MetricRef self,
+OTF2_MetricRef metricClass,
+OTF2_LocationRef recorder,
+OTF2_MetricScope metricScope,
+uint64_t scope );
 
 
 /** @brief Writes a Comm definition record into the DefWriter.
  *
  *  The communicator definition.
- *
+ *  
  *  @param writer Writer object.
  *  @param self   The unique identifier for this @eref{Comm} definition.
  *  @param name   The name given by calling MPI_Comm_set_name on this
@@ -507,17 +507,17 @@ OTF2_DefWriter_WriteMetricInstance( OTF2_DefWriter*  writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteComm( OTF2_DefWriter* writer,
-                          OTF2_CommRef    self,
-                          OTF2_StringRef  name,
-                          OTF2_GroupRef   group,
-                          OTF2_CommRef    parent );
+OTF2_DefWriter_WriteComm( OTF2_DefWriter* writer ,
+OTF2_CommRef self,
+OTF2_StringRef name,
+OTF2_GroupRef group,
+OTF2_CommRef parent );
 
 
 /** @brief Writes a Parameter definition record into the DefWriter.
  *
  *  The parameter definition.
- *
+ *  
  *  @param writer        Writer object.
  *  @param self          The unique identifier for this @eref{Parameter}
  *                       definition.
@@ -531,17 +531,17 @@ OTF2_DefWriter_WriteComm( OTF2_DefWriter* writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteParameter( OTF2_DefWriter*    writer,
-                               OTF2_ParameterRef  self,
-                               OTF2_StringRef     name,
-                               OTF2_ParameterType parameterType );
+OTF2_DefWriter_WriteParameter( OTF2_DefWriter* writer ,
+OTF2_ParameterRef self,
+OTF2_StringRef name,
+OTF2_ParameterType parameterType );
 
 
 /** @brief Writes a RmaWin definition record into the DefWriter.
  *
  *  A window defines the communication context for any remote-memory
  *  access operation.
- *
+ *  
  *  @param writer Writer object.
  *  @param self   The unique identifier for this @eref{RmaWin} definition.
  *  @param name   Name, e.g. 'GASPI Queue 1', 'NVidia Card 2', etc.. References a
@@ -554,16 +554,16 @@ OTF2_DefWriter_WriteParameter( OTF2_DefWriter*    writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteRmaWin( OTF2_DefWriter* writer,
-                            OTF2_RmaWinRef  self,
-                            OTF2_StringRef  name,
-                            OTF2_CommRef    comm );
+OTF2_DefWriter_WriteRmaWin( OTF2_DefWriter* writer ,
+OTF2_RmaWinRef self,
+OTF2_StringRef name,
+OTF2_CommRef comm );
 
 
 /** @brief Writes a MetricClassRecorder definition record into the DefWriter.
  *
  *  The metric class recorder definition.
- *
+ *  
  *  @param writer      Writer object.
  *  @param metricClass Parent @eref{MetricClass} definition to which this one is
  *                     a supplementary definition. References a
@@ -576,16 +576,16 @@ OTF2_DefWriter_WriteRmaWin( OTF2_DefWriter* writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteMetricClassRecorder( OTF2_DefWriter*  writer,
-                                         OTF2_MetricRef   metricClass,
-                                         OTF2_LocationRef recorder );
+OTF2_DefWriter_WriteMetricClassRecorder( OTF2_DefWriter* writer ,
+OTF2_MetricRef metricClass,
+OTF2_LocationRef recorder );
 
 
 /** @brief Writes a SystemTreeNodeProperty definition record into the DefWriter.
  *
  *  An arbitrary key/value property for a @eref{SystemTreeNode}
  *  definition.
- *
+ *  
  *  @param writer         Writer object.
  *  @param systemTreeNode Parent @eref{SystemTreeNode} definition to which this
  *                        one is a supplementary definition. References a
@@ -600,17 +600,17 @@ OTF2_DefWriter_WriteMetricClassRecorder( OTF2_DefWriter*  writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteSystemTreeNodeProperty( OTF2_DefWriter*        writer,
-                                            OTF2_SystemTreeNodeRef systemTreeNode,
-                                            OTF2_StringRef         name,
-                                            OTF2_Type              type,
-                                            OTF2_AttributeValue    value );
+OTF2_DefWriter_WriteSystemTreeNodeProperty( OTF2_DefWriter* writer ,
+OTF2_SystemTreeNodeRef systemTreeNode,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Writes a SystemTreeNodeDomain definition record into the DefWriter.
  *
  *  The system tree node domain definition.
- *
+ *  
  *  @param writer           Writer object.
  *  @param systemTreeNode   Parent @eref{SystemTreeNode} definition to which this
  *                          one is a supplementary definition. References a
@@ -623,15 +623,15 @@ OTF2_DefWriter_WriteSystemTreeNodeProperty( OTF2_DefWriter*        writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteSystemTreeNodeDomain( OTF2_DefWriter*        writer,
-                                          OTF2_SystemTreeNodeRef systemTreeNode,
-                                          OTF2_SystemTreeDomain  systemTreeDomain );
+OTF2_DefWriter_WriteSystemTreeNodeDomain( OTF2_DefWriter* writer ,
+OTF2_SystemTreeNodeRef systemTreeNode,
+OTF2_SystemTreeDomain systemTreeDomain );
 
 
 /** @brief Writes a LocationGroupProperty definition record into the DefWriter.
  *
  *  An arbitrary key/value property for a @eref{LocationGroup} definition.
- *
+ *  
  *  @param writer        Writer object.
  *  @param locationGroup Parent @eref{LocationGroup} definition to which this one
  *                       is a supplementary definition. References a
@@ -646,17 +646,17 @@ OTF2_DefWriter_WriteSystemTreeNodeDomain( OTF2_DefWriter*        writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteLocationGroupProperty( OTF2_DefWriter*       writer,
-                                           OTF2_LocationGroupRef locationGroup,
-                                           OTF2_StringRef        name,
-                                           OTF2_Type             type,
-                                           OTF2_AttributeValue   value );
+OTF2_DefWriter_WriteLocationGroupProperty( OTF2_DefWriter* writer ,
+OTF2_LocationGroupRef locationGroup,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Writes a LocationProperty definition record into the DefWriter.
  *
  *  An arbitrary key/value property for a @eref{Location} definition.
- *
+ *  
  *  @param writer      Writer object.
  *  @param location    Parent @eref{Location} definition to which this one is a
  *                     supplementary definition. References a @eref{Location}
@@ -671,18 +671,18 @@ OTF2_DefWriter_WriteLocationGroupProperty( OTF2_DefWriter*       writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteLocationProperty( OTF2_DefWriter*     writer,
-                                      OTF2_LocationRef    location,
-                                      OTF2_StringRef      name,
-                                      OTF2_Type           type,
-                                      OTF2_AttributeValue value );
+OTF2_DefWriter_WriteLocationProperty( OTF2_DefWriter* writer ,
+OTF2_LocationRef location,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Writes a CartDimension definition record into the DefWriter.
  *
  *  Each dimension in a Cartesian topology is composed of a global id, a
  *  name, its size, and whether it is periodic or not.
- *
+ *  
  *  @param writer          Writer object.
  *  @param self            The unique identifier for this @eref{CartDimension}
  *                         definition.
@@ -696,11 +696,11 @@ OTF2_DefWriter_WriteLocationProperty( OTF2_DefWriter*     writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCartDimension( OTF2_DefWriter*       writer,
-                                   OTF2_CartDimensionRef self,
-                                   OTF2_StringRef        name,
-                                   uint32_t              size,
-                                   OTF2_CartPeriodicity  cartPeriodicity );
+OTF2_DefWriter_WriteCartDimension( OTF2_DefWriter* writer ,
+OTF2_CartDimensionRef self,
+OTF2_StringRef name,
+uint32_t size,
+OTF2_CartPeriodicity cartPeriodicity );
 
 
 /** @brief Writes a CartTopology definition record into the DefWriter.
@@ -710,7 +710,7 @@ OTF2_DefWriter_WriteCartDimension( OTF2_DefWriter*       writer,
  *  references to those dimensions. The topology type is defined by
  *  the paradigm of the group referenced by the associated
  *  communicator.
- *
+ *  
  *  @param writer             Writer object.
  *  @param self               The unique identifier for this @eref{CartTopology}
  *                            definition.
@@ -727,12 +727,12 @@ OTF2_DefWriter_WriteCartDimension( OTF2_DefWriter*       writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCartTopology( OTF2_DefWriter*              writer,
-                                  OTF2_CartTopologyRef         self,
-                                  OTF2_StringRef               name,
-                                  OTF2_CommRef                 communicator,
-                                  uint8_t                      numberOfDimensions,
-                                  const OTF2_CartDimensionRef* cartDimensions );
+OTF2_DefWriter_WriteCartTopology( OTF2_DefWriter* writer ,
+OTF2_CartTopologyRef self,
+OTF2_StringRef name,
+OTF2_CommRef communicator,
+uint8_t numberOfDimensions,
+const OTF2_CartDimensionRef* cartDimensions );
 
 
 /** @brief Writes a CartCoordinate definition record into the DefWriter.
@@ -740,7 +740,7 @@ OTF2_DefWriter_WriteCartTopology( OTF2_DefWriter*              writer,
  *  Defines the coordinate of the location referenced by the given rank
  *  (w.r.t. the communicator associated to the topology) in the
  *  referenced topology.
- *
+ *  
  *  @param writer             Writer object.
  *  @param cartTopology       Parent @eref{CartTopology} definition to which this
  *                            one is a supplementary definition. References a
@@ -755,23 +755,23 @@ OTF2_DefWriter_WriteCartTopology( OTF2_DefWriter*              writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCartCoordinate( OTF2_DefWriter*      writer,
-                                    OTF2_CartTopologyRef cartTopology,
-                                    uint32_t             rank,
-                                    uint8_t              numberOfDimensions,
-                                    const uint32_t*      coordinates );
+OTF2_DefWriter_WriteCartCoordinate( OTF2_DefWriter* writer ,
+OTF2_CartTopologyRef cartTopology,
+uint32_t rank,
+uint8_t numberOfDimensions,
+const uint32_t* coordinates );
 
 
 /** @brief Writes a SourceCodeLocation definition record into the DefWriter.
  *
  *  The definition of a source code location as tuple of the corresponding
  *  file name and line number.
- *
+ *  
  *  When used to attach source code annotations to events, use the
  *  @eref{OTF2_AttributeList} with a @eref{Attribute} definition named
  *  @c "SOURCE_CODE_LOCATION" and typed
  *  @eref{OTF2_TYPE_SOURCE_CODE_LOCATION}.
- *
+ *  
  *  @param writer     Writer object.
  *  @param self       The unique identifier for this @eref{SourceCodeLocation}
  *                    definition.
@@ -784,10 +784,10 @@ OTF2_DefWriter_WriteCartCoordinate( OTF2_DefWriter*      writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteSourceCodeLocation( OTF2_DefWriter*            writer,
-                                        OTF2_SourceCodeLocationRef self,
-                                        OTF2_StringRef             file,
-                                        uint32_t                   lineNumber );
+OTF2_DefWriter_WriteSourceCodeLocation( OTF2_DefWriter* writer ,
+OTF2_SourceCodeLocationRef self,
+OTF2_StringRef file,
+uint32_t lineNumber );
 
 
 /** @brief Writes a CallingContext definition record into the DefWriter.
@@ -795,13 +795,13 @@ OTF2_DefWriter_WriteSourceCodeLocation( OTF2_DefWriter*            writer,
  *  Defines a node in the calling context tree. These nodes are referenced
  *  in the @eref{CallingContextSample}, @eref{CallingContextEnter},
  *  and @eref{CallingContextLeave} events.
- *
+ *  
  *  The referenced @eref{CallingContext} node in these events form a path
  *  which represents the calling context at this time.  This path will
  *  be partitioned into at most three sub-paths by the @a
  *  unwindDistance attribute.  For the @eref{CallingContextLeave}
  *  event, the @a unwindDistance is defined to be 1.
- *
+ *  
  *  Starting from the referenced @eref{CallingContext} node, the first @f$
  *  N \ge 0 @f$ nodes were newly entered regions since the previous
  *  calling context event.  The next node is a region which was not
@@ -811,28 +811,28 @@ OTF2_DefWriter_WriteSourceCodeLocation( OTF2_DefWriter*            writer,
  *  then @f$ N + 1 @f$. In case the @p unwindDistance is @f$ 0 @f$,
  *  there are neither newly entered regions nor regions which made
  *  progress.
- *
+ *  
  *  It is guaranteed, that the node referenced by the @a unwindDistance
  *  exists in the previous and current calling context.  All
  *  descendants of this node's child in the previous calling context
  *  were left since the previous calling context event.
- *
+ *  
  *  It is valid that this node is the
  *  @eref{OTF2_UNDEFINED_CALLING_CONTEXT} node and that this node is
  *  already reached after @a unwindDistance @f$ - 1 @f$ steps.  In the
  *  latter case, there exists no region which made progress, all
  *  regions in the previous calling context were left and all regions
  *  in the current calling context were newly entered.
- *
+ *  
  *  Note that for @eref{CallingContextLeave} events, the parent of the
  *  referenced @eref{CallingContext} must be used as the previous
  *  calling context for the next event.
- *
+ *  
  *  Regions which were entered with a @eref{CallingContextEnter} event
  *  form an upper bound for the unwind distance, i.e., the @a
  *  unwindDistance points either to the parent of the last such
  *  entered region, or a node which is a descendant to this parent.
- *
+ *  
  *  To summarize, an @a unwindDistance of @f$ 0 @f$ means that no regions
  *  were left, newly entered, or made any progress.  An @a
  *  unwindDistance of @f$ 1 @f$ means that some regions were left
@@ -842,7 +842,7 @@ OTF2_DefWriter_WriteSourceCodeLocation( OTF2_DefWriter*            writer,
  *  regions were left regarding the previous calling context, there
  *  was progress in one region, and the first @a unwindDistance @f$ -
  *  1 @f$ regions were newly entered.
- *
+ *  
  *  @param writer             Writer object.
  *  @param self               The unique identifier for this
  *                            @eref{CallingContext} definition.
@@ -858,18 +858,18 @@ OTF2_DefWriter_WriteSourceCodeLocation( OTF2_DefWriter*            writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCallingContext( OTF2_DefWriter*            writer,
-                                    OTF2_CallingContextRef     self,
-                                    OTF2_RegionRef             region,
-                                    OTF2_SourceCodeLocationRef sourceCodeLocation,
-                                    OTF2_CallingContextRef     parent );
+OTF2_DefWriter_WriteCallingContext( OTF2_DefWriter* writer ,
+OTF2_CallingContextRef self,
+OTF2_RegionRef region,
+OTF2_SourceCodeLocationRef sourceCodeLocation,
+OTF2_CallingContextRef parent );
 
 
 /** @brief Writes a CallingContextProperty definition record into the DefWriter.
  *
  *  An arbitrary key/value property for a @eref{CallingContext}
  *  definition.
- *
+ *  
  *  @param writer         Writer object.
  *  @param callingContext Parent @eref{CallingContext} definition to which this
  *                        one is a supplementary definition. References a
@@ -884,11 +884,11 @@ OTF2_DefWriter_WriteCallingContext( OTF2_DefWriter*            writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteCallingContextProperty( OTF2_DefWriter*        writer,
-                                            OTF2_CallingContextRef callingContext,
-                                            OTF2_StringRef         name,
-                                            OTF2_Type              type,
-                                            OTF2_AttributeValue    value );
+OTF2_DefWriter_WriteCallingContextProperty( OTF2_DefWriter* writer ,
+OTF2_CallingContextRef callingContext,
+OTF2_StringRef name,
+OTF2_Type type,
+OTF2_AttributeValue value );
 
 
 /** @brief Writes a InterruptGenerator definition record into the DefWriter.
@@ -903,13 +903,13 @@ OTF2_DefWriter_WriteCallingContextProperty( OTF2_DefWriter*        writer,
  *  system.  Therefore these samples are unlikely to be uniformly
  *  distributed over time.  The unit of the period is then implicitly
  *  a number (threshold value).
- *
+ *  
  *  The interrupts period in base unit (which is implicitly seconds or
  *  number, based on the @p mode) is derived out of the @p base, the
  *  @p exponent, and the @p period attributes by this formula:
- *
+ *  
  *  base-period = period x base^exponent
- *
+ *  
  *  @param writer                 Writer object.
  *  @param self                   The unique identifier for this
  *                                @eref{InterruptGenerator} definition.
@@ -926,13 +926,13 @@ OTF2_DefWriter_WriteCallingContextProperty( OTF2_DefWriter*        writer,
  *  @return @eref{OTF2_SUCCESS} if successful, an error code if an error occurs.
  */
 OTF2_ErrorCode
-OTF2_DefWriter_WriteInterruptGenerator( OTF2_DefWriter*             writer,
-                                        OTF2_InterruptGeneratorRef  self,
-                                        OTF2_StringRef              name,
-                                        OTF2_InterruptGeneratorMode interruptGeneratorMode,
-                                        OTF2_Base                   base,
-                                        int64_t                     exponent,
-                                        uint64_t                    period );
+OTF2_DefWriter_WriteInterruptGenerator( OTF2_DefWriter* writer ,
+OTF2_InterruptGeneratorRef self,
+OTF2_StringRef name,
+OTF2_InterruptGeneratorMode interruptGeneratorMode,
+OTF2_Base base,
+int64_t exponent,
+uint64_t period );
 
 
 #ifdef __cplusplus

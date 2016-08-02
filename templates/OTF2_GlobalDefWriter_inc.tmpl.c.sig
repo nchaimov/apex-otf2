@@ -1,5 +1,5 @@
-3ca87acf1ffd8b66dcc8bb97fb0c0dac
-ae0c6639bf28a584e508f99fdfe3f8f3
+383e5a4e769c8dbcb3591e39d0b99494
+6f96392b489198a03697cebaba204638
 ../src/OTF2_GlobalDefWriter_inc.c
 OTF2_GlobalDefWriter_inc.tmpl.c
 ../share/otf2/otf2.types

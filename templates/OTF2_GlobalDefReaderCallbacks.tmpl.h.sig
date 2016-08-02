@@ -1,5 +1,5 @@
-bbfc2f2f38b64265cbd7199104ee7b54
-b7664d49f4df1b8105fcafd8477ad575
+4b91689eee40750ca9a5edec10284248
+c63321cea13f2c8241720ad10923e395
 ../include/otf2/OTF2_GlobalDefReaderCallbacks.h
 OTF2_GlobalDefReaderCallbacks.tmpl.h
 ../share/otf2/otf2.types

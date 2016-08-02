@@ -1,5 +1,5 @@
-c88a4010800b1d22be44a38dcb4a2b3b
-ba9532556e476a8681269743fac3dd5b
+4e5c88759b156c7ca481e8aead0df093
+4876b9f2c296a920f0f7c4a4e8eddc02
 ../src/tools/otf2_print/otf2_print_types.h
 otf2_print_types.tmpl.h
 ../share/otf2/otf2.types
