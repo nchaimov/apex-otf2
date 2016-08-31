@@ -1081,7 +1081,7 @@ otf2_archive_set_collective_callbacks( OTF2_Archive*                   archive,
     archive->global_comm_context  = globalCommContext;
     archive->local_comm_context   = localCommContext;
 
-    OTF2_ErrorCode status;
+    OTF2_ErrorCode status = OTF2_SUCCESS;
 
     /* It is time to create the directories by the root rank. */
     if ( archive->file_mode == OTF2_FILEMODE_WRITE )
@@ -3874,7 +3874,6 @@ otf2_archive_is_master( OTF2_Archive* archive )
     otf2_collectives_get_rank( archive,
                                archive->global_comm_context,
                                &rank );
-
     return rank == 0;
 }
 
